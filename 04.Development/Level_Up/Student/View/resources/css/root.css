@@ -9,7 +9,9 @@
     font-weight: bold;
     border-bottom: 2px solid #01226F;
 }
-
+main .container{
+    margin-top: 10%;
+}
 .badge{
 
     position: absolute;
@@ -37,17 +39,6 @@ footer{
 footer .container {
     margin-top: 30%;
 }
-/*
-footer img {
-    position: absolute;
+.m10{
+    margin-top: 10rem;
 }
-footer div {
-    position: absolute;
-    width: 100vw;
-    top: 16vmax;
-    background-color: #FEEBCD;
-    padding: 3rem 0rem 6rem;
-}
-footer div h1{
-
-} */

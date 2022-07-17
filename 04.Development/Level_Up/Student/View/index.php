@@ -13,11 +13,13 @@
 <body>
     <?php require_once('./header.php') ?>
 
-    <!-- start of container  -->
-    <div class="container mb-6">
+    <main>
+        <!-- start of container  -->
+        <div class="container">
+        </div>
+        <!-- end of container -->
+    </main>
 
-    </div>
-    <!-- end of container -->
 
 
     <?php require_once('./footer.php') ?>

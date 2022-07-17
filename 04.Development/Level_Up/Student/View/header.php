@@ -1,5 +1,5 @@
     <!-- start of navigation bar -->
-    <nav class="navbar is-transparent is-fixed-top p-4">
+    <nav class="navbar is-transparent is-fixed-top p-4 ">
         <div class="navbar-brand">
             <img width="100vw" src="./resources/img/header_footer/level up.svg" alt="">
 
