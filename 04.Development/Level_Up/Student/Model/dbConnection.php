@@ -1,11 +1,11 @@
 <?php
 
 class DBConnect{
-    private $hostname = "localhost";
+    private $hostname = "levelup.cdiydtaeuqms.ap-southeast-1.rds.amazonaws.com";
     private $port = 3306;
-    private $dbname = "levelup_db";
-    private $username = "root";
-    private $password = "";
+    private $dbname = "levelupdb";
+    private $username = "admin";
+    private $password = "levelup123";
 
     public function connect(){
         //connection
