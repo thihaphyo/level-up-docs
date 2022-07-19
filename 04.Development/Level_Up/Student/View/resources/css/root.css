@@ -46,7 +46,7 @@ footer .container {
 }
 
 .column-fill {
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .mt-7 {
@@ -71,7 +71,6 @@ footer .container {
   background-color: #eff1f5;
   height: 63px !important;
   font-weight: 600;
-  text-transform: capitalize;
 }
 
 ::placeholder {
