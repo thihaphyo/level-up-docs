@@ -4,6 +4,9 @@ header('Content-Type: application/json; charset=utf-8');
 
 class AuthController extends BaseController
 {
+    function getLoginState() {
+        echo $_SESSION['logged in'];
+    }
 
     function signIn()
     {
@@ -14,7 +17,7 @@ class AuthController extends BaseController
             $emailInput = $data["email"];
             $passwordInput = $data["pWord"];
 
-            $getStudentQuery = "SELECT * FROM M_STUDENTS where email=:email AND password=:password";
+            $getStudentQuery = "SELECT id,full_name as fullName,email FROM M_STUDENTS where email=:email AND password=:password";
 
             $sql = $this->connection->prepare($getStudentQuery);
             $sql->bindValue(':email', $emailInput);
@@ -31,6 +34,7 @@ class AuthController extends BaseController
                 ]);
                 echo $response;
             } else {
+                $studentData["access_token"] = $this->stringEncryption('encrypt', $studentData["id"]);
                 $response = json_encode([
                     'code' => 200,
                     'data' => array(
@@ -109,6 +113,59 @@ class AuthController extends BaseController
 
             echo $response;
         }
+    }
+
+    function getUser() {
+        
+        $userId = $this->stringEncryption('decrypt', $_POST["id"]);
+        if ($userId == null || $userId == '') {
+
+            $response = json_encode([
+                'code' => 401,
+                'message' => 'Token expired'
+            ]);
+
+            echo $response;
+
+            return;
+        }
+
+        try {
+
+            $getStudentQuery = "SELECT full_name as fullName,email,profile_image as profile FROM M_STUDENTS where id=:id";
+
+            $sql = $this->connection->prepare($getStudentQuery);
+            $sql->bindValue(':id', $userId);
+            $sql->execute();
+
+            $studentData = $sql->fetch(PDO::FETCH_ASSOC);
+
+            if ($studentData == null) {
+
+                $response = json_encode([
+                    'code' => 404,
+                    'message' => 'User not found'
+                ]);
+                echo $response;
+            } else {
+                $response = json_encode([
+                    'code' => 200,
+                    'data' => array(
+                        'student' => $studentData
+                    )
+                ]);
+                echo $response;
+            }
+        } catch (PDOException $th) {
+            
+            $response = json_encode([
+                'code' => 500,
+                'message' => $th
+            ]);
+
+            echo $response;
+        }
+
     }
 
     function stringEncryption($action, $string){

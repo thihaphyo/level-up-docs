@@ -24,7 +24,10 @@
 
     <?php require_once('./footer.php') ?>
     <!-- javascript file -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="./resources/js/index.js"></script>
+    <script src="./resources/js/home.js"></script>
 </body>
 
 </html>

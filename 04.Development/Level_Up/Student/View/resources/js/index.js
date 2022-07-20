@@ -19,3 +19,12 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+
+$('document').ready(function () {
+  if (localStorage.getItem("access_token") != null) {
+    // window.location.replace("./index.php");
+    $('#btn_logout').removeClass('is-hidden');
+  } else {
+    $('#btn_register').removeClass('is-hidden');
+  }
+});
