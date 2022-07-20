@@ -10,89 +10,16 @@ $time = time();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Level Up</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <link rel="stylesheet" href="./resources/css/index.css?<?php echo $time ?>">
 </head>
 
 <body>
-    <nav class="sidebar">
-        <header>
-            <div class="image-text">
-                <span class="image">
-                    <!--<img src="logo.png" alt="">-->
-                </span>
 
-                <div class="text logo-text">
-                    <span class="name">Level Up</span>
-                </div>
-            </div>
+    <?php require_once('./sidebar.php') ?>
 
-            <i class='bx bx-chevron-right toggle'></i>
-        </header>
-
-        <div class="menu-bar">
-            <div class="menu">
-
-                <ul class="menu-links">
-                    <li class="nav-link">
-                        <a href="#">
-
-                            <span class="text nav-text">Dashboard</span>
-                        </a>
-                    </li>
-
-                    <li class="nav-link">
-                        <a href="#">
-                            <span class="text nav-text">Instructor List</span>
-                        </a>
-                    </li>
-
-                    <li class="nav-link">
-                        <a href="#">
-
-                            <span class="text nav-text">Course List</span>
-                        </a>
-                    </li>
-
-                    <li class="nav-link">
-                        <a href="#">
-
-                            <span class="text nav-text">Admin List</span>
-                        </a>
-                    </li>
-
-                    <li class="nav-link">
-                        <a href="#">
-
-                            <span class="text nav-text">Order List</span>
-                        </a>
-                    </li>
-
-                    <li class="nav-link">
-                        <a href="#">
-
-                            <span class="text nav-text">Appeal List</span>
-                        </a>
-                    </li>
-
-                    <li class="nav-link">
-                        <span class="text nav-text">Settings</span>
-                    </li>
-                    <li class="nav-link">
-                        <a href="#">
-
-                            <span class="text nav-text">Logout</span>
-                        </a>
-                    </li>
-
-
-
-                </ul>
-            </div>
-        </div>
-
-    </nav>
-
-    <section class="home">
+    <section class="container">
         <div class="text">Dashboard</div>
     </section>
 
