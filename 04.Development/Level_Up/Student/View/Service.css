@@ -5,16 +5,13 @@ section {
 
 section sub {
     font-style: italic;
-
     position: relative;
-    right: 50px;
-    top: 10px;
+    right: 3em;
+    top: 0.5rem;
 }
-
 
 /* Sign Up */
 .SignUp>img {
-
     float: right;
     position: relative;
     bottom: 200px;
@@ -36,11 +33,8 @@ section sub {
 
 .SignUp p {
     position: relative;
-
     bottom: 58px;
 }
-
-
 
 /* .Sign In */
 .SignIn>img {
@@ -70,8 +64,6 @@ section sub {
     top: 232px;
 }
 
-
-
 /* Free Courses */
 .FreeCourses>img {
     float: right;
@@ -98,8 +90,6 @@ section sub {
     top: 332px;
 }
 
-
-
 /* PaidCourses */
 .PaidCourses>img {
     float: right;
@@ -116,15 +106,133 @@ section sub {
 
 .PaidCourses h1 {
     position: relative;
-    top: 450px;
+    top: 490px;
     left: 150px;
 }
 
 .PaidCourses p {
     width: 600px;
     position: relative;
-    top: 432px;
+    top: 390px;
     left: 802px;
 }
 
-/* Finished */
+/* Responsive */
+@media only screen and (max-width: 800px) {
+    .section h1 {
+        margin-top: 5rem;
+        position: relative;
+        left: 3em;
+    }
+
+    .SignUp h1 {
+        position: relative;
+        left: 4.5rem;
+    }
+
+    .SignUp p {
+        position: relative;
+        left: 4.5rem;
+        width: 25em;
+    }
+
+    .SignUp>img {
+        width: 20em;
+        position: relative;
+        bottom: 0.5em;
+        left: 4em;
+    }
+
+    .SignIn>img {
+        width: 20rem;
+        position: relative;
+        left: 5rem;
+        top: 0.1rem;
+    }
+
+    .SignIn h1 {
+        position: relative;
+        left: 5rem;
+        top: 0.1em;
+    }
+
+    .SignIn p {
+        position: relative;
+        left: 5rem;
+        top: 0.5rem;
+    }
+
+    .FreeCourses img {
+        width: 18rem;
+        position: relative;
+        left: 6rem;
+        top: 0.1rem;
+    }   
+
+    .FreeCourses h1 {
+        position: relative;
+        top: 0.1rem;
+        right: 3rem;
+    }
+
+    .FreeCourses p {
+        width: 20rem;
+        position: relative;
+        left: 7rem;
+        top: 0.5rem;
+    }
+
+    .PaidCourses img {
+        width: 20rem;
+        margin-right: 18rem;
+        position: relative;
+        left: 0.1rem;
+        top: 22rem;
+    }
+
+    .PaidCourses {
+        position: relative;
+        top: 0.1rem;
+    }
+
+    .PaidCourses h1 {
+        margin-left: 24rem;
+        position: relative;
+        top: 3rem;
+        right: 0.1rem;
+    }
+
+    .PaidCourses p {
+        position: relative;
+        bottom: 50rem;
+        top: 4rem;
+        left: 30rem;
+        width: 15rem;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .PaidCourses img {
+        width: 15rem;
+
+        position: relative;
+        left: 12rem;
+        top: 22rem;
+    }
+
+    .PaidCourses h1 {
+        margin-left: 16rem;
+        position: relative;
+        top: 3rem;
+        right: 0.1rem;
+    }
+
+    .PaidCourses p {
+        position: relative;
+        bottom: 50rem;
+        top: 4rem;
+        left: 22rem;
+        width: 15rem;
+    }
+}
+

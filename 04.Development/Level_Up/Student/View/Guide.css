@@ -1,15 +1,14 @@
 section {
     position: relative;
-bottom: 120px;
+    bottom: 120px;
     right: 110px;
 }
 
-section h2{
- position: relative;
- top: 30px;
- left: 4px;
+section h2 {
+    position: relative;
+    top: 30px;
+    left: 4px;
 }
-
 
 /* free Courses */
 
@@ -18,7 +17,7 @@ section h2{
     float: left;
     position: relative;
     bottom: 350px;
-    height:350px ;
+    height: 350px;
     width: 650px;
 }
 
@@ -30,8 +29,8 @@ section h2{
 .StepOne h1 {
     color: rgb(1, 34, 111);
     position: relative;
-   left: 130px;
-   bottom: 300px;
+    left: 130px;
+    bottom: 300px;
 }
 
 .StepOne p {
@@ -44,13 +43,12 @@ section h2{
 /* step2 */
 
 .Steptwo>img {
-
     float: right;
     position: relative;
     bottom: 200px;
     left: 268px;
     width: 700px;
-    height:350px ;
+    height: 350px;
     width: 650px;
 }
 
@@ -74,14 +72,13 @@ section h2{
     left: 100px;
 }
 
-
 /* Step3 */
 
 .StepThree>img {
     float: left;
     position: relative;
     bottom: 350px;
-    height:350px ;
+    height: 350px;
     width: 650px;
 }
 
@@ -93,8 +90,8 @@ section h2{
 .StepThree h1 {
     color: rgb(1, 34, 111);
     position: relative;
-   left: 130px;
-   bottom: 300px;
+    left: 130px;
+    bottom: 300px;
 }
 
 .StepThree p {
@@ -105,27 +102,26 @@ section h2{
 }
 
 /* Paid Courses */
-#paidcourses> h1{
+#paidcourses>h1 {
     position: relative;
-    bottom:  50px;
+    bottom: 50px;
 }
 
 /* Step 1 */
 .Steponeforpaid>img {
-
     float: right;
     position: relative;
     bottom: 200px;
     left: 268px;
     width: 700px;
-    height:350px ;
+    height: 350px;
     width: 650px;
 }
 
 .Steponeforpaid {
     position: relative;
     right: 35px;
-  bottom: 50px;
+    bottom: 50px;
 }
 
 .Steponeforpaid h1 {
@@ -141,14 +137,13 @@ section h2{
     left: 100px;
 }
 
-
 /* Step 2 */
 
 .Steptwoforpaid>img {
     float: left;
     position: relative;
     bottom: 350px;
-    height:350px ;
+    height: 350px;
     width: 650px;
 }
 
@@ -160,8 +155,8 @@ section h2{
 .Steptwoforpaid h1 {
     color: rgb(1, 34, 111);
     position: relative;
-   left: 130px;
-   bottom: 300px;
+    left: 130px;
+    bottom: 300px;
 }
 
 .Steptwoforpaid p {
@@ -171,30 +166,30 @@ section h2{
     bottom: 278px;
 }
 
-
 /* Note */
-.Note{
-   position: relative;
-   top: 20px;
-   left: 550px;
+.Note {
+    position: relative;
+    top: 20px;
+    left: 550px;
 }
-    
 
-.Note h1{
+.Note h1 {
     position: relative;
     right: 720px;
 }
-.Note p{
-   position: relative;
-   bottom: 35px;
-   right: 28px;
-width: 400px;   
-}       
+
+.Note p {
+    position: relative;
+    bottom: 35px;
+    right: 28px;
+    width: 400px;
+}
 
 /* Pointer */
-
-.firstpoint{
-   height: 10px;
-   background-color: black;
-
+.firstpoint {
+    height: 10px;
+    background-color: black;
 }
+
+/* Responsive */
+@media only screen and (max-width: 800px) {}
