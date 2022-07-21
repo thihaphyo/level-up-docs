@@ -24,7 +24,7 @@
                     <a id="lnk_home" class="navbar-item" href="./index.php">
                         Home
                     </a>
-                    <a class="navbar-item" href="https://bulma.io/">
+                    <a id="lnk_explore" class="navbar-item" href="./explore.php">
                         Explore
                     </a>
                     <a class="navbar-item" href="https://bulma.io/">
