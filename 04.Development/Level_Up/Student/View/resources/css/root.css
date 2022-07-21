@@ -1,35 +1,33 @@
-:root{
+:root {
+  --primaryBackgroundColor: #fefbf6;
+  --secondaryBackgroundColor: #f3b33e;
 
-  --primaryBackgroundColor: #FEFBF6;
-  --secondaryBackgroundColor: #F3B33E;
-
-  --primary: #01226F;
-  --secondary: #F3B33E;
+  --primary: #01226f;
+  --secondary: #f3b33e;
 }
 /* Navigation Bar Css */
-.secondaryColor{
+.secondaryColor {
   background-color: var(--secondary) !important;
 }
 .navbar-end a {
- color:  rgba(1, 34, 111, 0.62);
+  color: rgba(1, 34, 111, 0.62);
 }
-.navbar-end a:hover{
+.navbar-end a:hover {
   font-weight: bold;
 }
-.navbar-end a.active{
-  color: #01226F;
+.navbar-end a.active {
+  color: #01226f;
   font-weight: bold;
   border-bottom: 2px solid var(--primary);
 }
 
 /* Main Container Css */
-main .container{
+main .container {
   margin-top: 10%;
 }
 
 /* Badge for notification */
-.badge{
-
+.badge {
   position: absolute;
   display: flex;
   align-items: center;
@@ -42,10 +40,9 @@ main .container{
   border-radius: 50%;
   background-color: var(--primary);
   color: #ffffff;
-
 }
 /* Footer CSS */
-footer{
+footer {
   background-image: url("../img/header_footer/footer\ background.svg");
   background-size: cover;
   background-repeat: no-repeat;
@@ -56,23 +53,22 @@ footer .container {
 }
 
 /* Message followed after hero section CSS  */
-.message-background,.message-background-image{
+.message-background,
+.message-background-image {
   background-size: cover;
   background-repeat: no-repeat;
 }
-.message-background{
+.message-background {
   background-color: var(--secondary);
   background-image: url("../img/header_footer/faded\ text.svg");
-
 }
-.message-background-image{
+.message-background-image {
   background-image: url("../img/header_footer/discover\ image.png");
-
 }
-.message-hightlight{
+.message-hightlight {
   position: relative;
 }
-.message-hightlight img{
+.message-hightlight img {
   position: absolute;
   width: 10vw;
   left: 0;
@@ -80,24 +76,24 @@ footer .container {
 }
 
 /* Hightlight CSS */
-.hightlight{
+.hightlight {
   color: var(--secondary);
 }
 
 /* Feature in home  CSS */
-.feature-background-1{
-  background-color: #839EE0 !important;
+.feature-background-1 {
+  background-color: #839ee0 !important;
 }
-.feature-background-2{
-  background-color: #DDE7FE !important;
+.feature-background-2 {
+  background-color: #dde7fe !important;
 }
 
 /* Course card css */
-.price-tag{
+.price-tag {
   position: absolute;
   right: 0;
   background-color: var(--primary);
-  color: #FFFFFF;
+  color: #ffffff;
   padding: 0.8vw;
   border-bottom-left-radius: 10px;
   border-top-right-radius: 10px;
@@ -106,41 +102,40 @@ footer .container {
 }
 
 /* Quiz modal Css */
-.modal-card-head{
-  background-color: #ffffff!important;
+.modal-card-head {
+  background-color: #ffffff !important;
   border-bottom: none;
   color: var(--primary) !important;
 }
-.modal-card-body{
+.modal-card-body {
   padding-left: 2rem;
 }
-.modal-card-body > div > label{
-  color: #2B4787 !important;
-
+.modal-card-body > div > label {
+  color: #2b4787 !important;
 }
-.modal-card-foot{
+.modal-card-foot {
   background-color: #ffffff !important;
   justify-content: flex-end;
 }
-.radio + .radio{
+.radio + .radio {
   margin-left: 0rem;
 }
 
 /* General Css */
-.register-now{
+.register-now {
   background-image: url("../img/header_footer/desk.svg");
   background-size: 40%;
   background-repeat: no-repeat;
   background-position: 0% 75%;
 }
-.overflow{
+.overflow {
   overflow: scroll !important;
 }
-.status-content{
+.status-content {
   font-size: 0.8vw !important;
-  color: #4F6494 !important;
+  color: #4f6494 !important;
 }
-.primary-light-color{
+.primary-light-color {
   color: #7993cf !important;
 }
 
@@ -328,4 +323,107 @@ footer .container {
   .dropdown {
     display: block;
   }
+}
+
+/* ================= COURSE INFO SECTION =================== */
+.info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.cards {
+  position: relative;
+  width: 350px;
+  overflow: hidden;
+  border-radius: 10px;
+  margin-right: 2em;
+}
+.cards .price {
+  display: flex;
+  align-items: center;
+  padding: 0.5em 0;
+}
+.cards .price p:nth-child(2) {
+  text-decoration: line-through;
+  margin: 0 0.5em;
+}
+.cards .buttons {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1em;
+}
+.cards .buttons .button {
+  width: 100%;
+  height: 50px;
+  margin: 0.5em 0;
+}
+.cards .buttons .button:nth-child(2) {
+  margin-right: 0.5em;
+}
+.cards .wish {
+  position: absolute;
+  top: 0.2em;
+  right: 0.2em;
+  font-size: 3em;
+}
+.details .star {
+  color: #e9b556;
+  margin-right: 0.5em;
+}
+.details p {
+  margin-bottom: 1em;
+}
+.details p a {
+  text-decoration: underline;
+}
+@media screen and (max-width: 768px) {
+  .info {
+    flex-direction: column;
+  }
+}
+
+.profit {
+  width: 100%;
+  margin: 5em 0em;
+  padding: 1em 3em 1em 1em;
+  border: 2px solid #01226f;
+}
+.profit .lists {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin: 0.5em;
+}
+.profit .lists ul li {
+  margin: 1.5em;
+}
+.profit .lists ul li ion-icon {
+  margin-right: 0.5em;
+}
+
+.requirements {
+  padding: 1em 3em 1em 1em;
+}
+.requirements .lists ul li {
+  margin: 1.5em;
+}
+.requirements .lists ul li ion-icon {
+  margin-right: 0.5em;
+}
+
+.description p {
+  margin: 1em 0;
+}
+.description p:nth-child(2) {
+  line-height: 200%;
+}
+
+.coursefor p {
+  margin: 1em 0;
+}
+.coursefor p:nth-child(2) {
+  line-height: 200%;
 }
