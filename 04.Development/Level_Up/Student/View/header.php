@@ -33,20 +33,20 @@
                     <a id="lnk_my_courses" class="navbar-item" href="./dashboard.php">
                         My Courses
                     </a>
-                    <a class="navbar-item" href="https://bulma.io/documentation/overview/start/">
+                    <a id="lnk_noti" class="navbar-item" href="https://bulma.io/documentation/overview/start/">
                         <img src="./resources/img/header_footer/notification.svg" alt="">
                         <div class="badge is-hidden">
                             <p class="is-size-7">10</p>
                         </div>
                     </a>
-                    <a class="navbar-item" href="https://bulma.io/documentation/overview/start/">
+                    <a id="lnk_cart" class="navbar-item" href="https://bulma.io/documentation/overview/start/">
                         <img src="./resources/img/header_footer/cart.svg" alt=""></img>
                     </a>
-                    <a class="navbar-item" href="https://bulma.io/documentation/overview/start/">
+                    <a id="lnk_profile" class="navbar-item" href="./dashboard.php?screen_mode=profile">
                         <img src="./resources/img/header_footer/profile.svg" alt=""></img>
                     </a>
                     <a id="btn_register" class="button is-primary is-outlined has-text-weight-semibold is-hidden" href="./signup.html">Register</a>
-                    <a id="btn_logout" class="button is-primary is-outlined has-text-weight-semibold is-hidden" href="">Logout</a>
+                    <button id="btn_logout" class="button is-primary is-outlined has-text-weight-semibold is-hidden">Logout</button>
                 </div>
             </div>
         </div>

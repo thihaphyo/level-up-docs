@@ -3,11 +3,10 @@ axios.defaults.baseURL =
   "http://localhost/level-up-docs/04.Development/Level_Up";
 
 $('document').ready(function () {
-    navHightLight();
+    //navHightLight();
     loadData();
     fetchUserProfile();
 });
-
 $('#tab_learning,#tab_my_courses').click(function () {
     $('#tab_learning,#tab_my_courses').removeClass('is-active');
     $(this).addClass('is-active');

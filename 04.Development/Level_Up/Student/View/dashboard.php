@@ -8,11 +8,30 @@
     <link rel="icon" type="image/x-icon" href="./resources/img/common/favicon.png">
     <link rel="stylesheet" href="./resources/css/mystyles.css">
     <link rel="stylesheet" href="./resources/css/root.css">
+    <link rel="stylesheet" href="./resources/css/auth.css">
     <link rel="stylesheet" href="./resources/css/dashboard.css">
 </head>
 
 <body>
-    <?php require_once('./header.php') ?>
+    <?php 
+        require_once('./header.php');
+        if ($_GET["screen_mode"] == 'profile') {
+           echo "<script>
+           const collection = document.getElementsByClassName('navbar-item');
+           for (let i = 0; i < collection.length; i++) {
+             collection[i].setAttribute('class', 'navbar-item');
+           }
+           </script>";
+        } else {
+           echo "<script>
+           const collection = document.getElementsByClassName('navbar-item');
+           for (let i = 0; i < collection.length; i++) {
+             collection[i].setAttribute('class', 'navbar-item');
+           }
+           document.getElementById('lnk_my_courses').setAttribute('class', 'navbar-item active');
+           </script>";
+        }
+    ?>
 
     <main>
         <!-- start of container  -->
@@ -39,7 +58,7 @@
                 <div class="tabs ml-10-responsive no-margin-bot">
                     <ul>
                         <li id="tab_learning" class="is-active"><a>Learning</a></li>
-                        <li id="tab_my_courses"><a>My Courses</a></li>
+                        <li id="tab_my_courses"><a>Wishlist</a></li>
                     </ul>
                 </div>
                 <div class="ml-8-responsive column is-full">
