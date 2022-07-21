@@ -1,18 +1,35 @@
+:root{
+
+  --primaryBackgroundColor: #FEFBF6;
+  --secondaryBackgroundColor: #F3B33E;
+
+  --primary: #01226F;
+  --secondary: #F3B33E;
+}
+/* Navigation Bar Css */
+.secondaryColor{
+  background-color: var(--secondary) !important;
+}
 .navbar-end a {
-  color: rgba(1, 34, 111, 0.62);
+ color:  rgba(1, 34, 111, 0.62);
 }
-.navbar-end a:hover {
+.navbar-end a:hover{
   font-weight: bold;
 }
-.navbar-end a.active {
-  color: #01226f;
+.navbar-end a.active{
+  color: #01226F;
   font-weight: bold;
-  border-bottom: 2px solid #01226f;
+  border-bottom: 2px solid var(--primary);
 }
-main .container {
+
+/* Main Container Css */
+main .container{
   margin-top: 10%;
 }
-.badge {
+
+/* Badge for notification */
+.badge{
+
   position: absolute;
   display: flex;
   align-items: center;
@@ -23,88 +40,108 @@ main .container {
   right: 0;
   /* padding: 4px; */
   border-radius: 50%;
-  background-color: #01226f;
+  background-color: var(--primary);
   color: #ffffff;
+
 }
-footer {
+/* Footer CSS */
+footer{
   background-image: url("../img/header_footer/footer\ background.svg");
   background-size: cover;
-
-  /* background-size: 80%; */
   background-repeat: no-repeat;
-  /* background-attachment: fixed; */
+  background-color: transparent !important;
 }
 footer .container {
   margin-top: 30%;
 }
-.m10 {
-  margin-top: 10rem;
+
+/* Message followed after hero section CSS  */
+.message-background,.message-background-image{
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.message-background{
+  background-color: var(--secondary);
+  background-image: url("../img/header_footer/faded\ text.svg");
+
+}
+.message-background-image{
+  background-image: url("../img/header_footer/discover\ image.png");
+
+}
+.message-hightlight{
+  position: relative;
+}
+.message-hightlight img{
+  position: absolute;
+  width: 10vw;
+  left: 0;
+  bottom: 0;
 }
 
-.full-container {
-  padding: 0 !important;
+/* Hightlight CSS */
+.hightlight{
+  color: var(--secondary);
 }
 
-.column-fill {
-  min-height: 100vh;
+/* Feature in home  CSS */
+.feature-background-1{
+  background-color: #839EE0 !important;
+}
+.feature-background-2{
+  background-color: #DDE7FE !important;
 }
 
-.mt-7 {
-  margin-top: 5rem !important;
+/* Course card css */
+.price-tag{
+  position: absolute;
+  right: 0;
+  background-color: var(--primary);
+  color: #FFFFFF;
+  padding: 0.8vw;
+  border-bottom-left-radius: 10px;
+  border-top-right-radius: 10px;
+
+  font-weight: bold;
 }
 
-.mr-10 {
-  margin-right: 10rem;
+/* Quiz modal Css */
+.modal-card-head{
+  background-color: #ffffff!important;
+  border-bottom: none;
+  color: var(--primary) !important;
+}
+.modal-card-body{
+  padding-left: 2rem;
+}
+.modal-card-body > div > label{
+  color: #2B4787 !important;
+
+}
+.modal-card-foot{
+  background-color: #ffffff !important;
+  justify-content: flex-end;
+}
+.radio + .radio{
+  margin-left: 0rem;
 }
 
-.ml-10 {
-  margin-left: 10rem;
+/* General Css */
+.register-now{
+  background-image: url("../img/header_footer/desk.svg");
+  background-size: 40%;
+  background-repeat: no-repeat;
+  background-position: 0% 75%;
 }
-
-.is-primay-label {
-  color: #01226f;
-  font-weight: 600;
-  margin-bottom: 20px !important;
+.overflow{
+  overflow: scroll !important;
 }
-
-.text-box {
-  background-color: #eff1f5;
-  height: 63px !important;
-  font-weight: 600;
+.status-content{
+  font-size: 0.8vw !important;
+  color: #4F6494 !important;
 }
-
-::placeholder {
-  /* Chrome, Firefox, Opera, Safari 10.1+ */
-  color: #9d9b9b !important;
-  font-style: italic !important;
-  opacity: 1; /* Firefox */
-}
-
-:-ms-input-placeholder {
-  /* Internet Explorer 10-11 */
-  color: #9d9b9b !important;
-  font-style: italic !important;
-}
-
-::-ms-input-placeholder {
-  /* Microsoft Edge */
-  color: #9d9b9b !important;
-  font-style: italic !important;
-}
-
-.full-wd-btn {
-  width: 100%;
-  height: 64px;
-  border-radius: 10px !important;
-}
-
-.is-image-btn {
-  width: 64px !important;
-  height: 64px !important;
-  background-color: transparent;
-  border: none !important;
-  outline: none !important;
-  cursor: pointer;
+.primary-light-color{
+  color: #7993cf !important;
 }
 
 .signin-left-section {

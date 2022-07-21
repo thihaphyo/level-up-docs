@@ -29,7 +29,7 @@ $("document").ready(function () {
   }
 });
 
-let categories = document.querySelectorAll(".category");
+var categories = document.querySelectorAll(".category");
 
 function activeLink() {
   categories.forEach((category) => {

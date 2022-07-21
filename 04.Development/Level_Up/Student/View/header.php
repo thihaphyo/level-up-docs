@@ -1,7 +1,9 @@
     <!-- start of navigation bar -->
     <nav class="navbar is-transparent is-fixed-top p-4 ">
         <div class="navbar-brand">
-            <img width="100vw" src="./resources/img/header_footer/level up.svg" alt="">
+            <a href="./index.php">
+                <img width="100vw" src="./resources/img/header_footer/level up.svg" alt="">
+            </a>
 
             <!-- start of mobile navigation -->
             <div class="navbar-burger" data-target="navbarExampleTransparentExample">
@@ -22,7 +24,7 @@
                     <a id="lnk_home" class="navbar-item" href="./index.php">
                         Home
                     </a>
-                    <a class="navbar-item" href="https://bulma.io/">
+                    <a id="lnk_explore" class="navbar-item" href="./explore.php">
                         Explore
                     </a>
                     <a class="navbar-item" href="https://bulma.io/">

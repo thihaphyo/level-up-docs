@@ -1,0 +1,73 @@
+.admin-update-container{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top:4%;
+    /* background-color: blue; */
+}
+.admin-update-container > div {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* background-color: red; */
+}
+.admin-update-container p{
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+.admin-update-container input {
+    width: 30vw;
+}
+
+.admin-update-profile {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    /* background-color: red; */
+}
+.profile-action-link a {
+    font-weight: 700;
+    color: #706D6D;
+    padding: 0.6rem;
+}
+.admin-insert-image {
+    background: url('../img/admin\ profile\ picture/no\ image.png');
+}
+.admin-update-image {
+
+    background: url('../img/admin\ profile\ picture/admin\ profile1.jpg');
+ 
+}
+.profile-image{
+    width: 120px;
+    height:120px;
+    background-size: cover;
+    border-radius: 50%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    border: 4px solid #FFFFFF;
+    margin: auto;  
+}
+
+.admin-update-profile p {
+    padding-bottom: 1rem;
+}
+.admin-update-profile input{
+    visibility: hidden;
+}
+.admin-update-action-link{
+    margin: auto;
+}
+.admin-update-input p{
+    padding: 1rem 0rem;
+}
+.admin-update-input input {
+    height: 5vh;
+    border:none;
+    border: 2px solid #000000;
+    border-radius: 10px;
+    padding-left: 1rem;
+}
