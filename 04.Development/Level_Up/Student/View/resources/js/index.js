@@ -20,11 +20,24 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-$('document').ready(function () {
+$("document").ready(function () {
   if (localStorage.getItem("access_token") != null) {
     // window.location.replace("./index.php");
-    $('#btn_logout').removeClass('is-hidden');
+    $("#btn_logout").removeClass("is-hidden");
   } else {
-    $('#btn_register').removeClass('is-hidden');
+    $("#btn_register").removeClass("is-hidden");
   }
+});
+
+let categories = document.querySelectorAll(".category");
+
+function activeLink() {
+  categories.forEach((category) => {
+    category.classList.remove("active");
+    this.classList.add("active");
+  });
+}
+
+categories.forEach((category) => {
+  category.addEventListener("click", activeLink);
 });
