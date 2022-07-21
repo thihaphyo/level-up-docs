@@ -24,7 +24,7 @@ $time = time();
 
     <!-- start of container -->
     <div class="container">
-        <h1 class="text">Admin Update</h1>
+        <h1 class="text">Create Admin</h1>
         <!-- start of admin update container -->
         <div class="admin-update-container">
 
@@ -32,7 +32,7 @@ $time = time();
                 <!-- start of profile image -->
                 <div class="admin-update-profile">
                     <p>Profile Picture</p>
-                    <div class="profile-image admin-update-image">
+                    <div class="profile-image admin-insert-image">
                         <!-- admin profile image is inserted as background image through javascript -->
                     </div>
                     <!-- <img src="./resources/img/admin profile picture/admin profile1.jpg" alt=""> -->
@@ -40,8 +40,6 @@ $time = time();
                     <!-- start of action link -->
                     <div class="profile-action-link admin-update-action-link">
                         <a href="">Upload</a>
-                        <a href="">Delete</a>
-
                     </div>
                     <!-- end of action link -->
                 </div>
