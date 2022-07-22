@@ -53,7 +53,6 @@ dte libero, maioreinima magni voluptatibus assumenda vitae accusantium architect
             </div>
         </section>
         <section class="section is-medium">
-
         </section>
         <section class="section is-medium">
         </section>
