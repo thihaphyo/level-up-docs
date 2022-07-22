@@ -127,6 +127,9 @@
         display: block;
         margin-top: 15vh !important;
     }
+    .l-nav {
+        max-height: 60vh;
+    }
     .l-nav-hr {
         display:block;
     }

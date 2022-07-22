@@ -376,6 +376,85 @@ function seed_t_quizs($count) {
     }
 }
 
+function seed_m_instructor_experiences($count) {
+    try{
+        $pdo = (new DBConnect())->connect();
+        $params = [
+            ':instructor_id' =>rand(1,6), 
+            ':exp_title' => LoremIpsum::$wordArr[rand(0,10)],    
+            ':exp_type' => LoremIpsum::$wordArr[rand(11,20)], 
+            ':exp_start_date' => '2022-07-18', 
+            ':exp_end_date' => '2022-08-18'
+        ];
+        
+        //Insert the data
+        $sql = sql_builder('m_instructor_experiences', $params);
+        echo $sql;
+        $stmt = $pdo->prepare($sql);
+        for ($i=0; $i < $count; $i++) {
+            $stmt->execute([
+                ':instructor_id' =>rand(1,6), 
+                ':exp_title' => LoremIpsum::$wordArr[rand(0,10)],    
+                ':exp_type' => LoremIpsum::$wordArr[rand(11,19)], 
+                ':exp_start_date' => '2022-07-18', 
+                ':exp_end_date' => '2022-08-18'
+            ]);
+        }
+    } catch(Exception $e){
+        echo '<pre>';print_r($e);echo '</pre>';exit;
+    }
+}
+
+function seed_m_students ($count) {
+    try{
+        $pdo = (new DBConnect())->connect();
+        $params = [
+            ':full_name' => LoremIpsum::$nameArr[rand(0,19)], 
+            ':email' => LoremIpsum::$emailArr[rand(0,10)], 
+        ];
+        
+        //Insert the data
+        $sql = sql_builder('m_students', $params);
+        echo $sql;
+        $stmt = $pdo->prepare($sql);
+        for ($i=0; $i < $count; $i++) {
+            $stmt->execute([
+                ':full_name' => LoremIpsum::$nameArr[rand(0,19)], 
+                ':email' => LoremIpsum::$emailArr[rand(0,10)], 
+            ]);
+        }
+    } catch(Exception $e){
+        echo '<pre>';print_r($e);echo '</pre>';exit;
+    }
+}
+
+function seed_t_course_review_rates ($count) {
+    try{
+        $pdo = (new DBConnect())->connect();
+        $params = [
+            ':course_id' => rand(1,10), 
+            ':student_id' => rand(1,10), 
+            ':rating' => rand(1,5), 
+            ':review' => LoremIpsum::$sentenceArr[rand(0,5)], 
+        ];
+        
+        //Insert the data
+        $sql = sql_builder('t_course_review_rates', $params);
+        echo $sql;
+        $stmt = $pdo->prepare($sql);
+        for ($i=0; $i < $count; $i++) {
+            $stmt->execute([
+                ':course_id' => rand(1,10), 
+                ':student_id' => rand(1,10), 
+                ':rating' => rand(1,5), 
+                ':review' => LoremIpsum::$sentenceArr[rand(0,5)], 
+            ]);
+        }
+    } catch(Exception $e){
+        echo '<pre>';print_r($e);echo '</pre>';exit;
+    }
+}
+
 
 // seed_m_instructors(6);
 // seed_m_course_categories(6);
@@ -391,6 +470,9 @@ function seed_t_quizs($count) {
 // seed_t_chapters(6);
 // seed_t_lectures(20);
 // seed_t_quizs(30);
+// seed m_instructor_experiences(30);
+// seed_m_students(10);
+seed_t_course_review_rates(30);
 
 echo "SEEDED SUCCESSFULLY.";
 

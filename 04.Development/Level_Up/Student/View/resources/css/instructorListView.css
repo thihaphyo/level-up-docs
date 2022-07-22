@@ -1,0 +1,134 @@
+/* INSTRUCTOR LIST SCREEN */
+
+.i-search-bar {
+    display: flex;
+    justify-content: center;
+}
+
+#i-search-form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3vmin;
+    color: #555;
+}
+
+#i-search-form input {
+    border: 1px solid #ccc;
+    padding: 1vmin 3vmin;
+    border-radius: 5px;
+    width: 30vw;
+}
+
+#i-search-form select {
+    border: none;
+    color: blue;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.i-list-des {
+    display: flex;
+    gap: 2vmin;
+    margin: 1.5vmin 0;
+}
+
+.i-list-name {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.i-list-pos {
+    font-weight: 500;
+    font-size: 1.2rem;
+}
+
+.i-list-courses {
+    font-weight: 500;
+}
+
+.i-list-content {}
+
+.i-instructor-list {
+    display: grid;
+    width: 100%;
+    grid-template-columns: 35vw 35vw;
+    justify-content: center;
+    margin-top: 10vmin;
+    gap: 15vmin;
+}
+
+.i-instructor-card {
+    display: grid;
+    grid-template-columns: 15vw 20vw;
+    gap: 10vmin;
+}
+
+.i-instructor-list-img-wrapper {
+    position: relative;
+    width: 15vw;
+    height: 15vw;
+
+}
+
+.i-instructor-list-img-wrapper img {
+    border-radius: 3vmin;
+    width: 15vw;
+    height: 15vw;
+    box-shadow: 0 0 2px #888;
+}
+
+.i-list-wrapper1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #EBD9BB;
+    transform: rotate(30deg) scale(0.9);
+    width: 15vw;
+    height: 15vw;
+    border-radius: 3vmin;
+    z-index: -1;
+}
+
+.i-pagination {
+    margin: auto;
+    margin-top: 20vh;
+    width: 60vw;
+}
+
+.i-no-instructor {
+    font-size: 2rem;
+    font-weight: 500;
+    text-align: center;
+    grid-column: 1/3;
+}
+
+@media screen and (max-width:768px){
+    .i-search-bar {
+        margin-top: 15vh;
+    }
+    #i-search-form input{
+        width: 50vw;
+    }
+    .i-instructor-list{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .i-instructor-card {
+        grid-template-columns: 45vw 45vw;
+        gap:1vmin;
+    }
+    .i-list-name { font-size: 1.1rem; }
+    .i-list-pos { font-size: 0.9rem; }
+    .i-list-courses { font-size: 0.75rem;}
+    .i-list-des img { transform: scale(0.7); }
+
+    .i-instructor-list-img-wrapper,
+    .i-instructor-list-img-wrapper img,
+    .i-list-wrapper1 {
+        width:30vw;
+        height: 30vw;
+        margin: 0 auto 0 auto;
+    }
+}

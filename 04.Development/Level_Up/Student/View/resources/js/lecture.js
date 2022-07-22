@@ -1,5 +1,6 @@
 import { getIframeVimeo } from './videoAPI.js'; // Video Reader
 
+let controllerURL = 'http://localhost/level-up-docs_original/04.Development/Level_Up/Student/Controller/LectureController.php';
 
 // Initializing.
 let lectureIndex, curIndex; // Index of current lecture in the lecture list.
@@ -24,7 +25,7 @@ function showChapList () {
 
 // Gets the lecture list of selected chapter.
 function getChap (chapID){
-    $.post('http://localhost/Student/Controller/LectureController.php', {newChapID: chapID, course_id: courseID}, (data) => {
+    $.post(controllerURL, {newChapID: chapID, course_id: courseID}, (data) => {
             chapDetails = JSON.parse(data);
             showChap(chapID);
             showLecture(0);
@@ -59,7 +60,7 @@ function showChap (id) {
 }
 
 // Displays the selected lecture in l-body.
-function showLecture (index) {
+async function showLecture (index) {
     
     $(`#l-lecture-${curIndex}`).removeClass('l-selected-lecture');
     curIndex = Number(index); 
@@ -80,12 +81,14 @@ function showLecture (index) {
     $('.l-body').append("<div class='l-btns'></div>");
 
     // Prepare Quizzes (if any).
-    $.post('http://localhost/Student/Controller/LectureController.php', 
+    await $.post(controllerURL, 
             {quizForLecture: lecture['id'], course_id: courseID}, 
             (data) => {
+                // console.log('data for ', lecture['id'], ' is ', data, ' which is ', data.length > 0);
+                
                 // If no quiz, do nothing.
-                if(data !== ''){
-                    data = JSON.parse(data);
+                data = JSON.parse(data);
+                if(data && data.length > 0){
                     $('.l-btns').append(
                         `<a class="l-body-quiz button is-primary is-outlined has-text-weight-semibold" id='l-quiz-${lecture['id']}'>Quiz</a>`);
                     $('.l-body-quiz').click(() => showQuiz(data));

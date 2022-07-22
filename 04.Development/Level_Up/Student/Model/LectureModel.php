@@ -11,25 +11,25 @@ class LectureModel extends DBConnect
 
     // Gets a list of chapter in a course.
     public function get_chap_list () {
-        $query = "SELECT id, chapter_title FROM t_chapters WHERE course_id = $this->course_id ";
+        $query = "SELECT id, chapter_title FROM t_chapters WHERE course_id = :id ";
         $stmt = $this->pdo->prepare($query);
-        $stmt->execute();
+        $stmt->execute([':id' => $this->course_id]);
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
     // Gets all lectures in a chapter.
     public function get_chap_details ($chapter_id) {
-        $query = "SELECT * FROM t_lectures WHERE chapter_id = $chapter_id";
+        $query = "SELECT * FROM t_lectures WHERE chapter_id = :id";
         $stmt = $this->pdo->prepare($query);
-        $stmt->execute();
+        $stmt->execute([':id' => $chapter_id]);
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
     // Gets all quizzes in a lecture.
     public function get_quiz ($lecture_id) {
-        $query = "SELECT * FROM t_quizs WHERE lecture_id = $lecture_id";
+        $query = "SELECT * FROM t_quizs WHERE lecture_id = :id";
         $stmt = $this->pdo->prepare($query);
-        $stmt->execute();
+        $stmt->execute([':id' => $lecture_id]);
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     }
