@@ -185,11 +185,121 @@ section h2 {
     width: 400px;
 }
 
-/* Pointer */
-.firstpoint {
-    height: 10px;
-    background-color: black;
-}
-
 /* Responsive */
-@media only screen and (max-width: 800px) {}
+@media only screen and (max-width: 800px) {
+
+    /* freecourses */
+    section h1 {
+        margin-left: 5rem;
+        position: relative;
+        top: 6rem;
+        left: 4rem;
+    }
+
+    section h2 {
+        position: relative;
+        top: 7rem;
+        left: 7rem;
+    }
+
+    .StepOne {
+        top: 23rem;
+    }
+
+    .StepOne img {
+        width: 20rem;
+
+        position: relative;
+        left: 6rem;
+    }
+
+    .StepOne p {
+        position: relative;
+    }
+
+    .StepOne h1 {
+        display: none;
+    }
+
+    .Steptwo {
+        position: relative;
+        top: 15rem;
+    }
+
+    .Steptwo img {
+        width: 20rem;
+
+        position: relative;
+        left: 28%;
+    }
+
+    .Steptwo p {
+        position: relative;
+        left: 25%;
+        top: 10%;
+    }
+
+    .Steptwo h1 {
+        display: none;
+    }
+
+    .StepThree {
+        top: 25rem;
+    }
+
+    .StepThree img {
+        width: 20rem;
+        position: relative;
+        left: 17%;
+    }
+
+    .StepThree h1 {
+        visibility: hidden;
+    }
+
+    .StepThree p {
+        position: relative;
+    }
+
+    /* paidcourses */
+    #paidcourses h1 {
+        position: relative;
+        top: 5rem;
+    }
+
+    .Steponeforpaid h1 {
+        display: none;
+    }
+
+    .Steponeforpaid img {
+        width: 20rem;
+        position: relative;
+        top: 1rem;
+        left: 30%;
+    }
+
+    .Steponeforpaid p {
+        position: relative;
+        top: 6em;
+        margin-left: 2rem;
+    }
+
+    .Steptwoforpaid h1 {
+        visibility: hidden;
+    }
+
+    .Steptwoforpaid {
+        position: relative;
+        top: 20rem;
+    }
+
+    .Steptwoforpaid img {
+        width: 20rem;
+        position: relative;
+        left: 6rem;
+    }
+
+    .Steptwoforpaid p {
+        position: relative;
+    }
+}

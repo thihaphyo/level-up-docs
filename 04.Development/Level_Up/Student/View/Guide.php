@@ -28,7 +28,7 @@
                     <img src="undraw/Rectangle 178.svg" alt="screenshot">
                     <h1 class="is-size-3 has-text-weight-semibold">Step 1</h1>
                     <p class="is-size-6 has-text-weight-medium">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae inventore, adipisci aperiam blanditiis perferendis impedit velit a cupiditate libero, maiores possimus ipsum placeat minima magni voluptatibus assumenda vitae accusantium architecto.</p>
+                        1.Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae inventore, adipisci aperiam blanditiis perferendis impedit velit a cupiditate libero, maiores possimus ipsum placeat minima magni voluptatibus assumenda vitae accusantium architecto.</p>
                 </div>
             </section>
             <section class="section is-medium">
@@ -36,14 +36,14 @@
                     <img src="undraw/Rectangle 178.svg" alt="Undraw">
                     <h1 class="is-size-3 has-text-weight-semibold">Step 2</h1>
                     <p class="is-size-6 has-text-weight-medium">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto architecto iure in ipsa impedit quo porro, fugit eveniet at ullam ex accusantium consectetur? Accusantium officia id amet ex quia expedita.</p>
+                        2.Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto architecto iure in ipsa impedit quo porro, fugit eveniet at ullam ex accusantium consectetur? Accusantium officia id amet ex quia expedita.</p>
             </section>
             <section class="section is-medium">
                 <div class="StepThree">
                     <img src="undraw/Rectangle 178.svg" alt="screenshot">
                     <h1 class="is-size-3 has-text-weight-semibold">Step 3</h1>
                     <p class="is-size-6 has-text-weight-medium">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae inventore, adipisci aperiam blanditiis perferendis impedit velit a cupiditate libero, maiores possimus ipsum placeat minima magni voluptatibus assumenda vitae accusantium architecto.</p>
+                        3.Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae inventore, adipisci aperiam blanditiis perferendis impedit velit a cupiditate libero, maiores possimus ipsum placeat minima magni voluptatibus assumenda vitae accusantium architecto.</p>
                 </div>
             </section>
             <section id="paidcourses" class="section is-medium">
@@ -54,14 +54,14 @@
                     <img src="undraw/Rectangle 178.svg" alt="Undraw">
                     <h1 class="is-size-3 has-text-weight-semibold">Step 1</h1>
                     <p class="is-size-6 has-text-weight-medium">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto architecto iure in ipsa impedit quo porro, fugit eveniet at ullam ex accusantium consectetur? Accusantium officia id amet ex quia expedita.</p>
+                        1.Lorem ipsum dolor sit amet consectetrchitecto iure in ipsa impedit quo porro, fugit eveniet at ullam ex accusantium consectetur? Accusantium officia id amet ex quia expedita.</p>
             </section>
             <section class="section is-medium">
                 <div class="Steptwoforpaid">
                     <img src="undraw/Rectangle 178.svg" alt="screenshot">
                     <h1 class="is-size-3 has-text-weight-semibold">Step 2</h1>
                     <p class="is-size-6 has-text-weight-medium">
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quae reprehenderit</p>
+                        2.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quae reprehenderit</p>
                 </div>
             </section>
         </div>
