@@ -1,0 +1,305 @@
+section {
+    position: relative;
+    bottom: 120px;
+    right: 110px;
+}
+
+section h2 {
+    position: relative;
+    top: 30px;
+    left: 4px;
+}
+
+/* free Courses */
+
+/* Step1 */
+.StepOne>img {
+    float: left;
+    position: relative;
+    bottom: 350px;
+    height: 350px;
+    width: 650px;
+}
+
+.StepOne {
+    position: relative;
+    top: 120px;
+}
+
+.StepOne h1 {
+    color: rgb(1, 34, 111);
+    position: relative;
+    left: 130px;
+    bottom: 300px;
+}
+
+.StepOne p {
+    width: auto;
+    position: relative;
+    left: 130px;
+    bottom: 278px;
+}
+
+/* step2 */
+
+.Steptwo>img {
+    float: right;
+    position: relative;
+    bottom: 200px;
+    left: 268px;
+    width: 700px;
+    height: 350px;
+    width: 650px;
+}
+
+.Steptwo {
+    position: relative;
+    right: 35px;
+    top: 50px;
+}
+
+.Steptwo h1 {
+    color: rgb(1, 34, 111);
+    position: relative;
+    bottom: 150px;
+    left: 100px;
+}
+
+.Steptwo p {
+    position: relative;
+
+    bottom: 128px;
+    left: 100px;
+}
+
+/* Step3 */
+
+.StepThree>img {
+    float: left;
+    position: relative;
+    bottom: 350px;
+    height: 350px;
+    width: 650px;
+}
+
+.StepThree {
+    position: relative;
+    top: 280px;
+}
+
+.StepThree h1 {
+    color: rgb(1, 34, 111);
+    position: relative;
+    left: 130px;
+    bottom: 300px;
+}
+
+.StepThree p {
+    width: auto;
+    position: relative;
+    left: 130px;
+    bottom: 278px;
+}
+
+/* Paid Courses */
+#paidcourses>h1 {
+    position: relative;
+    bottom: 50px;
+}
+
+/* Step 1 */
+.Steponeforpaid>img {
+    float: right;
+    position: relative;
+    bottom: 200px;
+    left: 268px;
+    width: 700px;
+    height: 350px;
+    width: 650px;
+}
+
+.Steponeforpaid {
+    position: relative;
+    right: 35px;
+    bottom: 50px;
+}
+
+.Steponeforpaid h1 {
+    color: rgb(1, 34, 111);
+    position: relative;
+    bottom: 150px;
+    left: 100px;
+}
+
+.Steponeforpaid p {
+    position: relative;
+    bottom: 128px;
+    left: 100px;
+}
+
+/* Step 2 */
+
+.Steptwoforpaid>img {
+    float: left;
+    position: relative;
+    bottom: 350px;
+    height: 350px;
+    width: 650px;
+}
+
+.Steptwoforpaid {
+    position: relative;
+    top: 200px;
+}
+
+.Steptwoforpaid h1 {
+    color: rgb(1, 34, 111);
+    position: relative;
+    left: 130px;
+    bottom: 300px;
+}
+
+.Steptwoforpaid p {
+    width: auto;
+    position: relative;
+    left: 130px;
+    bottom: 278px;
+}
+
+/* Note */
+.Note {
+    position: relative;
+    top: 20px;
+    left: 550px;
+}
+
+.Note h1 {
+    position: relative;
+    right: 720px;
+}
+
+.Note p {
+    position: relative;
+    bottom: 35px;
+    right: 28px;
+    width: 400px;
+}
+
+/* Responsive */
+@media only screen and (max-width: 800px) {
+
+    /* freecourses */
+    section h1 {
+        margin-left: 5rem;
+        position: relative;
+        top: 6rem;
+        left: 4rem;
+    }
+
+    section h2 {
+        position: relative;
+        top: 7rem;
+        left: 7rem;
+    }
+
+    .StepOne {
+        top: 23rem;
+    }
+
+    .StepOne img {
+        width: 20rem;
+
+        position: relative;
+        left: 6rem;
+    }
+
+    .StepOne p {
+        position: relative;
+    }
+
+    .StepOne h1 {
+        display: none;
+    }
+
+    .Steptwo {
+        position: relative;
+        top: 15rem;
+    }
+
+    .Steptwo img {
+        width: 20rem;
+
+        position: relative;
+        left: 28%;
+    }
+
+    .Steptwo p {
+        position: relative;
+        left: 25%;
+        top: 10%;
+    }
+
+    .Steptwo h1 {
+        display: none;
+    }
+
+    .StepThree {
+        top: 25rem;
+    }
+
+    .StepThree img {
+        width: 20rem;
+        position: relative;
+        left: 17%;
+    }
+
+    .StepThree h1 {
+        visibility: hidden;
+    }
+
+    .StepThree p {
+        position: relative;
+    }
+
+    /* paidcourses */
+    #paidcourses h1 {
+        position: relative;
+        top: 5rem;
+    }
+
+    .Steponeforpaid h1 {
+        display: none;
+    }
+
+    .Steponeforpaid img {
+        width: 20rem;
+        position: relative;
+        top: 1rem;
+        left: 30%;
+    }
+
+    .Steponeforpaid p {
+        position: relative;
+        top: 6em;
+        margin-left: 2rem;
+    }
+
+    .Steptwoforpaid h1 {
+        visibility: hidden;
+    }
+
+    .Steptwoforpaid {
+        position: relative;
+        top: 20rem;
+    }
+
+    .Steptwoforpaid img {
+        width: 20rem;
+        position: relative;
+        left: 6rem;
+    }
+
+    .Steptwoforpaid p {
+        position: relative;
+    }
+}
