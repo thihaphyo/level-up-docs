@@ -88,6 +88,7 @@ body{
     white-space: nowrap;
     opacity: 1;
 }
+
 /* Sidebar Shrink */
 .sidebar.close .text{
     opacity: 0;
@@ -259,6 +260,116 @@ header .image-text .profession{
     left: 8vw;
     height: 100vh;
     width: calc(100% - 78px);
+}
+
+/* Input Validation Message */
+.final-warning,
+.warning{
+    display: none;
+    font-size: 0.8rem !important;
+    font-style: italic;
+    color: #cc0f35;
+    padding: 0rem   !important;
+
+}
+.final-warning{
+    margin-right: auto;
+    padding: 0.6rem !important;
+}
+.password-must-contain{
+    display: none;
+    position: absolute;
+    background-color: #FFFFFF;
+    z-index: 2;
+    padding: 2rem;
+}
+.password-must-contain p{
+    font-size: 0.8rem !important;
+    padding: 0.7rem !important;
+    
+}
+
+.pwd-valid {
+    color: #257953;
+  }
+  
+  .pwd-valid:before {
+    font-family: FontAwesome;
+    position: relative;
+    content: "\f00c";
+    padding-right: 0.3rem;
+
+  }
+  
+  /* Add a red text color and an "x" when the requirements are wrong */
+  .pwd-invalid {
+    color: #cc0f35;
+
+  }
+  
+  .pwd-invalid:before {
+    font-family: FontAwesome;
+    position: relative;
+    padding-right: 0.3rem;
+    content: "\f00d";
+  }
+
+/* admin profile css  */
+.admin-profile{
+    position: absolute;
+    top: 8rem;
+}
+.background-image{
+    position: absolute;
+    top: calc(1px - 5px);
+    background-color: #FFFFFF;
+    /* background: url('../img/admin\ profile\ picture/no\ image.png'); */
+    width: 100vw;
+    height:200px;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    border: 4px solid #FFFFFF;
+    margin: auto; 
+}
+.profile-info {
+    display: flex;
+}
+.my-profile-name-n-edit{
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem;
+    margin-top: 4rem;
+}
+
+.my-profile-image img{
+    width: 140px;
+    height:140px;
+    border-radius: 50%;
+    border: 4px solid #eaeaea78;
+    margin: 10px;
+}
+.my-profile-name-n-edit > a{
+    color: #3f3e3e;
+    font-weight: 700;
+}
+.my-profile-contact-n-address{
+    width: 100;;
+    display: flex;
+    padding: 2rem 2rem;
+
+}
+.my-profile-contact-n-address > div > p {
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 1rem 0rem;
+}
+.my-profile-contact{
+    padding-right: 8rem;   
+}
+.my-profile-address{
+    padding-right: 8rem;
+
 }
 @media only screen and (max-width: 1024px) {
 

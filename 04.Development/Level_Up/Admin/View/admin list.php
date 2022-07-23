@@ -1,5 +1,8 @@
 <?php
+
 $time = time();
+session_start();
+$_SESSION["id"] = "3";
 ?>
 
 <!DOCTYPE html>
@@ -23,206 +26,81 @@ $time = time();
 
     <!-- start of container -->
     <div class="container">
+        <!-- connect to the adminListController and it give the list of admins in database -->
+        <?php
+        require('../Controller/adminController/adminListController.php');
+        $adminList = new AdminListController();
+        $adminList = $adminList->showAdmin();
+        ?>
+        <!-- end of php code -->
+
         <h1 class="text">Admin List</h1>
-        <div class="admin-list-container">
-            <div class="profile">
-                <!-- start of profile image -->
-                <div class="profile-image">
-                    <!-- admin profile image is inserted as background image through javascript -->
-                </div>
-                <!-- end of profile image -->
 
-                <!-- start of action links -->
-                <div class="profile-action-link">
-                    <a href="./admin update.php">Update</a>
-                    <a href="./admin delete.php">Delete</a>
+        <?php
+        //Loop all admin list.
+        foreach ($adminList as $key => $value) {
+        ?>
+            <div class="admin-list-container">
+                <div class="profile">
+                    <!-- start of profile image -->
+                    <div class="profile-image">
+                        <!-- admin profile image is inserted as background image through javascript -->
+                    </div>
+                    <!-- end of profile image -->
+
+                    <!-- start of action links -->
+                    <div class="profile-action-link">
+
+                        <?php
+                        if ($value['id'] == $_SESSION['id']) {
+                            echo '<a href="./admin update.php?id=' . $value["id"] . '"' . '>Update</a>';
+                        } else {
+                            echo '<a href="./admin profile.php?id=' . $value["id"] . '"' . '>View</a>';
+                        };
+
+                        ?>
+
+
+                    </div>
+                    <!-- end of action links -->
                 </div>
-                <!-- end of action links -->
+
+                <!-- start of admin info -->
+                <div class="admin-info">
+                    <!-- start of info-chunk -->
+                    <div class="info-chunk">
+                        <label>Name</label>
+                        <h3><?php echo $value['full_name'] ?></h3>
+                    </div>
+                    <!-- end of info-chunk -->
+
+                    <!-- start of info-chunk -->
+                    <div class="info-chunk">
+                        <label>Phone</label>
+                        <h3><?php echo $value['country_code'] ?><?php echo $value['phone_number'] ?></h3>
+                    </div>
+                    <!-- end of info-chunk -->
+
+                </div>
+                <!-- end of admin info -->
+
+                <!-- start of admin info -->
+                <div class="admin-info">
+                    <div class="info-chunk">
+                        <label>Address</label>
+                        <h3><?php echo $value['address'] ?></h3>
+                    </div>
+
+                    <div class="info-chunk">
+                        <label>Email</label>
+                        <h3><?php echo $value['email'] ?></h3>
+                    </div>
+                </div>
+                <!-- end of admin info -->
             </div>
 
-            <!-- start of admin info -->
-            <div class="admin-info">
-                <!-- start of info-chunk -->
-                <div class="info-chunk">
-                    <label>Name</label>
-                    <h3>Michale John</h3>
-                </div>
-                <!-- end of info-chunk -->
+        <?php } ?>
 
-                <!-- start of info-chunk -->
-                <div class="info-chunk">
-                    <label>Phone</label>
-                    <h3>+95 953959530</h3>
-                </div>
-                <!-- end of info-chunk -->
-
-            </div>
-            <!-- end of admin info -->
-
-            <!-- start of admin info -->
-            <div class="admin-info">
-                <div class="info-chunk">
-                    <label>Address</label>
-                    <h3>St. Taleat Tuabi</h3>
-                </div>
-
-                <div class="info-chunk">
-                    <label>Email</label>
-                    <h3>michale30953@gmail.com</h3>
-                </div>
-            </div>
-            <!-- end of admin info -->
-        </div>
-
-        <div class="admin-list-container">
-            <div class="profile">
-                <!-- start of profile image -->
-                <div class="profile-image">
-                    <!-- admin profile image is inserted as background image through javascript -->
-                </div>
-                <!-- end of profile image -->
-
-                <!-- start of action links -->
-                <div class="profile-action-link">
-                    <a href="./admin update.php">Update</a>
-                    <a href="./admin delete.php">Delete</a>
-                </div>
-                <!-- end of action links -->
-            </div>
-
-            <!-- start of admin info -->
-            <div class="admin-info">
-                <!-- start of info-chunk -->
-                <div class="info-chunk">
-                    <label>Name</label>
-                    <h3>Michale John</h3>
-                </div>
-                <!-- end of info-chunk -->
-
-                <!-- start of info-chunk -->
-                <div class="info-chunk">
-                    <label>Phone</label>
-                    <h3>+95 953959530</h3>
-                </div>
-                <!-- end of info-chunk -->
-
-            </div>
-            <!-- end of admin info -->
-
-            <!-- start of admin info -->
-            <div class="admin-info">
-                <div class="info-chunk">
-                    <label>Address</label>
-                    <h3>St. Taleat Tuabi</h3>
-                </div>
-
-                <div class="info-chunk">
-                    <label>Email</label>
-                    <h3>michale30953@gmail.com</h3>
-                </div>
-            </div>
-            <!-- end of admin info -->
-        </div>
-
-        <div class="admin-list-container">
-            <div class="profile">
-                <!-- start of profile image -->
-                <div class="profile-image">
-                    <!-- admin profile image is inserted as background image through javascript -->
-                </div>
-                <!-- end of profile image -->
-
-                <!-- start of action links -->
-                <div class="profile-action-link">
-                    <a href="./admin update.php">Update</a>
-                    <a href="./admin delete.php">Delete</a>
-                </div>
-                <!-- end of action links -->
-            </div>
-
-            <!-- start of admin info -->
-            <div class="admin-info">
-                <!-- start of info-chunk -->
-                <div class="info-chunk">
-                    <label>Name</label>
-                    <h3>Michale John</h3>
-                </div>
-                <!-- end of info-chunk -->
-
-                <!-- start of info-chunk -->
-                <div class="info-chunk">
-                    <label>Phone</label>
-                    <h3>+95 953959530</h3>
-                </div>
-                <!-- end of info-chunk -->
-
-            </div>
-            <!-- end of admin info -->
-
-            <!-- start of admin info -->
-            <div class="admin-info">
-                <div class="info-chunk">
-                    <label>Address</label>
-                    <h3>St. Taleat Tuabi</h3>
-                </div>
-
-                <div class="info-chunk">
-                    <label>Email</label>
-                    <h3>michale30953@gmail.com</h3>
-                </div>
-            </div>
-            <!-- end of admin info -->
-        </div>
-
-        <div class="admin-list-container">
-            <div class="profile">
-                <!-- start of profile image -->
-                <div class="profile-image">
-                    <!-- admin profile image is inserted as background image through javascript -->
-                </div>
-                <!-- end of profile image -->
-
-                <!-- start of action links -->
-                <div class="profile-action-link">
-                    <a href="./admin update.php">Update</a>
-                    <a href="./admin delete.php">Delete</a>
-                </div>
-                <!-- end of action links -->
-            </div>
-
-            <!-- start of admin info -->
-            <div class="admin-info">
-                <!-- start of info-chunk -->
-                <div class="info-chunk">
-                    <label>Name</label>
-                    <h3>Michale John</h3>
-                </div>
-                <!-- end of info-chunk -->
-
-                <!-- start of info-chunk -->
-                <div class="info-chunk">
-                    <label>Phone</label>
-                    <h3>+95 953959530</h3>
-                </div>
-                <!-- end of info-chunk -->
-
-            </div>
-            <!-- end of admin info -->
-
-            <!-- start of admin info -->
-            <div class="admin-info">
-                <div class="info-chunk">
-                    <label>Address</label>
-                    <h3>St. Taleat Tuabi</h3>
-                </div>
-
-                <div class="info-chunk">
-                    <label>Email</label>
-                    <h3>michale30953@gmail.com</h3>
-                </div>
-            </div>
-            <!-- end of admin info -->
-        </div>
     </div>
     <!-- end of container -->
 </body>

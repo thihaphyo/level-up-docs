@@ -34,7 +34,7 @@ const signIn = () => {
       const message = response.data.message;
       if (statusCode == 200) {
         const user = response.data.data;
-        localStorage.setItem("access_token", user.students.access_token); 
+        localStorage.setItem("access_token", user.students.access_token);
         window.location.replace("./index.php");
       } else {
         window.alert(message);
@@ -42,8 +42,8 @@ const signIn = () => {
     })
     .catch((error) => console.error(error))
     .then(function () {
-    //    hideLoading();
-    }); ;
+      //    hideLoading();
+    });
 };
 
 $("document").ready(function () {
@@ -52,7 +52,6 @@ $("document").ready(function () {
   } else {
     checkState();
   }
-  
 });
 
 $("#btnSignInUp").click(function () {
