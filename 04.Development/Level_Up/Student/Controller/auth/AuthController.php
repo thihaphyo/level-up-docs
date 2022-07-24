@@ -4,7 +4,8 @@ header('Content-Type: application/json; charset=utf-8');
 
 class AuthController extends BaseController
 {
-    function getLoginState() {
+    function getLoginState()
+    {
         echo $_SESSION['logged in'];
     }
 
@@ -21,7 +22,7 @@ class AuthController extends BaseController
 
             $sql = $this->connection->prepare($getStudentQuery);
             $sql->bindValue(':email', $emailInput);
-            $sql->bindValue(':password', $this->stringEncryption('encrypt', $passwordInput ));
+            $sql->bindValue(':password', $this->stringEncryption('encrypt', $passwordInput));
             $sql->execute();
 
             $studentData = $sql->fetch(PDO::FETCH_ASSOC);
@@ -115,8 +116,9 @@ class AuthController extends BaseController
         }
     }
 
-    function getUser() {
-        
+    function getUser()
+    {
+
         $userId = $this->stringEncryption('decrypt', $_POST["id"]);
         if ($userId == null || $userId == '') {
 
@@ -157,7 +159,7 @@ class AuthController extends BaseController
                 echo $response;
             }
         } catch (PDOException $th) {
-            
+
             $response = json_encode([
                 'code' => 500,
                 'message' => $th
@@ -165,30 +167,29 @@ class AuthController extends BaseController
 
             echo $response;
         }
-
     }
 
-    function stringEncryption($action, $string){
+    function stringEncryption($action, $string)
+    {
         $output = false;
-        
+
         $encrypt_method = 'AES-256-CBC';                // Default
         $secret_key = 'Some#Random_Key!';               // Change the key!
         $secret_iv = '!IV@_$2';  // Change the init vector!
-        
+
         // hash
         $key = hash('sha256', $secret_key);
-        
+
         // iv - encrypt method AES-256-CBC expects 16 bytes - else you will get a warning
         $iv = substr(hash('sha256', $secret_iv), 0, 16);
-        
-        if( $action == 'encrypt' ) {
+
+        if ($action == 'encrypt') {
             $output = openssl_encrypt($string, $encrypt_method, $key, 0, $iv);
             $output = base64_encode($output);
-        }
-        else if( $action == 'decrypt' ){
+        } else if ($action == 'decrypt') {
             $output = openssl_decrypt(base64_decode($string), $encrypt_method, $key, 0, $iv);
         }
-        
+
         return $output;
-      }
+    }
 }

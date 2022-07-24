@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -67,9 +68,9 @@
                             <div class="card">
                                 <div class="card-image">
                                     <figure class="image is-4by1">
-                                      <img src="./resources/img/header_footer/course image.png" alt="Placeholder image">
+                                        <img src="./resources/img/header_footer/course image.png" alt="Placeholder image">
                                     </figure>
-                                  </div>
+                                </div>
                                 <div class="card-content">
                                     <div class="details is-flex is-justify-content-space-between">
                                         <div class="detail is-size-7">
@@ -93,30 +94,30 @@
                                                 <h5 class="has-text-primary-light">10 Lectures</h5>
                                             </div>
                                         </div>
-                                    </div> 
-                                  <div class="content has-text-primary has-text-weight-bold no-margin-bot">
-                                    Importanes of Wireframes: Learn to Make for Better Design
-                                  </div>
+                                    </div>
+                                    <div class="content has-text-primary has-text-weight-bold no-margin-bot">
+                                        Importanes of Wireframes: Learn to Make for Better Design
+                                    </div>
 
-                                  <div class="content no-margin-bot mt-2">
-                                    <progress class="progress is-yellow short-progress" value="10" max="100">90%</progress>
-            
-                                  </div>
+                                    <div class="content no-margin-bot mt-2">
+                                        <progress class="progress is-yellow short-progress" value="10" max="100">90%</progress>
 
-                                  <div class="content no-margin-bot mt-2">
-                                    <div class="is-flex is-justify-content-space-between">
-                                        <div class="has-text-primary-light mt-2 is-size-7">
-                                            By Daniel Walter
+                                    </div>
+
+                                    <div class="content no-margin-bot mt-2">
+                                        <div class="is-flex is-justify-content-space-between">
+                                            <div class="has-text-primary-light mt-2 is-size-7">
+                                                By Daniel Walter
+                                            </div>
+                                            <div class="has-text-primary mt-2 is-size-7">
+                                                <img src="./resources/img/header_footer/Rating.svg" alt="" style="width: 10px; height:10px;" /> 4.5/5
+                                            </div>
                                         </div>
-                                        <div class="has-text-primary mt-2 is-size-7">
-                                            <img src="./resources/img/header_footer/Rating.svg" alt="" style="width: 10px; height:10px;"/> 4.5/5
-                                        </div>
-                                    </div>  
-                                    
-                                  </div>
-                                  <div class="price">
-                                    <p><span>20,000</span> Ks</p>
-                                  </div>
+
+                                    </div>
+                                    <div class="price">
+                                        <p><span>20,000</span> Ks</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -124,9 +125,9 @@
                             <div class="card">
                                 <div class="card-image">
                                     <figure class="image is-4by1">
-                                      <img src="./resources/img/header_footer/course image.png" alt="Placeholder image">
+                                        <img src="./resources/img/header_footer/course image.png" alt="Placeholder image">
                                     </figure>
-                                  </div>
+                                </div>
                                 <div class="card-content">
                                     <div class="details is-flex is-justify-content-space-between">
                                         <div class="detail is-size-7">
@@ -150,30 +151,30 @@
                                                 <h5 class="has-text-primary-light">10 Lectures</h5>
                                             </div>
                                         </div>
-                                    </div> 
-                                  <div class="content has-text-primary has-text-weight-bold no-margin-bot">
-                                    Importanes of Wireframes: Learn to Make for Better Design
-                                  </div>
+                                    </div>
+                                    <div class="content has-text-primary has-text-weight-bold no-margin-bot">
+                                        Importanes of Wireframes: Learn to Make for Better Design
+                                    </div>
 
-                                  <div class="content no-margin-bot mt-2">
-                                    <progress class="progress is-yellow short-progress" value="10" max="100">90%</progress>
-            
-                                  </div>
+                                    <div class="content no-margin-bot mt-2">
+                                        <progress class="progress is-yellow short-progress" value="10" max="100">90%</progress>
 
-                                  <div class="content no-margin-bot mt-2">
-                                    <div class="is-flex is-justify-content-space-between">
-                                        <div class="has-text-primary-light mt-2 is-size-7">
-                                            By Daniel Walter
+                                    </div>
+
+                                    <div class="content no-margin-bot mt-2">
+                                        <div class="is-flex is-justify-content-space-between">
+                                            <div class="has-text-primary-light mt-2 is-size-7">
+                                                By Daniel Walter
+                                            </div>
+                                            <div class="has-text-primary mt-2 is-size-7">
+                                                <img src="./resources/img/header_footer/Rating.svg" alt="" style="width: 10px; height:10px;" /> 4.5/5
+                                            </div>
                                         </div>
-                                        <div class="has-text-primary mt-2 is-size-7">
-                                            <img src="./resources/img/header_footer/Rating.svg" alt="" style="width: 10px; height:10px;"/> 4.5/5
-                                        </div>
-                                    </div>  
-                                    
-                                  </div>
-                                  <div class="price">
-                                    <p><span>20,000</span> Ks</p>
-                                  </div>
+
+                                    </div>
+                                    <div class="price">
+                                        <p><span>20,000</span> Ks</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -183,9 +184,9 @@
                             <div class="card">
                                 <div class="card-image">
                                     <figure class="image is-4by1">
-                                      <img src="./resources/img/header_footer/course image.png" alt="Placeholder image">
+                                        <img src="./resources/img/header_footer/course image.png" alt="Placeholder image">
                                     </figure>
-                                  </div>
+                                </div>
                                 <div class="card-content">
                                     <div class="details is-flex is-justify-content-space-between">
                                         <div class="detail is-size-7">
@@ -209,30 +210,30 @@
                                                 <h5 class="has-text-primary-light">10 Lectures</h5>
                                             </div>
                                         </div>
-                                    </div> 
-                                  <div class="content has-text-primary has-text-weight-bold no-margin-bot">
-                                    Importanes of Wireframes: Learn to Make for Better Design
-                                  </div>
+                                    </div>
+                                    <div class="content has-text-primary has-text-weight-bold no-margin-bot">
+                                        Importanes of Wireframes: Learn to Make for Better Design
+                                    </div>
 
-                                  <div class="content no-margin-bot mt-2">
-                                    <progress class="progress is-yellow short-progress" value="10" max="100">90%</progress>
-            
-                                  </div>
+                                    <div class="content no-margin-bot mt-2">
+                                        <progress class="progress is-yellow short-progress" value="10" max="100">90%</progress>
 
-                                  <div class="content no-margin-bot mt-2">
-                                    <div class="is-flex is-justify-content-space-between">
-                                        <div class="has-text-primary-light mt-2 is-size-7">
-                                            By Daniel Walter
+                                    </div>
+
+                                    <div class="content no-margin-bot mt-2">
+                                        <div class="is-flex is-justify-content-space-between">
+                                            <div class="has-text-primary-light mt-2 is-size-7">
+                                                By Daniel Walter
+                                            </div>
+                                            <div class="has-text-primary mt-2 is-size-7">
+                                                <img src="./resources/img/header_footer/Rating.svg" alt="" style="width: 10px; height:10px;" /> 4.5/5
+                                            </div>
                                         </div>
-                                        <div class="has-text-primary mt-2 is-size-7">
-                                            <img src="./resources/img/header_footer/Rating.svg" alt="" style="width: 10px; height:10px;"/> 4.5/5
-                                        </div>
-                                    </div>  
-                                    
-                                  </div>
-                                  <div class="price">
-                                    <p><span>20,000</span> Ks</p>
-                                  </div>
+
+                                    </div>
+                                    <div class="price">
+                                        <p><span>20,000</span> Ks</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -240,9 +241,9 @@
                             <div class="card">
                                 <div class="card-image">
                                     <figure class="image is-4by1">
-                                      <img src="./resources/img/header_footer/course image.png" alt="Placeholder image">
+                                        <img src="./resources/img/header_footer/course image.png" alt="Placeholder image">
                                     </figure>
-                                  </div>
+                                </div>
                                 <div class="card-content">
                                     <div class="details is-flex is-justify-content-space-between">
                                         <div class="detail is-size-7">
@@ -266,30 +267,30 @@
                                                 <h5 class="has-text-primary-light">10 Lectures</h5>
                                             </div>
                                         </div>
-                                    </div> 
-                                  <div class="content has-text-primary has-text-weight-bold no-margin-bot">
-                                    Importanes of Wireframes: Learn to Make for Better Design
-                                  </div>
+                                    </div>
+                                    <div class="content has-text-primary has-text-weight-bold no-margin-bot">
+                                        Importanes of Wireframes: Learn to Make for Better Design
+                                    </div>
 
-                                  <div class="content no-margin-bot mt-2">
-                                    <progress class="progress is-yellow short-progress" value="10" max="100">90%</progress>
-            
-                                  </div>
+                                    <div class="content no-margin-bot mt-2">
+                                        <progress class="progress is-yellow short-progress" value="10" max="100">90%</progress>
 
-                                  <div class="content no-margin-bot mt-2">
-                                    <div class="is-flex is-justify-content-space-between">
-                                        <div class="has-text-primary-light mt-2 is-size-7">
-                                            By Daniel Walter
+                                    </div>
+
+                                    <div class="content no-margin-bot mt-2">
+                                        <div class="is-flex is-justify-content-space-between">
+                                            <div class="has-text-primary-light mt-2 is-size-7">
+                                                By Daniel Walter
+                                            </div>
+                                            <div class="has-text-primary mt-2 is-size-7">
+                                                <img src="./resources/img/header_footer/Rating.svg" alt="" style="width: 10px; height:10px;" /> 4.5/5
+                                            </div>
                                         </div>
-                                        <div class="has-text-primary mt-2 is-size-7">
-                                            <img src="./resources/img/header_footer/Rating.svg" alt="" style="width: 10px; height:10px;"/> 4.5/5
-                                        </div>
-                                    </div>  
-                                    
-                                  </div>
-                                  <div class="price">
-                                    <p><span>20,000</span> Ks</p>
-                                  </div>
+
+                                    </div>
+                                    <div class="price">
+                                        <p><span>20,000</span> Ks</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -301,15 +302,15 @@
                             <a class="pagination-previous"> <img style="width: 10px; " src="./resources/img/header_footer/left_arrow.png"> </a>
                             <a class="pagination-next"><img style="width: 10px; " src="./resources/img/header_footer/right_arrow.png"></a>
                             <ul class="pagination-list">
-                              <li><a class="pagination-link is-current" aria-label="Goto page 1" aria-current="page">1</a></li>
-                              <li><a class="pagination-link" aria-label="Goto page 2">2</a></li>
-                              <li><span class="pagination-ellipsis">&hellip;</span></li>
-                              <li><a class="pagination-link" aria-label="Goto page 45">45</a></li>
+                                <li><a class="pagination-link is-current" aria-label="Goto page 1" aria-current="page">1</a></li>
+                                <li><a class="pagination-link" aria-label="Goto page 2">2</a></li>
+                                <li><span class="pagination-ellipsis">&hellip;</span></li>
+                                <li><a class="pagination-link" aria-label="Goto page 45">45</a></li>
                             </ul>
-                          </nav>
+                        </nav>
                     </div>
                 </div>
-                
+
             </div>
         </div>
         <!-- end of container -->

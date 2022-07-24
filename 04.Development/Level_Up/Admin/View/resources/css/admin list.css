@@ -1,9 +1,10 @@
 .admin-list-container{
     width: 70vw;
+ 
     display: flex;
-    justify-content: space-around;
+    /* justify-content: space-around; */
     align-items: center;
-    border: 2px solid #000000;
+    border: 1px solid #00000043;
     border-radius: 15px;
     padding: 1em;
     margin-top: 3rem;
@@ -13,7 +14,8 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-
+    padding: 2rem;
+    margin-right: 4rem;
 
 }
 .profile-image{
@@ -28,15 +30,27 @@
 
 }
 .profile-action-link a {
-    font-weight: 700;
-    color: #706D6D;
+    font-weight: 500;
+    font-size: 0.8rem;
+    color: #706d6d97;
     padding: 0.6rem;
 }
 .profile-action-link a:hover{
     color: #000000;
 }
+.admin-info{
+    width: 30%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    margin-right: 2rem;
+}
 .info-chunk{
-    padding: 1rem;
+    padding: 1rem 0rem;
+
+}
+.info-chunk h3{
+    font-weight: 600;
 }
 .info-chunk label{
     color: #848484;
