@@ -47,6 +47,32 @@ footer {
   background-size: cover;
   background-repeat: no-repeat;
   background-color: transparent !important;
+  border-bottom: 2px solid #01226f;
+}
+main .container {
+  margin-top: 10%;
+}
+.badge {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  top: 0;
+  right: 0;
+  /* padding: 4px; */
+  border-radius: 50%;
+  background-color: #01226f;
+  color: #ffffff;
+}
+footer {
+  background-image: url("../img/header_footer/footer\ background.svg");
+  background-size: cover;
+
+  /* background-size: 80%; */
+  background-repeat: no-repeat;
+  /* background-attachment: fixed; */
 }
 footer .container {
   margin-top: 30%;
@@ -426,4 +452,103 @@ footer .container {
 }
 .coursefor p:nth-child(2) {
   line-height: 200%;
+}
+.m10 {
+  margin-top: 10rem;
+}
+
+.full-container {
+  padding: 0 !important;
+}
+
+.column-fill {
+  min-height: 100vh;
+}
+
+.mt-7 {
+  margin-top: 5rem !important;
+}
+
+.mr-10 {
+  margin-right: 10rem;
+}
+
+.ml-10 {
+  margin-left: 10rem;
+}
+
+.is-primay-label {
+  color: #01226f;
+  font-weight: 600;
+  margin-bottom: 20px !important;
+}
+
+.text-box {
+  background-color: #eff1f5;
+  height: 63px !important;
+  font-weight: 600;
+}
+
+::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #9d9b9b !important;
+  font-style: italic !important;
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #9d9b9b !important;
+  font-style: italic !important;
+}
+
+::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: #9d9b9b !important;
+  font-style: italic !important;
+}
+
+.full-wd-btn {
+  width: 100%;
+  height: 64px;
+  border-radius: 10px !important;
+}
+
+.is-image-btn {
+  width: 64px !important;
+  height: 64px !important;
+  background-color: transparent;
+  border: none !important;
+  outline: none !important;
+  cursor: pointer;
+}
+
+.signin-left-section {
+    background-color: white !important;
+}
+
+.sign-in-graphics {
+    background-color: #DDE7FE;
+}
+
+.login_arc {
+    height: 10rem;
+    margin-left: 76%;
+}
+
+.has-text-light-blue {
+    color: #516EB0;
+}
+
+@media screen and (max-width: 768px) {
+  .mr-10 {
+    margin-right: 3rem;
+  }
+  .ml-10 {
+    margin-left: 1rem;
+  }
+
+  .mt-7 {
+    margin-top: 2em !important;
+  }
 }

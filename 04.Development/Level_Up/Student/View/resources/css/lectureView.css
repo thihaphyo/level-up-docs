@@ -1,0 +1,153 @@
+.l-wrapper{
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    gap:2vw;
+    padding: 0 3vmin !important;
+    margin: 3vmin;
+}
+.l-wrapper progress {
+    width:50%;
+}
+
+/* 1. Navigation (l-nav) */
+
+.l-course-title{
+    font-weight: 600;
+    font-size: 1.5rem;
+    margin-bottom: 2vmin;
+    padding-bottom: 1vmin;
+    border-bottom: 1px solid #F3B33E;
+    width:80%;
+}
+.l-chapter-title {
+    font-weight: 500;
+}
+.l-chapter-box {
+    margin: 1vmin 0;
+}
+.l-chapter-title:hover{
+    background-color: #01226F;
+    color:#fff;
+    padding: 1vmin 2vmin;
+    border-radius: 15px;
+    width:70%;
+    cursor: pointer;
+}
+.l-hr {
+    border-bottom: 1px solid #ccc;
+}
+.l-lecture-list {
+    padding-left: 5vmin;
+}
+.l-lecture-list li{
+    list-style: disc; 
+    padding-left: 3vmin;
+    margin: 3vmin 0;   
+    cursor:pointer;         
+}
+.l-lecture-list li:hover {
+    font-weight: 500;
+}
+.l-selected-lecture {
+    background-color: #ececec;
+}
+
+.l-nav-hr {
+    border-bottom: 1px solid #ccc;
+    display:none;
+}
+
+/* 2. Content (l-body) */
+
+.l-body-title{
+    font-weight: 300;
+    font-size: 3rem;
+    margin-bottom: 2vmin;
+}
+.l-body-video {
+    display: flex;
+    justify-content: center;
+}
+
+.l-btns {
+    display: flex;
+    gap: 3vmin;
+    justify-content: flex-end;
+    padding: 10vmin;
+    width: 100%;
+}
+
+/* 3. Quizzes (l-quiz) */
+
+.l-quiz-question {
+    font-weight: 500;
+    margin-top: 3vmin;
+}
+.l-quiz-form-input-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    line-height: 2rem;
+    margin: 5vmin 0;
+    color:#555;
+}
+.l-quiz-form input {
+    margin-right: 2vmin;
+}
+.l-quiz-submit {
+    margin-left: auto;
+}
+.l-quiz-correct{
+    color:#01226F;
+    font-weight: 600;
+    margin-top: 3vmin;
+
+}
+.l-quiz-wrong{
+    color:#333;
+    font-weight: 600;
+    margin-top: 3vmin;
+
+}
+.l-quiz-crtans{
+    font-style: italic;
+    color:#01226F;
+    margin-top: 3vmin;
+}
+.l-quiz-score{
+    border: 1px solid #01226F;
+    padding: 1vmin 2vmin;
+    display: block;
+}
+
+
+/* FOR MOBILE */
+
+@media screen and (max-width:768px) {
+    .l-wrapper {
+        display: block;
+        margin-top: 15vh !important;
+    }
+    .l-nav {
+        max-height: 60vh;
+    }
+    .l-nav-hr {
+        display:block;
+    }
+    .l-body-title {
+        font-size: 2rem;
+    }
+    iframe{
+        margin:5vh 0;
+        height: auto;
+    }
+    .l-quiz-form-input-wrapper{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .l-quiz-form-input-wrapper > label:first-of-type {
+        margin-left: 1vh;
+    }
+}
+

@@ -27,7 +27,7 @@
                     <a id="lnk_explore" class="navbar-item" href="./explore.php">
                         Explore
                     </a>
-                    <a class="navbar-item" href="https://bulma.io/">
+                    <a class="navbar-item" href="./InstructorListView.php">
                         Instructor
                     </a>
                     <a id="lnk_my_courses" class="navbar-item" href="./dashboard.php">

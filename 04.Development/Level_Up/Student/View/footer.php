@@ -1,6 +1,6 @@
     <!-- start of footer -->
     <footer class="footer">
-        <!-- <img class="m-0" src="./resources/img/header_footer/footer wave.svg" alt=""></img> -->
+        <!-- <img class="m-0" src="../View/resources/img/header_footer/footer wave.svg" alt=""></img> -->
 
         <div class="container">
 
@@ -43,13 +43,13 @@
                     <h6 class="title is-size-4 py-0 has-text-primary-light">Secure Payment With</h6>
                     <div class="columns is-half-mobile is-4">
                         <div class="column py-0 is-half-mobile">
-                            <img class="mr-2" width="60vw" src="./resources/img/header_footer/visa.svg" alt=""></img>
-                            <img class="mr-2" width="60vw" src="./resources/img/header_footer/mastercard.svg" alt=""></img>
-                            <img class="mr-2" width="60vw" src="./resources/img/header_footer/paypal.svg" alt=""></img>
+                            <img class="mr-2" width="60vw" src="../View/resources/img/header_footer/visa.svg" alt=""></img>
+                            <img class="mr-2" width="60vw" src="../View/resources/img/header_footer/mastercard.svg" alt=""></img>
+                            <img class="mr-2" width="60vw" src="../View/resources/img/header_footer/paypal.svg" alt=""></img>
                         </div>
                     </div>
                     <div class="column py-0">
-                        <img width="80vw" src="./resources/img/header_footer/level up.svg" alt="">
+                        <img width="80vw" src="../View/resources/img/header_footer/level up.svg" alt="">
                     </div>
                 </div>
             </div>
