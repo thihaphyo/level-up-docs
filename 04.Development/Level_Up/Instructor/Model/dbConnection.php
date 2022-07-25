@@ -3,7 +3,7 @@
 class DBConnect{
     private $hostname = "localhost";
     private $port = 3306;
-    private $dbname = "";
+    private $dbname = "level_up";
     private $username = "root";
     private $password = "";
 

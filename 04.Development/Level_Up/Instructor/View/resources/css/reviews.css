@@ -1,0 +1,97 @@
+.r-container {
+    --cardPicSize: 7vmin;
+    --cardPicColor: #FFD485;
+}
+
+.r-text {
+    margin-bottom: 3vmin;
+}
+
+.r-course-title {
+    font-weight: 600;
+    flex: 1 0 100%;
+    margin-top: 3vmin;
+    font-size: 1.3rem;
+}
+.r-course-avg {
+    font-weight: 300;
+    color:#555;
+}
+
+.r-course-avg img {
+    max-width: 1rem;
+}
+
+.r-cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap:3vmin;
+}
+
+.r-review-card {
+    padding:2vmin;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    max-width: 270px;
+    font-size: 0.9rem;
+
+}
+
+.r-card-head {
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+    gap:3vmin;
+}
+
+
+
+
+.r-card-pic {
+    width:var(--cardPicSize);
+    height: var(--cardPicSize);
+    background-color: var(--cardPicColor);
+    border-radius: 50%;
+    text-align: center;
+    line-height: var(--cardPicSize);
+}
+
+.r-card-head-rating-name {
+    flex-direction: column;
+}
+
+.r-card-rating {
+    font-size: 1.5rem;
+    background: linear-gradient(90deg, #FFD485 var(--percent), #ccc var(--percent));
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    -moz-background-clip: text;
+    -webkit-background-clip: text;
+    color:transparent;
+}
+
+.r-card-date {
+    margin-left: auto;
+}
+
+.r-card-body {
+    color:#555;
+    margin-top: 3vmin;
+}
+
+
+#r-list-pagination {
+    margin-top: 300px;
+    display: flex;
+    gap:3vmin;
+}
+
+.r-pagination-link{
+    background-color: #333;
+    color:#eee;
+    padding:3vmin;
+}
+
+.is-current {
+    background-color: orange;
+}

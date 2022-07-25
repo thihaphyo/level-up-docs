@@ -62,4 +62,5 @@
             <!-- end of copyright text -->
         </div>
     </footer>
+    <script src="./resources/js/index.js"></script>
     <!-- end of footer -->
