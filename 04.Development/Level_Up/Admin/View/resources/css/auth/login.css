@@ -1,0 +1,69 @@
+.full-heigt {
+    height: 100vh;
+}
+
+.is-admin-primary {
+    background-color: #252125 !important;
+}
+
+.is-admin-secondary {
+    background-color: #F3B33E !important;
+}
+
+.is-gray {
+    background-color: #d3d3d3 !important;
+}
+
+.rounded-corner {
+    border-radius: 10px;
+}
+
+.ml-7 {
+    margin-left: 5rem !important;
+}
+
+.mr-7 {
+    margin-right: 5rem !important;
+}
+
+.switch {
+    width: 3rem;
+    height: 0.3rem;
+    border: none;
+    border-radius: 0.2rem;
+}
+  
+.text-box {
+    background-color: #eff1f5;
+    height: 3.5rem !important;
+    font-weight: 400;
+    border-radius: 0.4rem !important;
+  }
+  
+  ::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #9d9b9b !important;
+    font-style: italic !important;
+    opacity: 1; /* Firefox */
+  }
+  
+  :-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: #9d9b9b !important;
+    font-style: italic !important;
+  }
+  
+  ::-ms-input-placeholder {
+    /* Microsoft Edge */
+    color: #9d9b9b !important;
+    font-style: italic !important;
+  }
+
+  .full-wd-btn {
+    width: 100%;
+    height: 3.5rem;
+    border-radius: 0.4rem !important;
+    border: none;
+    letter-spacing: 0.3rem !important;
+  }
+  
