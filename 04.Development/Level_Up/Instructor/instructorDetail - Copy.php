@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Level Up</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-    <link rel="stylesheet" href="../View/resources/css/instructorList.css">
+    <link rel="stylesheet" href="./instructorList.css">
 </head>
 
 <body>
