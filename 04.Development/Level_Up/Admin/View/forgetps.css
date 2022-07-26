@@ -1,0 +1,17 @@
+/* image */
+.sign-in-graphics {
+  position: relative;
+
+  background-color: rgb(71, 71, 71);
+}
+.forget_arc {
+  position: relative;
+  top: 5rem;
+  left: 5rem;
+  width: 40rem;
+}
+/* text color */
+#p_title {
+  color: black;
+}
+
