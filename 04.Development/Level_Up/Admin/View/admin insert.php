@@ -18,9 +18,6 @@ $time = time();
 </head>
 
 <body>
-
-    <?php require_once('./sidebar.php') ?>
-
     <!-- start of container -->
     <div class="container">
         <h1 class="text">Create Admin</h1>
@@ -53,21 +50,6 @@ $time = time();
                 </div>
                 <!-- end of name input  -->
 
-                <!-- start of password input -->
-                <div class="admin-update-input">
-                    <p>Password</p>
-                    <input class="input-validate" type="password" placeholder="e.g. ******" name="pwd" required></input>
-                    <p class="warning">*Password must be matched with format.*</p>
-                    <div class="password-must-contain">
-                        <h5>Password must contain the following:</h5>
-                        <p id="char" class="pwd-invalid">A lowercase letter</p>
-                        <p id="capital" class="pwd-invalid">A capital (uppercase)letter</p>
-                        <p id="numbers" class="pwd-invalid">A number </p>
-                        <p id="length" class="pwd-invalid">Minimum 8 characters </p>
-                    </div>
-                </div>
-                <!-- end of passwod input  -->
-
                 <!-- start of email input -->
                 <div class="admin-update-input">
                     <p>Email</p>
@@ -80,12 +62,12 @@ $time = time();
                 <div class="admin-update-input">
                     <p>Country Code</p>
                     <select name="countryCode">
-                        <option value="1">+1 United State</option>
-                        <option value="95">+95 Myanmar</option>
-                        <option value="66">+66 Thailand</option>
-                        <option value="65">+65 Singapore</option>
-                        <option value="81">+81 Japan</option>
-                        <option value="84">+84 Vietnam</option>
+                        <option value="+1">+1 United State</option>
+                        <option value="+95">+95 Myanmar</option>
+                        <option value="+66">+66 Thailand</option>
+                        <option value="+65">+65 Singapore</option>
+                        <option value="+81">+81 Japan</option>
+                        <option value="+84">+84 Vietnam</option>
                     </select>
                 </div>
                 <!-- end of country code input  -->
@@ -110,7 +92,7 @@ $time = time();
 
                 <div class="submit-button">
                     <p class="final-warning"></p>
-                    <button class="admin-submit" type="submit">Insert Now</button>
+                    <button class="admin-submit" id="insertBtn" type="submit">Insert Now</button>
                 </div>
             </form>
 
@@ -119,6 +101,7 @@ $time = time();
 
     </div>
     <!-- end of container -->
+
     <!-- javascript file  -->
     <script src="./resources/js/admin validation.js?<?php echo $time ?>"></script>
 </body>
