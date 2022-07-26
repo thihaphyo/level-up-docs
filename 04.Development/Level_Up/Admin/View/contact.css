@@ -1,0 +1,22 @@
+/* tile of the contact */
+.title {
+  color: black;
+}
+/* phone number and email address */
+.input {
+  color: black;
+}
+/* select img */
+.file {
+  width: 76rem;
+  background-color: rgb(217, 217, 217);
+  border-radius: 1em;
+  height: 23rem;
+}
+/* button */
+.button {
+  width: 10rem;
+  position: relative;
+  left: 66rem;
+  border-radius: 0.5rem;
+}
