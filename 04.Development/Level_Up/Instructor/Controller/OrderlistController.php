@@ -32,9 +32,9 @@ if(isset($_POST['pageNum'])){
         "order_price" => "Purchase_Amount",
         "created_at" => "Purchase_Date"));
 
-    $file = "../Controller/orderlistDownloads/temp.csv";
+    $filename = time();
 
-    $temp_file = fopen($file, 'w');
+    $temp_file = fopen("../Controller/orderlistDownloads/$filename.csv", 'w');
 
     foreach($orderlist as $list){
         fputcsv($temp_file, $list);
@@ -42,9 +42,12 @@ if(isset($_POST['pageNum'])){
 
     fclose($temp_file);
 
-    download_csv($file);
+    echo json_encode($filename);
 
-    // echo json_encode("Successful");
+} else if (isset($_POST['deleteCsv'])) {
+
+    $filename_full = "../Controller/orderlistDownloads/" . $_POST['deleteCsv'] . ".csv";
+    unlink($filename_full);
 
 } else {
 
@@ -62,21 +65,6 @@ if(isset($_POST['pageNum'])){
 
     require('../View/OrderlistView.php');
 
-}
-
-function download_csv ($file) {
-    header('Content-Description: File Transfer');
-    header('Content-Type: text/csv');
-    header('Content-Disposition: attachment; filename='.basename($file));
-    header('Content-Transfer-Encoding: binary');
-    header('Expires: 0');
-    header('Cache-Control: must-revalidate');
-    header('Pragma: public');
-    header('Content-Length: ' . filesize($file));
-    ob_clean();
-    flush();
-    readfile($file);
-    exit;
 }
 
 

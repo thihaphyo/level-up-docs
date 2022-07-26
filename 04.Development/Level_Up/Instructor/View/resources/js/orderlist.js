@@ -1,6 +1,6 @@
 // Initializing.
 let controllerURL = 'http://localhost/level-up-docs_original/04.Development/Level_Up/Instructor/Controller/orderlistController.php/';
-let downloadCsvURL = "http://localhost/level-up-docs_original/04.Development/Level_Up/Instructor/Controller/orderlistDownloads/temp.csv";
+let csvFolderURL = "http://localhost/level-up-docs_original/04.Development/Level_Up/Instructor/Controller/orderlistDownloads/";
 
 instructorId = 5;
 
@@ -116,9 +116,18 @@ function showChangedPage(nextIndex, data) {
 
 // Downloads All Data
 $('#o-download-list').click(e => {
-    console.log('clicked here');
     $.post(controllerURL, {downloadAll: instructorId},
         data => {
-            window.location = downloadCsvURL;
+    /**
+     * The way this works is:
+     * The controller retrieves data through the model, wrote it in a .csv file, naming the file time().
+     * The filename is then sent to View(JS). JS downloads the file and sends the filename back to the controller.
+     * The controller then deletes the file.
+     * Therefore, multiple files can be written/downloaded at the same time as they will always have unique names.
+     * Files are also deleted right after the download, reducing memory consumption.
+     */
+            let filename = JSON.parse(data);
+            window.location = csvFolderURL + filename + '.csv';
+            $.post(controllerURL, {deleteCsv : filename});
         });
 });
