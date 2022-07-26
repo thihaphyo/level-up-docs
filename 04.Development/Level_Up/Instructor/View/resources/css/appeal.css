@@ -1,0 +1,38 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Poppins;
+}
+.sideNavbar{
+    height: 1000px;
+    width: 20%;
+    background-color: #000;
+}
+.container{
+    position: absolute;
+    left: 25%;
+    top: 5vh;
+}
+h1{
+    margin-bottom: 5vh;
+}
+textarea{
+    margin-top: 2vh;
+    margin-bottom: 3vh;
+    width: 50vw;
+    height: 15vh;
+    padding: 10px;
+    border-radius: 15px;
+    resize: none;
+}
+.btnSumbit{
+    width: 13vw;
+    height: 5vh;
+    border-radius: 10px;
+    border: none;
+    background-color: #000;
+    color: #fff;
+    margin-left: 75%;
+}
