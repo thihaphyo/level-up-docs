@@ -1,0 +1,40 @@
+.text-box {
+    background-color: white;
+    height: 3.5rem !important;
+    font-weight: 400;
+    border: 1.5px solid black;
+    border-radius: 0.8rem !important;
+    color: black;
+  }
+
+  .text-area {
+    background-color: white;
+    font-weight: 400;
+    border: 1.5px solid black;
+    border-radius: 0.8rem !important;
+    color: black;
+  }
+  
+  .is-admin-primary {
+    background-color: #252125 !important;
+}
+
+.is-admin-secondary {
+    background-color: #F3B33E !important;
+}
+
+.is-gray {
+    background-color: #d3d3d3 !important;
+}
+
+.is-text-black {
+   color: #000000 !important;
+}
+
+ 
+.full-wd-btn {
+    width: 100%;
+    height: 3rem;
+    border-radius: 10px !important;
+    cursor: pointer;
+  }
