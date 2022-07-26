@@ -36,6 +36,11 @@
                             <p id="p_title" class="is-size-6 has-text-weight-semibold m-auto">Enter the email address you used in registration and we will send you instructions to reset your password.Enter the email address you used in registration and we will send you instructions to reset your password.Enter the email address you used in registration .</p>
                         </div>
                     </div>
+                    <div class="field mt-5">
+                        <div class="control">
+                            <p id="p_title" class="is-size-6 has-text-weight-semibold m-auto">   we will send you instructions to reset your password.Enter the email address you used in registration and we will send you instructions to reset your password.Enter the email address you used in registration .</p>
+                        </div>
+                    </div>
                     <div class="field mt-6">
                         <label class="label is-primay-label has-text-weight-semibold ">Email Address</label>
                         <div class="control">
