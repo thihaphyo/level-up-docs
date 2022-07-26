@@ -1,0 +1,56 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+
+/* start instructor request page */
+.requestedList{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 5vmin;
+}
+.requestedBox{
+    width: 275px;
+    border: 2px solid #333;
+    border-radius: 15px;
+    padding: 2vmin;
+    margin-bottom: 2vw;
+    text-align: center;
+    color: #333;
+}
+.requestedBox .dateAndDelete{
+    display: flex;
+    justify-content: space-between;
+}
+.requestedBox .name{
+    font-size: 1.5em;
+    font-weight: 600;
+    margin-top: 1vmin;
+}
+.requestedBox .email{
+    font-size: 0.8em;
+    color: #757575;
+    text-decoration: underline;
+    margin-top: 1vmin;
+}
+.requestedBox .text{
+    text-align: left;
+    font-style: italic;
+    font-size: 0.8em;
+    font-weight: 500;
+    margin-top: 3vmin;
+}
+.info{
+    width: 8vw;
+    height: 5vmin;
+    font-weight: 500;
+    background-color: #333;
+    border: 1px solid #333;
+    border-radius: 15px;
+    color: #eee;
+    margin-top: 3vmin;
+}
+/* end instructor request page */
+@media screen and (max-width: 720px) {
+    .instructors .instructor div  h2{
+        font-size: 0.8em;
+    }
+}
