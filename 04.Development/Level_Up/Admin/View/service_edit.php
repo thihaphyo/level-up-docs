@@ -15,7 +15,7 @@ $time = time();
     <link rel="stylesheet" href="./resources/css/index.css?<?php echo $time ?>">
     <link rel="stylesheet" href="./resources/css/mystyles.css">
     <link rel="stylesheet" href="./resources/css/root.css">
-    <link rel="stylesheet" href="contact.css">
+    <link rel="stylesheet" href="service.css">
 </head>
 
 <body>
@@ -25,14 +25,14 @@ $time = time();
     <section class="container">
         <!-- title of the contact -->
         <div class="text">
-            <h3 class="title is-3 has-text-weight-semibold">Contact Us Setting</h2>
+            <h3 class="title is-3 has-text-weight-semibold">Setting for Editing</h2>
         </div>
-        <br /><br /><br />
-        <!-- box of the phone number and email -->
+        <br /><br />
+        <!-- box of the title and Description -->
         <div>
-            <input class="input is-medium    input is-black" type="text" placeholder="Enter Phone Number">
+            <input class="input is-normal    input is-black" type="text" placeholder="Title 1">
             <br /><br />
-            <input class="input is-medium input is-black" type="text" placeholder="Enter Email Address">
+            <textarea class="textarea is-black" placeholder="Description Text "></textarea>
         </div>
         <br />
         <!-- select image -->
@@ -50,10 +50,8 @@ $time = time();
             </label>
         </div>
         <!-- button -->
-        <button class="button is-black  has-text-weight-semibold">Change</button>
-        <div>
+        <button class="button is-black  has-text-weight-semibold">Done</button>
     </section>
-
     <script>
         const body = document.querySelector('body'),
             sidebar = body.querySelector('nav'),
@@ -61,8 +59,6 @@ $time = time();
             searchBtn = body.querySelector(".search-box"),
             modeSwitch = body.querySelector(".toggle-switch"),
             modeText = body.querySelector(".mode-text");
-
-
         toggle.addEventListener("click", () => {
             sidebar.classList.toggle("close");
         })

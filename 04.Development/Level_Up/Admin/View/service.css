@@ -1,0 +1,29 @@
+/* title of the contact */
+.text h3 {
+  color: black;
+}
+/* select image */
+.file {
+  background-color: #d9d9d9;
+  width: 76rem;
+  height: 22rem;
+  border-radius: 1rem;
+}
+/* button */
+button {
+  margin-bottom: 7rem;
+  width: 10rem;
+  position: relative;
+  top: 1rem;
+  left: 66rem;
+}
+/* color change */
+.label {
+  color: black;
+}
+.subtitle {
+  color: black;
+}
+.column {
+  color: black;
+}
