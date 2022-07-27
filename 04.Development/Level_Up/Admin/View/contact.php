@@ -28,12 +28,14 @@ $time = time();
             <h3 class="title is-3 has-text-weight-semibold">Contact Us Setting</h2>
         </div>
         <br /><br /><br />
+        <!-- phone number and Email address -->
         <div>
             <input class="input is-medium    input is-black" type="text" placeholder="Enter Phone Number">
             <br /><br />
             <input class="input is-medium input is-black" type="text" placeholder="Enter Email Address">
         </div>
         <br />
+        <!-- Selcet image -->
         <div class="file is-boxed">
             <label class="file-label">
                 <input class="file-input" type="file" name="resume">
@@ -47,6 +49,7 @@ $time = time();
                 </span>
             </label>
         </div>
+        <!-- change button -->
         <button class="button is-black  has-text-weight-semibold">Change</button>
         <div>
     </section>
