@@ -1,0 +1,109 @@
+/* container */
+.admin-update-container{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top:4%;
+}
+.admin-update-container > div {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.admin-update-container p{
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+.admin-update-container input {
+    width: 30vw;
+}
+/* profile */
+.profile{
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+.profile-action-link a {
+    font-weight: 700;
+    color: #706D6D;
+    padding: 0.6rem;
+}
+
+/* profile image */
+.profile-image{
+    background: url('../img/admin\ profile\ picture/no\ image.png');
+    width: 120px;
+    height:120px;
+    background-size: cover;
+    border-radius: 50%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    border: 4px solid #FFFFFF;
+    margin: auto;  
+
+}
+.profile-image h5 {
+    width: 80%;
+    text-align: center;
+    margin: auto;
+    margin-top: 30%;
+    color: #706D6D;
+    cursor: pointer;
+}
+/* admin profile image */
+.admin-insert-image {
+}
+.admin-update-image {
+    background: url('../img/admin\ profile\ picture/admin\ profile1.jpg');
+}
+
+/* admin info input */
+.admin-update-profile p {
+    padding-bottom: 1rem;
+}
+.admin-update-profile input{
+    visibility: hidden;
+}
+.admin-update-action-link{
+    margin: auto;
+}
+.admin-update-input p{
+    padding: 1rem 0rem;
+}
+.admin-update-input {
+    position: relative;
+}
+.admin-update-input input,.admin-update-input select {
+    width: 30vw;
+    height: 5vh;
+    border:none;
+    border: 2px solid #000000;
+    border-radius: 10px;
+    padding-left: 1rem;
+}
+.admin-update-input select {
+    width: 100%;
+}
+.submit-button{
+    display: flex;
+    justify-content: flex-end;
+}
+.admin-submit {
+    margin-top: 1rem;
+    padding: 0.6rem 2rem;
+    border: none;
+    background-color: #000000;
+    color: #FFFFFF;
+    border-radius: 10px;
+    font-weight: 600;
+}
+input[type="file"]{
+    display: none;
+}
+/* Admin update link */
+.admin-update-link{
+    background-color: red;
+}

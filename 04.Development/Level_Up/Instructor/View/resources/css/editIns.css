@@ -1,0 +1,66 @@
+.text-area {
+    background-color: white;
+    font-weight: 400;
+    border: 1.5px solid black;
+    border-radius: 0.3rem !important;
+    color: black;
+  }
+  .text-box {
+    background-color: white;
+    height: 3.0rem !important;
+    font-weight: 400;
+    border: 1.5px solid black;
+    border-radius: 0.4rem !important;
+    color: black;
+  }
+
+  .textarea:hover {
+    border: 1.5px solid black !important;
+  }
+
+  .text-box:hover {
+    border: 1.5px solid black !important;
+  }
+
+  .btn_border {
+    border-color: #252125;
+    color: #252125;
+    width: 80px;
+    height: 30px;
+  }
+
+  .btn_fill {
+    background-color: #252125;
+    border-color: #252125;
+    width: 80px;
+    height: 30px;
+}
+
+.select select {
+    border: 1.5px solid black;
+    color: black;
+}
+
+.select {
+    width: 100% !important;
+    height: 3.0rem !important;
+}
+
+select {
+    width: 100% !important;
+    height: 3.0rem !important;
+}
+
+.select select:active {
+    border: 1.5px solid black !important;
+    box-shadow:none !important;
+}
+.select select:focus {
+    border: 1.5px solid black !important;
+    box-shadow:none !important;
+}
+
+.select select:hover {
+    border: 1.5px solid black !important;
+    box-shadow:none !important;
+}
