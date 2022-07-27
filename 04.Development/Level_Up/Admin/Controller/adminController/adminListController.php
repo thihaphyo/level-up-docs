@@ -8,7 +8,7 @@ class AdminListController extends DBConnect
     {
         $gotConnection = $this->connect();
 
-        $sql = $gotConnection->prepare("SELECT * FROM M_ADMINS WHERE is_deleted IS NULL");
+        $sql = $gotConnection->prepare("SELECT * FROM M_ADMINS WHERE is_deleted IS NULL AND email IS NOT NULL");
 
         $sql->execute();
         $result = $sql->fetchAll(PDO::FETCH_ASSOC);

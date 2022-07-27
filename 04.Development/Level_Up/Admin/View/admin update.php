@@ -50,6 +50,7 @@ $time = time();
                                 echo "<h5>Click to upload</h5>";
                                 echo '<img width="140%" src="./resources/img/admin profile picture/' . $adminList[0]['profile_image'] . '" alt="no image"></img>';
                             } else {
+                                echo '<h5 id="image-name"></h5>';
                                 echo '<img width="100%" src="./resources/img/admin profile picture/' . $adminList[0]['profile_image'] . '" alt="profile image"></img>';
                             }
                             ?>
@@ -73,13 +74,13 @@ $time = time();
                 <div class="admin-update-input">
                     <p>Password</p>
                     <input class="input-validate" type="password" placeholder="e.g. ******" name="pwd" value="<?php echo $adminList[0]['password']; ?>" required></input>
-                    <p class="warning">*Password must be matched with format.*</p>
-                    <div class="password-must-contain">
-                        <h5>Password must contain the following:</h5>
-                        <p id="char" class="pwd-invalid">A lowercase letter</p>
-                        <p id="capital" class="pwd-invalid">A capital (uppercase)letter</p>
-                        <p id="numbers" class="pwd-invalid">A number </p>
-                        <p id="length" class="pwd-invalid">Minimum 8 characters </p>
+                    <div class="warning hidden password-must-contain">
+                        <h4>*The password has at least*</h4>
+                        <p>*8 character long *</p>
+                        <p>*One Uppercase Letter*</p>
+                        <p>*One Lowercase Letter*</p>
+                        <p>*One Digit*</p>
+                        <p>*One Special Character*</p>
                     </div>
                 </div>
                 <!-- end of passwod input  -->
@@ -135,7 +136,7 @@ $time = time();
     </div>
     <!-- end of container -->
     <!-- javascript file  -->
-    <script src="./resources/js/admin update validation.js?<?php echo $time ?>"></script>
+    <script type="module" src="./resources/js/admin control.js?<?php echo $time ?>"></script>
 </body>
 
 </html>

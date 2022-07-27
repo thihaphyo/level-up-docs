@@ -2,7 +2,7 @@
 
 $time = time();
 session_start();
-$_SESSION["id"] = "3";
+
 ?>
 
 <!DOCTYPE html>
@@ -45,8 +45,6 @@ $_SESSION["id"] = "3";
         // echo "<pre>";
         // print_r($_SESSION['message']);
         //Loop all admin list.
-
-
         foreach ($adminList as $key => $value) {
         ?>
             <div class="admin-list-container">
@@ -63,7 +61,7 @@ $_SESSION["id"] = "3";
                     <div class="profile-action-link">
 
                         <?php
-                        if ($value['id'] == $_SESSION['id']) {
+                        if ($value['id'] == $_SESSION['adminId']) {
                             echo '<a href="./admin update.php?id=' . $value["id"] . '"' . '>Update</a>';
                         } else {
                             echo '<a href="./admin profile.php?id=' . $value["id"] . '"' . '>View</a>';
@@ -159,7 +157,7 @@ $_SESSION["id"] = "3";
     </div>
     <!-- end of container -->
     <!-- javascript file  -->
-    <script src="./resources/js/admin control.js?<?php echo $time ?>"></script>
+    <script src="./resources/js/admin insert.js?<?php echo $time ?>"></script>
 
 </body>
 

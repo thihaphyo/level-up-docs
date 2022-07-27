@@ -16,12 +16,14 @@ const timerForAlertBox = {
   },
 };
 
-document.getElementById("showModal").addEventListener("click", () => {
-  theModalBox = document.getElementsByClassName("error-modal-box-bg")[0];
-  theModalBox.classList.remove("hidden");
-  theModalBox.classList.remove("slide-in-top");
-  timerForAlertBox.cancelTheTime();
-});
+if (document.querySelector(".message-alert-box.message-fail")) {
+  document.getElementById("showModal").addEventListener("click", () => {
+    theModalBox = document.getElementsByClassName("error-modal-box-bg")[0];
+    theModalBox.classList.remove("hidden");
+    theModalBox.classList.remove("slide-in-top");
+    timerForAlertBox.cancelTheTime();
+  });
+}
 
 document.getElementById("closeModal").addEventListener("click", () => {
   theModalBox = document.getElementsByClassName("error-modal-box-bg")[0];

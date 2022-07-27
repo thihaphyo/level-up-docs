@@ -1,7 +1,7 @@
 <?php
 $time = time();
 session_start();
-
+$_SESSION['adminId'] = "11"
 ?>
 
 <!DOCTYPE html>
@@ -23,7 +23,7 @@ session_start();
     <?php
     require('../Controller/adminController/adminListController.php');
     $adminList = new AdminListController();
-    $adminList = $adminList->viewAdmin($_SESSION['id']);
+    $adminList = $adminList->viewAdmin($_SESSION['adminId']);
     ?>
     <!-- end of php code -->
 
@@ -45,8 +45,8 @@ session_start();
                             <h2><?php echo ($adminList[0]["full_name"]); ?></h2>
                             <p>Admin at Level Up</p>
                         </div>
-                        <?php if ($adminList[0]['id'] == $_SESSION['id'])
-                            echo '<a href="./admin update.php' . $_SESSION['id'] . '">Edit</a>';
+                        <?php if ($adminList[0]['id'] == $_SESSION['adminId'])
+                            echo '<a href="./admin update.php?id=' . $_SESSION['adminId'] . '">Edit</a>';
                         ?>
                     </div>
                     <!-- end of name and edit button section -->
@@ -71,43 +71,55 @@ session_start();
         <!-- end of admin update container -->
 
         <!-- start of if statement -->
-        <?php if ($_SESSION['message']['title'] == "Successful") { ?>
+        <?php
+        // start of isset session
+        if (isset($_SESSION['message'])) {
 
-            <!-- start of success or fail message notification section -->
-            <div class="message-alert-box message-success slide-in-right">
-                <div class="success-icon">
-                    <i class="fa-solid fa-square-check fa-2xl"></i>
-                </div>
-                <div class="content">
-                    <h4><?php echo $_SESSION['message']['title'] ?></h4>
-                    <p><?php echo $_SESSION['message']['description'] ?></p>
-                </div>
-            </div>
-            <!-- end of success or fail message notification section -->
+            // start of success message session
+            if ($_SESSION['message']['title'] == "Successful") { ?>
 
-        <?php } else { ?>
-            <!-- end of if and start of else statement-->
-
-            <!-- start of success or fail message notification section -->
-            <div class="message-alert-box message-fail slide-in-right">
-                <div class="fail-icon">
-                    <i class="fa-solid fa-square-xmark fa-2xl"></i>
-                </div>
-                <div class="content">
-                    <div>
-                        <h4><?php echo $_SESSION['message']['title'] ?></h4>
-                        <button id="showModal">view</button>
+                <!-- start of success or fail message notification section -->
+                <div class="message-alert-box message-success slide-in-right">
+                    <div class="success-icon">
+                        <i class="fa-solid fa-square-check fa-2xl"></i>
                     </div>
-
-
-                    <p><?php echo $_SESSION['message']['description'] ?></p>
+                    <div class="content">
+                        <h4><?php echo $_SESSION['message']['title'] ?></h4>
+                        <p><?php echo $_SESSION['message']['description'] ?></p>
+                    </div>
                 </div>
-            </div>
-            <!-- end of success or fail message notification section -->
+                <!-- end of success or fail message notification section -->
 
-        <?php } ?>
-        <!-- end of else -->
+            <?php }
+            // end of success message session
 
+            // start of fail message session
+            else { ?>
+                <!-- start of success or fail message notification section -->
+                <div class="message-alert-box message-fail slide-in-right">
+                    <div class="fail-icon">
+                        <i class="fa-solid fa-square-xmark fa-2xl"></i>
+                    </div>
+                    <div class="content">
+                        <div>
+                            <h4><?php echo $_SESSION['message']['title'] ?></h4>
+                            <button id="showModal">view</button>
+                        </div>
+
+
+                        <p><?php echo $_SESSION['message']['description'] ?></p>
+                    </div>
+                </div>
+                <!-- end of success or fail message notification section -->
+
+            <?php } ?>
+            <!-- end of message session else -->
+        <?php
+        } else {
+            return false;
+        }
+        // end of isset session else
+        ?>
         <div class="error-modal-box-bg hidden">
             <div class="error-modal-box">
                 <div>

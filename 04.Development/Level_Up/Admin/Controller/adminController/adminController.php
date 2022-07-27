@@ -27,8 +27,8 @@ class AdminController extends DBConnect
             $sql->bindValue(':adminCreated', $createdTime);
 
 
-            // $sql->execute();
-            // $sql->fetchAll(PDO::FETCH_ASSOC);
+            $sql->execute();
+            $sql->fetchAll(PDO::FETCH_ASSOC);
             echo "*Successfully inserted into database*.<br />*Note: Please reload again to create new admin again*";
         } catch (\Throwable $th) {
 
@@ -44,7 +44,7 @@ class AdminController extends DBConnect
             $gotConnection = $this->connect();
 
             // update sql query
-            $sql = $gotConnection->prepare("UPDATE M_ADMINS SET full_name = :adminNme, password = :adminPassword,email = :adminEmail,phone_number = :adminPhone,country_code = :adminCountryCode,address = :adminAddress,profile_image = :adminProfile,updated_at = :adminUpdated  WHERE id = :adminId");
+            $sql = $gotConnection->prepare("UPDATE M_ADMINS SET full_name = :adminName, password = :adminPassword,email = :adminEmail,phone_number = :adminPhone,country_code = :adminCountryCode,address = :adminAddress,profile_image = :adminProfile,updated_at = :adminUpdated  WHERE id = :adminId AND is_deleted IS NULL");
 
             // bind each of every admin info
             $sql->bindValue(':adminId', $updateInfo['adminId']);
@@ -58,8 +58,8 @@ class AdminController extends DBConnect
             $sql->bindValue(':adminUpdated', $updateInfo['adminUpdated']);
 
             //execute the sql query
-            $sql->execute();
-            $sql->fetchAll(PDO::FETCH_ASSOC);
+            // $sql->execute();
+            // $sql->fetchAll(PDO::FETCH_ASSOC);
 
             //add success message to sessions
             $message = array('title' => 'Successful', 'description' => 'The data is successfully updated in the database.');
@@ -67,7 +67,7 @@ class AdminController extends DBConnect
         } catch (\Throwable $th) {
 
             //add fail message to sessions
-            $message = array('title' => 'Fail', 'description' => 'Something went wrong.Please try to update again.', 'error' => $th);
+            $message = array('title' => 'Fail', 'description' => 'Something went wrong.Please try again.', 'error' => $th);
             $_SESSION['message'] = $message;
         }
     }
@@ -108,14 +108,34 @@ if (isset($_POST)) {
 
     $theAdmin = new AdminController();
     try {
-        $theAdmin->createAdmin();
+
+        echo "<pre>";
+        $routeName = explode("%20", $_SERVER['HTTP_REFERER'])[2];
+        $routeName = explode('.', $routeName)[0];
+
+        if ($routeName == "list.php") {
+            $theAdmin->createAdmin();
+        }
+        if ($routeName == "insert" || $routeName == "update") {
+            $file = $theAdmin->manageFile($_FILES);
+            date_default_timezone_set('Asia/Yangon');
+            $updatedTime = date('Y-m-d H:i:s');
+
+            $adminInfo = array("adminId" => $_POST['adminId'], "adminName" => $_POST['name'], "adminPassword" =>  $_POST['pwd'], "adminEmail" => $_POST['email'], "adminPhone" => $_POST['phone'], "adminCountryCode" => $_POST['countryCode'],     "adminAddress" => $_POST['address'], "adminUpdated" => $updatedTime, "adminProfile" => $file);
+
+
+            $theAdmin->updateAdmin($adminInfo);
+            header('location: ../../View/admin profile.php');
+        }
+
+
+        // $theAdmin->createAdmin();
 
         // if ($routeName == "insert") {
 
         //     $file = $theAdmin->manageFile($_FILES);
 
-        //     date_default_timezone_set('Asia/Yangon');
-        //     $createdTime = date('Y-m-d H:i:s');
+
 
         //     $adminInfo = array("adminName" => $_POST['name'], "adminPassword" =>  $_POST['pwd'], "adminEmail" => $_POST['email'], "adminPhone" => $_POST['phone'], "adminCountryCode" => $_POST['countryCode'], "adminAddress" => $_POST['address'], "adminCreated" => $createdTime, "adminProfile" => $file);
 

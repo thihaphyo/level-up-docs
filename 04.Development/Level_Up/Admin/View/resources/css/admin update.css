@@ -93,7 +93,7 @@
     justify-content: flex-end;
 }
 .admin-submit {
-    margin-top: 1rem;
+    margin: 1rem 0rem;
     padding: 0.6rem 2rem;
     border: none;
     background-color: #000000;

@@ -4,7 +4,6 @@
 *{
     margin: 0;
     padding: 0;
-
     font-family: 'Poppins', sans-serif;
 }
 :root{
@@ -177,7 +176,14 @@ header .image-text .profession{
 .sidebar.close .toggle{
     transform: translateY(-50%) rotate(0deg);
 }
-
+/* Admin insert header */
+.admin-insert.header {
+    display: flex;
+    justify-content: center;
+    background-color: #000000;
+    border-bottom: 2px solid #000000;
+    padding: 1rem;
+}
 
 /* Sidebar Menu (Nav) */
 .sidebar .menu{
@@ -249,6 +255,15 @@ header .image-text .profession{
     transition: var(--tran-05);
     padding: 4rem;
 }
+.container.admin-insert {
+    position: inherit;
+    margin: auto;
+    padding: 0rem !important;
+}
+.container .text.admin-insert{
+    text-align: left;
+    margin-bottom: 2rem;
+}
 .container .text{
     font-size: 30px;
     font-weight: 500;
@@ -264,7 +279,6 @@ header .image-text .profession{
 /* Input Validation Message */
 .final-warning,
 .warning{
-    display: none;
     font-size: 0.8rem !important;
     font-style: italic;
     color: #cc0f35;
@@ -275,44 +289,13 @@ header .image-text .profession{
     margin-right: auto;
     padding: 0.6rem !important;
 }
-.password-must-contain{
-    display: none;
-    position: absolute;
-    background-color: #FFFFFF;
-    z-index: 2;
-    padding: 2rem;
-}
 .password-must-contain p{
+
     font-size: 0.8rem !important;
-    padding: 0.7rem !important;
+    padding: 0rem !important;
+    padding-left: 1rem !important;
     
 }
-
-.pwd-valid {
-    color: #257953;
-  }
-  
-  .pwd-valid:before {
-    font-family: FontAwesome;
-    position: relative;
-    content: "\f00c";
-    padding-right: 0.3rem;
-
-  }
-  
-  /* Add a red text color and an "x" when the requirements are wrong */
-  .pwd-invalid {
-    color: #cc0f35;
-
-  }
-  
-  .pwd-invalid:before {
-    font-family: FontAwesome;
-    position: relative;
-    padding-right: 0.3rem;
-    content: "\f00d";
-  }
-
 /* admin profile css  */
 .admin-profile{
     width: 100%;
@@ -389,7 +372,7 @@ header .image-text .profession{
     align-items: center;
     position: absolute;
     top: 1rem;
-    right: 12rem;
+    right: 2rem;
 }
 .message-alert-box p {
     font-size: 0.8rem;
@@ -523,6 +506,7 @@ header .image-text .profession{
 .error-modal-box > div:first-child > a {
     font-size: 0.8rem;
     color: #ababab;
+    cursor: pointer;
 }
 .error-modal-box > div:last-child {
     padding: 1rem;
@@ -541,6 +525,7 @@ header .image-text .profession{
     border: none;
     color: #ababab;
     text-decoration: underline;
+    cursor: pointer;
 }
 .hidden{
     display: none;
@@ -548,20 +533,20 @@ header .image-text .profession{
 
 /* animation for error-modal box */
 .slide-in-top {
-	-webkit-animation: slide-in-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-	        animation: slide-in-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	-webkit-animation: slide-in-top 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	        animation: slide-in-top 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
 .slide-out-top {
-	-webkit-animation: slide-out-top 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
-	        animation: slide-out-top 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+	-webkit-animation: slide-out-top 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+	        animation: slide-out-top 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
 }
 .slide-in-right {
 	-webkit-animation: slide-in-right 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 	        animation: slide-in-right 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
 .slide-out-right {
-	-webkit-animation: slide-out-right 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
-	        animation: slide-out-right 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+	-webkit-animation: slide-out-right 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+	        animation: slide-out-right 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
 }
  @-webkit-keyframes slide-in-top {
     0% {

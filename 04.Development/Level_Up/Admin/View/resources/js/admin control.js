@@ -1,214 +1,99 @@
-let inputValidate,
-  emailRegex,
-  pwdMustContain,
-  lowerCaseChar = /[a-z]/g,
-  upperCaseChar = /[A-Z]/g,
-  mustNumbers = /[0-9]/g,
-  characters,
-  capital,
-  theNum,
-  length,
-  allowSubmit = { name: true, email: true, password: true },
-  adminInsertBtn,
-  profiles,
-  theData;
+import { InputValidation } from "./utils.js";
 
-// get each pwd condition elements
-characters = document.getElementById("char");
-capital = document.getElementById("capital");
-theNum = document.getElementById("numbers");
-length = document.getElementById("length");
-
-//select input password element
-pwdMustContain = document.querySelector("input[type=password]");
-
+let validateMyInfo = new InputValidation();
 // select all inputs to be validated
-inputValidate = document.getElementsByClassName("input-validate");
+let fullname,
+  password,
+  warning,
+  email,
+  phoneNum,
+  allowSubmit = {
+    name: true,
+    pwd: true,
+    email: true,
+    ph: true,
+  },
+  profileImage,
+  submitBtn,
+  allWarning,
+  finalWarning,
+  adminForm,
+  fileName;
 
-// select the buttons of submit button
-adminInsertBtn = document.getElementById("insertBtn");
+fullname = document.querySelector("[name='name']");
+password = document.querySelector("[name='pwd']");
+email = document.querySelector("[name='email']");
+phoneNum = document.querySelector("[name='phone']");
+profileImage = document.querySelector("input[name='profile']");
+allWarning = document.getElementsByClassName("warning");
 
-//select profile container
-profiles = document.getElementsByClassName("profile");
-
-//add hidden to the modal when close btn clicked
-document
-  .getElementById("closeCreateAdminModal")
-  .addEventListener("click", () => {
-    document
-      .getElementsByClassName("create-admin-modal-box-bg")[0]
-      .classList.add("hidden");
-  });
-
-// remove hidden class when new admin btn clicked
-document.getElementById("addNewAdmin").addEventListener("click", () => {
-  document
-    .getElementsByClassName("create-admin-modal-box-bg")[0]
-    .classList.remove("hidden");
-});
-document.getElementById("createNewAdmin").addEventListener("click", (e) => {
-  e.srcElement.disabled = true;
-
-  axios
-    .post(
-      `http://localhost/LEVEL UP/04.Development/Level_Up/Admin/Controller/adminController/adminController.php`,
-      {
-        info: {
-          username: document.querySelectorAll("input")[0].value,
-          password: document.querySelectorAll("input")[1].value,
-        },
-      }
-    )
-    .then((response) => {
-      const { data } = response;
-      document.getElementById("createAdminMessage").innerHTML = data;
-      e.srcElement.style.display = "none";
-    })
-    .catch((err) => {
-      document.getElementById("createAdminMessage").innerHTML = error;
-      console.error(err);
-    });
-});
-
-//add change action and get the filename
-document.getElementById("image-upload").addEventListener("change", (event) => {
-  fileName = event.target.files[0].name;
-  document.getElementById("image-name").innerHTML = fileName;
-});
-
-const validateForm = (inputName) => {
-  //validating email input
-
-  theData = inputName.target.value;
-
-  if (inputName.target.name == "name") {
-    theData.length < 4
-      ? (inputName.path[1].children[2].style.display = "block")
-      : (inputName.path[1].children[2].style.display = "none");
-
-    theData.length < 4 ? (allowSubmit.name = false) : (allowSubmit.name = true);
-  }
-
-  if (inputName.target.name == "email") {
-    //email format regeular expression
-    emailRegex =
-      /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
-
-    !emailRegex.test(theData)
-      ? (inputName.path[1].children[2].style.display = "block")
-      : (inputName.path[1].children[2].style.display = "none");
-
-    !emailRegex.test(theData)
-      ? (allowSubmit.email = false)
-      : (allowSubmit.email = true);
-  }
-
-  // validating password format
-  if (inputName.target.name == "pwd") {
-    if (theData.match(lowerCaseChar)) {
-      characters.classList.remove("pwd-invalid");
-      characters.classList.add("pwd-valid");
-      allowSubmit.password = true;
-    } else {
-      characters.classList.remove("pwd-valid");
-      characters.classList.add("pwd-invalid");
-      inputName.path[1].children[2].style.display = "block";
-      allowSubmit.password = false;
-    }
-
-    // Validate capital letters
-    if (theData.match(upperCaseChar)) {
-      capital.classList.remove("pwd-invalid");
-      capital.classList.add("pwd-valid");
-      inputName.path[1].children[2].style.display = "none";
-      allowSubmit.password = true;
-    } else {
-      capital.classList.remove("pwd-valid");
-      capital.classList.add("pwd-invalid");
-      inputName.path[1].children[2].style.display = "block";
-      allowSubmit.password = false;
-    }
-
-    // Validate numbers
-    if (theData.match(mustNumbers)) {
-      theNum.classList.remove("pwd-invalid");
-      theNum.classList.add("pwd-valid");
-      inputName.path[1].children[2].style.display = "none";
-
-      allowSubmit.password = true;
-    } else {
-      theNum.classList.remove("pwd-valid");
-      theNum.classList.add("pwd-invalid");
-      inputName.path[1].children[2].style.display = "block";
-      allowSubmit.password = false;
-    }
-
-    // Validate length
-    if (theData.length >= 8) {
-      length.classList.remove("pwd-invalid");
-      length.classList.add("pwd-valid");
-      inputName.path[1].children[2].style.display = "none";
-      allowSubmit.password = true;
-    } else {
-      length.classList.remove("pwd-valid");
-      length.classList.add("pwd-invalid");
-      inputName.path[1].children[2].style.display = "block";
-      allowSubmit.password = false;
-    }
-  }
-
-  if (inputName.target.name == "phone") {
-    theData.length < 9
-      ? (inputName.path[1].children[2].style.display = "block")
-      : (inputName.path[1].children[2].style.display = "none");
-
-    theData.length < 9
-      ? (allowSubmit.phone = false)
-      : (allowSubmit.phone = true);
-  }
-};
-
-// add key up events on every input
-for (const input of inputValidate) {
-  input.addEventListener("keyup", (e) => {
-    validateForm(e);
-  });
+for (const warning of allWarning) {
+  warning.classList.add("hidden");
 }
 
-//add click evetnts on every submit buttn
-adminInsertBtn.addEventListener("click", (e) => {
-  if (!document.querySelector("input[name='profile']").value) {
+// validate name format
+fullname.onkeyup = function () {
+  warning = this.parentNode.children[2];
+  allowSubmit.name = validateMyInfo.validateName(this.value);
+  !allowSubmit.name
+    ? warning.classList.remove("hidden")
+    : warning.classList.add("hidden");
+};
+
+// validate email format
+email.onkeyup = function () {
+  warning = this.parentNode.children[2];
+  allowSubmit.email = validateMyInfo.validateEmail(this.value);
+  !allowSubmit.email
+    ? warning.classList.remove("hidden")
+    : warning.classList.add("hidden");
+};
+
+// validate passwrod format
+password.onkeyup = function () {
+  warning = this.parentNode.children[2];
+  allowSubmit.ph = validateMyInfo.validatePassword(this.value);
+  !allowSubmit.ph
+    ? warning.classList.remove("hidden")
+    : warning.classList.add("hidden");
+  console.log(allowSubmit);
+};
+
+// validate phone number
+phoneNum.onkeyup = function () {
+  warning = this.parentNode.children[2];
+  allowSubmit.ph = validateMyInfo.validatePhoneNum(this.value);
+  !allowSubmit.ph
+    ? warning.classList.remove("hidden")
+    : warning.classList.add("hidden");
+  console.log(allowSubmit);
+};
+
+submitBtn = document.getElementsByClassName("admin-submit")[0];
+finalWarning = document.getElementsByClassName("final-warning")[0];
+adminForm = document.getElementsByClassName("admin-form")[0];
+
+submitBtn.addEventListener("click", (e) => {
+  console.log("this is insert btn");
+  if (!profileImage.value) {
     // display message to the user
-    document.getElementsByClassName("final-warning")[0].innerHTML =
-      "*Please choose a image for your profile*";
-    document.getElementsByClassName("final-warning")[0].style.display = "block";
+    finalWarning.innerHTML = "*Please choose a image for your profile*";
+    finalWarning.classList.remove("hidden");
   } else if (
     allowSubmit.name != true ||
     allowSubmit.email != true ||
-    allowSubmit.password != true ||
-    allowSubmit.phone != true
+    allowSubmit.pwd != true ||
+    allowSubmit.ph != true
   ) {
-    console.log(document.getElementsByClassName("final-warning")[0]);
-    document.getElementsByClassName("final-warning")[0].innerHTML =
-      "*Some of input is not macth with the format.*";
-    document.getElementsByClassName("final-warning")[0].style.display = "block";
+    finalWarning.innerHTML = "*Some of input is not macth with the format.*";
+    finalWarning.classList.remove("hidden");
   } else {
-    console.log("hello");
-    document
-      .getElementsByClassName("admin-form")[0]
-      .removeAttribute("onsubmit");
+    adminForm.removeAttribute("onsubmit");
   }
-  console.log(allowSubmit);
 });
 
-// When the user clicks on the password field, show the message box
-pwdMustContain.onfocus = function () {
-  document.getElementsByClassName("password-must-contain")[0].style.display =
-    "block";
-};
-
-// When the user clicks outside of the password field, hide the message box
-pwdMustContain.onblur = function () {
-  document.getElementsByClassName("password-must-contain")[0].style.display =
-    "none";
-};
+//when changes happen, get the filename and show it to user
+profileImage.addEventListener("change", (event) => {
+  fileName = event.target.files[0].name;
+  document.getElementById("image-name").innerHTML = fileName;
+});
