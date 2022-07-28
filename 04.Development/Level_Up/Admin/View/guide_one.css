@@ -10,6 +10,10 @@ button {
   top: 1rem;
   left: 66rem;
 }
+/* title input */
+.input{
+  color: black;
+}
 /* color change */
 .label {
   color: black;
