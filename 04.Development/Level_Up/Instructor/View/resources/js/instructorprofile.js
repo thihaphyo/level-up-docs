@@ -19,10 +19,15 @@ const getInstructorDetails = () => {
       const message = response.data.message;
       if (statusCode == 200) {
         const instructorResponse = response.data.data.instructor;
-        $("#profile_img").attr(
-          "src",
-          `https://ui-avatars.com/api/?name=${instructorResponse.full_name}&background=0D8ABC&color=fff`
-        );
+        if (instructorResponse.profile_image == null) {
+            $("#profile_img").attr(
+                "src",
+                `https://ui-avatars.com/api/?name=${instructorResponse.full_name}&background=0D8ABC&color=fff`
+              );
+        } else {
+            $("#profile_img").attr("src", `${instructorResponse.profile_image}`);
+        }
+        
         $("#lbl_name").html(instructorResponse.full_name);
         $("#lbl_position").html(instructorResponse.job_position);
         $("#lbl_bio").html(instructorResponse.bio);
@@ -69,3 +74,8 @@ const getInstructorDetails = () => {
 $('#btn_edit').click(function() {
     window.location.href = "./editInstructor.php?insID="+insId;
 });
+
+// window.onpageshow = function(event) {
+//     //do something
+//     getInstructorDetails();
+// };
