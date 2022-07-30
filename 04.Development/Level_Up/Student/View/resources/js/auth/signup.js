@@ -1,23 +1,23 @@
-document.addEventListener("contextmenu", (e) => {
-  e.preventDefault();
-});
-document.onkeydown = function (e) {
-  if (event.keyCode == 123) {
-    return false;
-  }
-  if (e.ctrlKey && e.shiftKey && e.keyCode == "I".charCodeAt(0)) {
-    return false;
-  }
-  if (e.ctrlKey && e.shiftKey && e.keyCode == "C".charCodeAt(0)) {
-    return false;
-  }
-  if (e.ctrlKey && e.shiftKey && e.keyCode == "J".charCodeAt(0)) {
-    return false;
-  }
-  if (e.ctrlKey && e.keyCode == "U".charCodeAt(0)) {
-    return false;
-  }
-};
+// document.addEventListener("contextmenu", (e) => {
+//   e.preventDefault();
+// });
+// document.onkeydown = function (e) {
+//   if (event.keyCode == 123) {
+//     return false;
+//   }
+//   if (e.ctrlKey && e.shiftKey && e.keyCode == "I".charCodeAt(0)) {
+//     return false;
+//   }
+//   if (e.ctrlKey && e.shiftKey && e.keyCode == "C".charCodeAt(0)) {
+//     return false;
+//   }
+//   if (e.ctrlKey && e.shiftKey && e.keyCode == "J".charCodeAt(0)) {
+//     return false;
+//   }
+//   if (e.ctrlKey && e.keyCode == "U".charCodeAt(0)) {
+//     return false;
+//   }
+// };
 axios.defaults.baseURL =
   "http://localhost/level-up-docs/04.Development/Level_Up";
 let canSubmit = false;
@@ -34,6 +34,7 @@ const signUp = () => {
       const message = response.data.message;
       if (statusCode == 201) {
         console.log(`POST users`, message);
+        window.location.replace("./signin.html");
       } else {
         window.alert(message);
       }

@@ -55,6 +55,8 @@ const signIn = () => {
         console.log(user.admin.access_token);
         // localStorage.setItem("access_token", user.students.access_token);
         window.location.replace("./index.php");
+      } else if (statusCode == 403) {
+        window.alert(message);
       } else {
         window.alert(message);
       }

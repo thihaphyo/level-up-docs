@@ -1,5 +1,6 @@
 <?php
 require_once('../BaseController.php');
+require_once('./SendMail.php');
 header('Content-Type: application/json; charset=utf-8');
 
 class AuthController extends BaseController
@@ -18,7 +19,7 @@ class AuthController extends BaseController
             $emailInput = $data["email"];
             $passwordInput = $data["pWord"];
 
-            $getStudentQuery = "SELECT id,full_name as fullName,email FROM M_STUDENTS where email=:email AND password=:password";
+            $getStudentQuery = "SELECT id,full_name as fullName,email,is_verified FROM M_STUDENTS where email=:email AND password=:password";
 
             $sql = $this->connection->prepare($getStudentQuery);
             $sql->bindValue(':email', $emailInput);
@@ -35,14 +36,23 @@ class AuthController extends BaseController
                 ]);
                 echo $response;
             } else {
-                $studentData["access_token"] = $this->stringEncryption('encrypt', $studentData["id"]);
-                $response = json_encode([
-                    'code' => 200,
-                    'data' => array(
-                        'students' => $studentData
-                    )
-                ]);
-                echo $response;
+                if ($studentData['is_verified'] == 0) {
+                    $response = json_encode([
+                        'code' => 403,
+                        'message' => 'Please verify the account.'
+                    ]);
+                    echo $response;
+                } else {
+
+                    $studentData["access_token"] = $this->stringEncryption('encrypt', $studentData["id"]);
+                    $response = json_encode([
+                        'code' => 200,
+                        'data' => array(
+                            'students' => $studentData
+                        )
+                    ]);
+                    echo $response;
+                }
             }
         } catch (PDOException $th) {
             echo $th;
@@ -58,6 +68,8 @@ class AuthController extends BaseController
             $fullname = $data["uName"];
             $email = $data["email"];
             $pass = $data["pass"];
+
+            //$vcode = generateCode();
 
             $getStudentQuery = "SELECT * FROM M_STUDENTS where email=:email";
 
@@ -83,25 +95,37 @@ class AuthController extends BaseController
             full_name,
             email,
             password,
+            vcode,
+            is_verified,
             created_at
         )
         VALUES(
             :full_name,
             :email,
             :password,
+            :vcode,
+            :is_verified,
             :created_at
         );";
+
+            $vcode = $this->generateCode();
 
             $sql = $this->connection->prepare($studentInsertQuery);
             $sql->bindValue(':full_name', $fullname);
             $sql->bindValue(':email', $email);
             $sql->bindValue(':password', $this->stringEncryption('encrypt', $pass));
+            $sql->bindValue(':vcode', $vcode);
+            $sql->bindValue(':is_verified', false);
             $sql->bindValue(':created_at', date('Y-m-d H:i:s'));
             $sql->execute();
 
+
+            $mailSend = new SendMail($vcode);
+            $mailSend->sendMail($email);
+
             $response = json_encode([
                 'code' => 201,
-                'message' => 'Registered new user'
+                'message' => 'Registered new user, Please verify'
             ]);
 
             echo $response;
@@ -114,6 +138,16 @@ class AuthController extends BaseController
 
             echo $response;
         }
+    }
+
+    function generateCode()
+    {
+        $character = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        $randomCode = "";
+        for ($i = 0; $i < 128; $i++) {
+            $randomCode .= $character[rand(0, strlen($character) - 1)];
+        }
+        return $randomCode;
     }
 
     function getUser()
@@ -167,6 +201,43 @@ class AuthController extends BaseController
 
             echo $response;
         }
+    }
+
+    function verify() {
+
+        $data = $this->jsonData();
+
+        $vCode = $data["vCode"];
+
+        $vCodeQuery = "SELECT * from M_STUDENTS where vcode = :vcode AND is_verified=0";
+        $sql = $this->connection->prepare($vCodeQuery);
+        $sql->bindValue(':vcode', $vCode);
+        $sql->execute();
+
+        $vCodeResult = $sql->fetch(PDO::FETCH_ASSOC);
+
+        if ($vCodeResult == null) {
+            $response = json_encode([
+                'code' => 404,
+                'message' => "User not found"
+            ]);
+            echo $response;
+        } else {
+
+            $vCodeUpdQuery = "UPDATE M_STUDENTS SET is_verified=1,updated_at= :upTime WHERE vcode = :vcode";
+            $sql = $this->connection->prepare($vCodeUpdQuery);
+            $sql->bindValue(':vcode', $vCode);
+            $sql->bindValue(':upTime', date('Y-m-d H:i:s'));
+            $sql->execute();
+
+            $response = json_encode([
+                'code' => 200,
+                'message' => "User verified"
+            ]);
+            echo $response;
+
+        }
+
     }
 
     function stringEncryption($action, $string)
