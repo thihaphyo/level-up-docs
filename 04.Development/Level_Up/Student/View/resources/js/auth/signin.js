@@ -24,6 +24,7 @@ axios.defaults.baseURL =
   "http://localhost/level-up-docs/04.Development/Level_Up";
 
 const signIn = () => {
+  showLoading();
   axios
     .post("/Student/Controller/auth/SignIn.php", {
       email: $("#email").val(),
@@ -42,11 +43,19 @@ const signIn = () => {
     })
     .catch((error) => console.error(error))
     .then(function () {
-      //    hideLoading();
+        hideLoading();
     });
 };
 
 $("document").ready(function () {
+  let svgContainer = document.querySelector('.bodymovinanim');
+  let animItem = bodymovin.loadAnimation({
+    wrapper: svgContainer,
+    animType: 'svg',
+    loop: true,
+    path: "https://assets6.lottiefiles.com/packages/lf20_qjosmr4w.json"
+  });
+  hideLoading();
   if (localStorage.getItem("access_token") != null) {
     window.location.replace("./index.php");
   } else {
@@ -99,10 +108,10 @@ function checkState() {
   }
 }
 
-// const showLoading = () => {
-//   Loader.open();
-// };
+const showLoading = () => {
+  $('#loading_container').removeClass('is-hidden');
+};
 
-// const hideLoading = () => {
-//   Loader.close();
-// };
+const hideLoading = () => {
+  $('#loading_container').addClass('is-hidden');
+};

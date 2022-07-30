@@ -70,3 +70,13 @@ const signIn = () => {
 $("#btnSignIn").click(function () {
     signIn();
 });
+
+const showLoading = () => {
+    let svgContainer = document.querySelector('.bodymovinanim');
+    let animItem = bodymovin.loadAnimation({
+      wrapper: svgContainer,
+      animType: 'svg',
+      loop: true,
+      path: "https://assets6.lottiefiles.com/packages/lf20_qjosmr4w.json"
+    });
+}

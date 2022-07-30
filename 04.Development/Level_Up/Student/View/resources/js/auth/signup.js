@@ -23,6 +23,7 @@ axios.defaults.baseURL =
 let canSubmit = false;
 
 const signUp = () => {
+  showLoading();
   axios
     .post("/Student/Controller/auth/SignUp.php", {
       uName: $("#uName").val(),
@@ -38,8 +39,12 @@ const signUp = () => {
       } else {
         window.alert(message);
       }
+      hideLoading();
     })
-    .catch((error) => console.error(error));
+    .catch((error) => console.error(error))
+    .then(function () {
+      
+    });
 };
 
 $("#btn_signin").click(function () {
@@ -51,6 +56,14 @@ $("#btnSignUp").click(function () {
 });
 
 $("document").ready(function () {
+  let svgContainer = document.querySelector(".bodymovinanim");
+  let animItem = bodymovin.loadAnimation({
+    wrapper: svgContainer,
+    animType: "svg",
+    loop: true,
+    path: "https://assets6.lottiefiles.com/packages/lf20_qjosmr4w.json",
+  });
+  hideLoading();
   if (localStorage.getItem("access_token") != null) {
     window.location.replace("./index.php");
   } else {
@@ -135,3 +148,11 @@ function checkState() {
     $("#btnSignUp").attr("disabled", true);
   }
 }
+
+const showLoading = () => {
+  $("#loading_container").removeClass("is-hidden");
+};
+
+const hideLoading = () => {
+  $("#loading_container").addClass("is-hidden");
+};
