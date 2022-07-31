@@ -48,54 +48,40 @@
                             </div>
                         </div>
                         <div class="column">
-                            <div class="tile is-parent is-vertical">
-                                <article>
-                                    <br /> <br />
-                                    <p class="title is-size-3 has-text-weight-bold">Contact Form</p>
-                                    <br />
-                                    <div class="control">
-                                        <label class="label is-size-6 has-text-weight-semibold">Uername</label>
-                                        <input class="input is-white " type="text" placeholder=" eg.John123 ">
-                                    </div>
-                                    <br /> <br />
-                                    <div class="control">
-                                        <label class="label is-size-6 has-text-weight-semibold">Contact Number</label>
-                                        <input class="input is-white " type="text" placeholder="eg.0914857574">
-                                    </div>
-                                    <br /> <br />
-                                    <div class="control">
-                                        <label class="label is-size-6 has-text-weight-semibold">Email Address</label>
-                                        <input class="input is-white " type="text" placeholder="eg.John123@gmail.com">
-                                    </div>
-                                    <br /> <br />
-                                    <div class="control">
-                                        <label class="label is-size-6 has-text-weight-semibold">Your Qusetion</label>
-                                        <textarea class="textarea is-white" placeholder="e.g.Lorem ipsum, dolor sit amet  consectetur adipisicing elit. consectetur adipisicing elit. Repudiandae, eos. Esse"></textarea>
-                                    </div>
-                                    <br /><br />
-                                    <div class="buttons">
-                                        <button class="button is-primary"><b>Send</b></button>
-                                    </div>
-                                </article>
-                            </div>
+                            <form action="save.php" method="post">
+                                <div class="tile is-parent is-vertical">
+                                    <article>
+                                        <br /> <br />
+                                        <p class="title is-size-3 has-text-weight-bold">Contact Form</p>
+                                        <br />
+                                        <div class="control">
+                                            <label class="label is-size-6 has-text-weight-semibold">Uername</label>
+                                            <input class="input is-white " name="username" class="form-control" type="text" placeholder=" eg.John123 ">
+                                        </div>
+                                        <br /> <br />
+                                        <div class="control">
+                                            <label class="label is-size-6 has-text-weight-semibold">Contact Number</label>
+                                            <input class="input is-white " name="contact-no" class="form-control" type="text" placeholder="eg.0914857574">
+                                        </div>
+                                        <br /> <br />
+                                        <div class="control">
+                                            <label class="label is-size-6 has-text-weight-semibold">Email Address</label>
+                                            <input class="input is-white " name="email" class="form-control" type="text" placeholder="eg.John123@gmail.com">
+                                        </div>
+                                        <br /> <br />
+                                        <div class="control">
+                                            <label class="label is-size-6 has-text-weight-semibold">Your Qusetion</label>
+                                            <textarea class="textarea is-white" name="question" class="form-control" placeholder="e.g.Lorem ipsum, dolor sit amet  consectetur adipisicing elit. consectetur adipisicing elit. Repudiandae, eos. Esse"></textarea>
+                                        </div>
+                                        <br /><br />
+                                        <div class="buttons">
+                                            <button  class="button is-primary has-text-weight-bold form-control submit"> Send</button>
+                                        </div>
+                                    </article>
+                                </div>
+                            </form>
                         </div>
                     </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                 </div>
                 <!-- end of container -->
     </main>
