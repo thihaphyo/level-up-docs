@@ -44,7 +44,7 @@
                     <div class="field mt-6">
                         <label class="label is-primay-label has-text-weight-semibold ">Email Address</label>
                         <div class="control">
-                            <input id="email" class="input text-box" type="email" placeholder="Eg.John123@gmail.com">
+                            <input id="email" class="input text-box is-black" type="email" placeholder ="Eg.John123@gmail.com">
                         </div>
                     </div>
                     <div class="column is-full">
