@@ -15,36 +15,24 @@
 <body>
     <section class="is-medium">
         <div class=" columns is-gapless is-desktop">
-            <div class=" p-6 column column-fill signin-left-section">
-                <div class="column p-5">    
+            <div class="  column column-fill signin-left-section ">
+                <div class="column ">
                     <img width="100px" src="image/Header.svg" alt="Header">
                 </div>
-                <div class="column mr-10 ml-10 mt-4">
+                <div class="column   mr-10 ml-10 mt-4 p-6 ">
                     <p id="p_title" class="is-size-2 has-text-weight-bold m-auto">Forget Password</p>
                     <div class="field mt-6">
-                        <div class="control">
-                            <p id="p_title" class="is-size-6 has-text-weight-semibold m-auto">Enter the email address you used in registration and we will send you instructions to reset your password.Enter the email address you used in registration and we will send you instructions to reset your password.</p>
-                        </div>
+                        <label class="label is-primay-label has-text-weight-semibold ">For security reasons, we do NOT store your passwords, be assured that we will never send your password via email.For security reasons, we do NOT store your passwords, be assured that we will never send your password via email.</label>
+                       
                     </div>
-                    <div class="field mt-5">
-                        <div class="control">
-                            <p id="p_title" class="is-size-6 has-text-weight-semibold m-auto">Enter the email address you used in registration and we will send you instructions to reset your password.Enter the email address you used in registration and we will send you instructions to reset your password.Enter the email address you used in registration and we will send you instructions to reset your password.</p>
-                        </div>
-                    </div>
-                    <div class="field mt-5">
-                        <div class="control">
-                            <p id="p_title" class="is-size-6 has-text-weight-semibold m-auto"> Enter the email address you used in registration and we will send you instructions to reset your password.Enter the email address you used in registration .</p>
-                        </div>
-                    </div>
-                    <div class="field mt-5">
-                        <div class="control">
-                          
-                        </div>
+                    <div class="field mt-4 ">
+                        <label class="label is-primay-label has-text-weight-semibold ">For security reasons, we do NOT store your passwords, be assured that we will never send your password via email. For security reasons, we do NOT store your passwords, be assured that we will never send your password via email.</label>
+                        
                     </div>
                     <div class="field mt-6">
                         <label class="label is-primay-label has-text-weight-semibold ">Email Address</label>
                         <div class="control">
-                            <input id="email" class="input text-box is-black" type="email" placeholder ="Eg.John123@gmail.com">
+                            <input id="email" class="input text-box is-black" type="email" placeholder="Eg.John123@gmail.com">
                         </div>
                     </div>
                     <div class="column is-full">
