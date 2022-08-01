@@ -51,7 +51,7 @@
                         </div>
                         <div class="column is-size-7 no-padding mt-1 has-text-primary-light">
 
-                            <a class="button is-primary is-outlined has-text-weight-semibold is-size-7 mt-2" href="./signup.html">Edit profile</a>
+                            <a class="button is-primary is-outlined has-text-weight-semibold is-size-7 mt-2" href="./studentProfile.html">Edit profile</a>
                         </div>
                     </div>
                 </div>

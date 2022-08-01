@@ -150,6 +150,73 @@ class AuthController extends BaseController
         return $randomCode;
     }
 
+    function edit() {
+
+        $data = $this->jsonData();
+        $userId = $this->stringEncryption('decrypt', $data["id"]);
+        $email = $data['email'];
+        $userName = $data['userName'];
+
+        if ($userId == null || $userId == '') {
+
+            $response = json_encode([
+                'code' => 401,
+                'message' => 'Token expired'
+            ]);
+
+            echo $response;
+
+            return;
+        }
+
+        try {
+
+            $getStudentQuery = "SELECT full_name as fullName,email,profile_image as profile FROM M_STUDENTS where id=:id";
+
+            $sql = $this->connection->prepare($getStudentQuery);
+            $sql->bindValue(':id', $userId);
+            $sql->execute();
+
+            $studentData = $sql->fetch(PDO::FETCH_ASSOC);
+
+            if ($studentData == null) {
+
+                $response = json_encode([
+                    'code' => 404,
+                    'message' => 'User not found'
+                ]);
+                echo $response;
+            } else {
+
+                $updateQuery = "UPDATE M_STUDENTS SET full_name = :name, email = :email, updated_at = :utTime WHERE id = :uID";
+
+                $sql = $this->connection->prepare($updateQuery);
+                $sql->bindValue(':uID', $userId);
+                $sql->bindValue(':name', $userName);
+                $sql->bindValue(':email', $email);
+                $sql->bindValue(':utTime', date('Y-m-d H:i:s'));
+                $sql->execute();
+
+
+                $response = json_encode([
+                    'code' => 200,
+                    'message' => 'Successfully Updated!'
+                ]);
+                echo $response;
+            }
+        } catch (PDOException $th) {
+
+            $response = json_encode([
+                'code' => 500,
+                'message' => $th
+            ]);
+
+            echo $response;
+        }
+
+
+    }
+
     function getUser()
     {
 

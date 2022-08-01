@@ -57,7 +57,7 @@ const fetchUserProfile = () => {
             let firstName = user.fullName.split(" ")[0];
             let lastName = user.fullName.split(" ")[1];
             $('#profile_img').attr('src', 
-            `https://ui-avatars.com/api/?name=${firstName}+${lastName}&background=0D8ABC&color=fff`
+            `https://ui-avatars.com/api/?name=${user.fullName}&background=0D8ABC&color=fff`
             )
             $('#userName').html(user.fullName);
             $('#email').html(user.email);
