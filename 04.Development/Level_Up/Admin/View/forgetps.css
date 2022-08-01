@@ -1,7 +1,7 @@
 /* image */
 .sign-in-graphics {
   position: relative;
-
+height: 100vh;
   background-color: rgb(71, 71, 71);
 }
 .forget_arc {

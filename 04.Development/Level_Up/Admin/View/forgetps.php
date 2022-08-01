@@ -14,8 +14,8 @@
 
 <body>
     <section class="is-medium">
-        <div class="columns is-gapless is-desktop">
-            <div class="column column-fill signin-left-section">
+        <div class=" columns is-gapless is-desktop">
+            <div class=" p-6 column column-fill signin-left-section">
                 <div class="column p-5">    
                     <img width="100px" src="image/Header.svg" alt="Header">
                 </div>
@@ -38,7 +38,7 @@
                     </div>
                     <div class="field mt-5">
                         <div class="control">
-                            <p id="p_title" class="is-size-6 has-text-weight-semibold m-auto">   we will send you instructions to reset your password.Enter the email address you used in registration and we will send you instructions to reset your password.Enter the email address you used in registration .</p>
+                          
                         </div>
                     </div>
                     <div class="field mt-6">
