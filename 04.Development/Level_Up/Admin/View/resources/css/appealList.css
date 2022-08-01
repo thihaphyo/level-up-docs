@@ -1,0 +1,26 @@
+.levelup-table {
+    /* border: 1px solid black; */
+    border-collapse:separate;
+    border:solid black 1px;
+    border-radius:1rem;
+}
+
+tr > th {
+    border-bottom: 1px solid black !important;
+}
+
+tr > td {
+    border-bottom: 1px solid black !important;
+}
+
+tr:last-child > td{
+    border-bottom: none !important;
+}
+
+th,td {
+    padding: 1.2rem !important;
+}
+
+.pagination-link.is-current {
+    background-color: black !important;
+}

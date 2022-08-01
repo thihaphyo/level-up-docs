@@ -4,11 +4,44 @@ header('Content-Type: application/json; charset=utf-8');
 
 class AppealController extends BaseController
 {
+    function getAllAppeals()
+    {
+        try {
+
+            $getAppealsQuery =  "select a.id as blacklistID, a.reason as reason,
+            b.id as appealID, b.solution, b.created_at as ctTime, c.id as ins_id , c.full_name
+             from levelupdb.T_BLACKLIST as a,
+            levelupdb.T_APPLEALS as b,
+            levelupdb.M_INSTRUCTORS as c
+            where a.id = b.blacklist_id
+            and a.instructor_id = c.id
+            and b.instructor_id = c.id
+            and b.status = 'PENDING'
+            and a.is_deleted = 0";
+
+
+            $sql = $this->connection->prepare($getAppealsQuery);
+            $sql->execute();
+
+            $appealList = $sql->fetchAll(PDO::FETCH_ASSOC);
+
+            $response = json_encode([
+                'code' => 200,
+                'data' => array(
+                    'appeals' => $appealList
+                )
+            ]);
+            echo $response;
+        } catch (PDOException $th) {
+            echo $th;
+        }
+    }
+
     function getAppealById()
     {
         try {
             $appID =  $_GET["appeal_id"];
-           
+
             $getAppealByIdQuery =  "select a.id as blacklistID, a.reason as reason,
             b.id as appealID, b.solution, c.id as ins_id , c.full_name
              from levelupdb.T_BLACKLIST as a,
@@ -72,10 +105,11 @@ class AppealController extends BaseController
         return $output;
     }
 
-    function unBann() {
+    function unBann()
+    {
         try {
             $appID =  $_GET["appeal_id"];
-           
+
             $getAppealByIdQuery =  "select a.id as blacklistID, a.reason as reason,
             b.id as appealID, b.solution, c.id as ins_id , c.full_name
              from levelupdb.T_BLACKLIST as a,
@@ -128,7 +162,7 @@ class AppealController extends BaseController
                 //Success Unbanned
                 $response = json_encode([
                     'code' => 200,
-                    'message' => 'Successfully unbanned Instructor '.$appealDetailData["full_name"]
+                    'message' => 'Successfully unbanned Instructor ' . $appealDetailData["full_name"]
                 ]);
                 echo $response;
             }
