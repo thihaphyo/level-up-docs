@@ -58,8 +58,8 @@ class AdminController extends DBConnect
             $sql->bindValue(':adminUpdated', $updateInfo['adminUpdated']);
 
             //execute the sql query
-            // $sql->execute();
-            // $sql->fetchAll(PDO::FETCH_ASSOC);
+            $sql->execute();
+            $sql->fetchAll(PDO::FETCH_ASSOC);
 
             //add success message to sessions
             $message = array('title' => 'Successful', 'description' => 'The data is successfully updated in the database.');
@@ -104,6 +104,7 @@ class AdminController extends DBConnect
         }
     }
 }
+
 if (isset($_POST)) {
 
     $theAdmin = new AdminController();
@@ -127,34 +128,6 @@ if (isset($_POST)) {
             $theAdmin->updateAdmin($adminInfo);
             header('location: ../../View/admin profile.php');
         }
-
-
-        // $theAdmin->createAdmin();
-
-        // if ($routeName == "insert") {
-
-        //     $file = $theAdmin->manageFile($_FILES);
-
-
-
-        //     $adminInfo = array("adminName" => $_POST['name'], "adminPassword" =>  $_POST['pwd'], "adminEmail" => $_POST['email'], "adminPhone" => $_POST['phone'], "adminCountryCode" => $_POST['countryCode'], "adminAddress" => $_POST['address'], "adminCreated" => $createdTime, "adminProfile" => $file);
-
-        //     $theAdmin->createAdmin($adminInfo);
-        //     // header('location: ../../View/admin profile.php');
-        // } else if ($routeName == "update") {
-        //     $file = $theAdmin->manageFile($_FILES);
-
-        //     date_default_timezone_set('Asia/Yangon');
-        //     $updatedTime = date('Y-m-d H:i:s');
-
-        //     $adminInfo = array("adminId" => $_POST['adminId'], "adminName" => $_POST['name'], "adminPassword" =>  $_POST['pwd'], "adminEmail" => $_POST['email'], "adminPhone" => $_POST['phone'], "adminCountryCode" => $_POST['countryCode'], "adminAddress" => $_POST['address'], "adminUpdated" => $updatedTime, "adminProfile" => $file);
-
-        //     $theAdmin->updateAdmin($adminInfo);
-
-        //     header('location: ../../View/admin profile.php');
-        // } else {
-        //     echo "wait";
-        // }
     } catch (PDOException $th) {
         echo $th;
     }

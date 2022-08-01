@@ -1,5 +1,6 @@
 <?php
 $time = time();
+session_start();
 ?>
 
 <!DOCTYPE html>
@@ -10,8 +11,12 @@ $time = time();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Level Up</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <link rel="stylesheet" href="./resources/css/mystyles.css?<?php echo $time ?>">
     <link rel="stylesheet" href="./resources/css/root.css?<?php echo $time ?> ">
+    <link rel="stylesheet" href="./resources/css/apply instructor.css?<?php echo $time ?> ">
+
+
 </head>
 
 <body>
@@ -23,152 +28,200 @@ $time = time();
         <div class="container">
 
             <h1 class="title mb-6">Apply Instructor Form</h1>
+            <form action="../Controller/applyInstructorController.php" method="post" id="applyForm">
+                <!-- start of input columns -->
+                <div class="columns mb-6">
 
-            <!-- start of input columns -->
-            <div class="columns mb-6">
-
-                <!-- start of column -->
-                <div class="column is-half">
-                    <p class="is-size-5 has-text-weight-semibold mb-5" for="">Name</p>
-                    <input class="input is-medium has-text-weight-medium" type="text" placeholder="e.g. john william">
-                </div>
-                <!-- end of column -->
-
-
-                <!-- start of column -->
-                <div class="column is-half">
-                    <p class="is-size-5 has-text-weight-semibold mb-5" for="">Email Address</p>
-                    <input class="input is-medium has-text-weight-medium" type="text" placeholder="e.g. name1353@gmail.com">
-                </div>
-                <!-- end of column -->
-
-            </div>
-            <!-- end of input columns -->
-
-            <!-- start of input columns -->
-            <div class="columns mb-6">
-
-                <!-- start of column -->
-                <div class="column is-half">
-                    <p class="is-size-5 has-text-weight-semibold mb-5" for="">Phone Number</p>
-                    <input class="input is-medium has-text-weight-medium" type="text" placeholder="e.g. +95 9535339">
-                </div>
-                <!-- end of column -->
-
-
-                <!-- start of column -->
-                <div class="column is-half">
-                    <p class="is-size-5 has-text-weight-semibold mb-5" for="">Address</p>
-                    <input class="input is-medium has-text-weight-medium" type="text" placeholder="e.g. At Stein, Block A Lane 31, Build A">
-                </div>
-                <!-- end of column -->
-
-            </div>
-            <!-- end of input columns -->
-
-            <!-- start of input columns -->
-            <div class="columns mb-6">
-
-                <!-- start of column -->
-                <div class="column is-half">
-                    <p class="is-size-5 has-text-weight-semibold mb-5" for="">Graduated Degree</p>
-                    <input class="input is-medium has-text-weight-medium" type="text" placeholder="e.g. Bsc(Hons) Network Engineer">
-                </div>
-                <!-- end of column -->
-
-
-                <!-- start of column -->
-                <div class="column is-half">
-                    <p class="is-size-5 has-text-weight-semibold mb-4" for="">Gradudated Year</p>
-                    <input class="input is-medium has-text-weight-medium p-4" type="text" placeholder="e.g. 2016">
-                </div>
-                <!-- end of column -->
-
-            </div>
-            <!-- end of input columns -->
-
-            <!-- start of input columns -->
-            <div class="columns mb-6">
-
-                <!-- start of column -->
-                <div class="column is-half">
-                    <p class="is-size-5 has-text-weight-semibold mb-5" for="">Job Position</p>
-                    <input class="input is-medium has-text-weight-medium" type="text" placeholder="e.g. Bsc(Hons) Network Engineer">
-                </div>
-                <!-- end of input column -->
-
-
-                <!-- start of input column -->
-                <div class="column is-half is-flex">
-
-                    <!-- start of input from column -->
-                    <div class="column">
-                        <p class="is-size-5 has-text-weight-semibold mb-4" for="">From</p>
-                        <div class="select is-medium">
-                            <select class="has-text-weight-medium">
-                                <option>Select Year (From)</option>
-                                <option>With</option>
-                            </select>
-                        </div>
+                    <!-- start of column -->
+                    <div class="column is-half">
+                        <p class="is-size-5 has-text-weight-semibold mb-5" for="">Name</p>
+                        <input class="input is-medium has-text-weight-medium" type="text" placeholder="e.g. john william" name="fullname" required>
                     </div>
-                    <!-- end of input from column -->
+                    <!-- end of column -->
 
 
-                    <!-- start of input to column -->
-                    <div class="column">
-                        <p class="is-size-5 has-text-weight-semibold mb-4" for="">To</p>
-                        <div class="select is-medium">
-                            <select class="has-text-weight-medium">
-                                <option>Select Year (To)</option>
-                                <option>With options</option>
-                            </select>
-                        </div>
+                    <!-- start of column -->
+                    <div class="column is-half">
+                        <p class="is-size-5 has-text-weight-semibold mb-5" for="">Email Address</p>
+                        <input class="input is-medium has-text-weight-medium" type="text" placeholder="e.g. name1353@gmail.com" name="email" required>
+                        <p class="warning is-italic pt-1 has-text-danger is-hidden">* Please enter the email correctly. *</p>
                     </div>
-                    <!-- end of input to column -->
-                </div>
-            </div>
-            <!-- end of input columns -->
+                    <!-- end of column -->
 
-            <!-- start of add more button columns -->
-            <div class="columns mb-6 has-text-right">
-                <div class="column is-full">
-                    <a class="is-size-5 has-text-weight-semibold mb-4 is-underlined" for="">Add More</a>
                 </div>
-            </div>
-            <!-- end of add more button columns -->
+                <!-- end of input columns -->
 
-            <!-- start of reason input columns -->
-            <div class="columns mb-6">
-                <div class="column is-full">
-                    <p class="is-size-5 has-text-weight-semibold mb-5" for="">Reason To Become Instructor</p>
-                    <div class="columns">
-                        <div class="column is-5">
-                            <p class="text-size-6 is-italic has-text-weight-medium has-text-grey-dark">
-                                Words count is limited. You should write it between 100 to 150 characters.
-                                Above 150 characters, you will no longer to write.
-                            </p>
+                <!-- start of input columns -->
+                <div class="columns mb-6">
+
+                    <!-- start of column -->
+                    <div class="column is-half">
+                        <div class="columns is-full">
+                            <div class="column">
+                                <p class="is-size-5 has-text-weight-semibold mb-5" for="">Phone Number</p>
+                                <div class="columns">
+                                    <div class="column is-narrow">
+                                        <div class="select is-medium">
+                                            <select name="countryCode">
+                                                <option value="+1">+1 US</option>
+                                                <option value="+95">+95 MM</option>
+                                                <option value="+66">+66 THA</option>
+                                                <option value="+65">+65 SG</option>
+                                                <option value="+81">+81 JP</option>
+                                                <option value="+84">+84 VN</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="column">
+                                        <input class="input is-medium has-text-weight-medium" type="number" placeholder="e.g. 953533944" name="phone" required>
+                                        <p class="warning is-italic pt-1 has-text-danger is-hidden">* Phone number should be at least 9. *</p>
+                                    </div>
+
+                                </div>
+                            </div>
+
+
+
                         </div>
+
+                    </div>
+                    <!-- end of column -->
+
+
+                    <!-- start of column -->
+                    <div class="column is-half">
+                        <p class="is-size-5 has-text-weight-semibold mb-5" for="">Address</p>
+                        <input class="input is-medium has-text-weight-medium" type="text" placeholder="e.g. At Stein, Block A Lane 31, Build A" name="address" required>
+                    </div>
+                    <!-- end of column -->
+
+                </div>
+                <!-- end of input columns -->
+
+                <!-- start of input columns -->
+                <div class="columns mb-6">
+
+                    <!-- start of column -->
+                    <div class="column is-half">
+                        <p class="is-size-5 has-text-weight-semibold mb-5" for="">Graduated Degree</p>
+                        <input class="input is-medium has-text-weight-medium" type="text" placeholder="e.g. Bsc(Hons) Network Engineer" name="degree" required>
+                    </div>
+                    <!-- end of column -->
+
+
+                    <!-- start of column -->
+                    <div class="column is-half">
+                        <p class="is-size-5 has-text-weight-semibold mb-4" for="">Gradudated Year</p>
+                        <input class="input is-medium has-text-weight-medium p-4 years" type="number" placeholder="e.g. 2016" name="gyear" required>
+                        <p class="warning is-italic pt-1 has-text-danger is-hidden">* Please enter the year correctly *</p>
+                    </div>
+                    <!-- end of column -->
+
+                </div>
+                <!-- end of input columns -->
+
+
+                <!-- start of input columns -->
+                <div class="columns mb-6">
+
+                    <!-- start of column -->
+                    <div class="column is-half">
+                        <p class="is-size-5 has-text-weight-semibold mb-5" for="">Job Position</p>
+                        <input class="input is-medium has-text-weight-medium" type="text" placeholder="e.g. Web Developer" name="position" required>
+                    </div>
+                    <!-- end of input column -->
+
+
+                    <!-- start of input column -->
+                    <div class="column is-half is-flex">
+
+                        <!-- start of input from column -->
+                        <div class="column">
+                            <p class="is-size-5 has-text-weight-semibold mb-4">From</p>
+                            <input class="input is-medium has-text-weight-medium years" type="number" placeholder="e.g. 2016" name="from" required>
+                            <p class="warning is-italic pt-1 has-text-danger is-hidden">* Please enter the year correctly *</p>
+                        </div>
+                        <!-- end of input from column -->
+
+
+                        <!-- start of input to column -->
+                        <div class="column">
+                            <p class="is-size-5 has-text-weight-semibold mb-4">To</p>
+                            <input class="input is-medium has-text-weight-medium years" type="number" placeholder="e.g. 2018" name="to" required>
+                            <p class="warning is-italic pt-1 has-text-danger is-hidden">* Please enter the year correctly *</p>
+
+                        </div>
+                        <!-- end of input to column -->
+                    </div>
+                </div>
+                <!-- end of input columns -->
+
+                <!-- start of add more input -->
+                <div id="addMoreContent">
+                </div>
+                <!-- end of add more input -->
+
+                <!-- start of add more button columns -->
+                <div class="columns mb-6 has-text-right">
+                    <div class="column is-full">
+                        <a class="is-size-5 has-text-weight-semibold mb-4 is-underlined" id="addMore">Add More</a>
+                    </div>
+                </div>
+                <!-- end of add more button columns -->
+
+                <!-- start of reason input columns -->
+                <div class="columns mb-6">
+                    <div class="column is-full">
+                        <p class="is-size-5 has-text-weight-semibold mb-5" for="">Reason To Become Instructor</p>
+                        <div class="columns">
+                            <div class="column is-5">
+                                <p class="text-size-6 is-italic has-text-weight-medium has-text-grey-dark">
+                                    Words count is limited. You should write it between 250 to 300 characters.
+                                    Above 300 characters, you will no longer to write.
+                                </p>
+                            </div>
+                        </div>
+
+                        <textarea class="textarea is-medium has-text-weight-medium is-size-6" placeholder="My Reason" rows="10" name="reason" maxlength="300" required></textarea>
                     </div>
 
-                    <textarea class="textarea is-medium has-text-weight-medium is-size-6" placeholder="Medium textarea" rows="10"></textarea>
                 </div>
+                <!-- end of reason input columns -->
 
-            </div>
-            <!-- end of reason input columns -->
+                <!-- start of button columns -->
+                <div class="has-text-right">
 
-            <!-- start of button columns -->
-            <div class="has-text-right">
-                <button class="button is-primary js-modal-trigger has-text-weight-semibold" data-target="quiz-modal">
-                    Quiz
-                </button>
-                <a class="button is-primary is-outlined has-text-weight-semibold" href="./index.php">Cancel</a>
-                <a class="button is-primary has-text-weight-semibold" href="./apply instructor success.php">Apply Now</a>
+                    <button class="button is-primary js-modal-trigger has-text-weight-semibold" data-target="quiz-modal">
+                        Quiz
+                    </button>
+                    <a class="button is-primary is-outlined has-text-weight-semibold" href="./index.php">Cancel</a>
+                    <button type="submit" class="button is-primary has-text-weight-semibold" id="applyNow">Apply Now</button>
+                    <p class="warning is-italic pt-1 has-text-danger is-hidden" id="finalWarning">* Some data does not match with the format. *</p>
 
-            </div>
-            <!-- end of button columns -->
+                </div>
+                <!-- end of button columns -->
+            </form>
 
         </div>
         <!-- end of container -->
+
+        <!-- start of if statement -->
+        <?php
+        // start of isset session
+        if (isset($_SESSION['message'])) { ?>
+            <!-- start of fail message notification section -->
+            <div class="notification is-danger is-light slide-in-bottom">
+                <p class="is-size-6 has-text-weight-medium">
+                    <i class="fa-regular fa-circle-xmark"></i>
+                    <?php echo $_SESSION['message']['description'] ?>
+                </p>
+            </div>
+            <!-- end of fail message notification section -->
+        <?php
+            unset($_SESSION['message']);
+        } ?>
+        <!-- end of if condition -->
+
 
         <!-- start of quiz modal -->
         <div class="modal" id="quiz-modal">
@@ -231,6 +284,7 @@ $time = time();
 
     <?php require_once('./footer.php') ?>
     <!-- javascript file -->
+    <script defer src="./resources/js/apply instructor.js?<?php echo $time; ?>"></script>
     <script src="./resources/js/quiz modal.js"></script>
 
 </body>
