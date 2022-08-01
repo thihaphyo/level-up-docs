@@ -46,7 +46,7 @@
                         <img src="./resources/img/header_footer/profile.svg" alt=""></img>
                     </a>
                     <a id="btn_register" class="button is-primary is-outlined has-text-weight-semibold is-hidden" href="./signup.html">Register</a>
-                    <button id="btn_logout" class="button is-primary is-outlined has-text-weight-semibold is-hidden">Logout</button>
+                    <button  id="btn_logout" class="button is-primary is-outlined has-text-weight-semibold is-hidden">Logout</button>
                 </div>
             </div>
         </div>
