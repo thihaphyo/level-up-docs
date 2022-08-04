@@ -9,8 +9,6 @@
     <link rel="stylesheet" href="./resources/css/mystyles.css">
     <link rel="stylesheet" href="./resources/css/root.css">
     <link rel="stylesheet" href="contact.css">
-    <script src="https://smtpjs.com/v3/smtp.js" defer></script>
-    <script src="send.js" defer></script>
 </head>
 
 <body>
@@ -50,8 +48,7 @@
                             </div>
                         </div>
                         <div class="column">
-                            <form onsubmit="sendEmail(); reset(); return false" action="save.php" method="post">
-                               
+                            <form autocomplete="off" class="form" role="form" method="post" action="sendmail.php" >
                                     <div class="tile is-parent is-vertical">
                                         <article>
                                             <br /> <br />
@@ -59,22 +56,22 @@
                                             <br />
                                             <div class="control">
                                                 <label class="label is-size-6 has-text-weight-semibold">Uername</label>
-                                                <input class="input is-white " name="username" class="form-control" type="text" placeholder=" eg.John123 ">
+                                                <input class="input is-white " name="full_name" class="form-control" type="text" placeholder=" eg.John123 " >
                                             </div>
                                             <br /> <br />
                                             <div class="control">
                                                 <label class="label is-size-6 has-text-weight-semibold">Contact Number</label>
-                                                <input class="input is-white " name="contact-no" class="form-control" type="text" placeholder="eg.0914857574">
+                                                <input class="input is-white " name="mobile_number" class="form-control" type="text" placeholder="eg.0914857574">
                                             </div>
                                             <br /> <br />
                                             <div class="control">
                                                 <label class="label is-size-6 has-text-weight-semibold">Email Address</label>
-                                                <input id="email" class="input is-white " name="email" class="form-control" type="text" placeholder="eg.John123@gmail.com">
+                                                <input id="email" class="input is-white " name="email" class="form-control" type="text" placeholder="eg.John123@gmail.com" required>
                                             </div>
                                             <br /> <br />
                                             <div class="control">
                                                 <label class="label is-size-6 has-text-weight-semibold">Your Qusetion</label>
-                                                <textarea class="textarea is-white" name="question" class="form-control" placeholder="e.g.Lorem ipsum, dolor sit amet  consectetur adipisicing elit. consectetur adipisicing elit. Repudiandae, eos. Esse"></textarea>
+                                                <textarea class="textarea is-white" name="email" class="form-control" placeholder="e.g.Lorem ipsum, dolor sit amet  consectetur adipisicing elit. consectetur adipisicing elit. Repudiandae, eos. Esse" required></textarea>
                                             </div>
                                             <br /><br />
                                             <div class="buttons">
