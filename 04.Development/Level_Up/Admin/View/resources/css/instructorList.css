@@ -112,3 +112,13 @@ h2 .view{
         font-size: 0.6em;
     }
 }
+
+
+.o-pagination-link{
+    background-color: #333;
+    color:#eee;
+}
+
+.is-current {
+    background-color: orange;
+}

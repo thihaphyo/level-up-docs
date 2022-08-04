@@ -19,32 +19,3 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
-
-$("document").ready(function () {
-  if (localStorage.getItem("access_token") != null) {
-    // window.location.replace("./index.php");
-    $("#btn_logout").removeClass("is-hidden");
-    $("#lnk_my_courses,#lnk_noti,#lnk_cart,#lnk_profile").removeClass("is-hidden");
-  } else {
-    $("#btn_register").removeClass("is-hidden");
-    $("#lnk_my_courses,#lnk_noti,#lnk_cart,#lnk_profile").addClass("is-hidden");
-  }
-});
-
-var categories = document.querySelectorAll(".category");
-
-function activeLink() {
-  categories.forEach((category) => {
-    category.classList.remove("active");
-    this.classList.add("active");
-  });
-}
-
-categories.forEach((category) => {
-  category.addEventListener("click", activeLink);
-});
-
-$('#btn_logout').click(function () {
-    localStorage.removeItem('access_token');
-    window.location.replace("./index.php");
-})

@@ -22,7 +22,7 @@
                     <h6 class="has-text-weight-medium is-size-4 has-text-primary-light">Legal</h6>
                     <ul class="py-4 has-text-weight-bold">
                         <li class="py-2"><a href="">Terms of Use</a></li>
-                        <li class="py-2"><a href="">Privacy Policy</a></li>
+                        <li class="py-2"><a href="./privacyPolicy.php">Privacy Policy</a></li>
                         <li class="py-2"><a href="">Support Center</a></li>
                         <li class="py-2"><a href="">Join Community</a></li>
                     </ul>
@@ -34,7 +34,7 @@
                     <ul class="py-4 has-text-weight-bold">
                         <li class="py-2"><a href="">FAQ</a></li>
                         <li class="py-2"><a href="">Features</a></li>
-                        <li class="py-2"><a href="">About</a></li>
+                        <li class="py-2"><a href="./about.php">About</a></li>
                     </ul>
                 </div>
 
@@ -62,5 +62,5 @@
             <!-- end of copyright text -->
         </div>
     </footer>
-    <script src="./resources/js/index.js"></script>
+    <?php require_once "./notification.php"?>
     <!-- end of footer -->

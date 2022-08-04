@@ -1,0 +1,40 @@
+
+.title{
+    margin-bottom: 1vh;
+}
+.about{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 10vh;
+}
+.itemBox{
+    width: 45vw;
+    height: 20vh;
+}
+.itemBox > .readMore{
+    margin-top: 5vh;
+    background-color: #01226F;
+    border-radius: 15px;
+    color: #fff;
+    margin-bottom: 10vh;
+}
+.img{
+    width: 35vw;
+    height: 20vh;
+}
+#more {
+    display: none;
+}
+@media screen and (max-width: 720px){
+    .img{
+        display: none;
+    }
+    .about{
+        margin-top: 20vh;
+        padding: 10vw;
+    }
+    .itemBox{
+        width: 100%;
+    }
+}

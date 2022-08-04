@@ -1,7 +1,3 @@
-<?php
-$time = time();
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,12 +8,12 @@ $time = time();
     <title>Level Up</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-    <link rel="stylesheet" href="./resources/css/index.css?<?php echo $time ?>">
+    <link rel="stylesheet" href="./resources/css/index.css">
 </head>
 
 <body>
 
-    <?php require_once('./sidebar.php') ?>
+    <?php require_once "./sidebar.php"; ?>
 
     <section class="container">
         <div class="text">Dashboard</div>

@@ -1,7 +1,3 @@
-<?php
-$time = time();
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,9 +6,10 @@ $time = time();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Level Up</title>
-    <link rel="stylesheet" href="./resources/css/mystyles.css?<?php echo $time ?>">
-    <link rel="stylesheet" href="./resources/css/root.css?<?php echo $time ?> ">
-    <link rel="stylesheet" href="./resources/css/cart.css?<?php echo $time ?> ">
+    <link rel="stylesheet" href="./resources/css/mystyles.css">
+    <link rel="stylesheet" href="./resources/css/root.css ">
+    <link rel="stylesheet" href="./resources/css/notification.css">
+    <link rel="stylesheet" href="./resources/css/cart.css ">
 
 </head>
 
@@ -114,14 +111,14 @@ $time = time();
             </label>
             <hr>
             <!-- end of course card -->
-
+            <a href="./checkout.php"><button class="button is-primary is-outlined has-text-weight-semibold">Go to Checkout</button></a>
         </div>
         <!-- end of container -->
     </main>
     <!-- end of main -->
 
 
-    <?php require_once('./footer.php') ?>
+    <?php require_once "./footer.php" ?>
 </body>
 
 </html>

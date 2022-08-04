@@ -1,9 +1,7 @@
     <!-- start of navigation bar -->
     <nav class="navbar is-transparent is-fixed-top p-4 ">
         <div class="navbar-brand">
-            <a href="./index.php">
-                <img width="100vw" src="./resources/img/header_footer/level up.svg" alt="">
-            </a>
+            <img width="100vw" src="./resources/img/header_footer/level up.svg" alt="">
 
             <!-- start of mobile navigation -->
             <div class="navbar-burger" data-target="navbarExampleTransparentExample">
@@ -21,32 +19,32 @@
 
             <div id="navMenu">
                 <div class="navbar-end has-text-weight-medium">
-                    <a id="lnk_home" class="navbar-item" href="./index.php">
+                    <a class="navbar-item active" href="https://bulma.io/">
                         Home
                     </a>
-                    <a id="lnk_explore" class="navbar-item" href="./explore.php">
+                    <a class="navbar-item" href="https://bulma.io/">
                         Explore
                     </a>
                     <a class="navbar-item" href="https://bulma.io/">
                         Instructor
                     </a>
-                    <a id="lnk_my_courses" class="navbar-item" href="./dashboard.php">
+                    <a class="navbar-item" href="https://bulma.io/documentation/overview/start/">
                         My Courses
                     </a>
-                    <a id="lnk_noti" class="navbar-item" href="https://bulma.io/documentation/overview/start/">
+                    <button class="navbar-item" id="noti-icon" onclick="toggleNoti()">
                         <img src="./resources/img/header_footer/notification.svg" alt="">
-                        <div class="badge is-hidden">
-                            <p class="is-size-7">10</p>
+                        <div class="badge">
+                            <?php require_once "../Controller/notificationCountController.php"; ?>
+                            <p class="is-size-7" id="countNoti"><?php echo count($notiCount) ?></p>
                         </div>
-                    </a>
-                    <a id="lnk_cart" class="navbar-item" href="https://bulma.io/documentation/overview/start/">
+                    </button>
+                    <a class="navbar-item" href="https://bulma.io/documentation/overview/start/">
                         <img src="./resources/img/header_footer/cart.svg" alt=""></img>
                     </a>
-                    <a id="lnk_profile" class="navbar-item" href="./dashboard.php?screen_mode=profile">
+                    <a class="navbar-item" href="https://bulma.io/documentation/overview/start/">
                         <img src="./resources/img/header_footer/profile.svg" alt=""></img>
                     </a>
-                    <a id="btn_register" class="button is-primary is-outlined has-text-weight-semibold is-hidden" href="./signup.html">Register</a>
-                    <button id="btn_logout" class="button is-primary is-outlined has-text-weight-semibold is-hidden">Logout</button>
+                    <a class="button is-primary is-outlined has-text-weight-semibold" href="">Register</a>
                 </div>
             </div>
         </div>

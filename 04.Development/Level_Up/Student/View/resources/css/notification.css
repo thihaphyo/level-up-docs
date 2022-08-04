@@ -1,0 +1,112 @@
+.notiContainer{
+    background-color: #fff ;
+    border-radius: 15px;
+    padding: 2vw;
+    width: 300px;
+	height: 0px;
+	opacity: 0;
+    overflow: scroll;
+	position: fixed;
+	top: 15vh;
+	right: 5vw;
+    transition: 1s opacity, 250ms height;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.navbar-item{
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+}
+.notiContainer::-webkit-scrollbar{
+    width: 0.5em;
+}
+.notiContainer::-webkit-scrollbar-track{
+    background: none;
+}
+.notiContainer::-webkit-scrollbar-thumb{
+    background: hsl(0, 0%, 60%);
+    border-radius: 100vw;
+}
+.notiContainer a{
+    color: #01226F;
+}
+.notiContainer a:hover{
+    color: #01226F;
+}
+.header > h2{
+    font-size: 2em;
+    font-weight: 400;
+    color: #01226F;
+    margin-bottom: 1vw;
+}
+.header button{
+    border: none;
+    background-color: #fff;
+    font-size: 1.2em;
+    color: #01226F;
+}
+/* .all+span{
+    margin-left: 0.5vw;
+    border: 1px solid #01226F;
+    border-radius: 5px;
+    padding: 0px 10px 0px 10px;
+    background-color: #01226F;
+    color: #fff;
+} */
+/* .followed{
+    margin-left: 1vw;
+} */
+/* .notiAll , .followedNoti{
+    display: none;
+    transition: 0.5s;
+} */
+.notiCart{
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap;
+    margin-bottom: 1.5vw;
+}
+.notiCart .notiText{
+    display: flex;
+    flex-wrap: nowrap;
+}
+.notiCart .delete{
+    margin-top: 2vh;
+    margin-right: 1vw;
+}
+/* .notiCart .notiText img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 5px;
+} */
+.notiCart .notiText .courseName{
+    font-size: 0.9em;
+}
+.notiCart .notiText .courseName .text{
+    margin-top: 1vw;
+    margin-left: 3px;
+    font-size: 0.8em;
+    font-weight: 300;
+}
+.notiCart .notiText .courseName .time {
+    font-size: 0.8em;
+    font-weight: 300;
+}
+@media screen and (max-width: 720px) {
+    .notiCart{
+        margin-bottom: 2.5vh;
+    }
+    .notiCart a img {
+        width: 35px;
+        height: 35px;
+    }
+    .notiCart a .courseName{
+        font-size: 0.8em;
+    }
+    .notiCart a .courseName .text,
+    .notiCart a .courseName .time
+    {
+        font-size: 0.7em;
+    }
+    
+}
