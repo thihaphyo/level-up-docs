@@ -34,17 +34,19 @@
                             </p>
                         </label>
                     </div>
-                    <div class="field mt-6">
-                        <label class="label is-primay-label">Email Address</label>
-                        <div class="control">
-                            <input id="email" class="input text-box" type="email" placeholder="Eg.John123@gmail.com">
+                    <form action="" method="POST">
+                        <div class="field mt-6">
+                            <label class="label is-primay-label">Email Address</label>
+                            <div class="control">
+                                <input id="email" name="email" class="input text-box" type="email" placeholder="Eg.John123@gmail.com">
+                            </div>
                         </div>
-                    </div>
-                    <div class="column is-full">
-                        <button class="   button is-primary is-focused is-size-6 has-text-weight-bold ">Send Email
-                            link</button>
-                    </div>
-                </div>
+                        <div class="column is-full">
+                            <button  name="password_reset_link" class="   button is-primary is-focused is-size-6 has-text-weight-bold ">Send Email
+                                link</button>
+                        </div>
+                    </form>
+                </div>  
             </div>
             <div class="column column-fill is-hidden-mobile is-hidden-tablet-only sign-in-graphics">
                 <img class="login_arc" src="./resources/img/auth/login_arc.png" alt="">
