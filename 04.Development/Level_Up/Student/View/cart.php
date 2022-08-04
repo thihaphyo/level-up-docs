@@ -1,5 +1,7 @@
 <?php
 $time = time();
+session_start();
+$_SESSION['stid'] = 1;
 ?>
 
 <!DOCTYPE html>
@@ -13,7 +15,6 @@ $time = time();
     <link rel="stylesheet" href="./resources/css/mystyles.css?<?php echo $time ?>">
     <link rel="stylesheet" href="./resources/css/root.css?<?php echo $time ?> ">
     <link rel="stylesheet" href="./resources/css/cart.css?<?php echo $time ?> ">
-
 </head>
 
 <body>
@@ -21,107 +22,41 @@ $time = time();
 
     <!-- start of main -->
     <main>
+
+        <!-- connect to the adminListController and it give the list of admins in database -->
+
+        <!-- end of php code -->
+
         <!-- start of container -->
-        <div class="container has-background-white p-6">
-            <h1 class="title">My Cart</h1>
+        <div class="cart-container has-background-white">
+            <h1>My Cart</h1>
+            <div class="my-cart-items">
 
-            <!-- start of course card  -->
-            <label class="checkbox is-flex">
-                <input class="" type="checkbox">
-
-                <!-- start of course image -->
-                <img class="cart-course-image-size p-2" height="50px" src="./resources/img/header_footer/course image.png" alt="course image">
-                </img>
-                <!-- end of course image -->
-
-                <!-- start of course's instructor name and rating section -->
-                <div class="cart-course-footer p-2">
-                    <!-- start of course name  -->
-                    <a class="" href="">
-                        <h1 class="is-size-5 has-text-weight-bold">
-                            Importanes of Wireframes: Learn
-                            to Make for Better Design By Making
-                        </h1>
-                    </a>
-                    <!-- end of course name -->
-
-                    <!-- start of instructor name and rating -->
-                    <div class="is-flex is-justify-content-space-between pt-4">
-                        <a class="has-text-weight-medium">By Daniel Walter</a>
-                        <div>
-                            <img class="pr-1" src="./resources/img/header_footer/Rating.svg" alt="">
-                            <a class="has-text-weight-medium">4.5/5(20)</a>
-                        </div>
-                    </div>
-                    <!-- end of instructor name and rating -->
-
-                </div>
-                <!-- end of course's instructor name and rating section -->
-
-
-                <!-- start of course price and remove section -->
-                <div class="cart-course-price ml-auto">
-                    <h1 class="is-size-5 has-text-weight-bold">30,000 MMK</h1>
-                    <a class="is-underlined" href="">Remove</a>
-                </div>
-                <!-- end of course price and remove section -->
-
-            </label>
-            <hr>
-            <!-- end of course card -->
-
-            <!-- start of course card  -->
-            <label class="checkbox is-flex">
-                <input class="" type="checkbox">
-
-                <!-- start of course image -->
-                <img class="cart-course-image-size p-2" height="50px" src="./resources/img/header_footer/course image.png" alt="course image">
-                </img>
-                <!-- end of course image -->
-
-                <!-- start of course's instructor name and rating section -->
-                <div class="cart-course-footer p-2">
-                    <!-- start of course name  -->
-                    <a class="" href="">
-                        <h1 class="is-size-5 has-text-weight-bold">
-                            Importanes of Wireframes: Learn
-                            to Make for Better Design By Making
-                        </h1>
-                    </a>
-                    <!-- end of course name -->
-
-                    <!-- start of instructor name and rating -->
-                    <div class="is-flex is-justify-content-space-between pt-4">
-                        <a class="has-text-weight-medium">By Daniel Walter</a>
-                        <div>
-                            <img class="pr-1" src="./resources/img/header_footer/Rating.svg" alt="">
-                            <a class="has-text-weight-medium">4.5/5(20)</a>
-                        </div>
-                    </div>
-                    <!-- end of instructor name and rating -->
-
-                </div>
-                <!-- end of course's instructor name and rating section -->
-
-
-                <!-- start of course price and remove section -->
-                <div class="cart-course-price ml-auto">
-                    <h1 class="is-size-5 has-text-weight-bold">30,000 MMK</h1>
-                    <a class="is-underlined" href="">Remove</a>
-                </div>
-                <!-- end of course price and remove section -->
-
-            </label>
-            <hr>
-            <!-- end of course card -->
-
+            </div>
         </div>
+
         <!-- end of container -->
     </main>
     <!-- end of main -->
 
+    <div id="modal-js-example" class="modal">
+        <div class="modal-background"></div>
+        <div class="modal-content">
+            <div class="box">
+                <p>Are you sure?</p>
+                <p>you want to remove this item in your cart?</p>
+                <button class="button is-primary rn has-text-weight-semibold is-mobile cancel-item" id="deleteCartItem">Remove Now</button>
+                <button class="button is-primary is-outlined rn rn has-text-weight-semibold cancel-item">Cancel</button>
+
+                <!-- Your content -->
+            </div>
+        </div>
+
+        <button class="modal-close is-large" aria-label="close"></button>
+    </div>
 
     <?php require_once('./footer.php') ?>
 </body>
+<script src="./resources/js/cart.js?<?php echo $time; ?>"></script>
 
 </html>

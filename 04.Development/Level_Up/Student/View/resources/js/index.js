@@ -1,3 +1,5 @@
+AOS.init();
+
 document.addEventListener("DOMContentLoaded", () => {
   // Get all "navbar-burger" elements
   const $navbarBurgers = Array.prototype.slice.call(
@@ -20,18 +22,21 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-$("document").ready(function () {
+$(document).ready(function () {
   if (localStorage.getItem("access_token") != null) {
     // window.location.replace("./index.php");
     $("#btn_logout").removeClass("is-hidden");
+    $("#btn_register").addClass("is-hidden");
     $("#lnk_my_courses,#lnk_noti,#lnk_cart,#lnk_profile").removeClass("is-hidden");
   } else {
     $("#btn_register").removeClass("is-hidden");
+    $("#btn_logout").addClass("is-hidden");
     $("#lnk_my_courses,#lnk_noti,#lnk_cart,#lnk_profile").addClass("is-hidden");
   }
 });
 
 var categories = document.querySelectorAll(".category");
+console.log(categories);
 
 function activeLink() {
   categories.forEach((category) => {

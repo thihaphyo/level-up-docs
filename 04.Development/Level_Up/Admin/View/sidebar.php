@@ -48,7 +48,7 @@
                 </li>
 
                 <li class="nav-link">
-                    <a href="#">
+                    <a href="./admin list.php">
                         <div class="mobile-sidebar-text">
                             <i class="fa-solid fa-users-line fa-lg  nav-link-icon"></i>
                             <p>Admin</p>

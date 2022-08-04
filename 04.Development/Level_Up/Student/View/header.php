@@ -1,4 +1,6 @@
     <!-- start of navigation bar -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <nav class="navbar is-transparent is-fixed-top p-4 ">
         <div class="navbar-brand">
             <a href="./index.php">
@@ -33,20 +35,20 @@
                     <a id="lnk_my_courses" class="navbar-item" href="./dashboard.php">
                         My Courses
                     </a>
-                    <a id="lnk_noti" class="navbar-item" href="https://bulma.io/documentation/overview/start/">
+                    <a class="navbar-item" href="">
                         <img src="./resources/img/header_footer/notification.svg" alt="">
                         <div class="badge is-hidden">
                             <p class="is-size-7">10</p>
                         </div>
                     </a>
-                    <a id="lnk_cart" class="navbar-item" href="https://bulma.io/documentation/overview/start/">
-                        <img src="./resources/img/header_footer/cart.svg" alt=""></img>
+                    <a class="navbar-item" href="./cart.php">
+                        <img src="./resources/img/header_footer/cart.svg" alt="cart"></img>
                     </a>
-                    <a id="lnk_profile" class="navbar-item" href="./dashboard.php?screen_mode=profile">
-                        <img src="./resources/img/header_footer/profile.svg" alt=""></img>
+                    <a class="navbar-item" href="">
+                        <img src="./resources/img/header_footer/profile.svg" alt="profile"></img>
                     </a>
-                    <a id="btn_register" class="button is-primary is-outlined has-text-weight-semibold is-hidden" href="./signup.html">Register</a>
-                    <button id="btn_logout" class="button is-primary is-outlined has-text-weight-semibold is-hidden">Logout</button>
+                    <a id="btn_register" class="button is-primary is-outlined has-text-weight-semibold" href="./signup.html">Register</a>
+                    <a id="btn_logout" class="button is-primary is-outlined has-text-weight-semibold is-hidden" href="">Logout</a>
                 </div>
             </div>
         </div>

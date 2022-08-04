@@ -1,8 +1,24 @@
-.admin-list-container{
-    width: 70vw;
- 
+.admin-list-new-admin{
+    /* width: 70vw; */
     display: flex;
-    /* justify-content: space-around; */
+    justify-content: space-between;
+    align-items: center;
+}
+.admin-list-new-admin > button {
+    font-size: 0.8rem;
+    color: #848484;
+    background-color: transparent;
+    border: none;
+    text-decoration: underline;
+}
+.admin-list-new-admin > button:hover {
+    color: #000000;
+    font-weight: 600;
+}
+.admin-list-container{
+    /* width: 70vw; */
+    display: flex;
+    justify-content: space-around;
     align-items: center;
     border: 1px solid #00000043;
     border-radius: 15px;
@@ -18,14 +34,11 @@
     margin-right: 4rem;
 
 }
-.profile-image{
+.profile-image img{
     width: 80px;
     height:80px;
     border-radius: 50%;
-    background: url('../img/admin\ profile\ picture/admin\ profile1.jpg');
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
+    /* clip-path: circle(); */
     border: 4px solid #FFFFFF;
 
 }

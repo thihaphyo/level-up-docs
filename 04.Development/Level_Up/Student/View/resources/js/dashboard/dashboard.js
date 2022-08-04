@@ -17,6 +17,8 @@ $("document").ready(function () {
 
   loadData();
   fetchUserProfile();
+
+  
 });
 $("#tab_learning,#tab_my_courses").click(function () {
   $("#tab_learning,#tab_my_courses").removeClass("is-active");

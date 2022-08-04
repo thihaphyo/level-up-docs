@@ -2,7 +2,7 @@
 
 $time = time();
 session_start();
-$_SESSION["id"] = "3";
+
 ?>
 
 <!DOCTYPE html>
@@ -15,6 +15,7 @@ $_SESSION["id"] = "3";
     <title>Level Up</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <link rel="stylesheet" href="./resources/css/index.css?<?php echo $time ?>">
     <link rel="stylesheet" href="./resources/css/admin list.css?<?php echo $time ?>">
 
@@ -30,13 +31,19 @@ $_SESSION["id"] = "3";
         <?php
         require('../Controller/adminController/adminListController.php');
         $adminList = new AdminListController();
-        $adminList = $adminList->showAdmin();
+        $adminList = $adminList->showAllAdmin();
         ?>
         <!-- end of php code -->
 
-        <h1 class="text">Admin List</h1>
-
+        <div class="admin-list-new-admin">
+            <h1 class="text">Admin List
+            </h1>
+            <button id="addNewAdmin">New Admin</button>
+        </div>
         <?php
+
+        // echo "<pre>";
+        // print_r($_SESSION['message']);
         //Loop all admin list.
         foreach ($adminList as $key => $value) {
         ?>
@@ -44,7 +51,9 @@ $_SESSION["id"] = "3";
                 <div class="profile">
                     <!-- start of profile image -->
                     <div class="profile-image">
-                        <!-- admin profile image is inserted as background image through javascript -->
+                        <?php if (!$value['profile_image']) $value['profile_image'] = "no image.png" ?>
+                        <img src="./resources/img/admin profile picture/<?php echo $value['profile_image'] ?>" alt="">
+
                     </div>
                     <!-- end of profile image -->
 
@@ -52,15 +61,12 @@ $_SESSION["id"] = "3";
                     <div class="profile-action-link">
 
                         <?php
-                        if ($value['id'] == $_SESSION['id']) {
+                        if ($value['id'] == $_SESSION['adminId']) {
                             echo '<a href="./admin update.php?id=' . $value["id"] . '"' . '>Update</a>';
                         } else {
                             echo '<a href="./admin profile.php?id=' . $value["id"] . '"' . '>View</a>';
                         };
-
                         ?>
-
-
                     </div>
                     <!-- end of action links -->
                 </div>
@@ -100,9 +106,59 @@ $_SESSION["id"] = "3";
             </div>
 
         <?php } ?>
+        <!-- end of loop -->
+
+        <!-- start of php code of auto random generated username & password -->
+
+        <?php
+
+        $chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+        $username = substr(str_shuffle($chars), 0, 8);
+        $password = substr(str_shuffle($chars), 0, 8);
+
+        ?>
+
+        <!-- end of php code of auto random generated username & password -->
+
+        <!-- start of create admin modal box -->
+        <div class="create-admin-modal-box-bg hidden">
+
+            <div class="create-admin-modal-box">
+                <div>
+                    <h2>Create Admin</h2>
+                    <button id="closeCreateAdminModal">close</button>
+                </div>
+                <div>
+                    <label>Username</label>
+                    <div class="input-with-copy">
+                        <input type="text" name="admin-username" value="<?php echo $username ?>" readonly></input>
+                        <i class="fa-regular fa-copy fa-lg"></i>
+
+                    </div>
+                </div>
+                <div>
+                    <label>Password</label>
+                    <div class="input-with-copy">
+                        <input type="text" name="admin-password" value="<?php echo $password ?>" readonly></input>
+                        <i class="fa-regular fa-copy fa-lg"></i>
+
+                    </div>
+                </div>
+                <p id="createAdminMessage"></p>
+                <div>
+                    <button id="createNewAdmin">Confirm New Admin</button>
+                </div>
+            </div>
+
+        </div>
+        <!-- end of create admin modal box -->
+
 
     </div>
     <!-- end of container -->
+    <!-- javascript file  -->
+    <script src="./resources/js/admin insert.js?<?php echo $time ?>"></script>
+
 </body>
 
 </html>

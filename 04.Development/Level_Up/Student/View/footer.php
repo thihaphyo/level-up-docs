@@ -5,11 +5,11 @@
         <div class="container">
 
             <!-- start of links in footer -->
-            <div class=" columns is-mobile is-multiline">
+            <div class="columns is-mobile is-multiline has-text-centered-mobile">
 
                 <!-- Categories -->
-                <div class="column is-half-mobile is-one-quarter-desktop">
-                    <h6 class="has-text-weight-medium is-size-4 has-text-primary-light">Categories</h6>
+                <div class="column is-full-mobile is-one-quarter-desktop">
+                    <h6 class="has-text-weight-medium is-size-4-desktop has-text-primary-light list-title">Categories</h6>
                     <ul class="py-4 has-text-weight-bold">
                         <li class="py-2"><a href="">Instructor Lists</a></li>
                         <li class="py-2"><a href="">Course Lists</a></li>
@@ -18,8 +18,8 @@
                 </div>
 
                 <!-- Legal -->
-                <div class="column is-half-mobile is-one-quarter-desktop">
-                    <h6 class="has-text-weight-medium is-size-4 has-text-primary-light">Legal</h6>
+                <div class="column is-full-mobile is-one-quarter-desktop">
+                    <h6 class="has-text-weight-medium is-size-4-desktop has-text-primary-light list-title">Legal</h6>
                     <ul class="py-4 has-text-weight-bold">
                         <li class="py-2"><a href="">Terms of Use</a></li>
                         <li class="py-2"><a href="">Privacy Policy</a></li>
@@ -29,8 +29,8 @@
                 </div>
 
                 <!-- Company -->
-                <div class="column is-half-mobile is-one-quarter-desktop">
-                    <h6 class="has-text-weight-medium is-size-4 has-text-primary-light">Company</h6>
+                <div class="column is-full-mobile is-one-quarter-desktop">
+                    <h6 class="has-text-weight-medium is-size-4-desktop has-text-primary-light list-title">Company</h6>
                     <ul class="py-4 has-text-weight-bold">
                         <li class="py-2"><a href="">FAQ</a></li>
                         <li class="py-2"><a href="">Features</a></li>
@@ -39,13 +39,13 @@
                 </div>
 
                 <!-- Secure Payment -->
-                <div class="column is-half-mobile is-one-quarter-desktop">
-                    <h6 class="title is-size-4 py-0 has-text-primary-light">Secure Payment With</h6>
-                    <div class="columns is-half-mobile is-4">
-                        <div class="column py-0 is-half-mobile">
-                            <img class="mr-2" width="60vw" src="../View/resources/img/header_footer/visa.svg" alt=""></img>
-                            <img class="mr-2" width="60vw" src="../View/resources/img/header_footer/mastercard.svg" alt=""></img>
-                            <img class="mr-2" width="60vw" src="../View/resources/img/header_footer/paypal.svg" alt=""></img>
+                <div class="column is-full-mobile is-one-quarter-desktop">
+                    <h6 class="is-size-4-desktop py-0 has-text-primary-light has-text-weight-medium list-title">Secure Payment With</h6>
+                    <div class="columns is-half-mobile is-4 secure-payment">
+                        <div class="column is-full-mobile">
+                            <img class="mr-2" width="60vw" src="./resources/img/header_footer/visa.svg" alt=""></img>
+                            <img class="mr-2" width="60vw" src="./resources/img/header_footer/mastercard.svg" alt=""></img>
+                            <img class="mr-2" width="60vw" src="./resources/img/header_footer/paypal.svg" alt=""></img>
                         </div>
                     </div>
                     <div class="column py-0">
@@ -56,8 +56,8 @@
             <!-- end of links in footer -->
 
             <!-- start of copyright text  -->
-            <div class="columns is-full is-centered-mobile is-justify-content-flex-end">
-                <p>© 2022 Level Up Inc.</p>
+            <div class="columns is-full is-justify-content-flex-end copyright">
+                <p class="has-text-centered-mobile">© 2022 Level Up Inc.</p>
             </div>
             <!-- end of copyright text -->
         </div>
