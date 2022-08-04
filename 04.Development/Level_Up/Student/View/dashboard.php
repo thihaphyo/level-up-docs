@@ -14,6 +14,9 @@
 </head>
 
 <body>
+<div id="loading_container" class="loader-wrapper columns is-gapless is-flex is-align-items-center is-justify-content-center" style="position: absolute; top:0; z-index: 999;width: 100%; margin:0;padding: 0; height:220%; background-color: rgba(0, 0, 0, 0.286);">
+        <div class="card bodymovinanim" style="width: 7rem; border-radius: 0.6rem; position:absolute; top:20%;"></div>
+ </div>
     <?php 
         require_once('./header.php');
         if ($_GET["screen_mode"] == 'profile') {
@@ -33,7 +36,6 @@
            </script>";
         }
     ?>
-
     <main>
         <!-- start of container  -->
         <div class="container">
@@ -62,8 +64,8 @@
                         <li id="tab_my_courses"><a>Wishlist</a></li>
                     </ul>
                 </div>
-                <div class="ml-8-responsive column is-full">
-                    <div class="row is-flex">
+                <div id="item_container" class="ml-8-responsive column is-full">
+                    <!-- <div class="row is-flex">
                         <div class="column is-one-third">
                             <div class="card">
                                 <div class="card-image">
@@ -294,18 +296,18 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
                 <div class="is-flex is-justify-content-center">
-                    <div class="page mr-10 mb-5" style="width: 17rem;">
+                    <div id="pagination_container" class="page mr-10 mb-5" style="width: 17rem;">
                         <nav class="pagination is-centered" role="navigation" aria-label="pagination">
                             <a class="pagination-previous"> <img style="width: 10px; " src="./resources/img/header_footer/left_arrow.png"> </a>
                             <a class="pagination-next"><img style="width: 10px; " src="./resources/img/header_footer/right_arrow.png"></a>
-                            <ul class="pagination-list">
-                                <li><a class="pagination-link is-current" aria-label="Goto page 1" aria-current="page">1</a></li>
+                            <ul class="pagination-list" id="paging_list">
+                                <!-- <li><a class="pagination-link is-current" aria-label="Goto page 1" aria-current="page">1</a></li>
                                 <li><a class="pagination-link" aria-label="Goto page 2">2</a></li>
                                 <li><span class="pagination-ellipsis">&hellip;</span></li>
-                                <li><a class="pagination-link" aria-label="Goto page 45">45</a></li>
+                                <li><a class="pagination-link" aria-label="Goto page 45">45</a></li> -->
                             </ul>
                         </nav>
                     </div>
@@ -323,6 +325,7 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="./resources/js/index.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.5.3/lottie_svg.min.js" type="text/javascript"></script>
     <script src="./resources/js/dashboard/dashboard.js"></script>
 </body>
 
