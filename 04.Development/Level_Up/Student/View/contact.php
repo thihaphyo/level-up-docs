@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="./resources/css/mystyles.css">
     <link rel="stylesheet" href="./resources/css/root.css">
     <link rel="stylesheet" href="contact.css">
+
 </head>
 
 <body>
@@ -75,7 +76,7 @@
                                             </div>
                                             <br /><br />
                                             <div class="buttons">
-                                                <button type="submit" onclick="sendEmail()"  class="button is-primary has-text-weight-bold form-control submit"> Send</button>
+                                                <button type="submit"  class="button is-primary has-text-weight-bold form-control submit"> Send</button>
                                             </div>
                                         </article>
                                     </div>
