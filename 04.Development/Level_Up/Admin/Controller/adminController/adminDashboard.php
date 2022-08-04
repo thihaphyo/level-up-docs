@@ -45,7 +45,7 @@ class AdminDashboard extends DBConnect
         }
     }
 
-    public function getBigThree()
+    public function getStduent()
     {
 
         try {
@@ -58,12 +58,35 @@ class AdminDashboard extends DBConnect
             $sql->execute();
             $totalStudents = $sql->fetchAll(PDO::FETCH_ASSOC);
 
+
+            return $totalStudents;
+        } catch (\Throwable $th) {
+            echo $th;
+        }
+    }
+
+    public function getInstructor()
+    {
+
+        try {
+            $gotConnection = $this->connect();
             $sql = $gotConnection->prepare("SELECT count(id) FROM M_INSTRUCTORS WHERE status = 'APPROVED' AND is_banned = 0");
             $sql->execute();
             $totalInstructors = $sql->fetchAll(PDO::FETCH_ASSOC);
+            return $totalInstructors;
+        } catch (\Throwable $th) {
+            echo $th;
+        }
+    }
+    public function getCourse()
+    {
 
-
-            return $total = [$totalStudents, $totalInstructors];
+        try {
+            $gotConnection = $this->connect();
+            $sql = $gotConnection->prepare("SELECT count(id) FROM M_COURSES WHERE  is_deleted = 0");
+            $sql->execute();
+            $totalCourses = $sql->fetchAll(PDO::FETCH_ASSOC);
+            return $totalCourses;
         } catch (\Throwable $th) {
             echo $th;
         }
@@ -72,4 +95,6 @@ class AdminDashboard extends DBConnect
 
 $dashboard = new AdminDashboard();
 $appealList = $dashboard->getAppeal();
-$allList = $dashboard->getBigThree();
+$studentList = $dashboard->getStduent();
+$instructorList = $dashboard->getInstructor();
+$courseList = $dashboard->getCourse();

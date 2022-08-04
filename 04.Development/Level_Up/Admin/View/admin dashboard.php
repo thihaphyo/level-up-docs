@@ -35,14 +35,13 @@ session_start();
             <h1 class="text">Dashboard</h1>
         </div>
         <div class="dashboard">
-            <?php ?>
             <!-- start of left content -->
             <div class="left-content">
                 <!-- start of status board section -->
                 <div class="status-container">
                     <div class="status students">
                         <p>Students</p>
-                        <h1 class="status-number"></h1>
+                        <h1 class="status-number"><?php echo $studentList[0]['count(id)']; ?></h1>
                         <p>The total amount of student in our website</p>
                     </div>
                     <svg width="2" height="162" viewBox="0 0 2 162" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -51,7 +50,7 @@ session_start();
 
                     <div class="status courses">
                         <p>Courses</p>
-                        <h1 class="status-number">300</h1>
+                        <h1 class="status-number"><?php echo $courseList[0]['count(id)']; ?></h1>
                         <p>The total amount of courses in our website</p>
                     </div>
                     <svg width="2" height="162" viewBox="0 0 2 162" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -59,7 +58,7 @@ session_start();
                     </svg>
                     <div class="status instructors">
                         <p>Instructors</p>
-                        <h1 class="status-number">300</h1>
+                        <h1 class="status-number"><?php echo $instructorList[0]['count(id)']; ?></h1>
                         <p>The total amount of instructors in our website</p>
                     </div>
                 </div>
