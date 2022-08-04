@@ -15,12 +15,16 @@ session_start();
     <link rel="stylesheet" href="./resources/css/mystyles.css?<?php echo $time ?>">
     <link rel="stylesheet" href="./resources/css/root.css?<?php echo $time ?> ">
     <link rel="stylesheet" href="./resources/css/apply instructor.css?<?php echo $time ?> ">
-
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
 </head>
 
 <body>
-    <?php require_once('./header.php') ?>
+    <?php
+    require_once('./header.php');
+    session_start();
+    $_SESSION['lid'] = 1;
+    ?>
 
     <!-- start of main -->
     <main>
@@ -230,50 +234,17 @@ session_start();
                 <header class="modal-card-head">
                     <p class="title has-text-primary">Quiz</p>
                 </header>
-                <section class="modal-card-body">
-                    <div class="mb-3">
-                        <label class="has-text-weight-medium">Question 1 of 2</label>
-                        <h3 class="is-size-5 has-text-weight-medium">Q. What is the purpose of using css ?</h3>
-                        <div class="control is-flex is-flex-direction-column">
-                            <label class="radio p-4">
-                                <input type="radio" name="answer" value="a">
-                                A. provides the web browser with security information
-                            </label>
-                            <label class="radio p-4">
-                                <input type="radio" name="answer" value="b">
-                                B. provides the web browser with security information
-                            </label>
-                            <label class="radio p-4">
-                                <input type="radio" name="answer" value="c">
-                                C. provides the web browser with security information
-                            </label>
-                        </div>
-                    </div>
-
-                    <div class="mb-3">
-                        <label class="has-text-weight-medium">Question 2 of 2</label>
-                        <h3 class="is-size-5 has-text-weight-medium">Q. What is the purpose of using css ?</h3>
-                        <div class="control is-flex is-flex-direction-column">
-                            <label class="radio p-4">
-                                <input type="radio" name="answer" value="a">
-                                A. provides the web browser with security information
-                            </label>
-                            <label class="radio p-4">
-                                <input type="radio" name="answer" value="b">
-                                B. provides the web browser with security information
-                            </label>
-                            <label class="radio p-4">
-                                <input type="radio" name="answer" value="c">
-                                C. provides the web browser with security information
-                            </label>
-                        </div>
-                    </div>
-
+                <section class="modal-card-body" id="quizContent">
                 </section>
+                <h1 class="is-size-5 has-text-success has-background-white has-text-weight-semibold is-hidden has-text-right pr-5" id="finalResult">Result: 2 of 2 </h1>
+                <p class="is-italic has-text-centered has-text-weight-medium has-background-white is-hidden" id="msgToUser">* Please answer also the rest of the questions. *</p>
                 <footer class="modal-card-foot">
-                    <button class="button is-primary is-outlined has-text-weight-semibold">Cancel</button>
-                    <button class="button is-primary has-text-weight-semibold">Check Now</button>
+
+                    <button class="button is-primary is-outlined has-text-weight-semibold cancel-quiz">Cancel</button>
+                    <button class="button is-primary has-text-weight-semibold" id="checkQuizNow">Check Now</button>
+
                 </footer>
+
             </div>
         </div>
         <!-- End of quiz modal -->
@@ -285,7 +256,7 @@ session_start();
     <?php require_once('./footer.php') ?>
     <!-- javascript file -->
     <script defer src="./resources/js/apply instructor.js?<?php echo $time; ?>"></script>
-    <script src="./resources/js/quiz modal.js"></script>
+    <script src="./resources/js/quiz modal.js?<?php echo $time; ?>"></script>
 
 </body>
 

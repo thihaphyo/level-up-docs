@@ -39,11 +39,11 @@
                             <p class="is-size-7">10</p>
                         </div>
                     </a>
-                    <a class="navbar-item" href="/">
-                        <img src="./resources/img/header_footer/cart.svg" alt=""></img>
+                    <a class="navbar-item" href="./cart.php">
+                        <img src="./resources/img/header_footer/cart.svg" alt="cart"></img>
                     </a>
                     <a class="navbar-item" href="">
-                        <img src="./resources/img/header_footer/profile.svg" alt=""></img>
+                        <img src="./resources/img/header_footer/profile.svg" alt="profile"></img>
                     </a>
                     <a id="btn_register" class="button is-primary is-outlined has-text-weight-semibold" href="./signup.html">Register</a>
                     <a id="btn_logout" class="button is-primary is-outlined has-text-weight-semibold is-hidden" href="">Logout</a>

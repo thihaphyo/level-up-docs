@@ -84,6 +84,68 @@ footer {
   border: none;
   color: #FFFFFF;
 }
+/* ================= Student Voice Section (MK) =================== */
+.student-voice {
+  margin-top: 4rem;
+  padding-left: 4rem;
+}
+.student-voice > h1{
+  text-align: center;
+  margin-bottom: 4rem;
+}
+.student-review {
+  margin-bottom: 2rem;
+}
+.review{
+  display: flex;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+.profile{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-right: 3rem;
+}
+.profile img {
+  margin: auto;
+}
+.review-content{
+  width: 80%;
+}
+.review-content div {
+  width: fit-content;
+  display: flex;
+}
+.review-content div h1 {
+  font-size: 1.6vw;
+  font-weight: 600;
+  font-style:italic;
+  padding: 0px 10px;
+}
+.review-content div i {
+  color:rgba(1, 34, 111, 0.33);;
+}
+.review-content div i:last-child {
+  margin-left: auto;
+}
+.review-content p {
+  padding-top: 2rem;
+  padding-left: 1.5rem;
+  width: 60%;
+  
+}
+.review-content img {
+  padding-top: 2rem;
+  padding-left: 1.5rem;
+}
+.reverse .review {
+  width: 80%;
+  margin-left: auto;
+}
+.reverse .review .review-content p{
+  width: 80%;
+}
 
 /* ================= Message to user Section (MK) =================== */
 .message{
@@ -646,12 +708,25 @@ footer {
   .list-title{
     font-size: 1.4vw !important;
   }
+  .review-content div h1 {
+    font-size: 2vw;
+  }
+  .review-content p{
+    width: 90%;
+  }
+  .reverse .review-content{
+    width: 100%;
+  }
+  .reverse .review{
+    width: 100%;
+  }
+  .reverse .review .review-content p,.review-content p{
+   font-size: 0.8rem;
+  }
+
 }
 /* ================= 768px Screen Section (MK) =================== */
 @media screen and (max-width: 768px) {
-  .hero{
-
-  }
   .hero:first-child{
     margin-top: 10vw;
     
@@ -667,19 +742,18 @@ footer {
     margin-bottom: 3rem;
   }
   .instructor-img {
-    margin: auto;
+    padding-top: 2rem;
   }
   .never-late-to-learn{
     text-align: center;
   }
-  .never-late-to-learn{
-    text-align: center;
+  .never-late-to-learn div {
+    justify-content: center;
   }
   .never-late-to-learn > h1 {
     width: 80%;
     margin: auto;
   }
-
   .register-now {
     display: none;
   }  
@@ -688,6 +762,48 @@ footer {
   }
   .footer .container{
     margin-top: 120vmax;
+  }
+  .student-voice {
+    padding-left: 0;
+  }
+  .review-content div h1 {
+    font-size: 3vw;
+  }
+  .review {
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  .review img:first-child{
+    width: 30vw;
+    margin-bottom: 1rem;
+  }
+  .review svg{
+    display: none;
+  }
+  .reverse .review .profile img{
+    width: 30vw;
+  }
+  .review-content div {
+    margin: auto;
+  }
+  .review-content p,.reverse .review .review-content p{
+    width: 100%;
+  }
+  .reverse .review .profile img{
+    margin: 1rem 0rem;
+
+  }
+  .profile{
+    padding-right: 0;
+  }
+  .review-content img{
+    padding: 0;
+    padding-top: 1rem;
+  }
+  .review-content p{
+    padding: 1rem 0.4rem;
   }
 }
 /* ================= 480px Screen Section (MK) =================== */
