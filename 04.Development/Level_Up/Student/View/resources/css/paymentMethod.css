@@ -1,0 +1,120 @@
+.paymentBox{
+    width: 80%;
+    margin: 0 auto;
+    background-color: #ffffff;
+    padding: 3vw;
+}
+.cards {
+    text-align: center;
+    margin-bottom: 8vh;
+}
+input[type="radio"]{
+    opacity: 0;
+}
+.cards label img{
+    padding: 1vh 2.5vw 1vh 2.5vw;
+    border: 1px solid #01226F;
+    margin: 2vw;
+    opacity: 0.3;
+}
+.formInput {
+    width: 50vw;
+    margin-left: 8vw;
+}
+
+.formInput label {
+    font-size: 1.2em;
+    font-weight: 600;
+}
+
+.formInput input {
+    width: 20vw;
+    border-radius: 5px;
+    border: 1px solid #01226F;
+    padding: 5px;
+}
+
+.firstForm,
+.secForm {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5vh;
+}
+
+.secForm select {
+    width: 6vw;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #01226F;
+}
+
+#cvc {
+    margin-right: 13vw;
+}
+
+#cvc input {
+    width: 5vw;
+    margin-right: 5px;
+}
+
+#cvc img {
+    width: 1.5vw;
+    height: 1.5vw;
+}
+
+.saveBox {
+    position: relative;
+    left: 13vw;
+    margin-bottom: 3vh;
+    font-size: 0.8em;
+}
+
+.paymentCost{
+    display: flex;
+    justify-content: space-evenly;
+    padding: 2vh;
+    background-color: #FEFBF6;
+    width: 30vw;
+    margin: 0 auto;
+    margin-top: 10vh;
+}
+.paymentCost .cost{
+    margin-right: 5vw;
+}
+.paymentCost .cost hr{
+    width: 200%;
+}
+.submitBtn {
+    margin-top: 5vh;
+    margin-left: 50%;
+}
+@media screen and (max-width: 820px) {
+    .paymentBox{
+        margin-top: 20vh;
+    }
+    .paymentBox .title{
+        font-size: 1em;
+    }
+    .formInput label{
+        font-size: 0.8em;
+    }
+    .secForm #expiryDate{
+        margin-right: 50px;
+    }
+    .secForm select, #cvc input{
+        width: 50px;
+    } 
+    #cvc img {
+        width: 15px;
+        height: 15px;
+    }
+    .paymentCost{
+        width: 290px;
+        height: 220px;
+    }
+    .submit{
+        width: 150px;
+        font-size: 0.8em;
+        padding: 5px;
+    }
+}

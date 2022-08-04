@@ -12,9 +12,12 @@ $_SESSION['stid'] = 1;
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Level Up</title>
+
     <link rel="stylesheet" href="./resources/css/mystyles.css?<?php echo $time ?>">
     <link rel="stylesheet" href="./resources/css/root.css?<?php echo $time ?> ">
+    <link rel="stylesheet" href="./resources/css/notification.css">
     <link rel="stylesheet" href="./resources/css/cart.css?<?php echo $time ?> ">
+
 </head>
 
 <body>
@@ -55,7 +58,7 @@ $_SESSION['stid'] = 1;
         <button class="modal-close is-large" aria-label="close"></button>
     </div>
 
-    <?php require_once('./footer.php') ?>
+    <?php require_once "./footer.php" ?>
 </body>
 <script src="./resources/js/cart.js?<?php echo $time; ?>"></script>
 

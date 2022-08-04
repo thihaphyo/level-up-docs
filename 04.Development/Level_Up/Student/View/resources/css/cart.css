@@ -46,6 +46,7 @@
 }
 .cart-container .my-cart .course-info div{
     display: flex;
+    flex-direction: column !important;
 }
 .cart-container .my-cart .course-info .instructor-rating{
     padding-bottom: 0.6rem;
@@ -181,3 +182,6 @@
     }
 }
   
+a>.button{
+    margin-left: 85%;
+}
