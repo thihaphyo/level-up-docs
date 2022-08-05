@@ -34,7 +34,7 @@
                             </p>
                         </label>
                     </div>
-                    <form action="" method="POST">
+                    <form action="sendmail.php" method="POST">
                         <div class="field mt-6">
                             <label class="label is-primay-label">Email Address</label>
                             <div class="control">
