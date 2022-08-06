@@ -6848,7 +6848,7 @@ div.icon-text {
   border-bottom-width: 1px;
 }
 .table.is-fullwidth {
-  width: 100%;
+  width: 96%;
 }
 .table.is-hoverable tbody tr:not(.is-selected):hover {
   background-color: hsl(0deg, 0%, 98%);

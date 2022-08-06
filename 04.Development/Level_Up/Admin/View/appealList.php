@@ -28,7 +28,7 @@
         </tr>
         <tr id="no-data">
           <td colspan="4" class="has-text-centered">
-              No data.
+            No data.
           </td>
         </tr>
         <!-- <tr>
@@ -99,4 +99,5 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="./resources/js/moment.js"></script>
 <script src="./resources/js/appealList.js"></script>
+
 </html>

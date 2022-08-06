@@ -33,8 +33,9 @@ getCreateAdmin.addEventListener("click", (e) => {
         info: {
           username: document.querySelectorAll("input")[0].value,
           password: document.querySelectorAll("input")[1].value,
-          SecretCon: true,
+          path: "list",
         },
+        timeout: 10000,
       }
     )
     .then((response) => {

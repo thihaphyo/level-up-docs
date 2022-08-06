@@ -150,7 +150,8 @@ class AuthController extends BaseController
         return $randomCode;
     }
 
-    function edit() {
+    function edit()
+    {
 
         $data = $this->jsonData();
         $userId = $this->stringEncryption('decrypt', $data["id"]);
@@ -213,8 +214,6 @@ class AuthController extends BaseController
 
             echo $response;
         }
-
-
     }
 
     function getUser()
@@ -270,7 +269,8 @@ class AuthController extends BaseController
         }
     }
 
-    function verify() {
+    function verify()
+    {
 
         $data = $this->jsonData();
 
@@ -302,9 +302,7 @@ class AuthController extends BaseController
                 'message' => "User verified"
             ]);
             echo $response;
-
         }
-
     }
 
     function stringEncryption($action, $string)

@@ -18,7 +18,8 @@ class AdminListController extends DBConnect
     {
         $gotConnection = $this->connect();
 
-        $sql = $gotConnection->prepare("SELECT * FROM M_ADMINS WHERE id=$adminID AND is_deleted IS NULL");
+        $sql = $gotConnection->prepare("SELECT * FROM M_ADMINS WHERE id= :id AND is_deleted IS NULL");
+        $sql->bindValue(':id', $_SESSION['adminId']);
 
         $sql->execute();
         $result = $sql->fetchAll(PDO::FETCH_ASSOC);

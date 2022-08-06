@@ -54,7 +54,7 @@ const signIn = () => {
         const user = response.data.data;
         console.log(user.admin.access_token);
         // localStorage.setItem("access_token", user.students.access_token);
-        window.location.replace("./index.php");
+        window.location.replace("./dashboard.php");
       } else if (statusCode == 403) {
         window.alert(message);
       } else {
@@ -68,15 +68,15 @@ const signIn = () => {
 };
 
 $("#btnSignIn").click(function () {
-    signIn();
+  signIn();
 });
 
 const showLoading = () => {
-    let svgContainer = document.querySelector('.bodymovinanim');
-    let animItem = bodymovin.loadAnimation({
-      wrapper: svgContainer,
-      animType: 'svg',
-      loop: true,
-      path: "https://assets6.lottiefiles.com/packages/lf20_qjosmr4w.json"
-    });
-}
+  let svgContainer = document.querySelector(".bodymovinanim");
+  let animItem = bodymovin.loadAnimation({
+    wrapper: svgContainer,
+    animType: "svg",
+    loop: true,
+    path: "https://assets6.lottiefiles.com/packages/lf20_qjosmr4w.json",
+  });
+};

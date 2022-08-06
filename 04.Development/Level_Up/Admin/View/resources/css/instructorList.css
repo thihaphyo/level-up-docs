@@ -45,6 +45,9 @@ h2 .view{
     text-align: center;
     margin-top: 5vh;
 }
+.table.is-fullwidth {
+    width: 96% !important;
+}
 /*end instructor list page */
 
 /* start instructor request page */

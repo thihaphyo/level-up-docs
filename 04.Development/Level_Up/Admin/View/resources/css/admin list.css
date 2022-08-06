@@ -62,10 +62,15 @@
     padding: 1rem 0rem;
 
 }
+.info-chunk.capitalize{
+    text-transform: capitalize;
+}
 .info-chunk h3{
+    font-size: 1vw;
     font-weight: 600;
 }
 .info-chunk label{
     color: #848484;
+    font-size: 00.8rem;
     font-weight: 500;
 }

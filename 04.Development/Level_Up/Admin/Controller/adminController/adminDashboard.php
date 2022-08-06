@@ -12,14 +12,57 @@ class AdminDashboard extends DBConnect
             $gotConnection = $this->connect();
 
             // update sql query
-            $sql = $gotConnection->prepare("SELECT T_APPLEALS.id,T_APPLEALS.status, T_APPLEALS.created_at, M_INSTRUCTORS.full_name
-            FROM T_APPLEALS , M_INSTRUCTORS
-            WHERE T_APPLEALS.instructor_id = M_INSTRUCTORS.id");
+            $sql = $gotConnection->prepare("SELECT * FROM M_INSTRUCTORS WHERE status = 'PENDING'");
 
             //execute the sql query
             $sql->execute();
-            $appealResult = $sql->fetchAll(PDO::FETCH_ASSOC);
-            return $appealResult;
+            $result = $sql->fetchAll(PDO::FETCH_ASSOC);
+            return $result;
+        } catch (\Throwable $th) {
+            echo $th;
+        }
+    }
+    public function getPurchasedCourse()
+    {
+
+        try {
+            $gotConnection = $this->connect();
+
+            // update sql query
+            $sql = $gotConnection->prepare("SELECT
+            M_COURSES.is_deleted,
+            COUNT(T_STUDENT_PURCHASED_COURSES.id) as total_course,
+            M_STUDENTS.full_name,
+            M_STUDENTS.email,
+            M_STUDENTS.is_verified,
+            M_STUDENTS.is_deleted
+          FROM M_COURSES
+          JOIN T_STUDENT_PURCHASED_COURSES
+            ON M_COURSES.id = T_STUDENT_PURCHASED_COURSES.course_id AND M_COURSES.is_deleted = 0
+          JOIN M_STUDENTS
+            ON T_STUDENT_PURCHASED_COURSES.student_id = M_STUDENTS.id;");
+
+            //execute the sql query
+            $sql->execute();
+            $result = $sql->fetchAll(PDO::FETCH_ASSOC);
+            return $result;
+        } catch (\Throwable $th) {
+            echo $th;
+        }
+    }
+    public function getAllStudent()
+    {
+
+        try {
+            $gotConnection = $this->connect();
+
+            // update sql query
+            $sql = $gotConnection->prepare("SELECT * FROM M_STUDENTS");
+
+            //execute the sql query
+            $sql->execute();
+            $result = $sql->fetchAll(PDO::FETCH_ASSOC);
+            return $result;
         } catch (\Throwable $th) {
             echo $th;
         }
@@ -32,14 +75,14 @@ class AdminDashboard extends DBConnect
             $gotConnection = $this->connect();
 
             // update sql query
-            $sql = $gotConnection->prepare("SELECT T_APPLEALS.id,T_APPLEALS.status, T_APPLEALS.created_at, M_INSTRUCTORS.full_name
+            $sql = $gotConnection->prepare('SELECT T_APPLEALS.id,T_APPLEALS.status, T_APPLEALS.created_at, M_INSTRUCTORS.full_name, M_INSTRUCTORS.status, M_INSTRUCTORS.is_banned
             FROM T_APPLEALS , M_INSTRUCTORS
-            WHERE T_APPLEALS.instructor_id = M_INSTRUCTORS.id");
+            WHERE T_APPLEALS.instructor_id = M_INSTRUCTORS.id AND T_APPLEALS.status = "PENDING" AND M_INSTRUCTORS.status = "APPROVED" AND M_INSTRUCTORS.is_banned = 0 ORDER BY created_at LIMIT 0,5');
 
             //execute the sql query
             $sql->execute();
-            $appealResult = $sql->fetchAll(PDO::FETCH_ASSOC);
-            return $appealResult;
+            $result = $sql->fetchAll(PDO::FETCH_ASSOC);
+            return $result;
         } catch (\Throwable $th) {
             echo $th;
         }
@@ -94,7 +137,3 @@ class AdminDashboard extends DBConnect
 }
 
 $dashboard = new AdminDashboard();
-$appealList = $dashboard->getAppeal();
-$studentList = $dashboard->getStduent();
-$instructorList = $dashboard->getInstructor();
-$courseList = $dashboard->getCourse();

@@ -7,4 +7,3 @@ $controller = new AuthController();
 $data = $controller->signIn();
 
 echo $data;
-

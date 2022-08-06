@@ -27,7 +27,7 @@ $time = time();
         <div class="mt-6">
             <div class="columns mt-4 pt-3 pb-0">
                 <div class="my-profile-image">
-                    <img id="profile_img"  alt="" style="object-fit: cover;" />
+                    <img id="profile_img" alt="" style="object-fit: cover;" />
                 </div>
                 <div class="column my-profile-info pb-0">
                     <div class="my-profile-name-n-edit pt-3 pl-1 pb-0">

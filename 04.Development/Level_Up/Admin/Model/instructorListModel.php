@@ -15,18 +15,19 @@ class instructorlistModel extends DBConnect
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function get_instructorcount () {
+    public function get_instructorcount()
+    {
 
         $stmt = $this->pdo->prepare("SELECT COUNT(id) AS count FROM M_INSTRUCTORS");
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
-    
-    public function get_all_orders () {
+
+    public function get_all_orders()
+    {
 
         $stmt = $this->pdo->prepare("SELECT * FROM M_INSTRUCTORS");
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
-        
     }
 }

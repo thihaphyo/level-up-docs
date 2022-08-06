@@ -95,5 +95,9 @@ submitBtn.addEventListener("click", (e) => {
 //when changes happen, get the filename and show it to user
 profileImage.addEventListener("change", (event) => {
   fileName = event.target.files[0].name;
+  document.getElementsByClassName("profile-image")[0].style.backgroundColor =
+    "#FFFFFF";
+  document.getElementById("image-name").style.color = "#706D6D";
   document.getElementById("image-name").innerHTML = fileName;
+  document.getElementById("image-background").width = "0%";
 });
