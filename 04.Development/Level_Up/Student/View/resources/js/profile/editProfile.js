@@ -24,7 +24,12 @@ const fetchUserProfile = () => {
         }
         console.log(user.fullName);
       } else {
-        window.alert(message);
+        iziToast.error({
+            title: 'Error',
+            layout: 2,
+            position: 'bottomRight',
+            message: message,
+        }); 
       }
     })
     .catch((error) => console.error(error))
@@ -46,9 +51,20 @@ const editProfile = () => {
       const statusCode = response.data.code;
       const message = response.data.message;
       if (statusCode == 200) {
+        iziToast.success({
+            title: 'Success!!',
+            layout: 2,
+            position: 'topRight',
+            message: 'Your proifle has been updated!',
+        }); 
         window.location.href = "./dashboard.php?screen_mode=profile";
       } else {
-        window.alert(message);
+        iziToast.error({
+            title: 'Error',
+            layout: 2,
+            position: 'bottomRight',
+            message: message,
+        }); 
       }
     })
     .catch((error) => console.error(error))
@@ -79,9 +95,19 @@ const hideLoading = () => {
 
 $('#btnEdit').click(function() {
     if ($('#username').val() == null || $('#username').val() == "") {
-        window.alert('Username cannot be empty!');
+        iziToast.error({
+            title: 'Input validation error',
+            layout: 2,
+            position: 'bottomRight',
+            message: 'Username cannot be empty!',
+        }); 
     } else if ($('#email').val() == null || $('#email').val() == "") {
-        window.alert('Username cannot be empty!');
+        iziToast.error({
+            title: 'Input validation error',
+            layout: 2,
+            position: 'bottomRight',
+            message: 'Email cannot be empty!',
+        }); 
     } else {
         editProfile();
     }

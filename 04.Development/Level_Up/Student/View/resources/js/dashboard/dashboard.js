@@ -5,20 +5,24 @@ axios.defaults.baseURL =
   "http://localhost/level-up-docs/04.Development/Level_Up";
 
 $("document").ready(function () {
-  //navHightLight();
-  let svgContainer = document.querySelector(".bodymovinanim");
-  let animItem = bodymovin.loadAnimation({
-    wrapper: svgContainer,
-    animType: "svg",
-    loop: true,
-    path: "https://assets6.lottiefiles.com/packages/lf20_qjosmr4w.json",
-  });
-  hideLoading();
+    
+  if (localStorage.getItem("access_token") == null) {
+    window.location.replace("./index.php");
+  } else {
+    //navHightLight();
+    let svgContainer = document.querySelector(".bodymovinanim");
+    let animItem = bodymovin.loadAnimation({
+      wrapper: svgContainer,
+      animType: "svg",
+      loop: true,
+      path: "https://assets6.lottiefiles.com/packages/lf20_qjosmr4w.json",
+    });
+    
+    hideLoading();
 
-  loadData();
-  fetchUserProfile();
-
-  
+    loadData();
+    fetchUserProfile();
+  }
 });
 $("#tab_learning,#tab_my_courses").click(function () {
   $("#tab_learning,#tab_my_courses").removeClass("is-active");
@@ -77,7 +81,12 @@ const fetchUserProfile = () => {
         }
         console.log(user.fullName);
       } else {
-        window.alert(message);
+        iziToast.error({
+            title: 'Error',
+            layout: 2,
+            position: 'bottomRight',
+            message: message,
+        });    
       }
     })
     .catch((error) => console.error(error))
@@ -104,7 +113,12 @@ const getPageSizeForLearning = () => {
             localStorage.getItem("access_token")
         );
       } else {
-        window.alert(message);
+        iziToast.error({
+            title: 'Error',
+            layout: 2,
+            position: 'bottomRight',
+            message: message,
+        });    
       }
     })
     .catch((error) => console.error(error))
@@ -125,19 +139,23 @@ const getPageSizeForWishList = () => {
       if (statusCode == 200) {
         const size = response.data.data.totalSize.size;
         //10/2 => 5 (total/chunk) => pageCount
-        if (size > 0 ){
-            pageCount = Math.round(Math.ceil(size / chunkSize));
-        buildPaginationForWishList(
-          "/Student/Controller/dashboard/GetWishList.php?uid=" +
-            localStorage.getItem("access_token")
-        );
+        if (size > 0) {
+          pageCount = Math.round(Math.ceil(size / chunkSize));
+          buildPaginationForWishList(
+            "/Student/Controller/dashboard/GetWishList.php?uid=" +
+              localStorage.getItem("access_token")
+          );
         } else {
-            $('#item_container').empty();
-            $("#pagination_container").hide();
+          $("#item_container").empty();
+          $("#pagination_container").hide();
         }
-        
       } else {
-        window.alert(message);
+        iziToast.error({
+            title: 'Error',
+            layout: 2,
+            position: 'bottomRight',
+            message: message,
+        });    
       }
     })
     .catch((error) => console.error(error))
@@ -193,11 +211,11 @@ function buildPaginationForWishList(url) {
 }
 
 function onChangePageWishList(obj) {
-    let pageUrl = obj.id;
-    getWishList(pageUrl);
-    $(".pagination-link").removeClass("is-current");
-    document.getElementById(obj.id).classList.add("is-current");
-  }
+  let pageUrl = obj.id;
+  getWishList(pageUrl);
+  $(".pagination-link").removeClass("is-current");
+  document.getElementById(obj.id).classList.add("is-current");
+}
 
 function onChangePage(obj) {
   let pageUrl = obj.id;
@@ -324,7 +342,12 @@ const getLearningList = (pageUrl) => {
 
         // console.log(result[0][0]);
       } else {
-        window.alert(message);
+        iziToast.error({
+            title: 'Error',
+            layout: 2,
+            position: 'bottomRight',
+            message: message,
+        });    
       }
     })
     .catch((error) => console.error(error))
@@ -446,7 +469,12 @@ const getWishList = (pageUrl) => {
 
         // console.log(result[0][0]);
       } else {
-        window.alert(message);
+        iziToast.error({
+            title: 'Error',
+            layout: 2,
+            position: 'bottomRight',
+            message: message,
+        });    
       }
     })
     .catch((error) => console.error(error))
@@ -464,5 +492,10 @@ const hideLoading = () => {
 };
 
 function goToCourseDetails(obj) {
-  window.alert(obj.id);
+    iziToast.error({
+        title: 'Error',
+        layout: 2,
+        position: 'bottomRight',
+        message: obj.id,
+    });    
 }

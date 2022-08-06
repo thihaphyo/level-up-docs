@@ -10,6 +10,14 @@ class AuthController extends BaseController
         echo $_SESSION['logged in'];
     }
 
+    function logout() {
+        session_destroy();
+        $response = json_encode([
+            'code' => 200
+        ]);
+        echo $response;
+    }
+
     function signIn()
     {
 
@@ -43,8 +51,11 @@ class AuthController extends BaseController
                     ]);
                     echo $response;
                 } else {
-
                     $studentData["access_token"] = $this->stringEncryption('encrypt', $studentData["id"]);
+                    session_start();
+                    $_SESSION['access_token'] = $studentData["access_token"];
+                    $_SESSION['start'] = time();
+                    $_SESSION['expire'] = $_SESSION['start'] + (30 * 60);
                     $response = json_encode([
                         'code' => 200,
                         'data' => array(
@@ -150,7 +161,8 @@ class AuthController extends BaseController
         return $randomCode;
     }
 
-    function edit() {
+    function edit()
+    {
 
         $data = $this->jsonData();
         $userId = $this->stringEncryption('decrypt', $data["id"]);
@@ -213,8 +225,6 @@ class AuthController extends BaseController
 
             echo $response;
         }
-
-
     }
 
     function getUser()
@@ -270,7 +280,8 @@ class AuthController extends BaseController
         }
     }
 
-    function verify() {
+    function verify()
+    {
 
         $data = $this->jsonData();
 
@@ -302,9 +313,7 @@ class AuthController extends BaseController
                 'message' => "User verified"
             ]);
             echo $response;
-
         }
-
     }
 
     function stringEncryption($action, $string)
