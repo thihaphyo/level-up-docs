@@ -15,7 +15,7 @@ section sub {
 }
 /* label */
 .label {
-  color: rgb(1, 34, 111);
+  color: #01226f;
 }
 /* textarea */
 .textarea {
@@ -31,7 +31,7 @@ section sub {
   color: rgb(157, 155, 155);
 }
 .contact sub {
-  color: rgb(1, 34, 111);
+  color: #01226f;
 }
 .contact img {
   width: 10%;
@@ -39,6 +39,7 @@ section sub {
   position: relative;
   top: 0.5rem;
 }
+
 /* Responsive */
 @media only screen and (max-width: 800px) {
   figure img {

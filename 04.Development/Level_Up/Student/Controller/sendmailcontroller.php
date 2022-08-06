@@ -1,3 +1,4 @@
+
 <?php
 
 use PHPMailer\PHPMailer\PHPMailer;
@@ -7,11 +8,13 @@ use PHPMailer\PHPMailer\Exception;
 require_once "PHPMailer/src/PHPMailer.php";
 require_once "PHPMailer/src/SMTP.php";
 require_once "PHPMailer/src/Exception.php";
+require_once "../View/messenge.php";
+
 
 $mail = new PHPMailer(true);
 
 //Enable SMTP debugging.
-$mail->SMTPDebug = SMTP::DEBUG_SERVER;
+
 
 //Set PHPMailer to use SMTP.
 $mail->isSMTP();
@@ -48,50 +51,26 @@ $mail->addAddress("mushi17600@gmail.com", "Mushi");
 $mail->isHTML(true);
 $mail->Subject = "Contact Form Email";
 
-$message = "
-<table>
-	<tr><td>Username: </td><td>" . $_POST["full_name"] . "</td></tr>
-	<tr><td>Contact No.: </td><td>" . $_POST["mobile_number"] . "</td></tr>
-	<tr><td>Email: </td><td>" . $_POST["email"] . "</td></tr>
-	<tr><td>Your Question: </td><td>" . $_POST["message"] . "</td></tr>
-</table>
-";
+// username,contact-no,email,question form contact form
+$name = $_POST['full_name'];
+$phone = $_POST['mobile_number'];
+$email = $_POST['email'];
+$messenge = $_POST['messenge'];
 
-$mail->Body = $message;
+// add contact form
+$mail->Body = "<table>
+<tr><td>Name: </td><td>" . $name . "</td></tr>
+<tr><td>Mobile No.: </td><td>" . $phone . "</td></tr>
+<tr><td>Email: </td><td>" . $email . "</td></tr>
+<tr><td>Your Question: </td><td>" . $messenge  . "</td></tr>
+</table>
+";;
 
 try {
     $mail->send();
-    echo "<h2>Message has been sent successfully</h2>";
 } catch (Exception $e) {
     echo "Mailer Error: " . $mail->ErrorInfo;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ?>
+
