@@ -51,5 +51,12 @@ categories.forEach((category) => {
 
 $('#btn_logout').click(function () {
     localStorage.removeItem('access_token');
-    window.location.replace("./index.php");
+    logout();
 })
+
+async function logout() {
+  let response = await fetch('http://localhost/level-up-docs/04.Development/Level_Up/Student/Controller/auth/Logout.php');
+  if (response.status === 200) {
+      window.location.replace("./index.php");
+  }
+}

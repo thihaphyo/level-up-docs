@@ -2,6 +2,8 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="./resources/css/notification.css">
+    <link rel="stylesheet" href="./resources/css/izToast.min.css">
+    <script src="./resources/js/izToast.js"></script>
     <nav class="navbar is-transparent is-fixed-top p-4 ">
         <div class="navbar-brand">
             <img width="100vw" src="./resources/img/header_footer/level up.svg" alt="">
@@ -25,10 +27,10 @@
                     <a class="navbar-item active" href="./index.php">
                         Home
                     </a>
-                    <a class="navbar-item" href="./explore.php">
+                    <a id="lnk_explore" class="navbar-item" href="./explore.php">
                         Explore
                     </a>
-                    <a class="navbar-item" href="./InstructorListView.php">
+                    <a id="lnk_ins" class="navbar-item" href="./InstructorListView.php">
                         Instructor
                     </a>
                     <a id="lnk_my_courses" class="navbar-item" href="./dashboard.php">
@@ -44,7 +46,7 @@
                     <a id="lnk_cart" class="navbar-item" href="./cart.php">
                         <img src="./resources/img/header_footer/cart.svg" alt="cart"></img>
                     </a>
-                    <a id="lnk_profile" class="navbar-item" href="">
+                    <a id="lnk_profile" class="navbar-item" href="./dashboard.php?screen_mode=profile">
                         <img src="./resources/img/header_footer/profile.svg" alt="profile"></img>
                     </a>
                     <a id="btn_register" class="button is-primary is-outlined has-text-weight-semibold" href="./signup.html">Register</a>

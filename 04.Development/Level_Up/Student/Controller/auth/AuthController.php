@@ -10,6 +10,14 @@ class AuthController extends BaseController
         echo $_SESSION['logged in'];
     }
 
+    function logout() {
+        session_destroy();
+        $response = json_encode([
+            'code' => 200
+        ]);
+        echo $response;
+    }
+
     function signIn()
     {
 
@@ -43,8 +51,11 @@ class AuthController extends BaseController
                     ]);
                     echo $response;
                 } else {
-
                     $studentData["access_token"] = $this->stringEncryption('encrypt', $studentData["id"]);
+                    session_start();
+                    $_SESSION['access_token'] = $studentData["access_token"];
+                    $_SESSION['start'] = time();
+                    $_SESSION['expire'] = $_SESSION['start'] + (30 * 60);
                     $response = json_encode([
                         'code' => 200,
                         'data' => array(

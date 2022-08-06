@@ -1,5 +1,18 @@
 <?php
 $time = time();
+session_start();
+if (isset($_SESSION['access_token'])) {
+    $now = time();
+    if ($now > $_SESSION['expire']) {
+        session_destroy();
+        echo '<script>localStorage.removeItem("access_token");</script>';
+        echo '<script> window.location.replace("./index.php");</script>';
+    }
+} else {
+    session_destroy();
+    echo '<script>localStorage.removeItem("access_token");</script>';
+    echo '<script> window.location.replace("./index.php");</script>';
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,36 +29,38 @@ $time = time();
     <link rel="stylesheet" href="./resources/css/dashboard.css">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="./resources/css/izToast.min.css">
 </head>
 
 <body>
-<div id="loading_container" class="loader-wrapper columns is-gapless is-flex is-align-items-center is-justify-content-center" style="position: absolute; top:0; z-index: 999;width: 100%; margin:0;padding: 0; height:220%; background-color: rgba(0, 0, 0, 0.286);">
+    <div id="loading_container" class="loader-wrapper columns is-gapless is-flex is-align-items-center is-justify-content-center" style="position: absolute; top:0; z-index: 999;width: 100%; margin:0;padding: 0; height:220%; background-color: rgba(0, 0, 0, 0.286);">
         <div class="card bodymovinanim" style="width: 7rem; border-radius: 0.6rem; position:absolute; top:20%;"></div>
- </div>
-    <?php 
-        require_once('./header.php');
-        if ($_GET["screen_mode"] == 'profile') {
-           echo "<script>
+    </div>
+    <?php
+    require_once('./header.php');
+    if ($_GET["screen_mode"] == 'profile') {
+        echo "<script>
            const collection = document.getElementsByClassName('navbar-item');
            for (let i = 0; i < collection.length; i++) {
              collection[i].setAttribute('class', 'navbar-item');
            }
+           document.getElementById('lnk_profile').setAttribute('class', 'navbar-item active');
            </script>";
-        } else {
-           echo "<script>
+    } else {
+        echo "<script>
            const collection = document.getElementsByClassName('navbar-item');
            for (let i = 0; i < collection.length; i++) {
              collection[i].setAttribute('class', 'navbar-item');
            }
            document.getElementById('lnk_my_courses').setAttribute('class', 'navbar-item active');
            </script>";
-        }
+    }
     ?>
     <main>
         <!-- start of container  -->
         <div class="container">
             <div>
-                <div class="columns ml-5-mobile">
+                <div class="columns ml-5-mobile" data-aos="fade-right" data-aos-delay="200">
                     <div class="column is-1 no-padding">
                         <img id="profile_img" class="user-profile">
                     </div>
@@ -63,13 +78,13 @@ $time = time();
                     </div>
                 </div>
                 <hr />
-                <div class="tabs ml-10-responsive no-margin-bot">
+                <div class="tabs ml-10-responsive no-margin-bot" data-aos="fade-up" data-aos-delay="400">
                     <ul>
                         <li id="tab_learning" class="is-active"><a>Learning</a></li>
                         <li id="tab_my_courses"><a>Wishlist</a></li>
                     </ul>
                 </div>
-                <div id="item_container" class="ml-8-responsive column is-full">
+                <div id="item_container" class="ml-8-responsive column is-full" data-aos="fade-up" data-aos-delay="400">
                     <!-- <div class="row is-flex">
                         <div class="column is-one-third">
                             <div class="card">
@@ -303,7 +318,7 @@ $time = time();
                         </div>
                     </div> -->
                 </div>
-                <div class="is-flex is-justify-content-center">
+                <div class="is-flex is-justify-content-center" data-aos="fade-up" data-aos-delay="600">
                     <div id="pagination_container" class="page mr-10 mb-5" style="width: 17rem;">
                         <nav class="pagination is-centered" role="navigation" aria-label="pagination">
                             <a class="pagination-previous"> <img style="width: 10px; " src="./resources/img/header_footer/left_arrow.png"> </a>
@@ -327,6 +342,7 @@ $time = time();
 
     <?php require_once('./footer.php') ?>
     <!-- javascript file -->
+    <script src="./resources/js/izToast.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="./resources/js/index.js"></script>
