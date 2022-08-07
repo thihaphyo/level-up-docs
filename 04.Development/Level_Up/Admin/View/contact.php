@@ -23,35 +23,37 @@ $time = time();
     <?php require_once('./sidebar.php') ?>
 
     <section class="container">
-        <!-- title of the contact -->
-        <div class="text">
-            <h3 class="title is-3 has-text-weight-semibold">Contact Us Setting</h2>
-        </div>
-        <br /><br /><br />
-        <!-- phone number and Email address -->
-        <div>
-            <input class="input is-medium    input is-black" type="text" placeholder="Enter Phone Number">
-            <br /><br />
-            <input class="input is-medium input is-black" type="text" placeholder="Enter Email Address">
-        </div>
-        <br />
-        <!-- Selcet image -->
-        <div class="file is-boxed">
-            <label class="file-label">
-                <input class="file-input" type="file" name="resume">
-                <span class="file-cta">
-                    <span class="file-icon">
-                        <i class="fas fa-upload"></i>
+
+        <form action="../Controller/contactcontroller.php" method="post">
+            <!-- title of the contact -->
+            <div class="text">
+                <h3 class="title is-3 has-text-weight-semibold">Contact Us Setting</h2>
+            </div>
+            <br /><br /><br />
+            <!-- phone number and Email address -->
+            <div>
+                <input class="input is-medium    input is-black" name="phone-number" type="text" placeholder="Enter Phone Number">
+                <br /><br />
+                <input class="input is-medium input is-black" name="email-address" type="text" placeholder="Enter Email Address">
+            </div>
+            <br />
+            <!-- Selcet image -->
+            <div class="file is-boxed">
+                <label class="file-label">
+                    <input class="file-input" type="file" name="image">
+                    <span class="file-cta">
+                        <span class="file-icon">
+                            <i class="fas fa-upload"></i>
+                        </span>
+                        <span class="file-label">
+                            Choose a file…
+                        </span>
                     </span>
-                    <span class="file-label">
-                        Choose a file…
-                    </span>
-                </span>
-            </label>
-        </div>
-        <!-- change button -->
-        <button class="button is-black  has-text-weight-semibold">Change</button>
-        <div>
+                </label>
+            </div>
+            <!-- change button -->
+            <button class="button is-black  has-text-weight-semibold">Change</button>
+        </form>
     </section>
 
     <script>
