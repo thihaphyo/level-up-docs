@@ -28,7 +28,7 @@ $time = time();
     <div class="container admin-insert">
         <!-- start of admin update container -->
         <div class="admin-update-container">
-            <form class="admin-form" method="post" action="../Controller/adminController/adminController.php" enctype="multipart/form-data" onsubmit="event.preventDefault();">
+            <form class="admin-form" method="post" action="../Controller/adminController/adminController.php" enctype="multipart/form-data">
                 <div>
                     <!-- start of profile image -->
                     <div class="admin-update">

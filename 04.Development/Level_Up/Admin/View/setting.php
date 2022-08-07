@@ -49,7 +49,7 @@ $time = time();
                 <!-- end of guide -->
 
                 <!-- start of service -->
-                <div onclick="window.location.replace('./adminPrivacyPolicy.php')">
+                <div>
                     <i class="fa-solid fa-handshake-angle"></i>
                     <div>
                         <h2>Service</h2>
@@ -64,7 +64,7 @@ $time = time();
             <!-- start of setting -->
             <div class="setting-container">
                 <!-- start of policy -->
-                <div onclick="window.location.replace('./adminGuide.php')">
+                <div>
                     <i class="fa-solid fa-file-shield"></i>
                     <div>
                         <h2>Policy</h2>
@@ -74,7 +74,7 @@ $time = time();
                 <!-- end of policy -->
 
                 <!-- start of contact -->
-                <div onclick="window.location.replace('./adminContact.php')">
+                <div>
                     <i class="fa-solid fa-address-book"></i>
                     <div>
 
@@ -91,7 +91,7 @@ $time = time();
             <!-- start of setting -->
             <div class="setting-container">
                 <!-- start of about -->
-                <div onclick="window.location.replace('./adminAbout.php')">
+                <div>
                     <i class="fa-solid fa-building"></i>
                     <div>
                         <h2>About Us</h2>
@@ -102,7 +102,7 @@ $time = time();
                 <!-- end of about -->
 
                 <!-- start of profile -->
-                <div onclick="window.location.replace('./adminProfile.php')">
+                <div>
                     <i class="fa-solid fa-user"></i>
                     <div>
                         <h2>My Profile</h2>
@@ -114,7 +114,7 @@ $time = time();
             </div>
             <!-- end of setting -->
         </div>
-    </div>  
+    </div>
     <!-- end of container -->
 
 

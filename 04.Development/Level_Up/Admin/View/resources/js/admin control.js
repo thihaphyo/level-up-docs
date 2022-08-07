@@ -100,4 +100,7 @@ profileImage.addEventListener("change", (event) => {
   document.getElementById("image-name").style.color = "#706D6D";
   document.getElementById("image-name").innerHTML = fileName;
   document.getElementById("image-background").width = "0%";
+  document.getElementsByClassName(
+    "update-image-name"
+  )[0].style.backgroundColor = "#706D6D";
 });

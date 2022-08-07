@@ -39,10 +39,11 @@
 .status > p:first-child {
     font-weight: 0.8vw;
     color: #F9F8F8;
+    font-weight: 500;
 }
 .status > p:last-child {
     font-size: 0.7vw;
-    color: #F1EFEF;
+    color: #ffffff;
 }
 .student-table{
     background-color: #FFFFFF;

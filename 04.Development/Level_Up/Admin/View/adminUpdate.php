@@ -36,7 +36,7 @@ session_start();
         <!-- start of admin update container -->
         <div class="admin-update-container">
 
-            <form class="admin-form" method="post" action="../Controller/adminController/adminController.php" enctype="multipart/form-data" onsubmit="event.preventDefault();">
+            <form class="admin-form" method="post" action="../Controller/adminController/adminController.php" enctype="multipart/form-data">
                 <?php
                 require_once('../Model/dbConnection.php');
                 $encryption = new DBConnect();
@@ -54,7 +54,7 @@ session_start();
                                     echo "<h5>Click to upload</h5>";
                                     echo '<img width="140%" src="./resources/img/admin profile picture/' . $adminList[0]['profile_image'] . '" alt="no image"></img>';
                                 } else {
-                                    echo '<h5 id="image-name">Click to upload</h5>';
+                                    echo '<h5 id="image-name" class="update-image-name" >Click to upload</h5>';
                                     echo '<img id="image-background" width="100%" src="./resources/img/admin profile picture/' . $adminList[0]['profile_image'] . '" alt="profile image"></img>';
                                 }
                                 ?>

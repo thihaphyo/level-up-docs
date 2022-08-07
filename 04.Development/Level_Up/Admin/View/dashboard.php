@@ -46,7 +46,7 @@ session_start();
                     <div class="status students">
                         <p>Students</p>
                         <h1 class="status-number"><?php echo $studentList[0]['count(id)']; ?></h1>
-                        <p>The total amount of student in our website</p>
+                        <p>The total active student in our website</p>
                     </div>
                     <svg width="2" height="162" viewBox="0 0 2 162" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M1 0L1.00001 162" stroke="white" stroke-opacity="0.7" />

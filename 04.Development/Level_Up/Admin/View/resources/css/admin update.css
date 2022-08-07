@@ -58,6 +58,9 @@ form > .border-left{
     position: relative;
 
 }
+.update-image-name{
+    color: #FEFBF6 !important;
+}
 .image-background-change{
     background-color: #FEFBF6;
 }
