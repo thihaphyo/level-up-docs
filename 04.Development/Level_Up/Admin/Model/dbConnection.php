@@ -17,4 +17,3 @@ $pdo = new PDO("mysql:host=$this->hostname;port=$this->port;dbname=$this->dbname
         return $pdo;
     }
 }
-?>

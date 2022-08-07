@@ -24,7 +24,7 @@ $time = time();
 
     <section class="container">
 
-        <form action="../Controller/contactcontroller.php" method="post">
+        <form action="../Controller/contactcontroller.php" method="post" enctype="multipart/form-data">
             <!-- title of the contact -->
             <div class="text">
                 <h3 class="title is-3 has-text-weight-semibold">Contact Us Setting</h2>
