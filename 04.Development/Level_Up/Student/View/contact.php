@@ -49,7 +49,7 @@
                             </div>
                         </div>
                         <div class="column">
-                            <form autocomplete="off" class="form" role="form" method="post" action="../Controller/sendmail.php">
+                            <form autocomplete="off" class="form" role="form" method="post" action="../Controller/sendmailcontroller.php">
                                 <div class="tile is-parent is-vertical">
                                     <article>
                                         <br /> <br />
