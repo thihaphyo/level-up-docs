@@ -1,27 +1,33 @@
-export async function getIframeYoutube (url, callback) {
-
-    let regExp =
-        /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/;
-    let match = url.match(regExp);
-
-    let videoId = match && match[7].length == 11 ? match[7] : false;
-
-    let apiKey = '' //ADD YOUR API KEY HERE;
-    let apiURL = 'https://www.googleapis.com/youtube/v3/videos?part=player&id='+ videoId +'&key=' + apiKey;
-
-    await fetch(apiURL)
-        .then(res => res.json())
-        .then(response => {
-            callback(response['items'][0]['player']['embedHtml'])
-        });
-        
-}
-
+let retrying = false;
+let retryLoading;
 
 export async function getIframeVimeo (url, callback) {
-    fetch (`https://vimeo.com/api/oembed.json?url=${url}&byline=0&portrait=0&title=0&width=600&height=400`)
-        .then(res => res.json())
-        .then(data => {
-            callback(data.html);
+    try {
+        fetch (`https://vimeo.com/api/oembed.json?url=${url}&byline=0&portrait=0&title=0&width=600&height=400`)
+        .then(res => {
+            console.log("res: ", res);
+            if(res.status !== 200 && retrying === false){
+                retrying = true;
+                console.log("status code: ", res.status);
+                retryLoading = setInterval(() => {
+                    getIframeVimeo(url,callback);
+                }, 5000);
+            } else if (res.status === 200) {
+                retrying = false;
+                clearInterval(retryLoading);
+                showVideo(res.json(), callback);
+            }
         });
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+function showVideo(res, callback){
+    res.then(data => {
+        console.log("data: ", data);
+        console.log("data.html: ", data.html);
+        callback(data.html);
+
+    })
 }
