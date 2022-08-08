@@ -13,7 +13,6 @@ $time = time();
     <link rel="stylesheet" href="./resources/css/mystyles.css?<?php echo $time ?>">
     <link rel="stylesheet" href="./resources/css/root.css?<?php echo $time ?> ">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -27,30 +26,31 @@ $time = time();
 
     <!-- start of main -->
     <main>
-        <!-- start of hero section  -->
-        <section class="hero">
-            <div class="columns is-vcentered">
-                <div class="column hero-body" data-aos="fade-right" data-aos-delay="200">
-                    <p class="column has-text-weight-bold section-title">
+        <div class="container">
+            <!-- start of hero section  -->
+            <section class="my-hero">
+                <div class="my-hero-left" data-aos="fade-right" data-aos-delay="200">
+                    <p class="section-title">
                         Best Place to Level Up
                         Your <span class="hightlight">Knowledge</span>
                     </p>
-                    <p class="column line-height section-subtitle">
+                    <p class="line-height section-subtitle">
                         We deliver the best contents to the students. Study at your home, get comfortable and improve your skills. Level up with us now.
                     </p>
-                    <div class="column">
+                    <div class="">
                         <a href="./explore.php" class="button is-secondary has-text-weight-semibold">Explore Now</a>
                     </div>
                 </div>
-                <div class="column hero-image" data-aos="fade-left" data-aos-delay="200" id="hero-svg">
+                <div class="my-hero-right hero-image" data-aos="fade-left" data-aos-delay="200" id="hero-svg">
                     <?php echo file_get_contents('./resources/img/header_footer/hero image.svg') ?>
                     <!-- <img src="./resources/img/header_footer/hero image.svg" alt="hero image"></img> -->
 
                 </div>
-            </div>
-        </section>
-        <!-- end of hero section  -->
+            </section>
+            <!-- end of hero section  -->
 
+
+        </div>
         <!-- start of message to students section -->
         <section class="hero is-medium message">
             <div class="message-background" data-aos="fade-left" data-aos-delay="200">
@@ -71,8 +71,8 @@ $time = time();
         <!-- end of message to students section -->
 
         <!-- start of trending video section -->
-        <section class="hero is-medium" data-aos="fade-up">
-            <div class="hero-body ml-5">
+        <section class="" data-aos="fade-up">
+            <div class="trending">
                 <h1 class="has-text-weight-bold mb-5 section-title">Trending Courses</h1>
                 <div class="courses">
                     <a href="./courseinfo.php">
@@ -120,7 +120,7 @@ $time = time();
         <!-- end of trending video section -->
 
         <!-- start of special features  -->
-        <section class="features">
+        <section class="features" data-aos="fade-right">
             <div class="features-container">
                 <div class="features-title">
                     <h1 class="has-text-weight-bold is-spaced has-text-white section-title">
@@ -243,7 +243,7 @@ $time = time();
         <!-- start of student voice section -->
         <section class="student-voice">
             <h1 class="has-text-weight-bold section-title">Student Voices</h1>
-            <div class="student-review">
+            <div class="student-review" data-aos="fade-right">
                 <div class="review">
                     <div class="profile">
                         <img width="80%" src="./resources/img/header_footer/student1.png" alt="student"></img>
@@ -270,10 +270,8 @@ $time = time();
                         <img width="130px" src="./resources/img/header_footer/five starts.svg" alt="five stars"></img>
                     </div>
                 </div>
-                <div class="review"></div>
-                <div class="review"></div>
             </div>
-            <div class="student-review reverse">
+            <div class="student-review reverse" data-aos="fade-left">
                 <div class="review">
                     <div class="review-content">
                         <div>
@@ -301,7 +299,7 @@ $time = time();
 
                 </div>
             </div>
-            <div class="student-review">
+            <div class="student-review" data-aos="fade-right">
                 <div class="review">
                     <div class="profile">
                         <img width="80%" src="./resources/img/header_footer/student3.png" alt="student"></img>
@@ -352,7 +350,7 @@ $time = time();
                     <a href="./apply instructor.php" class="button is-primary is-outlined has-text-weight-semibold" href="">Apply Now</a>
                 </div>
 
-                <div class="columns is-half instructor-img m-auto" data-aos="fade-left" data-aos-delay="200">
+                <div class="columns is-half instructor-img" data-aos="fade-left" data-aos-delay="200">
                     <?php echo file_get_contents('./resources/img/header_footer/become instructor.svg') ?>
 
                     <!-- <img src="./resources/img/header_footer/become instructor.svg" alt="instructor image"></img> -->
@@ -392,7 +390,7 @@ $time = time();
     <!-- javascript file -->
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="./resources/js/index.js"></script>
+    <script src="./resources/js/index.js?<?php echo $time; ?>"></script>
     <script src="./resources/js/home.js"></script>
 </body>
 

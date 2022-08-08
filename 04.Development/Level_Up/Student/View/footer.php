@@ -62,5 +62,5 @@
             <!-- end of copyright text -->
         </div>
     </footer>
-    <?php require_once "./notification.php"?>
+    <?php require_once "./notification.php" ?>
     <!-- end of footer -->

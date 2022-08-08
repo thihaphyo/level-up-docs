@@ -10,7 +10,8 @@ class AuthController extends BaseController
         echo $_SESSION['logged in'];
     }
 
-    function logout() {
+    function logout()
+    {
         session_destroy();
         $response = json_encode([
             'code' => 200

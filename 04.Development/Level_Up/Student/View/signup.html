@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,9 +10,12 @@
     <link rel="stylesheet" href="./resources/css/mystyles.css">
     <link rel="stylesheet" href="./resources/css/auth.css">
 </head>
-<body >
+
+<body>
     <div class="container is-fluid full-container">
-        <div id="loading_container" class="loader-wrapper columns is-gapless is-flex is-align-items-center is-justify-content-center" style="position: absolute; z-index: 999;width: 100%; margin:0;padding: 0; height:100%; background-color: rgba(0, 0, 0, 0.286);">
+        <div id="loading_container"
+            class="loader-wrapper columns is-gapless is-flex is-align-items-center is-justify-content-center"
+            style="position: absolute; z-index: 999;width: 100%; margin:0;padding: 0; height:100%; background-color: rgba(0, 0, 0, 0.286);">
             <div class="card bodymovinanim" style="width: 7rem; border-radius: 0.6rem;"></div>
         </div>
         <div class="columns is-gapless is-desktop">
@@ -24,31 +28,35 @@
                     <div class="field mt-5">
                         <label class="label is-primay-label">Username</label>
                         <div class="control">
-                          <input id="uName" class="input text-box is-capitalized" type="text" placeholder="Eg.John123">
+                            <input id="uName" class="input text-box is-capitalized" type="text"
+                                placeholder="Eg.John123">
                         </div>
                     </div>
                     <div class="field mt-5">
                         <label class="label is-primay-label">Email</label>
                         <div class="control">
-                          <input id="email" class="input text-box" type="text" placeholder="Eg.John123@gmail.com">
+                            <input id="email" class="input text-box" type="text" placeholder="Eg.John123@gmail.com">
                         </div>
                     </div>
                     <div class="field mt-5">
                         <label class="label is-primay-label">Password</label>
                         <div class="control">
-                          <input id="pass" class="input text-box" type="password" placeholder="Password">
+                            <input id="pass" class="input text-box" type="password" placeholder="Password">
                         </div>
-                        <label class="label is-primay-label has-text-right is-size-7 mt-1">Password must be 8 digits</label>
+                        <label class="label is-primay-label has-text-right is-size-7 mt-1">Password must be 8
+                            digits</label>
                     </div>
                     <div class="field mt-5">
                         <label class="label is-primay-label">Confirm Password</label>
                         <div class="control">
-                          <input id="cPass" class="input text-box" type="password" placeholder="Password">
+                            <input id="cPass" class="input text-box" type="password" placeholder="Password">
                         </div>
-                        <label class="label is-primay-label has-text-right  is-size-7 mt-1">Password must be 8 digits</label>
+                        <label class="label is-primay-label has-text-right  is-size-7 mt-1">Password must be 8
+                            digits</label>
                     </div>
                     <div class="column is-full">
-                       <button id="btnSignUp" class="button is-primary has-text-weight-semibold full-wd-btn mt-4" disabled>Sign Up</button>
+                        <button id="btnSignUp" class="button is-primary has-text-weight-semibold full-wd-btn mt-4"
+                            disabled>Sign Up</button>
                     </div>
                     <div class="column is-full has-text-centered mt-2">
                         <label class="label">Continue with</label>
@@ -68,19 +76,19 @@
                         Already a member?&nbsp;&nbsp;<a id="btn_signin" class="is-underlined ">Sign in now.</a>
                     </div>
                 </div>
-                
+
             </div>
             <div class="column column-fill is-hidden-mobile is-hidden-tablet-only sign-in-graphics">
                 <img class="login_arc" src="./resources/img/auth/login_arc.png" alt="">
                 <div class="column is-full has-text-centered mt-7">
                     <img src="./resources/img/auth/sign_up_graphic.png" alt="">
-               </div>
-               <div class="column is-full has-text-centered mt-5 has-text-light-blue is-size-4 has-text-weight-bold">
-                Register now and start learning.<br/>
-                Access a variety of great contents.
-               </div>
+                </div>
+                <div class="column is-full has-text-centered mt-5 has-text-light-blue is-size-4 has-text-weight-bold">
+                    Register now and start learning.<br />
+                    Access a variety of great contents.
+                </div>
             </div>
-          </div>
+        </div>
     </div>
 </body>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
@@ -88,4 +96,5 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.5.3/lottie_svg.min.js" type="text/javascript"></script>
 <script src="./resources/js/auth/signup.js"></script>
+
 </html>

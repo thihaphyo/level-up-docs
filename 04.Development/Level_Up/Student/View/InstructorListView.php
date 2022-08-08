@@ -1,6 +1,8 @@
 <!-- Variables " " and " " will be sent from the controller. -->
 
-<?php $controller_URL = 'http://localhost/level-up-docs_original/04.Development/Level_Up/Student/Controller/InstructorController.php'; ?>
+<?php $controller_URL = 'http://localhost/level-up-docs_original/04.Development/Level_Up/Student/Controller/InstructorController.php';
+$time = time();
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -12,12 +14,14 @@
     <title>Level Up</title>
     <link rel="stylesheet" href="../View/resources/css/mystyles.css">
     <link rel="stylesheet" href="../View/resources/css/root.css">
-    <link rel="stylesheet" href="../View/resources/css/instructorListView.css">
+    <link rel="stylesheet" href="../View/resources/css/instructorListView.css?<?php echo $time; ?>">
 
 </head>
 
 <body>
-    <?php require_once('../View/header.php'); ?>
+    <?php
+    require_once('./header.php')
+    ?>
 
     <main>
         <div class="container i-wrapper">

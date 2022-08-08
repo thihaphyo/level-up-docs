@@ -7,7 +7,13 @@
   --secondary: #f3b33e;
 }
 /* ================= Navigation Bar (MK) =================== */
-
+body{
+  width: 100vw;
+}
+main{
+  width: 100vw;
+  overflow: hidden;
+}
 .secondaryColor {
   background-color: var(--secondary) !important;
 }
@@ -24,11 +30,66 @@
     font-weight: bold;
     border-bottom: 2px solid #01226F;
 }
-
 main .container {
     margin-top: 10%;
 }
+.mobile-nav{
+  top: 0;
+  left: 0;
+  position: absolute;
+  background-color: #fefbf6ea;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.mobile-nav > i {
+  position: absolute;
+  right: 2rem;
+}
+.mobile-nav div{
+ width: 100%;
+ display: flex;
+ justify-content: center;
+ margin-bottom: 2rem;
+}
+.mobile-nav div a{
+  color: #FFFFFF;
+  text-align: left;
+  padding: 1rem;
+  margin-right: 1rem;
+  font-size: 2vw;
+  font-weight: 600;
+  color: #01226f6b;
 
+}
+.mobile-active{
+  border-bottom: 3px solid var(--primary);
+  color: var(--primary) !important;
+  font-weight: bold;
+}
+.mobile-nav div a:hover{
+  color: var(--primary);
+}
+.mobile-nav-switch{
+  width: 100%;
+  display: none;
+  justify-content: flex-end;
+  align-items: center;
+}
+.mobile-nav-switch button{
+  margin-right: 0.6rem;
+  border: none;
+  background-color: transparent;
+  color: var(--primary);
+}
+.close-button{
+  top: 40px;
+  right: 80px;
+  position: absolute;
+}
 /* ================= Badge, Secure Payment SECTION (MK) =================== */
 /* Badge for notification */
 .badge {
@@ -45,8 +106,12 @@ main .container {
   background-color: var(--primary);
   color: #ffffff;
 }
+.login-btn{
+  margin-left: 1rem;
+}
 .secure-payment div {
   padding-left: 0.8rem;
+
 }
 /* ================= Footer Section (MK) =================== */
 footer {
@@ -86,12 +151,19 @@ footer {
 }
 
 /* ================= Hero Section (MK) =================== */
-
-/* Hero section css */
-.hero:first-child{
-  /* background-color: goldenrod; */
-  margin-top: 4vw;
-  padding: 6rem 4rem;
+.my-hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  height: auto;
+  margin-bottom: 4rem;
+}
+.my-hero-left > p, .my-hero-left div{
+  padding-bottom: 2rem;
+}
+.my-hero-left > div > a {
+  box-shadow: 0px 4px 10px rgba(237, 222, 193, 0.2), inset 0px -3px 0px rgba(0, 0, 0, 0.08);
 }
 .hero-image {
   text-align: center;
@@ -99,8 +171,12 @@ footer {
 .hero-image svg,.instructor-img{
   width: 36vw;
 }
+.instructor-img{
+  margin-left: auto;
+}
 .section-title{
   font-size: 3.6vw;
+  font-weight: bold;
 }
 .section-subtitle{
   font-size: 1.2vw;
@@ -177,6 +253,7 @@ footer {
 /* ================= Message to user Section (MK) =================== */
 .message{
   width: 100%;
+  margin-bottom: 4rem;
 }
 .message-background {
   width: 100%;
@@ -228,6 +305,13 @@ footer {
       stroke-dashoffset: 0;
   }
 }
+/* ================= Trending Section (MK) =================== */
+.trending{
+  padding-left: 3rem;
+  margin-bottom: 4rem;
+
+}
+
 /* ================= Feature Section (MK) =================== */
 .features .features-container {
   display: flex;
@@ -389,7 +473,6 @@ footer .container {
 }
 
 /*end css for privacy policy page */
-
 
 .courses {
   display: flex;
@@ -649,6 +732,7 @@ footer .container {
     color: #516EB0;
 }
 
+
 @media screen and (max-width: 768px) {
   .mr-10 {
     margin-right: 3rem;
@@ -726,6 +810,66 @@ footer .container {
   }
 }
 
+/* ================= Animation Csss Section =================== */
+
+.slide-in-right {
+	-webkit-animation: slide-in-right 0.3s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	        animation: slide-in-right 0.3s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+.slide-out-right {
+	-webkit-animation: slide-out-right 0.3s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+	        animation: slide-out-right 0.3s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+}
+ @-webkit-keyframes slide-in-right {
+  0% {
+    -webkit-transform: translateX(1000px);
+            transform: translateX(1000px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes slide-in-right {
+  0% {
+    -webkit-transform: translateX(1000px);
+            transform: translateX(1000px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+    opacity: 1;
+  }
+}
+ @-webkit-keyframes slide-out-right {
+  0% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: translateX(1000px);
+            transform: translateX(1000px);
+    opacity: 0;
+  }
+}
+@keyframes slide-out-right {
+  0% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: translateX(1000px);
+            transform: translateX(1000px);
+    opacity: 0;
+  }
+}
+
+
 
 /* ================= Media Queries Section (MK) =================== */
 
@@ -737,19 +881,13 @@ footer .container {
 }
 /* ================= 1170px Screen Section (MK) =================== */
 @media screen and (max-width: 1170px) {
-  .hero{
-    padding: 0rem !important;
-  }
-  .hero:first-child{
-    margin-top: 8vw;
-  }
-  .hero:first-child > div:first-child {
+  .my-hero{
     width:80%;
     margin: auto;
     flex-direction: column;
     text-align: center;
+    margin-top: 8vw;
     margin-bottom: 4rem;
-
   }
   .section-title{
     font-size: 3vw;  
@@ -758,6 +896,9 @@ footer .container {
     width:80%;
     margin:auto;
     font-size: 2vw;
+  }
+  .message{
+    margin-bottom: 4rem;
   }
   .message-background{
     flex-direction: column;
@@ -774,6 +915,12 @@ footer .container {
     /* display: none; */
     border-radius: 10px;
     margin-top: 3rem;
+  }
+  .trending {
+    margin-bottom: 4rem;
+  }
+  .trending > h1 {
+    text-align: center;
   }
   .features-container {
   flex-direction: column;
@@ -811,11 +958,18 @@ footer .container {
   }
   .features-chunk > div:last-child > div:first-child * {
     color: #FFFFFF !important;
-   
   }
+  
 }
 /* ================= 1023px Screen Section (MK) =================== */
 @media screen and (max-width: 1023px) {
+  main .container {
+    margin-top: 0rem;
+  }
+
+  .mobile-nav-switch{
+    display: flex;
+  }
   .footer{
     padding: 2rem;
   }
@@ -837,29 +991,24 @@ footer .container {
   .reverse .review .review-content p,.review-content p{
    font-size: 0.8rem;
   }
-
-}
-/* ================= 768px Screen Section (MK) =================== */
-@media screen and (max-width: 768px) {
-  .hero:first-child{
-    margin-top: 10vw;
-    
-  }
-  .section-title{
-    font-size: 5vw;
-  }
-  .hero-image svg,.instructor-img{
-    width: 60vw;
-  }
   .instructor{
     text-align: center;
     margin-bottom: 3rem;
   }
+  .instructor div:first-child {
+
+    flex-direction: column;
+  }
+  .instructor.hero.is-medium.hero-body{
+    padding: 4rem 4.5rem;
+  }
   .instructor-img {
     padding-top: 2rem;
+    margin: auto;
   }
   .never-late-to-learn{
     text-align: center;
+    padding: 2rem;
   }
   .never-late-to-learn div {
     justify-content: center;
@@ -871,6 +1020,19 @@ footer .container {
   .register-now {
     display: none;
   }  
+
+}
+/* ================= 768px Screen Section (MK) =================== */
+@media screen and (max-width: 768px) {
+  main .container {
+    margin-top: 0vw;
+  }
+  .section-title{
+    font-size: 5vw;
+  }
+  .my-hero > div:last-child > svg,.instructor-img{
+    width: 60vw;
+  }
   .list-title{
     font-size: 3vmax !important;
   }
@@ -919,14 +1081,12 @@ footer .container {
   .review-content p{
     padding: 1rem 0.4rem;
   }
+  .mobile-nav div a {
+    font-size: 3vw;
+  }
 }
 /* ================= 480px Screen Section (MK) =================== */
 @media screen and (max-width: 480px) {
-
-  .hero:first-child{
-    margin-top: 10vw;
-    
-  }
   .section-title{
     font-size: 6vmin;
   }
@@ -985,12 +1145,23 @@ footer .container {
   .copyright{
     padding: 2rem;
   }
-  .list-title{
-    /* font-size: 3v !important; */
+  .mobile-nav div {
+    flex-direction: column;
+    width: auto;
+  }
+  .mobile-nav div:last-child {
+    margin-top: 1rem !important;
+  }
+  .mobile-nav div a {
+    font-size: 4vw;
+    text-align: center;
   }
   
 }
+/* ================= 480px Screen Section (MK) =================== */
+@media screen and (max-width: 400px){
 
+}
 
 /* start css for payment method */
 

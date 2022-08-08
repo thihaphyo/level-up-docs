@@ -12,11 +12,12 @@ $_SESSION['stid'] = 1;
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Level Up</title>
-
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <link rel="stylesheet" href="./resources/css/mystyles.css?<?php echo $time ?>">
     <link rel="stylesheet" href="./resources/css/root.css?<?php echo $time ?> ">
     <link rel="stylesheet" href="./resources/css/notification.css">
     <link rel="stylesheet" href="./resources/css/cart.css?<?php echo $time ?> ">
+
 
 </head>
 
@@ -36,6 +37,12 @@ $_SESSION['stid'] = 1;
             <div class="my-cart-items">
 
             </div>
+            <div class="go-to-checkout">
+                <a class="button is-primary has-text-weight-semibold" href="">Go to Checkout</a>
+            </div>
+        </div>
+
+        <div>
         </div>
 
         <!-- end of container -->

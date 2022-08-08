@@ -10,19 +10,30 @@ class CartController extends DBConnect
     {
 
         try {
-
             $gotConnection = $this->connect();
-            $sql = $gotConnection->prepare("SELECT T_STUDENT_CART.id,T_STUDENT_CART.student_id, M_COURSES.course_title, M_COURSES.price, M_COURSES.course_cover_image,T_STUDENT_CART.is_deleted, M_INSTRUCTORS.full_name FROM T_STUDENT_CART INNER JOIN M_COURSES ON T_STUDENT_CART.course_id = M_COURSES.id INNER JOIN M_INSTRUCTORS ON M_COURSES.instructor_id = M_INSTRUCTORS.id LIMIT 0, 10
+            $sql = $gotConnection->prepare("SELECT T_STUDENT_CART.id,T_STUDENT_CART.student_id, M_COURSES.course_title, 
+            M_COURSES.price, M_COURSES.course_cover_image,
+            T_STUDENT_CART.is_deleted as cart_deleted, 
+            M_COURSES.is_deleted as course_deleted,
+            M_INSTRUCTORS.full_name FROM T_STUDENT_CART
+            INNER JOIN M_COURSES 
+                ON T_STUDENT_CART.course_id = M_COURSES.id 
+                    AND T_STUDENT_CART.student_id = :stid
+                    AND T_STUDENT_CART.is_deleted = 0
+                    AND M_COURSES.is_deleted = 0
+            INNER JOIN M_INSTRUCTORS 
+                ON M_COURSES.instructor_id = M_INSTRUCTORS.id 
+            LIMIT 0, 10
             ");
 
-            $sql->bindValue(':id', $_SESSION['stid']);
+            $sql->bindValue(':stid', $_SESSION['stid']);
 
             $sql->execute();
             $cartResult = $sql->fetchAll(PDO::FETCH_ASSOC);
 
-            echo json_encode($cartResult);
+            echo json_encode(['data' => $cartResult, 'status' => 200]);
         } catch (\Throwable $th) {
-            echo $th;
+            echo json_encode(['data' => $th, 'status' => 500]);
         }
     }
     public function delCartItems($cartid)

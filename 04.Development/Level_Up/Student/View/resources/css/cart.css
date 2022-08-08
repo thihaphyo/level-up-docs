@@ -1,5 +1,6 @@
 .cart-container  {
     width: 96%;
+    min-height: 60vh;
     margin: auto;
     margin-top: 8rem;
     padding: 3rem;
@@ -46,7 +47,6 @@
 }
 .cart-container .my-cart .course-info div{
     display: flex;
-    flex-direction: column !important;
 }
 .cart-container .my-cart .course-info .instructor-rating{
     padding-bottom: 0.6rem;
@@ -94,6 +94,26 @@
     font-weight: 500;
     color: #4F6494;
 }
+
+.no-item{
+    display: flex;
+    height: 30vh;
+    justify-content: center;
+    align-items: center;
+
+}
+.no-item > h3 {
+    font-size: 2vw;
+    font-weight: 600;
+    color: #9c9c9c57;
+    font-style: italic;
+}
+.go-to-checkout {
+  width: fit-content;
+  margin-left: auto;
+  margin-top: 2rem;
+
+}
 /* ================= 1170px Screen Section (MK) =================== */
 @media screen and (max-width: 1170px) {
     .cart-container .my-cart > .course-info{
@@ -123,6 +143,9 @@
         font-size: 1.2vw;
     }
     .modal-content .box p:first-child{
+        font-size: 3vw;
+    }
+    .no-item > h3 {
         font-size: 3vw;
     }
 }
@@ -159,6 +182,13 @@
     .modal-content .box .button{
         font-size: 2.4vw;
     }
+    .no-item > h3 {
+        font-size: 4vw;
+    }
+    .go-to-checkout > a {
+        font-size: clamp(2vw,2.5vw,3vw);
+      
+      }
 }
 /* ================= 480px Screen Section (MK) =================== */
 @media screen and (max-width: 480px) {
@@ -180,8 +210,12 @@
     .modal-content .box .button{
         font-size: 3vw;
     }
+    .no-item > h3 {
+        font-size: 4vw;
+    }
+    .go-to-checkout > a {
+        font-size: 3vw;
+      
+      }
 }
   
-a>.button{
-    margin-left: 85%;
-}

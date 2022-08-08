@@ -14,10 +14,13 @@
 }
 
 #i-search-form input {
-    border: 1px solid #ccc;
+    border: 2px solid var(--primary);
     padding: 1vmin 3vmin;
     border-radius: 5px;
     width: 30vw;
+    color: var(--primary);
+    font-size: 1vw;
+    font-weight: 600;
 }
 
 #i-search-form select {

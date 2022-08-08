@@ -33,35 +33,42 @@ const loadTheCart = () => {
     .then((response) => {
       const { data } = response;
       document.getElementsByClassName("my-cart-items")[0].innerHTML = "";
-
-      for (const info of data) {
-        if (info.is_deleted != 1) {
+      if (data.data.length <= 0) {
+        document.getElementsByClassName(
+          "my-cart-items"
+        )[0].innerHTML += `<div class='no-item'><h3>No Item Yet</h3></div>`;
+        document
+          .getElementsByClassName("go-to-checkout")[0]
+          .classList.add("is-hidden");
+      }
+      if (data.status == 200) {
+        for (const info of data.data) {
           document.getElementsByClassName("my-cart-items")[0].innerHTML += `
-            <div class="my-cart">
-            <input type="checkbox">
-            <img src="./resources/img/courseinfo/${
-              info.course_cover_image
-            }" alt="course"></img>
-            <div class="course-info">
-                <a href="#">${info.course_title}</a>
-                <div class="instructor-rating">
-                    <p>By ${info.full_name} - </p>
-                    <div>
-                        <img src="./resources/img/header_footer/Rating.svg" alt="rating"></img>
-                        <p>4.5/5<span>(5)</span></p>
+              <div class="my-cart">
+              <input type="checkbox">
+              <img src="./resources/img/courseinfo/${
+                info.course_cover_image
+              }" alt="course"></img>
+              <div class="course-info">
+                  <a href="#">${info.course_title}</a>
+                  <div class="instructor-rating">
+                      <p>By ${info.full_name} - </p>
+                      <div>
+                          <img src="./resources/img/header_footer/Rating.svg" alt="rating"></img>
+                          <p>4.5/5<span>(5)</span></p>
+                      </div>
+                  </div>
+                    <div class="price-remove">
+                        <p class="course-price-tag">${Number(
+                          info.price
+                        ).toLocaleString("en-US")} Ks</p>
+                        <a class="link js-modal-trigger remove-item" data-target="modal-js-example" id="${
+                          info.id
+                        }">Remove</a>
                     </div>
                 </div>
-                  <div class="price-remove">
-                      <p class="course-price-tag">${Number(
-                        info.price
-                      ).toLocaleString("en-US")} Ks</p>
-                      <a class="link js-modal-trigger remove-item" data-target="modal-js-example" id="${
-                        info.id
-                      }">Remove</a>
-                  </div>
               </div>
-          </div>
-            `;
+              `;
         }
       }
       // Add a click event on buttons to open a specific modal

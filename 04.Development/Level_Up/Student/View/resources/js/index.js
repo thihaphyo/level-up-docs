@@ -1,33 +1,31 @@
 AOS.init();
+let mobileNav, mobileNavBtn;
+mobileNav = document.getElementsByClassName("mobile-nav")[0];
+mobileNavBtn = document.getElementById("nav-burg");
 
-document.addEventListener("DOMContentLoaded", () => {
-  // Get all "navbar-burger" elements
-  const $navbarBurgers = Array.prototype.slice.call(
-    document.querySelectorAll(".navbar-burger"),
-    0
-  );
-
-  // Add a click event on each of them
-  $navbarBurgers.forEach((el) => {
-    el.addEventListener("click", () => {
-      // Get the target from the "data-target" attribute
-      const target = el.dataset.target;
-      const $target = document.getElementById(target);
-      console.log($target);
-
-      // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
-      el.classList.toggle("is-active");
-      $target.classList.toggle("is-active");
-    });
-  });
-});
+function openMobile() {
+  mobileNav.classList.remove("is-hidden");
+  mobileNav.classList.add("slide-in-right");
+}
+function closeMobile() {
+  mobileNav.classList.remove("slide-in-right");
+  mobileNav.classList.add("slide-out-right");
+  setTimeout(() => {
+    mobileNavBtn.disabled = true;
+    mobileNav.classList.remove("slide-out-right");
+    mobileNav.classList.add("is-hidden");
+    mobileNavBtn.disabled = false;
+  }, 300);
+}
 
 $(document).ready(function () {
   if (localStorage.getItem("access_token") != null) {
     // window.location.replace("./index.php");
     $("#btn_logout").removeClass("is-hidden");
     $("#btn_register").addClass("is-hidden");
-    $("#lnk_my_courses,#lnk_noti,#lnk_cart,#lnk_profile").removeClass("is-hidden");
+    $("#lnk_my_courses,#lnk_noti,#lnk_cart,#lnk_profile").removeClass(
+      "is-hidden"
+    );
   } else {
     $("#btn_register").removeClass("is-hidden");
     $("#btn_logout").addClass("is-hidden");
@@ -49,14 +47,16 @@ categories.forEach((category) => {
   category.addEventListener("click", activeLink);
 });
 
-$('#btn_logout').click(function () {
-    localStorage.removeItem('access_token');
-    logout();
-})
+$("#btn_logout").click(function () {
+  localStorage.removeItem("access_token");
+  logout();
+});
 
 async function logout() {
-  let response = await fetch('http://localhost/level-up-docs/04.Development/Level_Up/Student/Controller/auth/Logout.php');
+  let response = await fetch(
+    "http://localhost/level-up-docs/04.Development/Level_Up/Student/Controller/auth/Logout.php"
+  );
   if (response.status === 200) {
-      window.location.replace("./index.php");
+    window.location.replace("./index.php");
   }
 }

@@ -1,16 +1,20 @@
 .notiContainer{
     background-color: #fff ;
     border-radius: 15px;
-    padding: 2vw;
-    width: 300px;
+    padding: 1.4rem;
+    width: 350px;
 	height: 0px;
 	opacity: 0;
     overflow: scroll;
 	position: fixed;
 	top: 15vh;
-	right: 5vw;
+	right: 3vw;
     transition: 1s opacity, 250ms height;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+hr{
+    margin: 0;
+    margin: .6rem 0rem .8rem 0rem;
 }
 #noti-icon{
     background-color: transparent !important;
@@ -32,11 +36,15 @@
 .notiContainer a:hover{
     color: #01226F;
 }
-.header > h2{
-    font-size: 2em;
+.notiHeader{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.notiHeader > h2{
+    font-size: 1.4em;
     font-weight: 400;
     color: #01226F;
-    margin-bottom: 1vw;
 }
 .header button{
     border: none;
@@ -92,6 +100,16 @@
     font-size: 0.8em;
     font-weight: 300;
 }
+/* ================= 1170px Screen Section (MK) =================== */
+@media screen and (max-width: 1170px) {
+    .notiContainer {
+        top: 14vh;
+    }
+    .notiHeader > h2 {
+        font-size: 1.4rem;
+    }
+}
+/* ================= 720px Screen Section (ZMH) =================== */
 @media screen and (max-width: 720px) {
     .notiCart{
         margin-bottom: 2.5vh;
