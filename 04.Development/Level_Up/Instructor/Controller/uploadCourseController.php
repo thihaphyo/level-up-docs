@@ -23,7 +23,7 @@ if (isset($_POST)) {
     $coursePercentage = $_POST['coursePercentage'];
     $coursePromotedPrice = $_POST['coursePromotedPrice'];
 
-    if (move_uploaded_file($location, "../images/$courseCoverPhoto")) {
+    if (move_uploaded_file($location, "../Storage/images/$courseCoverPhoto")) {
         try {
             $sql = $connection->prepare("
             UPDATE m_courseinfo SET

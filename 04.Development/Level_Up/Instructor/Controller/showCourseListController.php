@@ -1,21 +1,12 @@
 <?php
 
 require_once "../Model/dbConnection.php";
-// require_once "./DBConnection.php";
 
 $db = new DBConnect();
 $connection = $db->Connect();
 
-// if ($delete == 1) {
-//     $sql = $connection->prepare("
-//         DELETE FROM m_courseinfo WHERE updatedDate is NULL;
-//     ");
-//     $sql->execute();
-// }
-
-
 $sql = $connection->prepare("
-        SELECT * FROM m_courseinfo WHERE updatedDate IS NOT null;
+        SELECT * FROM m_courseinfo WHERE updatedDate IS NOT null ORDER BY id DESC ;
     ");
 $sql->execute();
 $result = $sql->fetchAll(PDO::FETCH_ASSOC);

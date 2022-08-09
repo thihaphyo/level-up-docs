@@ -39,7 +39,7 @@ session_start();
             ?>
                 <a href="#">
                     <div class="cards">
-                        <img src="../images/<?php echo $value['courseCoverImage']; ?>" alt="" />
+                        <img src="../Storage/images/<?php echo $value['courseCoverImage']; ?>" alt="" />
                         <div class="details">
                             <div class="detail">
                                 <ion-icon name="bar-chart-outline"></ion-icon>
@@ -65,7 +65,7 @@ session_start();
                         </div>
                         <h2><?php echo $value['courseTitle']; ?></h2>
                         <div class="info">
-                            <a href="#" class="title is-6 has-text-weight-bold">Edit</a>
+                            <p class="title is-6 has-text-weight-bold">Edit</p>
                         </div>
                         <div class="rating">
                             <ion-icon name="bar-chart-outline"></ion-icon>

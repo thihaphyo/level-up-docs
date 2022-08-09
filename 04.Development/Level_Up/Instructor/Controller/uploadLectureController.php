@@ -12,14 +12,13 @@ $chapterId = $_SESSION['chapterId'];
 $lectureId = $_SESSION['lectureId'];
 
 if (count($_POST)) {
-    // $date = date('Y-m-d H:i:s');
     $lectureTitle = $_POST["lectureTitle"];
     $lectureDescription = $_POST["lectureDescription"];
     $lectureScript = $_POST["lectureScripts"];
     $videoFile = $_FILES["video"]["name"];
     $location = $_FILES["video"]["tmp_name"];
 
-    if (move_uploaded_file($location, "../videos/$videoFile")) {
+    if (move_uploaded_file($location, "../Storage/videos/$videoFile")) {
         try {
             $sql = $connection->prepare("
             UPDATE t_lectures SET
