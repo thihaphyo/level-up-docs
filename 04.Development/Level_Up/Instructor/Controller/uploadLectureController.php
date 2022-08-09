@@ -12,17 +12,17 @@ $chapterId = $_SESSION['chapterId'];
 $lectureId = $_SESSION['lectureId'];
 
 if (count($_POST)) {
+    // $date = date('Y-m-d H:i:s');
     $lectureTitle = $_POST["lectureTitle"];
     $lectureDescription = $_POST["lectureDescription"];
     $lectureScript = $_POST["lectureScripts"];
     $videoFile = $_FILES["video"]["name"];
     $location = $_FILES["video"]["tmp_name"];
 
-    if (move_uploaded_file($location, "../Storage/videos/$videoFile")) {
+    if (move_uploaded_file($location, "../videos/$videoFile")) {
         try {
             $sql = $connection->prepare("
             UPDATE t_lectures SET
-                lectureVideo = :lectureVideo,
                 lectureTitle = :lectureTitle,
                 lectureDescription = :lectureDescription,
                 lectureScript = :lectureScript,
@@ -31,7 +31,7 @@ if (count($_POST)) {
         ");
 
             $sql->bindValue(":lectureId", $lectureId);
-            $sql->bindValue(":lectureVideo", $videoFile);
+            // $sql->bindValue(":lectureVideo", $videoFile);
             $sql->bindValue("lectureTitle", $lectureTitle);
             $sql->bindValue(":lectureDescription", $lectureDescription);
             $sql->bindValue(":lectureScript", $lectureScript);
@@ -76,7 +76,6 @@ if (count($_POST)) {
 
     $_SESSION['lectureId'] = $result[0]['id'];
 
-    $delete = 0;
     require "./showLectureController.php";
 
     header("Location: ../View/uploadlecture.php");

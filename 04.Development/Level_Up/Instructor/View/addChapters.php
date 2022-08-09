@@ -73,7 +73,7 @@ $_SESSION['currentPage'] = 0;
                     // require "./showLectureController.php";
 
                     foreach ($result as $key => $value) {
-                        echo "<a href='../Controller/updateLectureController.php?id=" . $value['id'] . "' class='lectureNo'>";
+                        echo "<a href='#' class='lectureNo'>";
                         echo "<div class='lecture'>";
                         echo "<p>" . $value["lectureTitle"] . "</p>";
                         echo "<p>" . $value["updatedDate"] . "</p>";
