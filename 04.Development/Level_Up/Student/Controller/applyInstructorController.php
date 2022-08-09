@@ -19,6 +19,8 @@ class ApplyInstructor extends DBConnect
 
             $sql = $gotConnection->prepare("INSERT INTO M_INSTRUCTORS (full_name,email,phone,address,graduated_degree,graduated_year,job_position, apply_reason,status,created_at) VALUES (:fullname, :email, :phone,:address,:degree,:gyear,:position,:reason,:status,:createdTime)");
 
+            print_r($instructorInfo);
+
             $sql->bindValue(':fullname', ucwords($instructorInfo['fullname']));
             $sql->bindValue(':email', $instructorInfo['email']);
             $sql->bindValue(':phone', $instructorInfo['countryCode'] . $instructorInfo['phone']);
@@ -30,10 +32,10 @@ class ApplyInstructor extends DBConnect
             $sql->bindValue(':status', 'pending');
             $sql->bindValue(':createdTime', $createdTime);
 
-            $sql->execute();
-            $sql->fetchAll(PDO::FETCH_ASSOC);
+            // $sql->execute();
+            // $sql->fetchAll(PDO::FETCH_ASSOC);
 
-            header('location: ../View/apply instructor success.php');
+            // header('location: ../View/apply instructor success.php');
         } catch (\Throwable $th) {
             echo $th;
             $message = array('title' => 'Fail', 'description' => 'Something went wrong. Please try again. Sorry for inconvenience');

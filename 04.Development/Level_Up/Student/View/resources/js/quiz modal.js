@@ -14,17 +14,11 @@ document.addEventListener("DOMContentLoaded", () => {
     $el.classList.remove("is-active");
   }
 
-  function closeAllModals() {
-    (document.querySelectorAll(".modal") || []).forEach(($modal) => {
-      closeModal($modal);
-    });
-  }
-
   // Add a click event on buttons to open a specific modal
   (document.querySelectorAll(".js-modal-trigger") || []).forEach(($trigger) => {
     const modal = $trigger.dataset.target;
     const $target = document.getElementById(modal);
-
+    console.log(modal);
     $trigger.addEventListener("click", () => {
       openModal($target);
     });
@@ -102,11 +96,17 @@ checkNowBtn.onclick = function () {
         document
           .querySelectorAll("input[type='radio']:checked")
           [index].parentElement.classList.add("has-text-success");
+        document
+          .querySelectorAll("input[type='radio']:checked")
+          [index].parentElement.classList.add("has-text-weight-medium");
         mark += 1;
       } else {
         document
           .querySelectorAll("input[type='radio']:checked")
           [index].parentElement.classList.add("has-text-danger");
+        document
+          .querySelectorAll("input[type='radio']:checked")
+          [index].parentElement.classList.add("has-text-weight-medium");
 
         for (const input of document.querySelectorAll(
           "input[type='radio']:checked"
@@ -118,6 +118,10 @@ checkNowBtn.onclick = function () {
             document.querySelectorAll("input[name='qAHw2']")[index].value
           ) {
             input.children[0].parentElement.classList.add("has-text-success");
+            input.children[0].parentElement.classList.add(
+              "has-text-weight-medium"
+            );
+
             break;
           }
         }
@@ -125,6 +129,7 @@ checkNowBtn.onclick = function () {
     }
     totalResult.classList.remove("is-hidden");
     totalResult.innerHTML = `Result: ${(mark * 100) / questionCount} of 100`;
+    this.disabled = true;
   } else {
     message.classList.remove("is-hidden");
   }

@@ -76,43 +76,7 @@ updateInput();
 
 addMoreBtn.onclick = function () {
   count += 1;
-  document.getElementById("addMoreContent").innerHTML += `
-  <!-- start of input columns -->
-  <div class="columns mb-6">
-
-      <!-- start of column -->
-      <div class="column is-half">
-          <p class="is-size-5 has-text-weight-semibold mb-5">Job Position</p>
-          <input class="input is-medium has-text-weight-medium" type="text" placeholder="e.g. Web Developer" name="positionExtra${count}" required>
-      </div>
-      <!-- end of input column -->
-
-
-      <!-- start of input column -->
-      <div class="column is-half is-flex">
-
-          <!-- start of input from column -->
-          <div class="column">
-              <p class="is-size-5 has-text-weight-semibold mb-4">From</p>
-              <input class="input is-medium has-text-weight-medium years" type="number" placeholder="e.g. 2016" name="fromExtra${count}" required>
-              <p class="warning is-italic pt-1 has-text-danger is-hidden">* Please enter the year correctly *</p>
-          </div>
-          <!-- end of input from column -->
-
-
-          <!-- start of input to column -->
-          <div class="column">
-              <p class="is-size-5 has-text-weight-semibold mb-4">To</p>
-              <input class="input is-medium has-text-weight-medium years" type="number" placeholder="e.g. 2018" name="toExtra${count}" required>
-              <p class="warning is-italic pt-1 has-text-danger is-hidden">* Please enter the year correctly *</p>
-
-          </div>
-          <!-- end of input to column -->
-      </div>
-  </div>
-  <!-- end of input columns -->
-  
-  `;
+  document.getElementById("addMoreContent").innerHTML;
   updateInput();
 };
 
