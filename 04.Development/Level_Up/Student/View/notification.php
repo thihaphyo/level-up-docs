@@ -12,15 +12,14 @@
                 <div class="notiAll">
                     <?php
                     foreach ($notiCount as $key => $value) {
-                        if ($value['target'] == 'Students' || $value['target'] == 'All') {
+                        if ($value['target'] == 'STUDENTS' || $value['target'] == 'ALL') {
                             echo "<div class='notiCart'>";
                             echo "<div class='notiText'>";
-                            echo "<h3 class='courseName title is-6'>" . $value['noti-title'];
-                            echo "<span class='text'>".$value['noti-body']."</span></h3>";
+                            echo "<h3 class='courseName title is-6'>" . $value['noti_title'];
+                            echo "<span class='text'>".$value['noti_body']."</span></h3>";
                             echo "</div>";
-                            echo "<a href='../Controller/notificationIDController.php?id=".$value['id']."' class='delete'></a>";
+                            echo "<a class='delete' id=".$value['id']." onclick='deleteData(this)'></a>";
                             echo "</div>";
-                            
                         }
                     }
                     ?>
@@ -32,4 +31,5 @@
     </main>
 
     <!-- javascript file -->
-    <script src="../View/resources/js/notification.js?v=<?time()?>"></script>
+    <script src="./resources/lib/jquery3.6.0.js"></script>
+    <script src="../View/resources/js/notification.js?v=<?time();?>"></script>
