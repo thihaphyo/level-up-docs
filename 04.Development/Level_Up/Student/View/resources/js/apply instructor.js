@@ -14,7 +14,8 @@ let emailInput,
     to: true,
     from: true,
   },
-  tempoStorage;
+  tempoStorage,
+  allowInsertExpState;
 emailRegx =
   /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
 
@@ -75,9 +76,37 @@ const updateInput = () => {
 updateInput();
 
 addMoreBtn.onclick = function () {
-  count += 1;
-  document.getElementById("addMoreContent").innerHTML;
-  updateInput();
+  for (const workExpInput of document.querySelectorAll(".wexp")) {
+    // console.log(workExpInput.value <= 0);
+    // workExpInput.value <= 0 ? (this.disabled = true) : (this.disabled = false);
+    workExpInput.value <= 0
+      ? (allowInsertExpState = false)
+      : (allowInsertExpState = true);
+    workExpInput.value <= 0
+      ? document.getElementById("msgToUser2").classList.remove("is-hidden")
+      : document.getElementById("msgToUser2").classList.add("is-hidde");
+  }
+  if (allowInsertExpState) {
+    console.log("sss");
+    count += 1;
+    document.getElementById("addMoreContent").innerHTML += `                   
+    <div>
+      <i class="fa-regular fa-file-lines fa-2xl"></i>
+      <div>
+        <h3>
+            Web Design at Meta
+        </h3>
+        <p>2016 - present (5 years)</p>
+        <p>Full-Time</p>
+        <input type="hidden" name="position">
+        <input type="hidden" name="years">
+        <input type="hidden" name="worktype">
+        <input type="hidden" name="company">
+      </div>
+    </div>`;
+    updateInput();
+  }
+  this.disabled = false;
 };
 
 if (failMessage) {
