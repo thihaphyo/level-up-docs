@@ -128,13 +128,13 @@ session_start();
                     <p class="is-size-5 has-text-weight-semibold mb-5">
                         Job Experiences
                     </p>
-                    <a class="js-modal-trigger has-text-medium" id="addMore" data-target="experience-modal">Add Experience</a>
+                    <a class="js-modal-trigger has-text-medium" data-target="experience-modal">Add Experience</a>
                 </div>
 
                 <!-- start of add more input -->
                 <div class="work-exp" id="addMoreContent">
                     <div>
-                        <i class="fa-solid fa-id-card-clip fa-2xl"></i>
+                        <i class="fa-regular fa-file-lines fa-2xl"></i>
                         <div>
                             <h3>
                                 Web Design at Meta
@@ -149,7 +149,7 @@ session_start();
                         </div>
                     </div>
                     <div>
-                        <i class="fa-solid fa-id-card-clip fa-2xl"></i>
+                        <i class="fa-regular fa-file-lines fa-2xl"></i>
                         <div>
                             <h3>
                                 Web Design at Meta
@@ -226,7 +226,7 @@ session_start();
 
                 </section>
                 <h1 class="is-size-5 has-text-success has-background-white has-text-weight-semibold is-hidden has-text-right pr-5" id="finalResult">Result: 2 of 2 </h1>
-                <p class="is-italic has-text-centered has-text-weight-medium has-background-white is-hidden" id="msgToUser">* Please answer also the rest of the questions. *</p>
+                <p class="is-italic has-text-centered has-text-danger has-text-weight-medium has-background-white is-hidden" id="msgToUser">* Please answer all the questions *</p>
                 <footer class="modal-card-foot">
 
                     <button class="button is-primary is-outlined has-text-weight-semibold cancel-quiz">Cancel</button>
@@ -252,14 +252,14 @@ session_start();
                         <!-- start of position column -->
                         <div class="column is-half">
                             <p class="is-size-5 has-text-weight-semibold mb-5" for="">Job Position</p>
-                            <input class="input has-text-weight-medium" type="text" placeholder="e.g. Web Developer" name="position" required>
+                            <input class="input has-text-weight-medium wexp" type="text" placeholder="e.g. Web Developer" name="position" required>
                         </div>
                         <!-- end of position  column -->
 
                         <!-- start of company column -->
                         <div class="column is-half">
                             <p class="is-size-5 has-text-weight-semibold mb-5" for="">Company</p>
-                            <input class="input has-text-weight-medium" type="text" placeholder="e.g. High Tec Company" name="company" required>
+                            <input class="input has-text-weight-medium wexp" type="text" placeholder="e.g. High Tec Company" name="company" required>
                         </div>
                         <!-- end of company column -->
                     </div>
@@ -270,7 +270,7 @@ session_start();
                         <!-- start of from from column -->
                         <div class="column is-half">
                             <p class="is-size-5 has-text-weight-semibold mb-4">From</p>
-                            <input class="input has-text-weight-medium" type="number" placeholder="e.g. 2016" name="from" required>
+                            <input class="input has-text-weight-medium wexp" type="number" placeholder="e.g. 2016" name="from" required>
                             <p class="warning is-italic pt-1 has-text-danger is-hidden">* Please enter the year correctly *</p>
                         </div>
                         <!-- end of input from column -->
@@ -279,7 +279,7 @@ session_start();
                         <!-- start of to to column -->
                         <div class="column is-half">
                             <p class="is-size-5 has-text-weight-semibold mb-4">To</p>
-                            <input class="input has-text-weight-medium" type="number" placeholder="e.g. 2018" name="to" required>
+                            <input class="input has-text-weight-medium wexp" type="number" placeholder="e.g. 2018" name="to" required>
                             <p class="warning is-italic pt-1 has-text-danger is-hidden">* Please enter the year correctly *</p>
 
                         </div>
@@ -301,13 +301,12 @@ session_start();
                         </div>
                         <!-- end of input from column -->
                 </section>
+                <p class="is-italic has-text-centered has-text-danger has-text-weight-medium has-background-white is-hidden" id="msgToUser2">* Please answer all the avaliable information above *</p>
                 <footer class="modal-card-foot">
 
                     <button class="button is-primary is-outlined has-text-weight-semibold cancel-quiz">Cancel</button>
-                    <button class="button is-primary has-text-weight-semibold" id="checkQuizNow">Check Now</button>
-
+                    <button class="button is-primary has-text-weight-semibold" id="addMore">Add Now</button>
                 </footer>
-
             </div>
         </div>
         <!-- End of job exp modal -->
