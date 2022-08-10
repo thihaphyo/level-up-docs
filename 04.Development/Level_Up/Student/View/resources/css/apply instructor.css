@@ -3,8 +3,6 @@
 }
 .select select{
     width: 100%;
-  border: 1px solid #4a4a4a76 !important;
-
 }
 .work-exp-title {
   display: flex;
@@ -47,8 +45,17 @@
   opacity: 0.6;
   font-size: 0.8rem;
 }
+.work-exp > div > div > a {
+  opacity: 0.4;
+  font-size: 0.8rem;
+  text-decoration: underline;
+}
 #experience-modal .input {
   border: 1px solid #4a4a4a76 !important;
+}
+select[name='worktype']{
+  border: 1px solid #4a4a4a76 !important;
+
 }
 .notification{
     position: fixed;
@@ -56,7 +63,15 @@
     right: 28vw;
     z-index: 1;
 }
-
+.apply-success > div:first-child > h1{
+  font-size: 2vw;
+}
+.apply-success-message > p {
+  font-size: 1.2vw;
+}
+.apply-success-thanks > h1{
+  font-size: 1.4vw;
+}
 .slide-in-bottom {
 	-webkit-animation: slide-in-bottom 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 	        animation: slide-in-bottom 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
@@ -114,4 +129,57 @@
     }
   }
   
-  
+  /* ================= Media Queries Section (MK) =================== */
+
+/* ================= 1215px Screen Section (MK) =================== */
+@media screen and (max-width: 1215px) {
+
+}
+/* ================= 1170px Screen Section (MK) =================== */
+@media screen and (max-width: 1170px) { 
+}
+/* ================= 1023px Screen Section (MK) =================== */
+@media screen and (max-width: 1023px) {
+  .apply-success > div:first-child {
+    margin-top:8rem;
+  }
+  .apply-success > div:first-child > h1{
+    font-size: 2.4vw;
+  }
+  .apply-success-message > p {
+    font-size: 1.6vw;
+  }
+  .apply-success-thanks > h1{
+    font-size: 1.8vw;
+  }
+}
+/* ================= 768px Screen Section (MK) =================== */
+@media screen and (max-width: 768px) {
+  .apply-success > div:first-child {
+    margin-top: 4vw;
+  }
+  .apply-success > div:first-child > h1{
+    font-size: 2.6vw;
+  }
+  .apply-success-message > p {
+    font-size: 1.8vw;
+  }
+  .apply-success-thanks > h1{
+    font-size: 2vw;
+  }
+}
+/* ================= 480px Screen Section (MK) =================== */
+@media screen and (max-width: 480px){
+  .apply-success > div:first-child > h1{
+    font-size: 4.4vw;
+  }
+  .apply-success-message > p {
+    font-size: 3vw;
+  }
+  .apply-success-thanks > h1{
+    font-size: 4vw;
+  }
+  .apply-success-img > img{
+    width: 60vw;
+  }
+}

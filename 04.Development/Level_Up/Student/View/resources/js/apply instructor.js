@@ -14,6 +14,7 @@ let emailInput,
     to: true,
     from: true,
   },
+  workExp = {},
   tempoStorage,
   allowInsertExpState;
 emailRegx =
@@ -72,41 +73,75 @@ const updateInput = () => {
     };
   }
 };
-
+const updateRemoveId = () => {
+  for (const removeExpBtn of document.getElementsByClassName("remove-exp")) {
+    removeExpBtn.onclick = function () {
+      this.parentElement.parentElement.remove();
+      if (document.getElementsByClassName("work-exp-info").length <= 0) {
+        document
+          .getElementsByClassName("no-exp-yet")[0]
+          .classList.remove("is-hidden");
+      }
+    };
+  }
+};
 updateInput();
+
+const removeExp = (e) => {};
 
 addMoreBtn.onclick = function () {
   for (const workExpInput of document.querySelectorAll(".wexp")) {
     // console.log(workExpInput.value <= 0);
     // workExpInput.value <= 0 ? (this.disabled = true) : (this.disabled = false);
-    workExpInput.value <= 0
+    workExpInput.value.length <= 0
       ? (allowInsertExpState = false)
       : (allowInsertExpState = true);
-    workExpInput.value <= 0
+    workExpInput.value.length <= 0
       ? document.getElementById("msgToUser2").classList.remove("is-hidden")
       : document.getElementById("msgToUser2").classList.add("is-hidde");
+
+    workExp[workExpInput.name] = workExpInput.value;
   }
   if (allowInsertExpState) {
-    console.log("sss");
+    document.getElementsByClassName("no-exp-yet")[0].classList.add("is-hidden");
     count += 1;
     document.getElementById("addMoreContent").innerHTML += `                   
-    <div>
+    <div class="work-exp-info">
       <i class="fa-regular fa-file-lines fa-2xl"></i>
       <div>
         <h3>
-            Web Design at Meta
+             ${workExp["position"]} at ${workExp["company"]}
         </h3>
-        <p>2016 - present (5 years)</p>
-        <p>Full-Time</p>
-        <input type="hidden" name="position">
-        <input type="hidden" name="years">
-        <input type="hidden" name="worktype">
-        <input type="hidden" name="company">
+        <p>${workExp["from"]} - ${workExp["to"]} (${
+      Number(workExp["to"] - workExp["from"]) + 1
+    } years)</p>
+        <p>${document.querySelector(`select[name="worktype"]`).value}</p>
+        <input type="hidden" name="position${count}" value='${
+      workExp["position"]
+    }'>
+        <input type="hidden" name="from${count}" value='${workExp["from"]}'>
+        <input type="hidden" name="to${count}" value='${workExp["to"]}'>
+        <input type="hidden" name="worktype${count}" value='${
+      document.querySelector(`select[name="worktype"]`).value
+    }
+    }'>
+        <input type="hidden" name="company${count}" value='${
+      workExp["company"]
+    }'>
+      <a class="remove-exp" >Remove</a>
+
       </div>
     </div>`;
     updateInput();
+    updateRemoveId();
+    for (const key in workExp) {
+      console.log(document.querySelector(`input[name="${key}"]`));
+      document.querySelector(`input[name="${key}"]`).value = "";
+    }
+    document.getElementById("experience-modal").classList.remove("is-active");
+  } else {
+    this.disabled = false;
   }
-  this.disabled = false;
 };
 
 if (failMessage) {

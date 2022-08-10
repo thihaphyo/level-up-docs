@@ -133,31 +133,7 @@ session_start();
 
                 <!-- start of add more input -->
                 <div class="work-exp" id="addMoreContent">
-                    <div>
-                        <i class="fa-regular fa-file-lines fa-2xl"></i>
-                        <div>
-                            <h3>
-                                Web Design at Meta
-                            </h3>
-                            <p>2016 - present (5 years)</p>
-                            <p>Full-Time</p>
-                            <input type="hidden" name="position">
-                            <input type="hidden" name="years">
-                            <input type="hidden" name="worktype">
-                            <input type="hidden" name="company">
-
-                        </div>
-                    </div>
-                    <div>
-                        <i class="fa-regular fa-file-lines fa-2xl"></i>
-                        <div>
-                            <h3>
-                                Web Design at Meta
-                            </h3>
-                            <p>2016 - present (5 years)</p>
-                            <p>Full-Time</p>
-                        </div>
-                    </div>
+                    <h1 class="is-italic has-text-grey no-exp-yet">No Experiences Added Yet</h1>
                 </div>
                 <!-- end of add more input -->
 
@@ -270,7 +246,7 @@ session_start();
                         <!-- start of from from column -->
                         <div class="column is-half">
                             <p class="is-size-5 has-text-weight-semibold mb-4">From</p>
-                            <input class="input has-text-weight-medium wexp" type="number" placeholder="e.g. 2016" name="from" required>
+                            <input class="input has-text-weight-medium wexp years" type="number" placeholder="e.g. 2016" name="from" required>
                             <p class="warning is-italic pt-1 has-text-danger is-hidden">* Please enter the year correctly *</p>
                         </div>
                         <!-- end of input from column -->
@@ -279,7 +255,7 @@ session_start();
                         <!-- start of to to column -->
                         <div class="column is-half">
                             <p class="is-size-5 has-text-weight-semibold mb-4">To</p>
-                            <input class="input has-text-weight-medium wexp" type="number" placeholder="e.g. 2018" name="to" required>
+                            <input class="input has-text-weight-medium wexp years" type="number" placeholder="e.g. 2018" name="to" required>
                             <p class="warning is-italic pt-1 has-text-danger is-hidden">* Please enter the year correctly *</p>
 
                         </div>

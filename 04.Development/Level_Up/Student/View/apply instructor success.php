@@ -12,6 +12,8 @@ $time = time();
     <title>Level Up</title>
     <link rel="stylesheet" href="./resources/css/mystyles.css?<?php echo $time ?>">
     <link rel="stylesheet" href="./resources/css/root.css?<?php echo $time ?> ">
+    <link rel="stylesheet" href="./resources/css/apply instructor.css?<?php echo $time ?> ">
+
 </head>
 
 <body>
@@ -25,22 +27,22 @@ $time = time();
             <div class="container">
 
                 <!-- start of columns  -->
-                <div class="columns is-flex-direction-column has-text-centered">
+                <div class="columns is-flex-direction-column has-text-centered apply-success">
 
                     <!-- start of column -->
                     <div class="column is-full">
-                        <h1 class="title mb-6 has-text-weight-bold">We've recieved the form successfully</h1>
+                        <h1 class="mb-6 has-text-weight-bold">We've recieved the form successfully</h1>
                     </div>
                     <!-- end of column -->
 
                     <!-- start of column -->
-                    <div class="column is-full mb-6">
+                    <div class="column is-full mb-6 apply-success-img">
                         <img width="26%" src="./resources/img/header_footer/handshake.svg" alt="handshake"></img>
                     </div>
                     <!-- end of column -->
 
                     <!-- start of column -->
-                    <div class="column is-5 subtitle m-auto has-text-weight-semibold mb-6">
+                    <div class="column is-5 m-auto has-text-weight-semibold mb-6 apply-success-message">
                         <p class="is-4">We will reply to your employement pass
                             immediately after we review your application.
                             If you pass, we will contact you and if not, we apologize that you have to try again.
@@ -49,8 +51,8 @@ $time = time();
                     <!-- end of column -->
 
                     <!-- start of column -->
-                    <div class="column is-full mt-4">
-                        <h1 class="title has-text-weight-bold">Thank you for choosing with us to work</h1>
+                    <div class="column is-full mt-4 apply-success-thanks">
+                        <h1 class="has-text-weight-bold">Thank you for choosing with us to work</h1>
                     </div>
                     <!-- end of column -->
 
@@ -66,7 +68,7 @@ $time = time();
     <!-- end of main -->
 
 
-    <?php require_once('./footer.php') ?>
+    <?php require_once('./footer.php'); ?>
 </body>
 
 </html>
