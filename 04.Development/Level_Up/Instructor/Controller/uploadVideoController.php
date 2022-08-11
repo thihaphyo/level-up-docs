@@ -29,6 +29,8 @@ if (isset($_POST)) {
         $sql->bindValue(":lectureId", $lectureId);
 
         $sql->execute();
+
+        echo json_encode("successful");
 }
 
 // echo "../View/uploadlecture.php";

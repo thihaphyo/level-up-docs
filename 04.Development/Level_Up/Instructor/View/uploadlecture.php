@@ -32,7 +32,7 @@ session_start();
     <div class="sidebar">
     </div>
     <div class="container">
-        <form action="../Controller/uploadLectureController.php" method="POST" enctype="multipart/form-data" id="videoUploadForm">
+        <form action="" method="" enctype="multipart/form-data" id="videoUploadForm">
             <div class="left">
                 <div class="form-input">
                     <div class="preview">

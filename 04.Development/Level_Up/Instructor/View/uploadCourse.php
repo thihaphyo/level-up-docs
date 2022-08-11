@@ -1,6 +1,11 @@
 <?php
 $time = time();
 session_start();
+if(!isset($_SESSION['courseId'])){
+  $_SESSION['instructorId'] = 5;
+  $_SESSION['courseId'] = 5;
+  $_SESSION['chapterId'] = 5;
+}
 
 // echo $_SESSION['instructorId'];
 // echo $_SESSION['courseId'];

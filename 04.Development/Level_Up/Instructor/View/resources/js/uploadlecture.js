@@ -167,6 +167,7 @@ function activeQuizzButton() {
  * 2. Call the "uploadVideo" method and pass in a callback function as argument.
  */
 
+
 class VideoUpload {
   constructor(videoFile, videoName) {
     this.videoFile = videoFile;
@@ -176,21 +177,70 @@ class VideoUpload {
     // Privacy settings:
     this.view = "unlisted";
     this.embed = "public";
+
+    // To log file:
+    this.log_tmp = [];
   }
 
   async uploadVideo() {
+
+    const startedUploading = new Date();
+
+    this.log_tmp.push("started using api at " + startedUploading);
+    console.log("started using api at ", startedUploading);
+
+    console.log("video size: ", this.videoFile.size);
+
     this.useVimeoApi(this.videoFile.size).then((res) => {
       let formURL = res.upload.form.split('"')[3];
       let videoURL = res.link;
-      uploadVideoToTheDatabase(videoURL);
-      console.log(videoURL);
+
+
+      this.log_tmp.push("form link obtained, started uploading at " + new Date());
+      console.log("form link obtained, started uploading at ", new Date());
+
+
+
       this.uploadToVimeo(formURL, this.videoFile)
         .then((result) => {
-          console.log("added");
-          console.log(videoURL);
-          // updateFunc(videoURL);
+          
+          const finishedUploading = new Date();
+
+          this.log_tmp.push("finished uploading at " + finishedUploading );
+          console.log("finished uploading at ", finishedUploading);
+
+          const timeTaken = finishedUploading - startedUploading;
+
+          this.log_tmp.push("VideoURL: " + videoURL);
+          this.log_tmp.push("Total Time Taken: " + timeTaken);
+          this.log_tmp.push("video size: " + this.videoFile.size);
+
+          console.log(videoURL, "took ", timeTaken);
+          this.saveToLogFile("../Controller/saveLogsController.php");
+
+      uploadVideoToTheDatabase(videoURL);
+
         })
-        .catch((err) => console.log(err));
+        .catch((err) => {
+          this.log_tmp.push('the following error occured on ' + new Date());
+          this.log_tmp.push(err);
+          this.saveToLogFile("../Controller/saveLogsController.php");
+          console.log(err);
+        });
+    });
+  }
+
+  saveToLogFile(pathURL){
+    $.ajax({
+      url: pathURL,
+      type: "POST",
+      data: { data_to_log: JSON.stringify(this.log_tmp) },
+      success: function () {
+        console.log('written to the log file.')
+      },
+      error: function (err) {
+        console.log(err);
+      },
     });
   }
 
@@ -231,7 +281,10 @@ class VideoUpload {
   }
 }
 
-$("#saveLectureButton").click(async function () {
+$("#videoUploadForm").submit(async function (e) {
+  
+  e.preventDefault();
+
   let form = document.getElementById("videoUploadForm");
   let videoFile = form["video"].files[0];
   let videoName = form["lectureTitle"].value;
