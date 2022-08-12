@@ -34,11 +34,11 @@
                             </p>
                         </label>
                     </div>
-                    <form action="sendmail.php" method="POST">
+                    <form action="../Controller//verifymailcontroller.php" method="POST">
                         <div class="field mt-6">
                             <label class="label is-primay-label">Email Address</label>
                             <div class="control">
-                                <input id="email" name="email" class="input text-box" type="email" placeholder="Eg.John123@gmail.com">
+                                <input id="email" name="email" class="input text-box" type="email"  placeholder="Eg.John123@gmail.com">
                             </div>
                         </div>
                         <div class="column is-full">
@@ -60,6 +60,7 @@
             </div>
         </div>
     </div>
+
 </body>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script src="./resources/js/index.js"></script>
