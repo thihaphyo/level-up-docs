@@ -9,11 +9,12 @@ if (isset($_POST)) {
     $location = $_FILES['image']['tmp_name'];
     if (move_uploaded_file($location, "../storage/$image")) {
         $sql = $pdo->prepare("
-        INSERT INTO  M_CONTACTS(
-            phone_number,email,profile_image)
-            VALUES (:number,:email,:image
-            )");
-
+        UPDATE M_CONTACTS SET
+            phone_number=:number,
+            email=:email,
+            profile_image=:image
+            WHERE id=1;
+            ");
         $sql->bindValue(":number", $number);
         $sql->bindValue(":email", $email);
         $sql->bindValue(":image", $image);

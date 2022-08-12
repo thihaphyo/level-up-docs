@@ -32,12 +32,12 @@
                         <div class="tile is-vertical is-8">
                             <div class="tile is-parent">
                                 <?php
-                                require "../Model/contactDBtable.php"
+                                require "../Model/contactDBtable.php";
                                 ?>
                                 <?php
                                 // Upload image
                                 foreach ($result as $key => $value) {
-                                    echo "<img style='width: 80%;' src='../storage/" . $value['profile_image'] . "'>";
+                                    echo "<img style='width: 80%;' src='../../Admin/storage/" . $value['profile_image'] . "'>";
                                 }
                                 ?>
                             </div>
@@ -79,7 +79,6 @@
                     </div>
                     <?php
                     // Phone-number and Email
-                    foreach ($result as $key => $value) {
                         echo "<article>";
                         echo "<div style=' 
                                 
@@ -88,15 +87,14 @@
                                     top: 1rem; left:2rem' class='contact columns'>";
                         echo "<img src='contact image/el_phone-alt (1).png' alt='phone'>";
                         echo " <div class='column is-size-5 has-text-weight-medium'>";
-                        echo "  Call Us:<br /><sub class='is-size-5 has-text-weight-medium'>" . $value['phone_number'] . "</sub>";
+                        echo "  Call Us:<br /><sub class='is-size-5 has-text-weight-medium'>" . $result[0]['phone_number'] . "</sub>";
                         echo "</div>";
                         echo "<img src='contact image/Vector (3).png' alt='email'>";
                         echo "<div class='column is-size-5 has-text-weight-medium'>";
-                        echo "Send Us: <br /><sub class='is-size-5 has-text-weight-medium'>" . $value['email'] . "</sub>";
+                        echo "Send Us: <br /><sub class='is-size-5 has-text-weight-medium'>" . $result[0]['email'] . "</sub>";
                         echo "</div>";
                         echo "</div>";
                         echo "</article>";
-                    }
                     ?>
                 </div>
                 <!-- end of container -->
