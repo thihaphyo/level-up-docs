@@ -5,7 +5,7 @@
 /* select image */
 .file {
     background-color: #d9d9d9;
-    width: 76rem;
+    width: 61rem;
     height: 20rem;
     border-radius: 1rem;
 }
@@ -13,10 +13,18 @@
 button {
     width: 10rem;
     position: relative;
-    top: 1rem;
-    left: 66rem;
+    top: 0.5rem;
+    left: 51rem;
 }
 /* input color */
 .input{
     color: black;
+}
+
+/* input width */
+
+.size{
+    position: relative;
+ 
+    width: 80%;
 }

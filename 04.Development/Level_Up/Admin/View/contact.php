@@ -31,10 +31,10 @@ $time = time();
             </div>
             <br /><br /><br />
             <!-- phone number and Email address -->
-            <div>
-                <input class="input is-medium    input is-black" name="phone-number" type="text" placeholder="Enter Phone Number">
+            <div class="size">
+                <input class="input is-black" name="phone-number" type="text" placeholder="Enter Phone Number">
                 <br /><br />
-                <input class="input is-medium input is-black" name="email-address" type="text" placeholder="Enter Email Address">
+                <input class="  input is-black" name="email-address" type="text" placeholder="Enter Email Address">
             </div>
             <br />
             <!-- Selcet image -->

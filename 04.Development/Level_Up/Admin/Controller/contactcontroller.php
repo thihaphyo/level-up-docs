@@ -1,10 +1,10 @@
 <?php
 
 require "../Model/contactDBtable.php";
+require "../View/successful.php";
 if (isset($_POST)) {
     $number = $_POST['phone-number'];
     $email = $_POST['email-address'];
-print_r($_POST);
     $image = $_FILES['image']['name'];
     $location = $_FILES['image']['tmp_name'];
     if (move_uploaded_file($location, "../storage/$image")) {

@@ -1,0 +1,19 @@
+/* messenge */
+.messenge {
+    width: 50rem;
+    position: absolute;
+    left: 30rem;
+    top: 18rem;
+    font-size: large;
+  }
+  
+  span {
+    color: rgb(0, 134, 0);
+  }
+  button {
+    width: 17%;
+    position: absolute;
+    left: 0.5rem;
+    bottom: 0.5rem;
+    
+  }
