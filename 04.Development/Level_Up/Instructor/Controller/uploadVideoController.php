@@ -13,24 +13,26 @@ $lectureId = $_SESSION['lectureId'];
 
 
 if (isset($_POST)) {
-        $data = json_decode($_POST["send"], true);
+    $data = json_decode($_POST["send"], true);
 
-        $lectureVideo = $data['videoURL'];
+    $lectureVideo = $data['videoURL'];
 
-        $sql = $connection->prepare("
+    $sql = $connection->prepare("
             UPDATE T_LECTURES SET
             video_url = :lectureVideo,
             updated_at = :updatedDate
             WHERE id = :lectureId;
         ");
 
-        $sql->bindValue(":lectureVideo", $lectureVideo);
-        $sql->bindValue(":updatedDate", date("Y/m/d"));
-        $sql->bindValue(":lectureId", $lectureId);
+    $sql->bindValue(":lectureVideo", $lectureVideo);
+    $sql->bindValue(":updatedDate", date("Y/m/d"));
+    $sql->bindValue(":lectureId", $lectureId);
 
-        $sql->execute();
+    $sql->execute();
 
-        echo json_encode("successful");
+    echo json_encode("successful");
+
+    // echo "../View/addChapters.php";
 }
 
 // echo "../View/uploadlecture.php";

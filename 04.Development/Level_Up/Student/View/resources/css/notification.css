@@ -80,6 +80,7 @@ hr{
 .notiCart .delete{
     margin-top: 2vh;
     margin-right: 1vw;
+    margin-left: 2px;
 }
 /* .notiCart .notiText img {
     width: 40px;

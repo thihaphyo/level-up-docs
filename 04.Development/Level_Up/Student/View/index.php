@@ -1,5 +1,6 @@
 <?php
 $time = time();
+session_start();
 ?>
 
 <!DOCTYPE html>
@@ -120,7 +121,7 @@ $time = time();
         <!-- end of trending video section -->
 
         <!-- start of special features  -->
-        <section class="features" data-aos="fade-right">
+        <section class="features" data-aos="fade-right" id="theFeatures">
             <div class="features-container">
                 <div class="features-title">
                     <h1 class="has-text-weight-bold is-spaced has-text-white section-title">

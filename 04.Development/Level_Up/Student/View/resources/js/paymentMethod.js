@@ -24,17 +24,6 @@ function cardVisa() {
         masterCard.style.opacity = "0.3";
         visaCard.style.opacity = "1";
 }
-// submitBtn.addEventListener("click", function () {
-//         Swal.fire({
-//                 position: "center",
-//                 icon: "success",
-//                 title: "Payment Successfully ^_^",
-//                 showConfirmButton: false,
-//                 timer: 1500,
-//         });
-//         // console.log($("#totalAmount").text());
-// });
-
 function paymentMethod() {
         
         console.log($("#totalAmount").text());

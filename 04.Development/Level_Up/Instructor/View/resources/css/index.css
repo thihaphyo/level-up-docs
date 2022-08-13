@@ -4,7 +4,6 @@
 *{
     margin: 0;
     padding: 0;
-
     font-family: 'Poppins', sans-serif;
 }
 :root{
@@ -42,11 +41,11 @@ body{
     top: 0;
     left: 0;
     height: 100%;
-    width: 250px;
+    width: 15vw;
     padding: 10px 14px;
     background: var(--sidebar-color);
     transition: var(--tran-05);
-    z-index: 100;  
+    /* z-index: 0;   */
 }
 
 /* Sidebar Navigation Link */
@@ -127,7 +126,9 @@ body{
 
 .sidebar header .image-text{
     display: flex;
+    justify-content: center;
     align-items: center;
+    padding-top: 1rem;
 }
 .sidebar header .logo-text{
     display: flex;
@@ -177,7 +178,14 @@ header .image-text .profession{
 .sidebar.close .toggle{
     transform: translateY(-50%) rotate(0deg);
 }
-
+/* Admin insert header */
+.admin-insert.header {
+    display: flex;
+    justify-content: center;
+    background-color: #000000;
+    border-bottom: 2px solid #000000;
+    padding: 1rem;
+}
 
 /* Sidebar Menu (Nav) */
 .sidebar .menu{
@@ -244,11 +252,19 @@ header .image-text .profession{
 .container{
     position: absolute;
     top: 0;
-    top: 0;
-    left: 20vw;
-    width: calc(100% - 250px);
+    left: 17vw;
+    width: calc(100% - 366px);
     transition: var(--tran-05);
     padding: 4rem;
+}
+.container.admin-insert {
+    position: inherit;
+    margin: auto;
+    padding: 0rem !important;
+}
+.container .text.admin-insert{
+    text-align: left;
+    margin-bottom: 2rem;
 }
 .container .text{
     font-size: 30px;
@@ -265,7 +281,6 @@ header .image-text .profession{
 /* Input Validation Message */
 .final-warning,
 .warning{
-    display: none;
     font-size: 0.8rem !important;
     font-style: italic;
     color: #cc0f35;
@@ -276,78 +291,49 @@ header .image-text .profession{
     margin-right: auto;
     padding: 0.6rem !important;
 }
-.password-must-contain{
-    display: none;
-    position: absolute;
-    background-color: #FFFFFF;
-    z-index: 2;
-    padding: 2rem;
-}
 .password-must-contain p{
+
     font-size: 0.8rem !important;
-    padding: 0.7rem !important;
+    padding: 0rem !important;
+    padding-left: 1rem !important;
     
 }
-
-.pwd-valid {
-    color: #257953;
-  }
-  
-  .pwd-valid:before {
-    font-family: FontAwesome;
-    position: relative;
-    content: "\f00c";
-    padding-right: 0.3rem;
-
-  }
-  
-  /* Add a red text color and an "x" when the requirements are wrong */
-  .pwd-invalid {
-    color: #cc0f35;
-
-  }
-  
-  .pwd-invalid:before {
-    font-family: FontAwesome;
-    position: relative;
-    padding-right: 0.3rem;
-    content: "\f00d";
-  }
-
 /* admin profile css  */
 .admin-profile{
+    width: 100%;
     position: absolute;
-    top: 8rem;
+    top: 13rem;
 }
-.background-image{
-    position: absolute;
-    top: calc(1px - 5px);
-    background-color: #FFFFFF;
-    /* background: url('../img/admin\ profile\ picture/no\ image.png'); */
-    width: 100vw;
-    height:200px;
+.admin-profile-cover{
+    width: 84vw;
+    height: 300px;
+    margin-left: auto;
+    background: url('../img/admin\ profile\ picture/acover1.jpg');
     background-size: cover;
-    background-position: center center;
+    background-position: 0% 70%;
     background-repeat: no-repeat;
-    border: 4px solid #FFFFFF;
-    margin: auto; 
+
 }
+/* Profile image and info (name,email, etc...) */
 .profile-info {
     display: flex;
+    width: 100%;
+    box-sizing: border-box;
+}
+.my-profile-info{
+    width: 60%;
+}
+.my-profile-image img{
+    width: 140px;
+    height:140px;
+    clip-path: circle();
+    margin: 10px;
 }
 .my-profile-name-n-edit{
     display: flex;
     justify-content: space-between;
     padding: 2rem;
     margin-top: 4rem;
-}
-
-.my-profile-image img{
-    width: 140px;
-    height:140px;
-    border-radius: 50%;
-    border: 4px solid #eaeaea78;
-    margin: 10px;
 }
 .my-profile-name-n-edit > a{
     color: #3f3e3e;
@@ -356,21 +342,337 @@ header .image-text .profession{
 .my-profile-contact-n-address{
     width: 100;;
     display: flex;
-    padding: 2rem 2rem;
 
+    width: 100%;
+    padding: 0rem;
+    justify-content: space-between;
+
+}
+.my-profile-contact{
+    width: 40%;
+    padding: 2rem;   
+}
+.my-profile-address{
+    width: 50%;
+    padding: 2rem;   
 }
 .my-profile-contact-n-address > div > p {
     font-size: 0.9rem;
     font-weight: 600;
     padding: 1rem 0rem;
 }
-.my-profile-contact{
-    padding-right: 8rem;   
+.go-back-btn{
+   text-align: right;
+    padding-right: 1rem;
+    cursor: pointer;
 }
-.my-profile-address{
-    padding-right: 8rem;
+.go-back-btn a{
+    color: #000000;
+    border: 2px solid #272727;
+    padding: 0.6rem 1rem;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+.go-back-btn a:hover{
+    color: #FFFFFF;
+    background-color: #000000;
+}
+
+.update-go-back-btn a{
+    color: #3f3e3e;
+    font-weight: 500;
+    text-decoration: none;
+    margin-right: 1rem;
+}
+.update-go-back-btn a:hover{
+    font-weight: 600;
+    text-decoration: underline;
+}
+/* notification message  */
+.message-alert-box{
+    width: 24vw;
+    padding: 1rem;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 1rem;
+    right: 2rem;
+}
+.message-alert-box p {
+    font-size: 0.8rem;
+}
+.message-success{
+    background-color: #1BA976;
+}
+.message-fail{
+    background-color: #D64055;
 
 }
+.message-alert-box .success-icon,.message-alert-box .fail-icon  {
+    background: #11543c9f;
+    padding: 1rem;
+    border-radius: 10px;
+    margin-right: 1rem;
+}
+.message-alert-box .fail-icon {
+    background: #92243B !important;
+
+}
+.message-alert-box .success-icon i,.content,.message-alert-box .fail-icon i{
+    color: #FFFFFF;
+}
+.message-alert-box.message-fail .content > div, .create-admin-modal-box > div:first-child{
+    display: flex;
+    justify-content: space-between;
+}
+.message-alert-box.message-fail .content > div > button,.create-admin-modal-box > div:first-child > button {
+    font-weight: 600;
+    color: #92243B;
+    background-color: transparent;
+    text-decoration: underline;
+    border: none;
+    font-size: 0.8rem;
+    cursor: pointer;
+
+}
+
+/* Create admin modal box */
+.create-admin-modal-box > * {
+    padding: 1rem;
+}
+.create-admin-modal-box > div:first-child > button {
+    color: #ababab;
+}
+.create-admin-modal-box > div:nth-child(2), .create-admin-modal-box > div:nth-child(3){
+    display: flex;
+    flex-direction: column;
+}
+.create-admin-modal-box > div > label {
+    padding: 0.8rem 0rem;
+}
+.create-admin-modal-box > div > .input-with-copy > input {
+    width: 80%;
+    border: none;
+    height: 6vh;
+    border-radius: 10px;
+    padding-left: 1rem;
+    font-weight: 600;
+    font-size: 1rem;
+    background-color: transparent;
+}
+.create-admin-modal-box > div > .input-with-copy {
+    background-color: #ebebeb;
+    border-radius: 10px;
+}
+.create-admin-modal-box > div > .input-with-copy > i {
+    cursor: pointer;
+}
+.create-admin-modal-box > div > .input-with-copy > i:hover{
+    opacity: 0.6;
+}
+
+.create-admin-modal-box > div:last-child {
+    display: flex;
+    justify-content: flex-end;
+}
+ .create-admin-modal-box > div:last-child > button {
+    padding: 0.6rem;
+    background-color: #000000;
+    border:none;
+    color: #FFFFFF;
+    border-radius: 10px;
+    font-weight: 600;
+    margin-left: auto;
+    cursor: pointer;
+
+}
+#createAdminMessage{
+    font-size: 0.7rem;
+    font-style: italic;
+    padding: 0rem 0rem 0rem 1rem !important;
+}
+
+/* Error modal box  */
+
+.error-modal-box-bg,.create-admin-modal-box-bg{
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background-color: #00000021;
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+}
+.error-modal-box,.create-admin-modal-box {
+    position: absolute;
+    left: 26rem;
+    width: 24rem;
+    height: fit-content;
+    background-color: #FFFFFF;
+    padding: 1rem;
+    border-radius: 10px;
+    overflow-wrap: break-word;
+    line-height: 1.5;
+
+}
+.error-modal-box > h2 {
+    padding: 1rem 0rem;
+}
+.error-modal-box > div:first-child {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0rem;
+
+}
+.error-modal-box > div:first-child > a {
+    font-size: 0.8rem;
+    color: #ababab;
+    cursor: pointer;
+}
+.error-modal-box > div:last-child {
+    padding: 1rem;
+    height: 24rem;
+    overflow-y: scroll;
+
+    background-color: #bebebe;
+    border-radius: 15px;
+}
+.error-modal-box > div > p {
+    font-weight: 600;
+    line-height: 4;
+}
+.error-modal-box > div:first-child > button {
+    background-color: transparent;
+    border: none;
+    color: #ababab;
+    text-decoration: underline;
+    cursor: pointer;
+}
+.hidden{
+    display: none;
+}
+
+/* animation for error-modal box */
+.slide-in-top {
+	-webkit-animation: slide-in-top 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	        animation: slide-in-top 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+.slide-out-top {
+	-webkit-animation: slide-out-top 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+	        animation: slide-out-top 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+}
+.slide-in-right {
+	-webkit-animation: slide-in-right 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	        animation: slide-in-right 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+.slide-out-right {
+	-webkit-animation: slide-out-right 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+	        animation: slide-out-right 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+}
+ @-webkit-keyframes slide-in-top {
+    0% {
+      -webkit-transform: translateY(-1000px);
+              transform: translateY(-1000px);
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: translateY(0);
+              transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  @keyframes slide-in-top {
+    0% {
+      -webkit-transform: translateY(-1000px);
+              transform: translateY(-1000px);
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: translateY(0);
+              transform: translateY(0);
+      opacity: 1;
+    }
+  }
+@-webkit-keyframes slide-out-top {
+    0% {
+      -webkit-transform: translateY(0);
+              transform: translateY(0);
+      opacity: 1;
+    }
+    100% {
+      -webkit-transform: translateY(-1000px);
+              transform: translateY(-1000px);
+      opacity: 0;
+    }
+  }
+  @keyframes slide-out-top {
+    0% {
+      -webkit-transform: translateY(0);
+              transform: translateY(0);
+      opacity: 1;
+    }
+    100% {
+      -webkit-transform: translateY(-1000px);
+              transform: translateY(-1000px);
+      opacity: 0;
+    }
+  }
+@-webkit-keyframes slide-in-right {
+    0% {
+      -webkit-transform: translateX(1000px);
+              transform: translateX(1000px);
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: translateX(0);
+              transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  @keyframes slide-in-right {
+    0% {
+      -webkit-transform: translateX(1000px);
+              transform: translateX(1000px);
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: translateX(0);
+              transform: translateX(0);
+      opacity: 1;
+    }
+  }
+@-webkit-keyframes slide-out-right {
+    0% {
+      -webkit-transform: translateX(0);
+              transform: translateX(0);
+      opacity: 1;
+    }
+    100% {
+      -webkit-transform: translateX(1000px);
+              transform: translateX(1000px);
+      opacity: 0;
+    }
+  }
+  @keyframes slide-out-right {
+    0% {
+      -webkit-transform: translateX(0);
+              transform: translateX(0);
+      opacity: 1;
+    }
+    100% {
+      -webkit-transform: translateX(1000px);
+              transform: translateX(1000px);
+      opacity: 0;
+    }
+  }
+  
+  
 @media only screen and (max-width: 1024px) {
 
 

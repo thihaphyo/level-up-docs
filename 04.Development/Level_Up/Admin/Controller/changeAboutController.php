@@ -4,8 +4,10 @@ require_once "../Model/dbConnection.php";
 if (isset($_POST)) {
     $header = $_POST['title'];
     $text = $_POST['description'];
+
     $file = $_FILES['imgPic']['name'];
     $location = $_FILES['imgPic']['tmp_name'];
+    
     if (isset($file)) {
         $db = new DBConnect();
         $connection = $db->Connect();

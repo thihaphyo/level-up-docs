@@ -188,7 +188,6 @@ class VideoUpload {
   }
 
   async uploadVideo() {
-
     const startedUploading = new Date();
 
     this.log_tmp.push("started using api at " + startedUploading);
@@ -244,24 +243,19 @@ class VideoUpload {
               // Redirecting to the controller.
               window.location.href = saveDataController;
             });
-          
-        })
-        .catch((err) => {
-          this.log_tmp.push('the following error occured on ' + new Date());
-          this.log_tmp.push(err);
-          this.saveToLogFile("../Controller/saveLogsController.php");
-          console.log(err);
-        });
-    });
-  }
 
-  saveToLogFile(pathURL){
+            
+          }); 
+        });
+      }
+
+  saveToLogFile(pathURL) {
     $.ajax({
       url: pathURL,
       type: "POST",
       data: { data_to_log: JSON.stringify(this.log_tmp) },
       success: function () {
-        console.log('written to the log file.')
+        console.log("written to the log file.");
       },
       error: function (err) {
         console.log(err);
@@ -307,8 +301,8 @@ class VideoUpload {
 }
 
 $("#videoUploadForm").submit(async function (e) {
-  
   e.preventDefault();
+  
 
   let form = document.getElementById("videoUploadForm");
   let videoFile = form["video"].files[0];
@@ -330,8 +324,8 @@ async function uploadVideoToTheDatabase(videoURL) {
     type: "POST",
     data: { send: JSON.stringify(postData) },
     success: function (res) {
-      // location.url = res;
-      console.log(res);
+      location.url = res;
+      // console.log(res);
     },
     error: function (err) {
       console.log(err);

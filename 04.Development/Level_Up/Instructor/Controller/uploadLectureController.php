@@ -21,37 +21,38 @@ if (count($_POST)) {
     // $videoFile = $_FILES["video"]["name"];
     // $location = $_FILES["video"]["tmp_name"];
 
-    if (move_uploaded_file($location, "../Storage/videos/$videoFile")) {
-        try {
-            $sql = $connection->prepare("
-            UPDATE T_LECTURES SET
-            lecture_title = :lectureTitle,
-            lecture_description = :lectureDescription,
-            lecture_script = :lectureScript,
-            updated_at = :updatedDate
-            WHERE id = :lectureId;
-        ");
+    // if (move_uploaded_file($location, "../Storage/videos/$videoFile")) {
+    //     try {
+    //         $sql = $connection->prepare("
+    //         UPDATE T_LECTURES SET
+    //         lecture_title = :lectureTitle,
+    //         lecture_description = :lectureDescription,
+    //         lecture_script = :lectureScript,
+    //         updated_at = :updatedDate
+    //         WHERE id = :lectureId;
+    //     ");
 
-            $sql->bindValue(":lectureId", $lectureId);
-            // $sql->bindValue(":lectureVideo", $videoFile);
-            $sql->bindValue("lectureTitle", $lectureTitle);
-            $sql->bindValue(":lectureDescription", $lectureDescription);
-            $sql->bindValue(":lectureScript", $lectureScript);
-            $sql->bindValue(":updatedDate", date("Y/m/d"));
-            $sql->execute();
+    //         $sql->bindValue(":lectureId", $lectureId);
+    //         // $sql->bindValue(":lectureVideo", $videoFile);
+    //         $sql->bindValue("lectureTitle", $lectureTitle);
+    //         $sql->bindValue(":lectureDescription", $lectureDescription);
+    //         $sql->bindValue(":lectureScript", $lectureScript);
+    //         $sql->bindValue(":updatedDate", date("Y/m/d"));
+    //         $sql->execute();
 
-            $sql = $connection->prepare("
-                SELECT * FROM T_LECTURES WHERE instructor_id = $instructorId AND course_id = $courseId AND chapter_id = $chapterId;
-            ");
-            $sql->execute();
-            $result = $sql->fetchAll(PDO::FETCH_ASSOC);
+    //         $sql = $connection->prepare("
+    //             SELECT * FROM T_LECTURES WHERE instructor_id = $instructorId AND course_id = $courseId AND chapter_id = $chapterId;
+    //         ");
+    //         $sql->execute();
+    //         $result = $sql->fetchAll(PDO::FETCH_ASSOC);
 
-            header("Location: ../View/addChapters.php");
-            die();
-        } catch (PDOException $th) {
-            var_dump($th);
-        }
-    }
+    //         header("Location: ../View/addChapters.php");
+    //         die();
+    //     } catch (PDOException $th) {
+    //         var_dump($th);
+    //     }
+    // }
+    
 } else {
     $sql = $connection->prepare("
     INSERT INTO T_LECTURES (

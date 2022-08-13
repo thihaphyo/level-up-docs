@@ -45,7 +45,5 @@ if (isset($_POST)) {
         $sql->bindValue(":update", date("Y/m/d"));
         $sql->execute();
     }
-
-
     echo "../View/paymentMethod.php";
 }

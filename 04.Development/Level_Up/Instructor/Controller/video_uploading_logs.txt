@@ -5,6 +5,7 @@ START---------------
 START---------------
 ["started using api at Thu Aug 11 2022 11:21:13 GMT+0630 (Myanmar Time)","form link obtained, started uploading at Thu Aug 11 2022 11:21:16 GMT+0630 (Myanmar Time)","finished uploading at Thu Aug 11 2022 11:21:52 GMT+0630 (Myanmar Time)","VideoURL: https://vimeo.com/738500997/061738e41a","Total Time Taken: 38104","video size: 85475553"]---------------END
 START---------------
+<<<<<<< HEAD
 ["started using api at Sat Aug 13 2022 19:40:39 GMT+0630 (Myanmar Time)","form link obtained, started uploading at Sat Aug 13 2022 19:40:42 GMT+0630 (Myanmar Time)","finished uploading at Sat Aug 13 2022 19:40:53 GMT+0630 (Myanmar Time)","VideoURL: https://vimeo.com/739217140/1191ad9350","Total Time Taken: 13247","video size: 3675784"]---------------END
 START---------------
 ["started using api at Sat Aug 13 2022 19:45:00 GMT+0630 (Myanmar Time)","form link obtained, started uploading at Sat Aug 13 2022 19:45:03 GMT+0630 (Myanmar Time)","finished uploading at Sat Aug 13 2022 19:45:17 GMT+0630 (Myanmar Time)","VideoURL: https://vimeo.com/739217694/0374bea388","Total Time Taken: 16339","video size: 4014657","the following error occured on Sat Aug 13 2022 19:45:17 GMT+0630 (Myanmar Time)",{}]---------------END
@@ -12,3 +13,34 @@ START---------------
 ["started using api at Sat Aug 13 2022 19:47:44 GMT+0630 (Myanmar Time)","form link obtained, started uploading at Sat Aug 13 2022 19:47:46 GMT+0630 (Myanmar Time)","finished uploading at Sat Aug 13 2022 19:47:53 GMT+0630 (Myanmar Time)","VideoURL: https://vimeo.com/739218054/b702b547b6","Total Time Taken: 8389","video size: 4014657","the following error occured on Sat Aug 13 2022 19:47:53 GMT+0630 (Myanmar Time)",{}]---------------END
 START---------------
 ["started using api at Sat Aug 13 2022 19:51:07 GMT+0630 (Myanmar Time)","form link obtained, started uploading at Sat Aug 13 2022 19:51:09 GMT+0630 (Myanmar Time)","finished uploading at Sat Aug 13 2022 19:51:36 GMT+0630 (Myanmar Time)","VideoURL: https://vimeo.com/739218482/03a7c06853","Total Time Taken: 29311","video size: 4014657"]---------------END
+=======
+["started using api at Thu Aug 11 2022 21:37:54 GMT+0630 (Myanmar Time)","form link obtained, started uploading at Thu Aug 11 2022 21:37:55 GMT+0630 (Myanmar Time)","the following error occured on Thu Aug 11 2022 21:38:02 GMT+0630 (Myanmar Time)",{}]---------------END
+START---------------
+["started using api at Thu Aug 11 2022 21:37:50 GMT+0630 (Myanmar Time)","form link obtained, started uploading at Thu Aug 11 2022 21:37:52 GMT+0630 (Myanmar Time)","the following error occured on Thu Aug 11 2022 21:38:06 GMT+0630 (Myanmar Time)",{}]---------------END
+START---------------
+["started using api at Thu Aug 11 2022 21:39:37 GMT+0630 (Myanmar Time)","form link obtained, started uploading at Thu Aug 11 2022 21:39:39 GMT+0630 (Myanmar Time)","the following error occured on Thu Aug 11 2022 21:40:16 GMT+0630 (Myanmar Time)",{}]---------------END
+START---------------
+["started using api at Thu Aug 11 2022 21:39:41 GMT+0630 (Myanmar Time)","form link obtained, started uploading at Thu Aug 11 2022 21:39:42 GMT+0630 (Myanmar Time)","the following error occured on Thu Aug 11 2022 21:40:33 GMT+0630 (Myanmar Time)",{}]---------------END
+START---------------
+["started using api at Thu Aug 11 2022 21:39:44 GMT+0630 (Myanmar Time)","form link obtained, started uploading at Thu Aug 11 2022 21:39:46 GMT+0630 (Myanmar Time)","the following error occured on Thu Aug 11 2022 21:40:53 GMT+0630 (Myanmar Time)",{}]---------------END
+START---------------
+["started using api at Thu Aug 11 2022 21:41:10 GMT+0630 (Myanmar Time)","form link obtained, started uploading at Thu Aug 11 2022 21:41:12 GMT+0630 (Myanmar Time)","the following error occured on Thu Aug 11 2022 21:41:23 GMT+0630 (Myanmar Time)",{}]---------------END
+START---------------
+["started using api at Thu Aug 11 2022 21:44:57 GMT+0630 (Myanmar Time)","form link obtained, started uploading at Thu Aug 11 2022 21:44:59 GMT+0630 (Myanmar Time)","the following error occured on Thu Aug 11 2022 21:45:17 GMT+0630 (Myanmar Time)",{}]---------------END
+START---------------
+["started using api at Thu Aug 11 2022 21:45:25 GMT+0630 (Myanmar Time)","form link obtained, started uploading at Thu Aug 11 2022 21:45:27 GMT+0630 (Myanmar Time)","the following error occured on Thu Aug 11 2022 21:45:28 GMT+0630 (Myanmar Time)",{}]---------------END
+START---------------
+["started using api at Thu Aug 11 2022 21:45:25 GMT+0630 (Myanmar Time)","form link obtained, started uploading at Thu Aug 11 2022 21:45:27 GMT+0630 (Myanmar Time)","the following error occured on Thu Aug 11 2022 21:46:33 GMT+0630 (Myanmar Time)",{}]---------------END
+START---------------
+["started using api at Thu Aug 11 2022 21:45:25 GMT+0630 (Myanmar Time)","form link obtained, started uploading at Thu Aug 11 2022 21:45:27 GMT+0630 (Myanmar Time)","the following error occured on Thu Aug 11 2022 21:46:36 GMT+0630 (Myanmar Time)",{}]---------------END
+START---------------
+["started using api at Thu Aug 11 2022 21:45:26 GMT+0630 (Myanmar Time)","form link obtained, started uploading at Thu Aug 11 2022 21:45:28 GMT+0630 (Myanmar Time)","the following error occured on Thu Aug 11 2022 21:46:58 GMT+0630 (Myanmar Time)",{}]---------------END
+START---------------
+["started using api at Thu Aug 11 2022 21:45:24 GMT+0630 (Myanmar Time)","form link obtained, started uploading at Thu Aug 11 2022 21:45:26 GMT+0630 (Myanmar Time)","the following error occured on Thu Aug 11 2022 21:46:58 GMT+0630 (Myanmar Time)",{}]---------------END
+START---------------
+["started using api at Thu Aug 11 2022 21:45:25 GMT+0630 (Myanmar Time)","form link obtained, started uploading at Thu Aug 11 2022 21:45:27 GMT+0630 (Myanmar Time)","the following error occured on Thu Aug 11 2022 21:47:03 GMT+0630 (Myanmar Time)",{}]---------------END
+START---------------
+["started using api at Thu Aug 11 2022 21:45:26 GMT+0630 (Myanmar Time)","form link obtained, started uploading at Thu Aug 11 2022 21:45:27 GMT+0630 (Myanmar Time)","the following error occured on Thu Aug 11 2022 21:47:06 GMT+0630 (Myanmar Time)",{}]---------------END
+>>>>>>> 66584cf712aac88f76faff7ad004cb4d0b4bf9bb
+START---------------
+["started using api at Sat Aug 13 2022 20:13:28 GMT+0630 (Myanmar Time)","form link obtained, started uploading at Sat Aug 13 2022 20:13:30 GMT+0630 (Myanmar Time)","finished uploading at Sat Aug 13 2022 20:13:36 GMT+0630 (Myanmar Time)","VideoURL: https://vimeo.com/739221477/e14da17a16","Total Time Taken: 8666","video size: 4014657"]---------------END

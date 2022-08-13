@@ -5,7 +5,6 @@ axios.defaults.baseURL =
   "http://localhost/level-up-docs/04.Development/Level_Up";
 
 $("document").ready(function () {
-    
   if (localStorage.getItem("access_token") == null) {
     window.location.replace("./index.php");
   } else {
@@ -17,7 +16,7 @@ $("document").ready(function () {
       loop: true,
       path: "https://assets6.lottiefiles.com/packages/lf20_qjosmr4w.json",
     });
-    
+
     hideLoading();
 
     loadData();
@@ -82,11 +81,11 @@ const fetchUserProfile = () => {
         console.log(user.fullName);
       } else {
         iziToast.error({
-            title: 'Error',
-            layout: 2,
-            position: 'bottomRight',
-            message: message,
-        });    
+          title: "Error",
+          layout: 2,
+          position: "bottomRight",
+          message: message,
+        });
       }
     })
     .catch((error) => console.error(error))
@@ -114,11 +113,11 @@ const getPageSizeForLearning = () => {
         );
       } else {
         iziToast.error({
-            title: 'Error',
-            layout: 2,
-            position: 'bottomRight',
-            message: message,
-        });    
+          title: "Error",
+          layout: 2,
+          position: "bottomRight",
+          message: message,
+        });
       }
     })
     .catch((error) => console.error(error))
@@ -151,11 +150,11 @@ const getPageSizeForWishList = () => {
         }
       } else {
         iziToast.error({
-            title: 'Error',
-            layout: 2,
-            position: 'bottomRight',
-            message: message,
-        });    
+          title: "Error",
+          layout: 2,
+          position: "bottomRight",
+          message: message,
+        });
       }
     })
     .catch((error) => console.error(error))
@@ -343,11 +342,11 @@ const getLearningList = (pageUrl) => {
         // console.log(result[0][0]);
       } else {
         iziToast.error({
-            title: 'Error',
-            layout: 2,
-            position: 'bottomRight',
-            message: message,
-        });    
+          title: "Error",
+          layout: 2,
+          position: "bottomRight",
+          message: message,
+        });
       }
     })
     .catch((error) => console.error(error))
@@ -470,11 +469,11 @@ const getWishList = (pageUrl) => {
         // console.log(result[0][0]);
       } else {
         iziToast.error({
-            title: 'Error',
-            layout: 2,
-            position: 'bottomRight',
-            message: message,
-        });    
+          title: "Error",
+          layout: 2,
+          position: "bottomRight",
+          message: message,
+        });
       }
     })
     .catch((error) => console.error(error))
@@ -492,10 +491,10 @@ const hideLoading = () => {
 };
 
 function goToCourseDetails(obj) {
-    iziToast.error({
-        title: 'Error',
-        layout: 2,
-        position: 'bottomRight',
-        message: obj.id,
-    });    
+  iziToast.error({
+    title: "Error",
+    layout: 2,
+    position: "bottomRight",
+    message: obj.id,
+  });
 }

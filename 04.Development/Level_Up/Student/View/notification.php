@@ -1,44 +1,35 @@
-<!-- start of container  -->
-<div class="notiContainer" id="box">
-    <div class="notiHeader">
-        <h2>Notifications</h2>
-        <button class="delete" onclick="toggleNoti()"></button>
-    </div>
-    <hr />
-
-    <!--start noti items -->
-    <div class="notiItem">
-        <?php require_once "../Controller/notificationCountController.php"; ?>
-        <!--start all Noti -->
-        <div class="notiAll">
-            <div class='notiCart'>
-                <div class='notiText'>
-                    <h3 class='courseName title is-6'>
-                        Suumer time
-                        <span class='text'>This is someting</span>
-                    </h3>
-                </div>
-                <a href='../Controller/notificationIDController.php'></a>
+    <main>
+        <!-- start of container  -->
+        <div class="notiContainer" id="box">
+            <div class="header">
+                <h2>Notifications</h2>
+                <hr/>
             </div>
-            <?php
-            foreach ($notiCount as $key => $value) {
-                if ($value['target'] == 'Students' || $value['target'] == 'All') {
-                    echo "<div class='notiCart'>";
-                    echo "<div class='notiText'>";
-                    echo "<h3 class='courseName title is-6'>" . $value['noti-title'];
-                    echo "<span class='text'>" . $value['noti-body'] . "</span></h3>";
-                    echo "</div>";
-                    echo "<a href='../Controller/notificationIDController.php?id=" . $value['id'] . "' class='delete'></a>";
-                    echo "</div>";
-                }
-            }
-            ?>
+            <!--start noti items -->
+            <div class="notiItem">
+                <?php require_once "../Controller/notificationCountController.php"; ?>
+                <!--start all Noti -->
+                <div class="notiAll">
+                    <?php
+                    foreach ($notiCount as $key => $value) {
+                        if ($value['target'] == 'STUDENTS' || $value['target'] == 'ALL') {
+                            echo "<div class='notiCart'>";
+                            echo "<div class='notiText'>";
+                            echo "<h3 class='courseName title is-6'>" . $value['noti_title'];
+                            echo "<span class='text'>".$value['noti_body']."</span></h3>";
+                            echo "</div>";
+                            echo "<a class='delete' id=".$value['id']." onclick='deleteData(this)'></a>";
+                            echo "</div>";
+                        }
+                    }
+                    ?>
+                </div>
+            </div>
+            <!-- end noti-item -->
         </div>
-    </div>
-    <!-- end noti-item -->
-</div>
-<!-- end of container -->
+        <!-- end of container -->
+    </main>
 
-
-<!-- javascript file -->
-<script src=" ../View/resources/js/notification.js?v=<? time() ?>"></script>
+    <!-- javascript file -->
+    <script src="./resources/lib/jquery3.6.0.js"></script>
+    <script src="../View/resources/js/notification.js?v=<?time();?>"></script>
