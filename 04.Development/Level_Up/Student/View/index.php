@@ -1,5 +1,6 @@
 <?php
 $time = time();
+session_start();
 ?>
 
 <!DOCTYPE html>
@@ -51,6 +52,7 @@ $time = time();
 
 
         </div>
+        <?php print_r($_SESSION); ?>
         <!-- start of message to students section -->
         <section class="hero is-medium message">
             <div class="message-background" data-aos="fade-left" data-aos-delay="200">
@@ -120,7 +122,7 @@ $time = time();
         <!-- end of trending video section -->
 
         <!-- start of special features  -->
-        <section class="features" data-aos="fade-right">
+        <section class="features" data-aos="fade-right" id="theFeatures">
             <div class="features-container">
                 <div class="features-title">
                     <h1 class="has-text-weight-bold is-spaced has-text-white section-title">

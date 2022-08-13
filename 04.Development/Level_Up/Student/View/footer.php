@@ -11,9 +11,9 @@
                 <div class="column is-full-mobile is-one-quarter-desktop">
                     <h6 class="has-text-weight-medium is-size-4-desktop has-text-primary-light list-title">Categories</h6>
                     <ul class="py-4 has-text-weight-bold">
-                        <li class="py-2"><a href="">Instructor Lists</a></li>
-                        <li class="py-2"><a href="">Course Lists</a></li>
-                        <li class="py-2"><a href="">Guides</a></li>
+                        <li class="py-2"><a href="./InstructorListView.php">Instructor Lists</a></li>
+                        <li class="py-2"><a href="./explore.php">Course Lists</a></li>
+                        <li class="py-2"><a href="./guide.php">Guides</a></li>
                     </ul>
                 </div>
 
@@ -21,10 +21,9 @@
                 <div class="column is-full-mobile is-one-quarter-desktop">
                     <h6 class="has-text-weight-medium is-size-4-desktop has-text-primary-light list-title">Legal</h6>
                     <ul class="py-4 has-text-weight-bold">
-                        <li class="py-2"><a href="">Terms of Use</a></li>
+                        <li class="py-2"><a href="./privacyPolicy.php">Terms of Use</a></li>
                         <li class="py-2"><a href="./privacyPolicy.php">Privacy Policy</a></li>
-                        <li class="py-2"><a href="">Support Center</a></li>
-                        <li class="py-2"><a href="">Join Community</a></li>
+                        <li class="py-2"><a href="./contact.php">Support Center</a></li>
                     </ul>
                 </div>
 
@@ -32,9 +31,10 @@
                 <div class="column is-full-mobile is-one-quarter-desktop">
                     <h6 class="has-text-weight-medium is-size-4-desktop has-text-primary-light list-title">Company</h6>
                     <ul class="py-4 has-text-weight-bold">
-                        <li class="py-2"><a href="">FAQ</a></li>
-                        <li class="py-2"><a href="">Features</a></li>
+                        <li class="py-2"><a href="#theFeatures">Features</a></li>
                         <li class="py-2"><a href="./about.php">About</a></li>
+                        <li class="py-2"><a href="./apply instructor.php">Apply Instructor</a></li>
+
                     </ul>
                 </div>
 

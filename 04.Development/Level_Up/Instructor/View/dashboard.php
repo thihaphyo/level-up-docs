@@ -2,6 +2,7 @@
 
 $time = time();
 session_start();
+$_SESSION['instId'] = 1;
 ?>
 
 <!DOCTYPE html>
@@ -20,15 +21,14 @@ session_start();
 </head>
 
 <body>
-
     <?php require_once('./sidebar.php') ?>
-    <?php require('../Controller/adminController/adminDashboard.php');
-    $appealList = $dashboard->getAppeal();
-    $instructorRequestList = $dashboard->getInstructorRequest();
-    $purchasedCourseByStud = $dashboard->getPurchasedCourse();
-
+    <?php require('../Controller/instructorDashboardController.php');
+    $orderList = $dashboard->getOrderList();
+    // $instructorRequestList = $dashboard->getInstructorRequest();
+    // $purchasedCourseByStud = $dashboard->getPurchasedCourse();
+    $reviewRating = $dashboard->getReviewAndRating();
     $studentList = $dashboard->getStduent();
-    $instructorList = $dashboard->getInstructor();
+    $videoList = $dashboard->getVideo();
     $courseList = $dashboard->getCourse();
     ?>
 
@@ -36,7 +36,7 @@ session_start();
     <!-- start of container -->
     <div class="container">
         <div>
-            <h1 class="text">Dashboard</h1>
+            <h1 class="text">Dashboard <?php ?></h1>
         </div>
         <div class="dashboard">
             <!-- start of left content -->
@@ -45,8 +45,8 @@ session_start();
                 <div class="status-container">
                     <div class="status students">
                         <p>Students</p>
-                        <h1 class="status-number"><?php echo $studentList[0]['count(id)']; ?></h1>
-                        <p>The total active student in our website</p>
+                        <h1 class="status-number"><?php echo $studentList[0]['total_student']; ?></h1>
+                        <p>The total active student of my courses</p>
                     </div>
                     <svg width="2" height="162" viewBox="0 0 2 162" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M1 0L1.00001 162" stroke="white" stroke-opacity="0.7" />
@@ -54,16 +54,16 @@ session_start();
 
                     <div class="status courses">
                         <p>Courses</p>
-                        <h1 class="status-number"><?php echo $courseList[0]['count(id)']; ?></h1>
-                        <p>The total amount of courses in our website</p>
+                        <h1 class="status-number"><?php echo $courseList[0]['total_courses']; ?></h1>
+                        <p>The total amount of courses created</p>
                     </div>
                     <svg width="2" height="162" viewBox="0 0 2 162" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M1 0L1.00001 162" stroke="white" stroke-opacity="0.7" />
                     </svg>
                     <div class="status instructors">
-                        <p>Instructors</p>
-                        <h1 class="status-number"><?php echo $instructorList[0]['count(id)']; ?></h1>
-                        <p>The total amount of instructors in our website</p>
+                        <p>Videos</p>
+                        <h1 class="status-number"><?php echo $videoList[0]['total_videos']; ?></h1>
+                        <p>The total amount of videos for courses</p>
                     </div>
                 </div>
                 <!-- end of status board section -->
@@ -134,20 +134,20 @@ session_start();
                 <div class="instructor-request-list list-info">
                     <div>
 
-                        <h3>Instructor Request List</h3>
+                        <h3>Order List</h3>
                         <a href="./instructorRequest.php">View More</a>
                     </div>
                     <?php
-                    if (empty($instructorRequestList)) {
+                    if (empty($orderList)) {
                     ?>
                         <div class="no-data">
-                            <h3>No Request Yet</h3>
+                            <h3>No Order Yet</h3>
 
                         </div>
                     <?php } else { ?>
 
                         <?php
-                        foreach ($instructorRequestList as $key => $value) {
+                        foreach ($orderList as $key => $value) {
                         ?>
 
                             <div class="request-list">
@@ -157,10 +157,10 @@ session_start();
                                 <div>
                                     <p>
                                         <a href="./instructorRequestAbout/<?php echo $value['id'] ?>">
-                                            <span><?php echo $value['full_name'] ?></span> request to review the form
+                                            <span><?php echo $value['course_title'] ?></span>
                                         </a>
                                     </p>
-                                    <p class="time-ago"><?php echo $value['created_at'] ?></p>
+                                    <p>Purchased By <?php echo $value['stdname'] ?> | <span class="time-ago"><?php echo $value['created_at'] ?></span> </p>
                                 </div>
                             </div>
                     <?php }
@@ -171,19 +171,19 @@ session_start();
                 <div class="appeal-request-list list-info">
                     <div>
 
-                        <h3>Appeal Request List</h3>
+                        <h3>Review and Rating</h3>
                         <a href="./request list.php">View More</a>
                     </div>
                     <?php
-                    if (empty($appealList)) {
+                    if (empty($reviewRating)) {
                     ?>
                         <div class="no-data">
-                            <h3>No Request Yet</h3>
+                            <h3>No Review Yet</h3>
 
                         </div>
                     <?php } else { ?>
                         <?php
-                        foreach ($appealList as $key => $value) {
+                        foreach ($reviewRating as $key => $value) {
                         ?>
                             <div class="request-list">
                                 <div class="icons">
@@ -192,10 +192,10 @@ session_start();
                                 <div>
 
                                     <p>
-                                        <a href="./appealListDetail/<?php echo $value['id'] ?>">
+                                        <a href="./appealListDetail/<?php echo $value['rating'] ?>">
                                             Appeal form from
                                             <span>
-                                                <?php echo $value['full_name'] ?>
+                                                <?php echo $value['student_name'] ?>
                                             </span>
                                         </a>
 

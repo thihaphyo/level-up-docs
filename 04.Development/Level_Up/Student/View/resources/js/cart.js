@@ -33,7 +33,7 @@ const loadTheCart = () => {
     .then((response) => {
       const { data } = response;
       document.getElementsByClassName("my-cart-items")[0].innerHTML = "";
-      if (data.data.length <= 0) {
+      if (data.data == undefined || data.data == null) {
         document.getElementsByClassName(
           "my-cart-items"
         )[0].innerHTML += `<div class='no-item'><h3>No Item Yet</h3></div>`;
@@ -42,10 +42,13 @@ const loadTheCart = () => {
           .classList.add("is-hidden");
       }
       if (data.status == 200) {
+        document
+          .getElementsByClassName("go-to-checkout")[0]
+          .classList.remove("is-hidden");
         for (const info of data.data) {
           document.getElementsByClassName("my-cart-items")[0].innerHTML += `
               <div class="my-cart">
-              <input type="checkbox">
+              <input type="checkbox" value="${info.course_id}">
               <img src="./resources/img/courseinfo/${
                 info.course_cover_image
               }" alt="course"></img>
@@ -55,7 +58,9 @@ const loadTheCart = () => {
                       <p>By ${info.full_name} - </p>
                       <div>
                           <img src="./resources/img/header_footer/Rating.svg" alt="rating"></img>
-                          <p>4.5/5<span>(5)</span></p>
+                          <p>${data.rating}/<span>(${
+            data.total_rating
+          })</span></p>
                       </div>
                   </div>
                     <div class="price-remove">
@@ -63,7 +68,7 @@ const loadTheCart = () => {
                           info.price
                         ).toLocaleString("en-US")} Ks</p>
                         <a class="link js-modal-trigger remove-item" data-target="modal-js-example" id="${
-                          info.id
+                          info.cart_id
                         }">Remove</a>
                     </div>
                 </div>
@@ -125,4 +130,16 @@ deleteItem.onclick = function () {
     .catch((err) => {
       console.error(err);
     });
+};
+
+document.getElementById("checkout-now-btn").onclick = function () {
+  for (const checkboxInput of document.querySelectorAll(
+    "input[type='checkbox']:checked"
+  )) {
+    document.getElementById(
+      "selectedItem"
+    ).innerHTML += `<?php $_SESSION['1'] = ${checkboxInput.value} ?>`;
+    // window.location.replace("./index.php");
+    checkboxInput.value;
+  }
 };

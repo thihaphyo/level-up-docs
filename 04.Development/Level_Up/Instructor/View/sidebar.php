@@ -1,16 +1,11 @@
 <nav class="sidebar">
     <header>
         <div class="image-text">
-            <span class="image">
-                <!--<img src="logo.png" alt="">-->
-            </span>
-
             <div class="text logo-text">
-                <span class="name">Level Up</span>
+                <img width="100vw" src="../assets/level up logo.svg" alt="">
+                <!-- <span class="name">Level Up</span> -->
             </div>
         </div>
-
-        <i class='bx bx-chevron-right toggle'></i>
     </header>
 
     <div class="menu-bar">
@@ -18,7 +13,7 @@
 
             <ul class="menu-links">
                 <li class="nav-link">
-                    <a href="#">
+                    <a href="./dashboard.php">
                         <div class="mobile-sidebar-text">
                             <i class="fa-solid fa-qrcode fa-xl  nav-link-icon"></i>
                             <p>Dashboard</p>
@@ -28,7 +23,18 @@
                 </li>
 
                 <li class="nav-link">
-                    <a href="#">
+                    <a href="./adminList.php">
+                        <div class="mobile-sidebar-text">
+                            <i class="fa-solid fa-users-line fa-lg  nav-link-icon"></i>
+                            <p>Student</p>
+                        </div>
+                        <span class="text nav-text">Student List</span>
+                    </a>
+                </li>
+
+
+                <li class="nav-link">
+                    <a href="./instructorList.php">
                         <div class="mobile-sidebar-text">
                             <i class="fa-solid fa-chalkboard-user fa-lg nav-link-icon"></i>
                             <p>Instructor</p>
@@ -48,7 +54,7 @@
                 </li>
 
                 <li class="nav-link">
-                    <a href="#">
+                    <a href="./adminList.php">
                         <div class="mobile-sidebar-text">
                             <i class="fa-solid fa-users-line fa-lg  nav-link-icon"></i>
                             <p>Admin</p>
@@ -68,7 +74,7 @@
                 </li>
 
                 <li class="nav-link">
-                    <a href="#">
+                    <a href="./appealList.php">
                         <div class="mobile-sidebar-text">
                             <i class="fa-brands fa-wpforms fa-xl  nav-link-icon"></i>
                             <p>Appeal</p>
@@ -78,7 +84,7 @@
                 </li>
 
                 <li class="nav-link">
-                    <a href="#">
+                    <a href="./setting.php">
                         <div class="mobile-sidebar-text">
                             <i class="fa-solid fa-gear fa-lg  nav-link-icon"></i>
                             <p>Settings</p>
@@ -86,6 +92,7 @@
                         <span class="text nav-text">Settings</span>
                     </a>
                 </li>
+
                 <li class="nav-link">
                     <a href="#">
                         <div class="mobile-sidebar-text">

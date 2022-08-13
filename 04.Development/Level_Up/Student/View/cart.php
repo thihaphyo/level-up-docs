@@ -37,8 +37,10 @@ $_SESSION['stid'] = 1;
             <div class="my-cart-items">
 
             </div>
-            <div class="go-to-checkout">
-                <a class="button is-primary has-text-weight-semibold" href="">Go to Checkout</a>
+            <div class="go-to-checkout is-hidden">
+                <a class="button is-primary has-text-weight-semibold" id="checkout-now-btn">Go to Checkout</a>
+                <div id="selectedItem">
+                </div>
             </div>
         </div>
 

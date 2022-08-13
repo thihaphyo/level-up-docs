@@ -11,8 +11,10 @@ class CartController extends DBConnect
 
         try {
             $gotConnection = $this->connect();
-            $sql = $gotConnection->prepare("SELECT T_STUDENT_CART.id,T_STUDENT_CART.student_id, M_COURSES.course_title, 
-            M_COURSES.price, M_COURSES.course_cover_image,
+            $sql = $gotConnection->prepare("SELECT T_STUDENT_CART.id as cart_id,T_STUDENT_CART.student_id as student_id, 
+            M_COURSES.course_title, 
+            M_COURSES.price, M_COURSES.course_cover_image, 
+            M_COURSES.id as course_id,
             T_STUDENT_CART.is_deleted as cart_deleted, 
             M_COURSES.is_deleted as course_deleted,
             M_INSTRUCTORS.full_name FROM T_STUDENT_CART
@@ -31,8 +33,15 @@ class CartController extends DBConnect
             $sql->execute();
             $cartResult = $sql->fetchAll(PDO::FETCH_ASSOC);
 
-            echo json_encode(['data' => $cartResult, 'status' => 200]);
+            $sql = $gotConnection->prepare("SELECT ROUND(AVG(rating),1) as rating, COUNT(student_id) as total FROM T_COURSE_REVIEW_RATES WHERE course_id = :id");
+            $sql->bindValue(':id', $cartResult[0]['course_id']);
+            $sql->execute();
+            $result = $sql->fetchAll(PDO::FETCH_ASSOC);
+            $rating = $result[0]['rating'];
+            $numberOfRating = $result[0]['total'];
+            echo json_encode(['data' => $cartResult, 'status' => 200, 'rating' => $rating, 'total_rating' => $numberOfRating]);
         } catch (\Throwable $th) {
+            echo $th;
             echo json_encode(['data' => $th, 'status' => 500]);
         }
     }
