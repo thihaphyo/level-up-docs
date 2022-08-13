@@ -40,7 +40,6 @@ class SendMail
             //Recipients
             $mail->setFrom('laravelmailtestexbrain@gmail.com', 'Level Up');
             $mail->addAddress($to);      //Add a recipient
-            $mail->addAddress('linnkoko1130@gmail.com');                     //Name is optional
 
             //Content
             $mail->isHTML(true);                                  //Set email format to HTML
