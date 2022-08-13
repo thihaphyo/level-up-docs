@@ -15,5 +15,5 @@ $sql->execute();
 $result = $sql->fetchAll(PDO::FETCH_ASSOC);
 // echo "<pre>";
 // print_r($result);
-require "../View/notiHistory.php";
+require "../View/InstructorProfileView.php";
 // header("Location: ../View/notiHistory.php");

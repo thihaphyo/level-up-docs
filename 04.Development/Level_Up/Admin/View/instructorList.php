@@ -34,7 +34,7 @@
         let pages = <?= json_encode($pages); ?>;
         console.log(instructorList, pages);
     </script>
-    <script src="../View/resources/js/instructorList.js"></script>
+    <script src="../View/resources/js/instructorList.js?v=<?time()?>"></script>
 </body>
 
 </html>

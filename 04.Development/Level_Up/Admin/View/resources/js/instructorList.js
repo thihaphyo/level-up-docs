@@ -79,7 +79,7 @@ function showChangedPage(nextIndex, data) {
         <div class="instructor">
         <div class="profile">
             <img src="../View/resources/img/${data[i]["profile_image"]}" alt="">
-            <p class="detail"><a href="#">more detail</a></p>
+            <p class="detail"><a href="../Controller/instructorListByIDController.php?id=${data[i]["id"]}">more detail</a></p>
         </div>
         <div class="instructorName">
             <div class="name">Name
