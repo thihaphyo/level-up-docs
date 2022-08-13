@@ -455,6 +455,63 @@ function seed_t_course_review_rates ($count) {
     }
 }
 
+function seed_t_order_list ($count) {
+    try{
+        $pdo = (new DBConnect())->connect();
+        $params = [
+            ':student_id' => rand(1,9), 
+            ':course_id' => rand(1,9), 
+            ':order_price' => rand(1000,50000), 
+        ];
+        
+        //Insert the data
+        $sql = sql_builder('t_order_list', $params);
+        echo $sql;
+        $stmt = $pdo->prepare($sql);
+        for ($i=0; $i < $count; $i++) {
+            $stmt->execute([
+                ':student_id' => rand(1,9), 
+                ':course_id' => rand(1,9), 
+                ':order_price' => rand(1000,50000), 
+            ]);
+        }
+
+        fill_instructor_ids ();
+
+    } catch(Exception $e){
+        echo '<pre>';print_r($e);echo '</pre>';exit;
+    }
+}
+
+#Helper
+function fill_instructor_ids () {
+    // Was coding this on half past midnight, so logic might have been crappy, smh.
+
+    $pdo = (new DBConnect())->connect();
+    $stmt = $pdo -> prepare (
+        "SELECT course_id FROM t_order_list"
+    );
+    $stmt->execute();
+    $courses = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    foreach($courses as $course){
+        $course_id = $course['course_id'];
+
+        $stmt = $pdo->prepare(
+            "SELECT instructor_id FROM m_courses WHERE id = $course_id"
+        );
+        $stmt->execute();
+        $id = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        $instructor_id = $id[0]['instructor_id'];
+
+        $stmt = $pdo->prepare(
+            "UPDATE t_order_list SET instructor_id = $instructor_id WHERE course_id = $course_id"
+        );
+        $stmt->execute();
+    }
+}
+
 
 // seed_m_instructors(6);
 // seed_m_course_categories(6);
@@ -472,7 +529,8 @@ function seed_t_course_review_rates ($count) {
 // seed_t_quizs(30);
 // seed m_instructor_experiences(30);
 // seed_m_students(10);
-seed_t_course_review_rates(30);
+// seed_t_course_review_rates(30);
+// seed_t_order_list(30);
 
 echo "SEEDED SUCCESSFULLY.";
 

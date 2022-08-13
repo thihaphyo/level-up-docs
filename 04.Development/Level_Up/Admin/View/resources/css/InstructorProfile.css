@@ -1,0 +1,86 @@
+.ip-container{
+    margin-top: 0 !important;
+    margin-left: 15vw !important;
+}
+.ip-content {
+    padding-left: 5vw;
+}
+.ip-head {
+    display: flex;
+    margin: -5vw 0 3vw 10vw;
+    align-items: center;
+    gap:3vw;
+}
+.ap-delete {
+    margin-left: auto;
+    margin-right: 5vw;
+    margin-top: 3vmin;
+    color:#555;
+}
+.ap-delete-txt {
+    margin-left: auto;
+    margin-right: 1vw;
+    margin-top: 3vmin;
+    color:#111;
+    font-weight: 500;
+}
+.profile-img {
+    width:10vw;
+    border-radius:50%;
+}
+.ip-name-position {
+    display: flex;
+    flex-direction: column;
+    gap:7vmin;
+    font-weight: 600 !important;
+    line-height: 0;
+    color:#333;
+}
+.ip-head-name {
+    font-size: 2rem;
+    color:#fff;
+
+}
+.ip-body-details{
+    display: grid;
+    width: 100%;
+    grid-template-columns: 1fr 1fr;
+    margin-top: 5vmin;
+}
+.ip-exp-card {
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    margin:2vmin 0;
+    gap:3vmin;
+}
+.ip-exp-img {
+    margin-left: auto;
+}
+.ip-education-txt{
+    margin: 2vmin 2vmin 2vmin 3vmin;
+    color:#353535;
+}
+.ip-buttons {
+    margin:5vmin;
+    width:90%;
+    display: flex;
+    gap:3vmin;
+    justify-content: flex-end;
+    align-items: center;
+}
+.ip-btn {
+    padding: 0.5rem 2rem;
+    border-radius: 5px;
+    color:#fff;
+
+}
+.ip-btn-reject {
+    background-color: #555;
+}
+.ip-btn-approve{
+    background-color: #01226F;
+}
+.ip-btn:hover{
+    color:#eee;
+    box-shadow: 0 0 3px #555;
+}
