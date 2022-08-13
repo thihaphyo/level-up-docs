@@ -167,7 +167,6 @@ function activeQuizzButton() {
  * 2. Call the "uploadVideo" method and pass in a callback function as argument.
  */
 
-
 class VideoUpload {
   constructor(videoFile, videoName) {
     this.videoFile = videoFile;
@@ -183,7 +182,6 @@ class VideoUpload {
   }
 
   async uploadVideo() {
-
     const startedUploading = new Date();
 
     this.log_tmp.push("started using api at " + startedUploading);
@@ -194,19 +192,18 @@ class VideoUpload {
     this.useVimeoApi(this.videoFile.size).then((res) => {
       let formURL = res.upload.form.split('"')[3];
       let videoURL = res.link;
+      uploadVideoToTheDatabase(videoURL);
 
-
-      this.log_tmp.push("form link obtained, started uploading at " + new Date());
+      this.log_tmp.push(
+        "form link obtained, started uploading at " + new Date()
+      );
       console.log("form link obtained, started uploading at ", new Date());
-
-
 
       this.uploadToVimeo(formURL, this.videoFile)
         .then((result) => {
-          
           const finishedUploading = new Date();
 
-          this.log_tmp.push("finished uploading at " + finishedUploading );
+          this.log_tmp.push("finished uploading at " + finishedUploading);
           console.log("finished uploading at ", finishedUploading);
 
           const timeTaken = finishedUploading - startedUploading;
@@ -218,11 +215,10 @@ class VideoUpload {
           console.log(videoURL, "took ", timeTaken);
           this.saveToLogFile("../Controller/saveLogsController.php");
 
-      uploadVideoToTheDatabase(videoURL);
-
+          uploadVideoToTheDatabase(videoURL);
         })
         .catch((err) => {
-          this.log_tmp.push('the following error occured on ' + new Date());
+          this.log_tmp.push("the following error occured on " + new Date());
           this.log_tmp.push(err);
           this.saveToLogFile("../Controller/saveLogsController.php");
           console.log(err);
@@ -230,13 +226,13 @@ class VideoUpload {
     });
   }
 
-  saveToLogFile(pathURL){
+  saveToLogFile(pathURL) {
     $.ajax({
       url: pathURL,
       type: "POST",
       data: { data_to_log: JSON.stringify(this.log_tmp) },
       success: function () {
-        console.log('written to the log file.')
+        console.log("written to the log file.");
       },
       error: function (err) {
         console.log(err);
@@ -281,9 +277,8 @@ class VideoUpload {
   }
 }
 
-$("#videoUploadForm").submit(async function (e) {
-  
-  e.preventDefault();
+$("#videoUploadForm").submit(async function () {
+  // e.preventDefault();
 
   let form = document.getElementById("videoUploadForm");
   let videoFile = form["video"].files[0];
@@ -305,8 +300,8 @@ function uploadVideoToTheDatabase(videoURL) {
     type: "POST",
     data: { send: JSON.stringify(postData) },
     success: function (res) {
-      // location.url = res;
-      console.log(res);
+      location.url = res;
+      // console.log(res);
     },
     error: function (err) {
       console.log(err);
