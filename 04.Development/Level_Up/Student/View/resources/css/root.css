@@ -799,9 +799,9 @@ footer .container {
   .container .home_content .img {
     display: none;
   }
-  .container .start_learning .categories {
+  /* .container .start_learning .categories {
     flex-wrap: wrap;
-  }
+  } */
 }
 /* ================= 768px Screen SECTION (YNW) =================== */
 @media screen and (max-width: 1311px) {

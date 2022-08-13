@@ -12,6 +12,7 @@ $time = time();
     <title>Level Up</title>
     <link rel="stylesheet" href="./resources/css/mystyles.css?v=<?= $time; ?>">
     <link rel="stylesheet" href="./resources/css/root.css?v=<?= $time; ?>">
+    <link rel="stylesheet" href="./resources/css/explore.css">
 
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
@@ -27,7 +28,7 @@ $time = time();
                 <div class="text">
                     <p>Thousands of Courses</p>
                     <p>To Help With Your</p>
-                    <p>Passion<span><img src="./Vector80.png" alt=""></span></p>
+                    <p>Passion<span><img src="./resources/img/explore/Vector80.png" alt=""></span></p>
                 </div>
                 <div class="img">
                     <img src="./resources/img/explore/CoursesCoverImage.png" alt="">
