@@ -16,13 +16,13 @@ $sql = $connection->prepare("
 $sql->execute();
 
 $sql = $connection->prepare("
-    DELETE FROM T_LECTURES 
+    DELETE FROM t_lectures 
     WHERE chapter_id = $chapterId;
 ");
 $sql->execute();
 
 $sql = $connection->prepare("
-    DELETE FROM T_CHAPTERS 
+    DELETE FROM m_chapter 
     WHERE id = $chapterId;
 ");
 $sql->execute();
