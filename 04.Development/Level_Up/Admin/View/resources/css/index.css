@@ -31,7 +31,7 @@ body{
     transition: var(--tran-05);
     background-color: var(--body-color);
     overflow: hidden;
-    overflow-y: scroll;
+    /* overflow-y: scroll; */
 
 }
 

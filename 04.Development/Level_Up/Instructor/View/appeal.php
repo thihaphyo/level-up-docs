@@ -17,19 +17,15 @@
             <?php require_once "../Controller/showAppealController.php" ?>
             <form action="" method="post" enctype="multipart/form-data">
                 <h1>Appeal Form</h1>
-                <?php
-                foreach ($result as $key => $value) {
-                    echo "<label for='bannedReason'>Reason of banning</label>";
-                    echo "<br/>";
-                    echo "<textarea id='bannedReason' cols='30' rows='10' readonly>" . $value['reason'] . "</textarea>";
-                    echo "<br/>";
-                }
-                ?>
+                <label for="bannedReason">Reason of banning</label>
+                <br />
+                <textarea name="" id="bannedReason" cols="30" rows="10" readonly><?php echo $result[0]['reason'] ?></textarea>
+                <br />
             </form>
             <!-- <label for="bannedReason">Reason of banning</label>
                 <br />
                 <textarea name="" id="bannedReason" cols="30" rows="10" readonly>eg.Lorem ipsum, dolor sit amet consectetur adipisicing elitepudiandae, eos. Esse quibusdam illum quialiqipsLorem ipsum, dolor sit amet consectetur adipicing elit.</textarea> -->
-
+                <!-- <br /> -->
                 <!-- add solution -->
             <form action="../Controller/appealSolutionController.php" method="post">
                 <label for="msg">Message</label>

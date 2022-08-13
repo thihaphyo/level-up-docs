@@ -52,7 +52,6 @@ session_start();
 
 
         </div>
-        <?php print_r($_SESSION); ?>
         <!-- start of message to students section -->
         <section class="hero is-medium message">
             <div class="message-background" data-aos="fade-left" data-aos-delay="200">

@@ -1,0 +1,111 @@
+html{
+    background: #FEFBF6;
+}
+
+.notiForm{
+    display: flex;
+}
+.line{
+    height: 100vh;
+    width: 1px;
+    background-color: #a5a5a5;
+}
+.notiForm a {
+    color: #000;
+}
+.notiForm form{
+    width: 160vw;
+}
+.notiForm h3{
+    margin-top: 3vh;
+}
+.notiForm .checkBox:hover{
+    border: 1px solid #000;
+    opacity: 1;
+}
+.notiForm input[type = "radio"] {
+    opacity: 0;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+}
+.notiForm input[type = "radio"]:checked+label {
+    border: 1px solid #000;
+    opacity: 1;
+}
+.notiForm .checkBox{
+    border: 1px solid #dddada;
+    padding: 5px;
+    border-radius: 15px;
+    margin-right: 0.5vw;
+    opacity: 0.6;
+    position: relative;
+    right: 2vw;
+    bottom: 3vh;
+}
+.notiForm .checkBox img{
+    width: 15px;
+    height: 15px;
+    margin-right: 5px;
+}
+.notiForm form input{
+    margin-top: 3vh;
+    margin-bottom: 5vh;
+}
+.notiForm form .headerInput{
+    width: 35vw;
+    height: 40px;
+    border-radius: 10px;
+    padding: 10px;
+}
+textarea{
+    width: 35vw;
+    height: 25vh;
+    padding: 1vw;
+    border: 1px solid #000;
+    border-radius: 12px;
+    margin-bottom: 5vh;
+    margin-top: 20px;
+    resize: none;
+}
+.notiForm form .btns{
+    margin-left: 20vw;
+}
+.notiForm form #save{
+    width: 8vw;
+    height: 6vh;
+    background-color: #000;
+    color: #fff;
+    border-radius: 12px;
+}
+.notiForm form #cancel{
+    text-decoration: underline;
+    margin-right: 2vw;
+}
+.notiForm .history{
+    width: 100vw;
+    margin-left: 3vw;
+}
+.notiForm .history .textTitle{
+    font-size: 0.7em;
+    opacity: 0.9;
+}
+.notiForm .history .detailText{
+    font-size: 0.9em;
+}
+.notiForm .history .time{
+    margin-left: 12vw;
+    font-size: 0.6em;
+    margin-top: 2vh;
+}
+.pagination{
+    margin-bottom: 5vh;
+    font-size: 0.8em;
+}
+.pagination-link {
+    margin: 2px;
+    position: relative;
+    top: 1vh;
+}
+.pagination-next ,.pagination-previous{
+    padding: 0vw, 3vw, 0vw, 3vw;
+}
