@@ -72,7 +72,7 @@ async function showLecture (index) {
 
     $('.l-body').append(`<p class='l-body-title'>${lecture['lecture_title']}</p>`);
     $('.l-body').append(`<p class='l-body-txt'>${lecture['lecture_description']}</p>`);
-    $('.l-body').append(`<div class='l-body-video'></div>`);
+    $('.l-body').append(`<div class='l-body-video'>Loading Video</div>`);
     
     getIframeVimeo(lecture['video_url'], appendVideo);
 
