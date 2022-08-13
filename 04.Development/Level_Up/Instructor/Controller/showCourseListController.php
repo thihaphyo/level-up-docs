@@ -6,16 +6,32 @@ require_once "../Model/dbConnection.php";
 $db = new DBConnect();
 $connection = $db->Connect();
 
-// if ($delete == 1) {
-//     $sql = $connection->prepare("
-//         DELETE FROM m_courseinfo WHERE updatedDate is NULL;
-//     ");
-//     $sql->execute();
-// }
-
-
 $sql = $connection->prepare("
-        SELECT * FROM M_COURSES WHERE updated_at IS NOT null;
+    SELECT a.id as pCID, a.course_id as cID, b.course_title,
+    b.course_cover_image, b.duration, d.level_name as level,
+    (
+        SELECT SUM(rating) from levelupdb.T_COURSE_REVIEW_RATES z
+        WHERE z.course_id = a.course_id
+        
+    ) as total_rating,
+    (
+        SELECT COUNT(*) from levelupdb.T_COURSE_REVIEW_RATES z
+        WHERE z.course_id = a.course_id
+        
+    ) as total_rated,
+    (
+        SELECT COUNT(f.id) from levelupdb.T_LECTURES f, levelupdb.T_CHAPTERS h
+        WHERE f.chapter_id = h.id
+        AND h.course_id = a.course_id
+        
+    ) as lectureCount
+    FROM levelupdb.T_STUDENT_PURCHASED_COURSES a, 
+    levelupdb.M_COURSES b, levelupdb.M_INSTRUCTORS c ,
+    levelupdb.M_COURSE_LEVELS d
+    where a.course_id = b.id
+    and b.instructor_id = c.id
+    and d.id = b.level_id
+    and a.is_deleted = 0
     ");
 $sql->execute();
 $result = $sql->fetchAll(PDO::FETCH_ASSOC);

@@ -1,7 +1,7 @@
 <?php
 $time = time();
 session_start();
-if(!isset($_SESSION['courseId'])){
+if (!isset($_SESSION['courseId'])) {
   $_SESSION['instructorId'] = 5;
   $_SESSION['courseId'] = 5;
   $_SESSION['chapterId'] = 5;
@@ -141,16 +141,36 @@ if(!isset($_SESSION['courseId'])){
 
         <label for="">Level</label><br />
         <select name="example" id="courseLevel">
-          <option value="basic" selected>Basic</option>
-          <option value="intermediate">Intermediate</option>
-          <option value="advance">Advance</option>
+          <?php
+          require_once "../Controller/showCourseCategoryAndCourseLevelController.php";
+
+          foreach ($courseLevel as $key => $value) {
+          ?>
+            <option value="<?php echo $value['id'] ?>"><?php echo $value['level_name'] ?></option>
+          <?php
+          }
+          ?>
+          <!-- <option value="1" selected>Basic</option>
+          <option value="2">Intermediate</option>
+          <option value="3">Advance</option> -->
         </select><br />
 
         <label for="">Categories</label><br />
         <select name="example" id="courseCategory">
-          <option value="basic" selected>Basic</option>
-          <option value="intermediate">Intermediate</option>
-          <option value="advance">Advance</option>
+          <?php
+          require_once "../Controller/showCourseCategoryAndCourseLevelController.php";
+
+          foreach ($courseCategories as $key => $value) {
+          ?>
+            <option value="<?php echo $value['id'] ?>"><?php echo $value['category_name'] ?></option>
+          <?php
+          }
+          ?>
+          <!-- <option value="1" selected>Web Development</option>
+          <option value="2">Machine Learning</option>
+          <option value="3">Cyber Security</option>
+          <option value="4">UI/UX Design</option>
+          <option value="5">Photography</option> -->
         </select><br />
 
         <div class="promotion">

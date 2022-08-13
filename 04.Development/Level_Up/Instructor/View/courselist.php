@@ -39,13 +39,13 @@ session_start();
             ?>
                 <a href="#">
                     <div class="cards">
-                        <img src="../images/<?php echo $value['courseCoverImage']; ?>" alt="" />
+                        <img src="./resources/img/<?php echo $value['course_cover_image']; ?>" alt="" />
                         <div class="details">
                             <div class="detail">
                                 <ion-icon name="bar-chart-outline"></ion-icon>
                                 <div class="content">
                                     <span>Level</span>
-                                    <h4><?php echo $value['level_id'] ?></h4>
+                                    <h4><?php echo $value['level'] ?></h4>
                                 </div>
                             </div>
                             <div class="detail">
@@ -59,17 +59,17 @@ session_start();
                                 <ion-icon name="bar-chart-outline"></ion-icon>
                                 <div class="content">
                                     <span>Lectures</span>
-                                    <h4><?php echo $result1[$key]['lectureNumber']; ?> Lectures</h4>
+                                    <h4><?php echo $value['lectureCount']; ?> Lectures</h4>
                                 </div>
                             </div>
                         </div>
-                        <h2><?php echo $value['courseTitle']; ?></h2>
+                        <h2><?php echo $value['course_title']; ?></h2>
                         <div class="info">
                             <a href="#" class="title is-6 has-text-weight-bold">Edit</a>
                         </div>
                         <div class="rating">
                             <ion-icon name="bar-chart-outline"></ion-icon>
-                            <p class="has-text-weight-bold">4.6/5</p>
+                            <p class="has-text-weight-bold"><?php echo number_format($value['total_rating'] / $value['total_rated']) ?>/5</p>
                         </div>
                     </div>
                 </a>
