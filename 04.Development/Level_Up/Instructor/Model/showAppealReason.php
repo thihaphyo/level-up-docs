@@ -14,7 +14,7 @@ $pdo = new PDO(
 );
 
 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-$sql = $pdo->prepare("SELECT * FROM t_blacklist");
+$sql = $pdo->prepare("SELECT reason FROM t_blacklist");
 $sql->execute();
 $result = $sql->fetchAll(PDO::FETCH_ASSOC);
 

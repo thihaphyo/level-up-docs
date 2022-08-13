@@ -7,7 +7,7 @@
     <title>Level Up</title>
     <link rel="stylesheet" href="./resources/css/mystyles.css">
     <link rel="stylesheet" href="./resources/css/root.css">
-    <link rel="stylesheet" href="./resources/css/notification.css?v=<?time();?>">
+    <link rel="stylesheet" href="./resources/css/notification.css">
     <link rel="stylesheet" href="./resources/css/checkout.css?v=<?time();?>">
 </head>
 <body>

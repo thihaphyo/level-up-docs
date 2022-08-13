@@ -12,13 +12,14 @@
     <main>
         <!-- <div class="sideNavbar"></div> -->
         <?php require_once "./sidebar.php";?>
+        <?php require_once "../Model/aboutDBtable.php"; ?>
         <!-- start of container  -->
         <div class="container">
             <form action="../Controller/changeAboutController.php" method="post" enctype="multipart/form-data">
                 <h2>Change About Page</h2>
-                <input class="aboutTitle" name="title" type="text" placeholder="Title">
+                <input class="aboutTitle" name="title" type="text" placeholder="Title" value="<?php echo $result[0]['title'];?>">
                 <br />
-                <textarea cols="30" rows="10" name="description" placeholder="description"></textarea>
+                <textarea cols="30" rows="10" name="description" placeholder="description"><?php echo $result[0]['description'];?></textarea>
                 <br />
                 <h3>Change Photo or Picture</h3>
                 <div class="selectImg">
