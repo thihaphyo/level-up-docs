@@ -1,10 +1,9 @@
 <?php
 
-$instructor_id = 5;
 $pagination_limit = 3;
 
 # Sample Path:
-# http://localhost/level-up-docs_original/04.Development/Level_Up/Instructor/Controller/OrderlistController.php/
+# http://localhost/level-up-docs_original/04.Development/Level_Up/Admin/Controller/OrderlistController.php/
 
 require_once('../Model/OrderlistModel.php');
 
@@ -16,15 +15,14 @@ if(isset($_POST['pageNum'])){
 
     $list_start = (int)($_POST['pageNum']) * $pagination_limit;
     
-    $orderlist = $model -> get_orderlist ($instructor_id, $list_start, $pagination_limit);
+    $orderlist = $model -> get_orderlist ($list_start, $pagination_limit);
 
     echo json_encode($orderlist);
 
 
 } else if (isset($_POST['downloadAll'])) {
 
-    $instructor_id = $_POST['downloadAll'];
-    $orderlist = $model -> get_all_orders($instructor_id);
+    $orderlist = $model -> get_all_orders();
 
     array_unshift($orderlist, array("course_title" => "Course_Title",
         "full_name" => "Student_Name",
@@ -51,9 +49,9 @@ if(isset($_POST['pageNum'])){
 
 } else {
 
-    $orderlist = $model -> get_orderlist ($instructor_id, 0, $pagination_limit);
+    $orderlist = $model -> get_orderlist (0, $pagination_limit);
 
-    $orderCount = ($model->get_ordercount($instructor_id))[0]['count'];
+    $orderCount = ($model->get_ordercount())[0]['count'];
 
     $pages = ceil($orderCount / $pagination_limit);
 

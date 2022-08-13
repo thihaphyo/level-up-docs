@@ -1,8 +1,6 @@
 // Initializing.
-let controllerURL = 'http://localhost/level-up-docs_original/04.Development/Level_Up/Instructor/Controller/orderlistController.php/';
-let csvFolderURL = "http://localhost/level-up-docs_original/04.Development/Level_Up/Instructor/Controller/orderlistDownloads/";
-
-instructorId = 5;
+let controllerURL = 'http://localhost/level-up-docs_original/04.Development/Level_Up/Admin/Controller/orderlistController.php/';
+let csvFolderURL = "http://localhost/level-up-docs_original/04.Development/Level_Up/Admin/Controller/orderlistDownloads/";
 
 // For pagination:
 let curPageIndex = 0;
@@ -116,7 +114,7 @@ function showChangedPage(nextIndex, data) {
 
 // Downloads All Data
 $('#o-download-list').click(e => {
-    $.post(controllerURL, {downloadAll: instructorId},
+    $.post(controllerURL, {downloadAll: 0},
         data => {
     /**
      * The way this works is:
