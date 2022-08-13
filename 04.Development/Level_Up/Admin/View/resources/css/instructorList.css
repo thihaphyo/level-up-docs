@@ -5,24 +5,19 @@
     padding: 0;
     font-family: Poppins;
 }
-.sideNavbar{
-    height: 2000px;
-    width: 20%;
-    background-color: #000;
-}
-.container{
+/* .container{
     position: absolute;
-    left: 25%;
     top: 10vh;
-}
+} */
 /*start instructor list page */
 h2 .view{
-    margin-left: 35vw;
+    margin-left: 20vw;
     color: #706D6D;
     font-size: 0.5em;
     text-decoration: underline;
 }
 .instructors .instructor{
+    width: 70vw;
     display: flex;
     justify-content: space-around;
     border: 1.5px solid #000;
