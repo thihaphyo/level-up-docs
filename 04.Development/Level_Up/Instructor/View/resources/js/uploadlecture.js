@@ -165,8 +165,13 @@ function activeQuizzButton() {
  * To Upload a Video to Vimeo:
  * 1. Create an instance with two arguments (1. File data from the form. 2. Name of the Video).
  * 2. Call the "uploadVideo" method and pass in a callback function as argument.
+ * 
+ * Notes:
+ * 1. Log files are also written, both to the console and to a .txt file.
+ * 
  */
 
+let saveDataController = '../Controller/uploadLectureController.php';
 
 class VideoUpload {
   constructor(videoFile, videoName) {
@@ -189,37 +194,57 @@ class VideoUpload {
     this.log_tmp.push("started using api at " + startedUploading);
     console.log("started using api at ", startedUploading);
 
+    $("#saveLectureButton").attr("disabled", true);
+
     console.log("video size: ", this.videoFile.size);
 
-    this.useVimeoApi(this.videoFile.size).then((res) => {
-      let formURL = res.upload.form.split('"')[3];
-      let videoURL = res.link;
+    this.useVimeoApi(this.videoFile.size)
+      .then((res) => {
+        let formURL = res.upload.form.split('"')[3];
+        let videoURL = res.link;
 
+        this.log_tmp.push("form link obtained, started uploading at " + new Date());
+        console.log("form link obtained, started uploading at ", new Date());
 
-      this.log_tmp.push("form link obtained, started uploading at " + new Date());
-      console.log("form link obtained, started uploading at ", new Date());
+        // SHOWING LOADING SCREEN.
+        $('.container').prepend("<h1 id='loadingScr'>........... LOADING ..........</h1>");
 
+        this.uploadToVimeo(formURL, this.videoFile)
+          .then((result) => {
+            
+            // LOGGING RESULTS:
+            const finishedUploading = new Date();
+            this.log_tmp.push("finished uploading at " + finishedUploading );
+            console.log("finished uploading at ", finishedUploading);
+            const timeTaken = finishedUploading - startedUploading;
+            this.log_tmp.push("VideoURL: " + videoURL);
+            this.log_tmp.push("Total Time Taken: " + timeTaken);
+            this.log_tmp.push("video size: " + this.videoFile.size);
+            console.log(videoURL, "took ", timeTaken);
 
+            // UPLOADING COMPLETED, SAVING TO THE CONTROLLER.
 
-      this.uploadToVimeo(formURL, this.videoFile)
-        .then((result) => {
+            const videoUploadForm = document.getElementById('videoUploadForm');
+
+            $.post(saveDataController, {
+
+              // Here is the data:
+              lectureTitle: videoUploadForm['lectureTitle'].value,
+              lectureDescription: videoUploadForm['lectureDescription'].value,
+              lectureScripts: videoUploadForm['lectureScripts'].value
+            }, async () => {
+
+              // Here is the callback:
+              await uploadVideoToTheDatabase(videoURL);
+              this.saveToLogFile("../Controller/saveLogsController.php");
+              console.log("saved.");
+
+              $('#loadingScr').html('');
+
+              // Redirecting to the controller.
+              window.location.href = saveDataController;
+            });
           
-          const finishedUploading = new Date();
-
-          this.log_tmp.push("finished uploading at " + finishedUploading );
-          console.log("finished uploading at ", finishedUploading);
-
-          const timeTaken = finishedUploading - startedUploading;
-
-          this.log_tmp.push("VideoURL: " + videoURL);
-          this.log_tmp.push("Total Time Taken: " + timeTaken);
-          this.log_tmp.push("video size: " + this.videoFile.size);
-
-          console.log(videoURL, "took ", timeTaken);
-          this.saveToLogFile("../Controller/saveLogsController.php");
-
-      uploadVideoToTheDatabase(videoURL);
-
         })
         .catch((err) => {
           this.log_tmp.push('the following error occured on ' + new Date());
@@ -295,7 +320,7 @@ $("#videoUploadForm").submit(async function (e) {
   videoUploader.uploadVideo();
 });
 
-function uploadVideoToTheDatabase(videoURL) {
+async function uploadVideoToTheDatabase(videoURL) {
   let postData = {
     videoURL: videoURL,
   };

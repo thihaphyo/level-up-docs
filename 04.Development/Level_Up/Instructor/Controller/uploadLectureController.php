@@ -16,8 +16,10 @@ if (count($_POST)) {
     $lectureTitle = $_POST["lectureTitle"];
     $lectureDescription = $_POST["lectureDescription"];
     $lectureScript = $_POST["lectureScripts"];
-    $videoFile = $_FILES["video"]["name"];
-    $location = $_FILES["video"]["tmp_name"];
+
+    
+    // $videoFile = $_FILES["video"]["name"];
+    // $location = $_FILES["video"]["tmp_name"];
 
     if (move_uploaded_file($location, "../Storage/videos/$videoFile")) {
         try {
