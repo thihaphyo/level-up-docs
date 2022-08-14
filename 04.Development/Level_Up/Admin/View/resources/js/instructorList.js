@@ -78,8 +78,8 @@ function showChangedPage(nextIndex, data) {
         $(".instructors").append(`
         <div class="instructor">
         <div class="profile">
-            <img src="../View/resources/img/${data[i]["profile_image"]}" alt="">
-            <p class="detail"><a href="#">more detail</a></p>
+            <img src="../View/resources/img/assets" + ${data[i]["profile_image"]} +"'+ ">
+            <p class="detail"><a href="../Controller/instructorDetailByIDController.php?id=${data[i]["id"]}">more detail</a></p>
         </div>
         <div class="instructorName">
             <div class="name">Name
