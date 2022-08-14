@@ -30,7 +30,7 @@
                     <?php 
             
                     ?>
-                    <form action="../Controller/sendmailcontroller.php" method="POST">
+                    <form action="../Controller/fogetpscontroller.php" method="POST">
                         <div class="field mt-6">
                             <label class="label is-primay-label has-text-weight-semibold ">Email Address</label>
                             <div class="control">

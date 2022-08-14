@@ -1,22 +1,21 @@
 <?php
 
 require_once "../Model/forgetpsDBtable.php";
+require_once "../View/successful.php";
 $code = $_GET['code'];
 
-$db = new DBConnect();
-$connection = $db->Connect();
 
 // get select all data from database
-$sql = $connection->prepare("SELECT * FROM users WHERE verifyCode = :code");
+$sql = $pdo->prepare("SELECT * FROM users WHERE verifyCode = :code");
 $sql->bindValue(':code', $code);
 $sql->execute();
 $result = $sql->fetchAll(PDO::FETCH_ASSOC);
 
 
-if (count($result) > 0) {
-    $id = $result[0]['id'];
+if(count($result) > 0){
+    $id =$result[0]['id'];
 
-    $sql = $connection->prepare("
+    $sql = $pdo->prepare("
               UPDATE users SET
               verify = 1
               WHERE id = :id
@@ -24,7 +23,10 @@ if (count($result) > 0) {
     $sql->bindValue(":id", $id);
     $sql->execute();
 
-    echo "Verification was Successfully.";
-} else {
+  
+
+    
+}else{
     echo "Your Verification Code was Wrong.";
 }
+

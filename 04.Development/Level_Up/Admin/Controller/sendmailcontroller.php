@@ -43,7 +43,7 @@ class SendMail
             $mail->isHTML(true);                                  //Set email format to HTML
             $mail->Subject = 'Level Up Verification';
             $mail->Body    = 'Here is Your Verifcation Code : <br/>
-            <a href = "http://localhost/Register/Controller/VerifyController.php?code='.$this->vcode.'"> Verify </a>';
+            <a href = "http://localhost:81/New%20folder/04.Development/Level_Up/Admin/controller/verifycontroller.php?code='.$this->vcode.'"> Verify </a>';
             $mail->send();
             echo 'Message has been sent';
         } catch (Exception $e) {

@@ -1,7 +1,7 @@
 <?php
 $hostname = "localhost";
 $port = "3306";
-$dbname = "levelupdb1";
+$dbname = "levelupdb";
 $username = "root";
 $password = "";
 
