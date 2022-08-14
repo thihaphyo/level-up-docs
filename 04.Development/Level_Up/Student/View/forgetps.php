@@ -34,7 +34,7 @@
                             </p>
                         </label>
                     </div>
-                    <form action="../Controller//verifymailcontroller.php" method="POST">
+                    <form action="../Controller/forgetpscontroller.php" method="POST">
                         <div class="field mt-6">
                             <label class="label is-primay-label">Email Address</label>
                             <div class="control">
@@ -42,7 +42,7 @@
                             </div>
                         </div>
                         <div class="column is-full">
-                            <button  name="password_reset_link" class="   button is-primary is-focused is-size-6 has-text-weight-bold ">Send Email
+                            <button  name="password_reset_link"  type="submit"  name="email" class="button is-primary is-focused is-size-6 has-text-weight-bold ">Send Email
                                 link</button>
                         </div>
                     </form>

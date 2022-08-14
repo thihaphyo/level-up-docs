@@ -1,72 +1,53 @@
 <?php
 
 use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
+use PHPMailer\PHPMailer\SMTP;
 
-require_once "PHPMailer/src/PHPMailer.php";
-require_once "PHPMailer/src/SMTP.php";
-require_once "PHPMailer/src/Exception.php";
-
-
-
-$mail = new PHPMailer(true);
-
-//Enable SMTP debugging.
+require 'PHPMailer/src/Exception.php';
+require 'PHPMailer/src/PHPMailer.php';
+require 'PHPMailer/src/SMTP.php';
 
 
-//Set PHPMailer to use SMTP.
-$mail->isSMTP();
+class SendMail
+{
 
-//Set SMTP host name                          
-$mail->Host = "smtp.gmail.com";
+    private $vcode;
 
-//Set this to true if SMTP host requires authentication to send email
-$mail->SMTPAuth = true;
+    public function __construct($vcode)
+    {
+        $this->vcode = $vcode;
+    }
 
-$mail->SMTPOptions = array(
-    'ssl' => array(
-        'verify_peer' => false,
-        'verify_peer_name' => false,
-        'allow_self_signed' => true
-    )
-);
+   public function sendMail()
+    {
+        //Create an instance; passing `true` enables exceptions
+        $mail = new PHPMailer(true);
 
-//Provide username and password     
-$mail->Username = "myot0253@gmail.com";
-$mail->Password = "aepvtuieusapjjex";
+        try {
+            //Server settings
+            $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
+            $mail->isSMTP();                                            //Send using SMTP
+            $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
+            $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
+            $mail->Username   = 'myot0253@gmail.com';      //SMTP username
+            $mail->Password   = 'aepvtuieusapjjex';                               //SMTP password
+            $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
+            $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
-//If SMTP requires TLS encryption then set it
-$mail->SMTPSecure = "tls";
+            //Recipients
+            $mail->setFrom('myot0253@gmail.com', 'Level Up');    //Add a recipient
+            $mail->addAddress('mushi17600@gmail.com');                     //Name is optional
 
-//Set TCP port to connect to
-$mail->Port = 587;
-
-$mail->From = "myot0253@gmail.com";
-$mail->FromName = "Myo Thiha";
-
-$mail->addAddress("mushi17600@gmail.com", "Mushi");
-
-$mail->isHTML(true);
-$mail->Subject = "Email verfication";
-
-// username,contact-no,email,question form contact form
-
-$email = $_POST['email'];
-
-
-// add contact form
-$mail->Body = "<table>
-
-<tr><td>Email: </td><td>" . $email . "</td></tr>
-
-</table>
-";;
-
-try {
-    $mail->send();
-} catch (Exception $e) {
-    echo "Mailer Error: " . $mail->ErrorInfo;
+            //Content
+            $mail->isHTML(true);                                  //Set email format to HTML
+            $mail->Subject = 'Level Up Verification';
+            $mail->Body    = 'Here is Your Verifcation Code : <br/>
+            <a href = "http://localhost:81/New%20folder/04.Development/Level_Up/Student/Controller/verifycontroller.php?code='.$this->vcode.'"> Verify </a>';
+            $mail->send();
+            echo 'Message has been sent';
+        } catch (Exception $e) {
+            echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+        }
+    }
 }
-
-?>

@@ -17,5 +17,3 @@ $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 $sql = $pdo->prepare("SELECT * FROM users");
 $sql->execute();
 $result = $sql->fetchAll(PDO::FETCH_ASSOC);
-
-// echo "<pre>";
