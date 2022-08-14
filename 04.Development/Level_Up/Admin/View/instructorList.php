@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Level Up</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="../View/resources/css/index.css" />
     <link rel="stylesheet" href="../View/resources/css/instructorList.css?v=<? time() ?>">
 </head>
+
 <body>
     <main>
-        <div class="sideNavbar"></div>
-        </div>
+        <?php require_once('../View/sidebar.php') ?>
         <?php require_once('../Controller/instructorListController.php'); ?>
         <!-- start container -->
         <div class="container">
@@ -35,6 +37,7 @@
         console.log(instructorList, pages);
     </script>
     <script src="../View/resources/js/instructorList.js"></script>
+    <script src="../View/resources/js/index.js"></script>
 </body>
 
 </html>
