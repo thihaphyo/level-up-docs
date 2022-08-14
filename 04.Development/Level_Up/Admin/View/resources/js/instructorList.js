@@ -1,6 +1,3 @@
-// Initializing.
-let controllerURL = "../Controller/instructorListController.php";
-
 // For pagination:
 let curPageIndex = 0;
 

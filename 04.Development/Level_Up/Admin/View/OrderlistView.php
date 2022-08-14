@@ -44,7 +44,10 @@ $time = time();
     <script>
         let orderList = <?= json_encode($orderlist) ?>;
         let pages = <?= json_encode($pages) ?>;
-        console.log(orderList, pages);
+        let controllerURL = <?= json_encode($controllerURL) ?>;
+        let csvFolderURL = <?= json_encode($csvFolderURL) ?>;
+        let instructorId = <?= json_encode($instructor_id) ?>;
+        // console.log(orderList, pages);
     </script>
     <script src="../View/resources/js/orderlist.js"></script>
 </body>

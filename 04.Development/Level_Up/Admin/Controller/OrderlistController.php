@@ -1,9 +1,11 @@
 <?php
 
+$instructor_id = 1;
 $pagination_limit = 3;
 
-# Sample Path:
-# http://localhost/level-up-docs_original/04.Development/Level_Up/Admin/Controller/OrderlistController.php/
+$controllerURL = 'http://localhost/Develop/level-up-docs/04.Development/Level_Up/Admin/Controller/OrderlistController.php';
+$csvFolderURL = "http://localhost/Develop/level-up-docs/04.Development/Level_Up/Admin/assets/orderlistDownloads/";
+$csvFolderPath = "../assets/orderlistDownloads/";
 
 require_once('../Model/OrderlistModel.php');
 
@@ -32,7 +34,7 @@ if(isset($_POST['pageNum'])){
 
     $filename = time();
 
-    $temp_file = fopen("../Controller/orderlistDownloads/$filename.csv", 'w');
+    $temp_file = fopen($csvFolderPath . $filename . ".csv", 'w');
 
     foreach($orderlist as $list){
         fputcsv($temp_file, $list);
@@ -44,7 +46,7 @@ if(isset($_POST['pageNum'])){
 
 } else if (isset($_POST['deleteCsv'])) {
 
-    $filename_full = "../Controller/orderlistDownloads/" . $_POST['deleteCsv'] . ".csv";
+    $filename_full = $csvFolderPath . $_POST['deleteCsv'] . ".csv";
     unlink($filename_full);
 
 } else {

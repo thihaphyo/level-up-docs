@@ -21,13 +21,13 @@
         <div class="container i-details">
             <div class="i-head">
                 <div class="i-head-img">
-                    <img src="../View/resources/img/assets<?= $instructor_details[0]['profile_image'] ?>" alt="<?= $instructor_details[0]['full_name'] ?>" />
+                    <img src="../../Instructor/assets<?= $instructor_details[0]['profile_image'] ?>" alt="<?= $instructor_details[0]['full_name'] ?>" />
                     <div class="i-details-head-img-helper"></div>
                 </div>
                 <div class="i-head-txt">
                     <p class="i-head-title"><?= $instructor_details[0]['full_name'] ?></p>
                     <!-- PLEASE CHANGE THIS TO APPROPRIATE FIELD -->
-                    <p class="i-head-edu"><?= $instructor_details[0]['bio'] ?></p>
+                    <p class="i-head-edu"><?= $instructor_details[0]['graduated_degree'] ?></p>
                 </div>
             </div>
             <div class="i-about">
@@ -82,7 +82,7 @@
                     <?php
                     foreach ($instructor_details['courses'] as $course) {
                         echo "<div class='i-course-card'>";
-                        echo "<img src='../View/" . $course['course_cover_image'] . "' alt = 'Course Cover Photo'/>";
+                        echo "<img src='../../Instructor/assets/" . $course['course_cover_image'] . "' alt = 'Course Cover Photo'/>";
                         echo "<div class='i-course-details'>";
                         echo "<a class='i-course-title'>" . $course['course_title'] . "</a>";
                         if (isset($course['rating'])) {
@@ -114,9 +114,10 @@
                     }
                     add_if_exists($instructor_details[0]['phone'], 'phone_icon.png');
                     add_if_exists($instructor_details[0]['email'], 'mail_icon.png');
-                    foreach ($instructor_details['social_accounts'] as $account) {
-                        add_if_exists($account, 'social_icon.png');
-                    }
+                    
+                    // foreach ($instructor_details['social_accounts'] as $account) {
+                    //     add_if_exists($account, 'social_icon.png');
+                    // }
                     ?>
                 </div>
             </div>

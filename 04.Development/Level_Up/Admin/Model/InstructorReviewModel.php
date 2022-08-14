@@ -11,7 +11,7 @@ class InstructorReviewModel extends DBConnect {
 
         /*  Gets the list of all instructors with their names, images and position. */
 
-        $query = "SELECT id, profile_image, full_name, email, bio, created_at FROM m_instructors WHERE m_instructors.status = 'PENDING'";
+        $query = "SELECT id, profile_image, full_name, email, bio, created_at FROM M_INSTRUCTORS WHERE M_INSTRUCTORS.status = 'PENDING'";
         $stmt = $this->pdo->prepare($query);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);        
@@ -21,16 +21,16 @@ class InstructorReviewModel extends DBConnect {
 
         /* Gets all info of a particular instructor. */
 
-        // Query to m_instructors.
+        // Query to M_INSTRUCTORS.
         $stmt = $this->pdo->prepare(
-            "SELECT * FROM m_instructors WHERE id = :id"
+            "SELECT * FROM M_INSTRUCTORS WHERE id = :id"
         );
         $stmt->execute([':id' => $instructor_id]);
         $instructor_details = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-        // Query to m_instructor_experiences.
+        // Query to M_INSTRUCTOR_EXPERIENCES.
         $stmt = $this->pdo->prepare(
-            "SELECT exp_title, exp_type, UNIX_TIMESTAMP(exp_start_date) as exp_start_date, UNIX_TIMESTAMP(exp_end_date) as exp_end_date FROM m_instructor_experiences WHERE instructor_id = :id"
+            "SELECT exp_title, exp_type, UNIX_TIMESTAMP(exp_start_date) as exp_start_date, UNIX_TIMESTAMP(exp_end_date) as exp_end_date FROM M_INSTRUCTOR_EXPERIENCES WHERE instructor_id = :id"
         );
         $stmt->execute([':id' => $instructor_id]);
         $instructor_details['experiences'] = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -41,7 +41,7 @@ class InstructorReviewModel extends DBConnect {
 
     public function update_instructor_status($instructor_id, $status){
         $stmt = $this->pdo->prepare(
-            "UPDATE m_instructors SET m_instructors.status = :new_status WHERE m_instructors.id = :id"
+            "UPDATE M_INSTRUCTORS SET M_INSTRUCTORS.status = :new_status WHERE M_INSTRUCTORS.id = :id"
         );
         $stmt->execute([':new_status' => $status,':id' => $instructor_id]);
     }

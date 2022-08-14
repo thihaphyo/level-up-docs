@@ -11,7 +11,7 @@ class InstructorModel extends DBConnect {
 
         /*  Gets the list of all instructors with their names, images, position and number of courses. */
 
-        $query = "SELECT id, full_name, profile_image, job_position  FROM M_INSTRUCTORS";
+        $query = "SELECT id, full_name, profile_image, job_position  FROM M_INSTRUCTORS WHERE status = 'APPROVED'";
         $stmt = $this->pdo->prepare($query);
         $stmt->execute();
         $arr = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -52,11 +52,11 @@ class InstructorModel extends DBConnect {
         $stmt->execute([':id' => $instructor_id]);
         $instructor_details['courses'] = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-        // Query to t_course_review_rates.
+        // Query to T_COURSE_REVIEW_RATES.
         for($i = 0, $len = count($instructor_details['courses']); $i<$len; $i++){
             $course_id = $instructor_details['courses'][$i]['id'];
             $stmt = $this->pdo->prepare(
-                "SELECT AVG(rating) as rating FROM t_course_review_rates WHERE course_id = $course_id"
+                "SELECT AVG(rating) as rating FROM T_COURSE_REVIEW_RATES WHERE course_id = $course_id"
             );
             $stmt->execute();
             $rating = (integer)($stmt->fetchAll(PDO::FETCH_ASSOC))[0]['rating'];
@@ -71,7 +71,7 @@ class InstructorModel extends DBConnect {
 
         /* Gets info of instructors whose name or job_title matches the keyword.*/
 
-        $query = "SELECT id, full_name, profile_image, job_position  FROM M_INSTRUCTORS WHERE full_name LIKE :keyword or job_position LIKE :keyword";
+        $query = "SELECT id, full_name, profile_image, job_position  FROM M_INSTRUCTORS WHERE full_name LIKE :keyword or job_position LIKE :keyword AND status='APPROVED'";
         $stmt = $this->pdo->prepare($query);
         $stmt->bindValue(':keyword', '%'.$keyword.'%');
         $stmt->execute();

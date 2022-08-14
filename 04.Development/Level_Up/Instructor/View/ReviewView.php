@@ -13,6 +13,7 @@ $time = time();
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <link rel="stylesheet" href="../View/resources/css/index.css?<?php echo $time ?>">
+    <link rel="stylesheet" href="../View/resources/css/mystyles.css">
     <link rel="stylesheet" href="../View/resources/css/reviews.css?<?php echo $time ?>">
 </head>
 
@@ -41,6 +42,7 @@ $time = time();
     <script>
         let reviews = <?= json_encode($reviews) ?>;
         let pages = <?= json_encode($pages) ?>;
+        let controllerURL = <?= json_encode($controllerURL); ?>;
         console.log(reviews, pages);
     </script>
     <script src="../View/resources/js/reviews.js"></script>

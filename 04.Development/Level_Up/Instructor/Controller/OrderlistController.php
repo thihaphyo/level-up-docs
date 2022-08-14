@@ -1,10 +1,11 @@
 <?php
 
-$instructor_id = 5;
+$instructor_id = 1;
 $pagination_limit = 3;
 
-# Sample Path:
-# http://localhost/level-up-docs_original/04.Development/Level_Up/Instructor/Controller/OrderlistController.php/
+$controllerURL = 'http://localhost/Develop/level-up-docs/04.Development/Level_Up/Instructor/Controller/OrderlistController.php';
+$csvFolderURL = "http://localhost/Develop/level-up-docs/04.Development/Level_Up/Instructor/assets/orderlistDownloads/";
+$csvFolderPath = "../assets/orderlistDownloads/";
 
 require_once('../Model/OrderlistModel.php');
 
@@ -23,10 +24,16 @@ if(isset($_POST['pageNum'])){
 
 } else if (isset($_POST['downloadAll'])) {
 
+    
+
     $instructor_id = $_POST['downloadAll'];
     $orderlist = $model -> get_all_orders($instructor_id);
 
-    array_unshift($orderlist, array("course_title" => "Course_Title",
+    // 1,4KKJE33433,3,1,1,20000,"2022-08-09 00:00:00",,"the complete 2022 web development camp",STL,telst342@yahoo.com
+
+    array_unshift($orderlist, array(
+        "course_title" => "Course_Title",
+        "course_title" => "Course_Title",
         "full_name" => "Student_Name",
         "email" => "Student_Email",
         "order_price" => "Purchase_Amount",
@@ -34,7 +41,7 @@ if(isset($_POST['pageNum'])){
 
     $filename = time();
 
-    $temp_file = fopen("../Controller/orderlistDownloads/$filename.csv", 'w');
+    $temp_file = fopen($csvFolderPath . $filename . ".csv", 'w');
 
     foreach($orderlist as $list){
         fputcsv($temp_file, $list);
@@ -46,7 +53,7 @@ if(isset($_POST['pageNum'])){
 
 } else if (isset($_POST['deleteCsv'])) {
 
-    $filename_full = "../Controller/orderlistDownloads/" . $_POST['deleteCsv'] . ".csv";
+    $filename_full = $csvFolderPath . $_POST['deleteCsv'] . ".csv";
     unlink($filename_full);
 
 } else {

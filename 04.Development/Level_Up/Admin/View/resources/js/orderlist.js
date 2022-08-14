@@ -1,7 +1,3 @@
-// Initializing.
-let controllerURL = 'http://localhost/level-up-docs_original/04.Development/Level_Up/Admin/Controller/orderlistController.php/';
-let csvFolderURL = "http://localhost/level-up-docs_original/04.Development/Level_Up/Admin/Controller/orderlistDownloads/";
-
 // For pagination:
 let curPageIndex = 0;
 
