@@ -43,9 +43,9 @@
                     <h6 class="is-size-4-desktop py-0 has-text-primary-light has-text-weight-medium list-title">Secure Payment With</h6>
                     <div class="columns is-half-mobile is-4 secure-payment">
                         <div class="column is-full-mobile">
-                            <img class="mr-2" width="60vw" src="./resources/img/header_footer/visa.svg" alt=""></img>
-                            <img class="mr-2" width="60vw" src="./resources/img/header_footer/mastercard.svg" alt=""></img>
-                            <img class="mr-2" width="60vw" src="./resources/img/header_footer/paypal.svg" alt=""></img>
+                            <img class="mr-2" width="60vw" src="../View/resources/img/header_footer/visa.svg" alt=""></img>
+                            <img class="mr-2" width="60vw" src="../View/resources/img/header_footer/mastercard.svg" alt=""></img>
+                            <img class="mr-2" width="60vw" src="../View/resources/img/header_footer/paypal.svg" alt=""></img>
                         </div>
                     </div>
                     <div class="column py-0">
@@ -62,5 +62,5 @@
             <!-- end of copyright text -->
         </div>
     </footer>
-    <?php require_once "./notification.php" ?>
+    <?php require_once "../View/notification.php" ?>
     <!-- end of footer -->

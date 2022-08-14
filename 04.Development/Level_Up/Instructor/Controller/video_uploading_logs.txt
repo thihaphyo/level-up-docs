@@ -44,3 +44,5 @@ START---------------
 >>>>>>> 66584cf712aac88f76faff7ad004cb4d0b4bf9bb
 START---------------
 ["started using api at Sat Aug 13 2022 20:13:28 GMT+0630 (Myanmar Time)","form link obtained, started uploading at Sat Aug 13 2022 20:13:30 GMT+0630 (Myanmar Time)","finished uploading at Sat Aug 13 2022 20:13:36 GMT+0630 (Myanmar Time)","VideoURL: https://vimeo.com/739221477/e14da17a16","Total Time Taken: 8666","video size: 4014657"]---------------END
+START---------------
+["started using api at Sat Aug 13 2022 20:15:07 GMT+0630 (Myanmar Time)","form link obtained, started uploading at Sat Aug 13 2022 20:15:09 GMT+0630 (Myanmar Time)","finished uploading at Sat Aug 13 2022 20:15:14 GMT+0630 (Myanmar Time)","VideoURL: https://vimeo.com/739221683/0e683da8a9","Total Time Taken: 7554","video size: 4014657"]---------------END

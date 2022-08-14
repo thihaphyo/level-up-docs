@@ -1,6 +1,6 @@
 <!-- Variables " " and " " will be sent from the controller. -->
 
-<?php $controller_URL = 'http://localhost/level-up-docs_original/04.Development/Level_Up/Student/Controller/InstructorController.php';
+<?php 
 $time = time();
 ?>
 
@@ -20,7 +20,7 @@ $time = time();
 
 <body>
     <?php
-    require_once('./header.php')
+    require_once('../View/header.php')
     ?>
 
     <main>
@@ -60,6 +60,7 @@ $time = time();
     <script>
         let instrList = <?= json_encode($instructor_list); ?>;
         let controllerURL = <?= json_encode($controller_URL); ?>;
+        console.log(instrList);
     </script>
     <script src="../View/resources/js/instructorListScr.js" type="module"></script>
 </body>

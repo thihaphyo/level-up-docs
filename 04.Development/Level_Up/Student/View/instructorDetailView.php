@@ -21,7 +21,7 @@
         <div class="container i-details">
             <div class="i-head">
                 <div class="i-head-img">
-                    <img src="../View/<?= $instructor_details[0]['profile_image'] ?>" alt="<?= $instructor_details[0]['full_name'] ?>" />
+                    <img src="../View/resources/img/assets<?= $instructor_details[0]['profile_image'] ?>" alt="<?= $instructor_details[0]['full_name'] ?>" />
                     <div class="i-details-head-img-helper"></div>
                 </div>
                 <div class="i-head-txt">

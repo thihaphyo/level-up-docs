@@ -96,7 +96,7 @@ function changePage(nextIndex) {
     }
     $(".i-instructor-list").append(
       "<div class='i-instructor-card'>" +
-        "<div class='i-instructor-list-img-wrapper'><img src='../View/" +
+        "<div class='i-instructor-list-img-wrapper'><img src='../View/resources/img/assets" +
         instrList[i]["profile_image"] +
         "' alt='" +
         instrList[i]["full_name"] +

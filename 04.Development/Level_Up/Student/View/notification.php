@@ -31,5 +31,5 @@
     </main>
 
     <!-- javascript file -->
-    <script src="./resources/lib/jquery3.6.0.js"></script>
+    <script src="../View/resources/lib/jquery3.6.0.js"></script>
     <script src="../View/resources/js/notification.js?v=<?time();?>"></script>

@@ -51,6 +51,7 @@
         let chapList = <?= json_encode($chapter_list); ?>;
         let chapDetails = <?= json_encode($chapter_details); ?>;
         let courseID = <?= json_encode($course_id); ?>;
+        let controllerURL = <?= json_encode($controllerURL); ?>;
     </script>
     <script src="../View/resources/js/lecture.js" type="module"></script>
 </body>
