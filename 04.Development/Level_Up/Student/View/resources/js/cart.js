@@ -48,7 +48,7 @@ const loadTheCart = () => {
         for (const info of data.data) {
           document.getElementsByClassName("my-cart-items")[0].innerHTML += `
               <div class="my-cart">
-              <input type="checkbox" value="${info.course_id}">
+              <input type="checkbox" value="${info.cart_id}">
               <img src="./resources/img/courseinfo/${
                 info.course_cover_image
               }" alt="course"></img>
@@ -131,7 +131,52 @@ deleteItem.onclick = function () {
       console.error(err);
     });
 };
-
+for (const checkboxInput of document.querySelectorAll(
+  "input[type='checkbox']"
+)) {
+  checkboxInput.addEventListener("click", () => {
+    if (checkboxInput.checked === true) {
+      axios
+        .post(
+          `http://localhost/LEVEL UP/04.Development/Level_Up/Student/Controller/cartController.php`,
+          {
+            info: {
+              cart_id: 1,
+              delete: false,
+              SecretCon: true,
+            },
+            timeout: 10000,
+          }
+        )
+        .then((response) => {
+          console.log(response.data);
+        })
+        .catch((err) => {
+          console.error(err);
+        });
+    } else {
+      console.log("hello");
+      axios
+        .post(
+          `http://localhost/LEVEL UP/04.Development/Level_Up/Student/Controller/cartController.php`,
+          {
+            info: {
+              cart_id: 1,
+              delete: true,
+              SecretCon: true,
+            },
+            timeout: 10000,
+          }
+        )
+        .then((response) => {
+          console.log(response.data);
+        })
+        .catch((err) => {
+          console.error(err);
+        });
+    }
+  });
+}
 document.getElementById("checkout-now-btn").onclick = function () {
   for (const checkboxInput of document.querySelectorAll(
     "input[type='checkbox']:checked"

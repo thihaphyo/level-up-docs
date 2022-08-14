@@ -30,6 +30,9 @@ $_SESSION['instId'] = 1;
     $studentList = $dashboard->getStduent();
     $videoList = $dashboard->getVideo();
     $courseList = $dashboard->getCourse();
+    $studentList = $dashboard->getStduent();
+    $myStudentList = $dashboard->getAllStudent();
+
     ?>
 
 
@@ -71,11 +74,8 @@ $_SESSION['instId'] = 1;
                 <!-- start of summary student list -->
                 <div class="student-table">
                     <div>
-                        <h3>Summary Student List</h3>
+                        <h3>My Student List (Total <span><?php echo count($myStudentList) ?></span>)</h3>
                         <a href="./studentList.php">View All</a>
-                    </div>
-                    <div class="col-explain">
-                        <p>*PC - Purchased Course*</p>
                     </div>
                     <table>
                         <thead>
@@ -83,12 +83,12 @@ $_SESSION['instId'] = 1;
                                 <th>Profile Name</th>
                                 <th>Email</th>
                                 <th>Courses</th>
-                                <th>Status</th>
+
                             </tr>
                         </thead>
                         <tbody>
                             <?php
-                            if (empty($purchasedCourseByStud)) {
+                            if (empty($myStudentList)) {
                             ?>
                                 <tr class="no-data-table">
                                     <td colspan="4">No Data Yet</td>
@@ -98,26 +98,13 @@ $_SESSION['instId'] = 1;
                             ?>
                                 <?php
 
-                                foreach ($purchasedCourseByStud as $key => $value) {
+                                foreach ($myStudentList as $key => $value) {
                                 ?>
                                     <tr>
                                         <td><?php echo $value['full_name'] ?></td>
                                         <td><?php echo $value['email'] ?></td>
-                                        <td>
-                                            <?php
-                                            echo 'PC-' . $value['total_course']
-                                            ?>
-                                        </td>
-                                        <td>
-                                            <?php
-                                            if ($value['is_deleted'] == 0) {
-                                                echo 'Active';
-                                            } else {
-                                                echo 'Deleted';
-                                            }
+                                        <td><?php echo $value['course_title'] ?></td>
 
-                                            ?>
-                                        </td>
                                     </tr>
                             <?php }
                             }
@@ -192,11 +179,23 @@ $_SESSION['instId'] = 1;
                                 <div>
 
                                     <p>
-                                        <a href="./appealListDetail/<?php echo $value['rating'] ?>">
-                                            Appeal form from
+                                        <a href="./appealListDetail/<?php echo $value['rating_id'] ?>">
                                             <span>
                                                 <?php echo $value['student_name'] ?>
                                             </span>
+                                            give
+                                            <span>
+                                                <?php
+                                                echo $value['rating']
+                                                ?>
+                                            </span>
+                                            stars on
+                                            <span>
+                                                <?php
+                                                echo $value['course_title']
+                                                ?>
+                                            </span>
+
                                         </a>
 
                                     </p>

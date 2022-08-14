@@ -10,7 +10,6 @@ $time = time();
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Level Up</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
     <link rel="stylesheet" href="../View/resources/css/index.css" />
     <link rel="stylesheet" href="../View/resources/css/mystyles.css" />
     <link rel="stylesheet" href="../View/resources/css/InstructorProfile.css" />
@@ -37,14 +36,14 @@ $time = time();
                 </h3>
             </div>
             <?php
-                if($admin_details[0]['is_deleted'] === 1){
-                    echo "<div class='ap-delete-txt'><br>THIS ADMIN WAS DELETED.</div>";
-                    echo "<a href='".$admin_detail_route."?undo=".$admin_id."' class='ap-delete'><br>Undo Deletion</a>";
-                } else {
-                    echo "<a href='".$admin_detail_route."?delete=".$admin_id."' class='ap-delete'><br>Delete Admin</a>";
-                }
+            if ($admin_details[0]['is_deleted'] === 1) {
+                echo "<div class='ap-delete-txt'><br>THIS ADMIN WAS DELETED.</div>";
+                echo "<a href='" . $admin_detail_route . "?undo=" . $admin_id . "' class='ap-delete'><br>Undo Deletion</a>";
+            } else {
+                echo "<a href='" . $admin_detail_route . "?delete=" . $admin_id . "' class='ap-delete'><br>Delete Admin</a>";
+            }
             ?>
-            
+
         </div>
 
         <div class="ip-content">
@@ -71,19 +70,19 @@ $time = time();
                             </div>
                             <div class="m-0 p-0 ml-1">
                                 <div id="email" class="column m-0 p-0 has-text-black has-text-weight-medium ">
-                                    <?= $admin_details[0]['email']?>
+                                    <?= $admin_details[0]['email'] ?>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="m-0 p-0 mt-5">
                         <div class="is-flex is-flex-direction-row mt-5">
-                        <div class="column is-2 m-0 p-0 has-text-black has-text-weight-semibold ">
+                            <div class="column is-2 m-0 p-0 has-text-black has-text-weight-semibold ">
                                 Phone
                             </div>
                             <div class="m-0 p-0 ml-1">
                                 <div id="email" class="column m-0 p-0 has-text-black has-text-weight-medium ">
-                                    <?= $admin_details[0]['phone_number']?>
+                                    <?= $admin_details[0]['phone_number'] ?>
                                 </div>
                             </div>
                         </div>
@@ -96,7 +95,7 @@ $time = time();
                         </div>
                         <div class="m-0 p-0 ml-1">
                             <div id="address" class="column m-0 p-0 has-text-black has-text-weight-semibold mt-4 is-size-6">
-                                <?= $admin_details[0]['address']?>
+                                <?= $admin_details[0]['address'] ?>
                             </div>
                         </div>
                     </div>

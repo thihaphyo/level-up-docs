@@ -33,13 +33,16 @@ class CartController extends DBConnect
             $sql->execute();
             $cartResult = $sql->fetchAll(PDO::FETCH_ASSOC);
 
-            $sql = $gotConnection->prepare("SELECT ROUND(AVG(rating),1) as rating, COUNT(student_id) as total FROM T_COURSE_REVIEW_RATES WHERE course_id = :id");
-            $sql->bindValue(':id', $cartResult[0]['course_id']);
-            $sql->execute();
-            $result = $sql->fetchAll(PDO::FETCH_ASSOC);
-            $rating = $result[0]['rating'];
-            $numberOfRating = $result[0]['total'];
-            echo json_encode(['data' => $cartResult, 'status' => 200, 'rating' => $rating, 'total_rating' => $numberOfRating]);
+            if (!empty($cartResult)) {
+                $sql = $gotConnection->prepare("SELECT ROUND(AVG(rating),1) as rating, COUNT(student_id) as total FROM T_COURSE_REVIEW_RATES WHERE course_id = :id");
+                $sql->bindValue(':id', $cartResult[0]['course_id']);
+                $sql->execute();
+
+                $result = $sql->fetchAll(PDO::FETCH_ASSOC);
+                $rating = $result[0]['rating'];
+                $numberOfRating = $result[0]['total'];
+                echo json_encode(['data' => $cartResult, 'status' => 200, 'rating' => $rating, 'total_rating' => $numberOfRating]);
+            }
         } catch (\Throwable $th) {
             echo $th;
             echo json_encode(['data' => $th, 'status' => 500]);
@@ -62,6 +65,19 @@ class CartController extends DBConnect
 }
 if (isset($_POST)) {
     $cartResult = new CartController();
+
+    $request_body = file_get_contents('php://input');
+    $data = json_decode($request_body, true);
+
+    if (!empty($data)) {
+        $_SESSION['cart_id' . $data['info']['cart_id']] = $data['info']['cart_id'];
+
+        unset($_SESSION['cart_id']);
+        if ($data['info']['delete'] === true) {
+            unset($_SESSION['cart_id' . $data['info']['cart_id']]);
+        }
+    }
+
     if (isset($_GET['delete'])) {
         $cartResult->delCartItems($cartid = $_GET['delete']);
     } else {

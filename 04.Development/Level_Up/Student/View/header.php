@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="./resources/css/notification.css?<?php echo $time; ?>">
     <link rel="stylesheet" href="./resources/css/izToast.min.css">
     <script src="./resources/js/izToast.js"></script>
-    
+
     <nav class="navbar is-transparent is-fixed-top p-4 ">
         <div class="navbar-brand">
             <a href="index.php">

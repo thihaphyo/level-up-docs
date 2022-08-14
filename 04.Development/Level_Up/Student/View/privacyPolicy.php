@@ -24,7 +24,7 @@
                 <?php
                 foreach ($result as $key => $value) {
                     echo "<div class='privacyParagraph'>";
-                    echo "<h2 class='title is-6'>" . $value['title']."</h2>";
+                    echo "<h2 class='title is-6'>" . $value['title'] . "</h2>";
                     echo " <p class='text'>" . $value['description'] . "</p>";
                     echo "</div>";
                 }
