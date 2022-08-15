@@ -1,10 +1,4 @@
-let controllerURL = "http://localhost/level-up-docs_original/04.Development/Level_Up/Instructor/Controller/ReviewController.php";
-
-
 const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-
-
-
 
 // For pagination:
 let curPageIndex = 0;

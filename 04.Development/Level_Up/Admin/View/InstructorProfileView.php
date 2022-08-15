@@ -26,7 +26,7 @@ $time = time();
             <img style="width:100%; height:200px; object-fit: cover;" src="../View/resources/img/cover_1.jpg" alt="">
         </div>
         <div class="ip-head">
-            <img class="profile-img" src="../View/<?php echo $instructor_details[0]['profile_image'] ?>" alt="Profile Picture" />
+            <img class="profile-img" src="../../Instructor/assets<?php echo $instructor_details[0]['profile_image'] ?>" alt="Profile Picture" />
             <div class="ip-name-position">
                 <h2 class="ip-head-name">
                     <?= $instructor_details[0]['full_name'] ?>
@@ -130,11 +130,11 @@ $time = time();
 
                     } else if($instructor_details[0]['status'] === 'REJECTED') {
                         echo "<div>Instructor has been Rejected.</div>";
-                        echo "<a href='".$instructor_detail_route."?pend=".$instructor_id."' class='ip-btn ip-btn-reject'>Undo</a>";
+                        echo "<a href='".$controllerURL."?pend=".$instructor_id."' class='ip-btn ip-btn-reject'>Undo</a>";
 
                     } else {
-                        echo "<a href='".$instructor_detail_route."?reject=".$instructor_id."' class='ip-btn ip-btn-reject'>Reject</a>";
-                        echo "<a href='".$instructor_detail_route."?approve=".$instructor_id."' class='ip-btn ip-btn-approve'>Approve</a>";
+                        echo "<a href='".$controllerURL."?reject=".$instructor_id."' class='ip-btn ip-btn-reject'>Reject</a>";
+                        echo "<a href='".$controllerURL."?approve=".$instructor_id."' class='ip-btn ip-btn-approve'>Approve</a>";
                     }
                 ?>
             </div>

@@ -79,8 +79,13 @@
     margin-top: 3vmin;
 }
 
+.r-pagination {
+    margin: auto;
+    margin-top: 20vh;
+    width: 60vw;
+}
 
-#r-list-pagination {
+/* #r-list-pagination {
     margin-top: 300px;
     display: flex;
     gap:3vmin;
@@ -94,4 +99,4 @@
 
 .is-current {
     background-color: orange;
-}
+} */

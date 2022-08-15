@@ -6,14 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Level Up</title>
-    <link rel="stylesheet" href="../View/resources/css/index.css?v=<? time(); ?>">
-    <link rel="stylesheet" href="../View/resources/css/adminPrivacyPolicy.css?v=<? time(); ?>">
+    <link rel="stylesheet" href="../View/resources/css/index.css?v=<? echo time(); ?>">
+    <link rel="stylesheet" href="../View/resources/css/adminPrivacyPolicy.css?v=<? echo time(); ?>">
 </head>
 
 <body>
     <main>
         <?php require_once('./sidebar.php') ?>
-
         <!-- start of container  -->
         <div class="container">
             <form action="../Controller/addPrivacyController.php" method="post">

@@ -34,7 +34,7 @@ $time = time();
             <!-- start of setting -->
             <div class="setting-container">
                 <!-- start of guide -->
-                <div>
+                <a>
                     <i class="fa-solid fa-book fa-2xl"></i>
 
                     <div>
@@ -43,17 +43,17 @@ $time = time();
 
                     </div>
 
-                </div>
+                </a>
                 <!-- end of guide -->
 
                 <!-- start of service -->
-                <div>
+                <a>
                     <i class="fa-solid fa-handshake-angle"></i>
                     <div>
                         <h2>Service</h2>
                         <p>Customize <span>service</span> information displayed for users.</p>
                     </div>
-                </div>
+                </a>
                 <!-- end of service -->
 
             </div>
@@ -62,17 +62,17 @@ $time = time();
             <!-- start of setting -->
             <div class="setting-container">
                 <!-- start of policy -->
-                <div>
+                <a href="./adminPrivacyPolicy.php">
                     <i class="fa-solid fa-file-shield"></i>
                     <div>
                         <h2>Policy</h2>
                         <p>Customize <span>policy</span> information for policy page.</p>
                     </div>
-                </div>
+                </a>
                 <!-- end of policy -->
 
                 <!-- start of contact -->
-                <div>
+                <a>
                     <i class="fa-solid fa-address-book"></i>
                     <div>
 
@@ -80,7 +80,7 @@ $time = time();
 
                         <p>Customize <span>contact</span> information on contact page.</p>
                     </div>
-                </div>
+                </a>
                 <!-- end of contact -->
 
             </div>
@@ -89,24 +89,24 @@ $time = time();
             <!-- start of setting -->
             <div class="setting-container">
                 <!-- start of about -->
-                <div>
+                <a>
                     <i class="fa-solid fa-building"></i>
                     <div>
                         <h2>About Us</h2>
                         <p>Customize <span>about us</span> information on guide page.</p>
                     </div>
 
-                </div>
+                </a>
                 <!-- end of about -->
 
                 <!-- start of profile -->
-                <div>
+                <a>
                     <i class="fa-solid fa-user"></i>
                     <div>
                         <h2>My Profile</h2>
                         <p>About my <span>personal information</span></p>
                     </div>
-                </div>
+                </a>
                 <!-- end of profile  -->
 
             </div>

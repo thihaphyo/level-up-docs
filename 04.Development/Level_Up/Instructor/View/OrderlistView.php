@@ -12,6 +12,7 @@ $time = time();
     <title>Level Up</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="../View/resources/css/mystyles.css">
     <link rel="stylesheet" href="../View/resources/css/index.css?<?php echo $time ?>">
     <link rel="stylesheet" href="../View/resources/css/orderlist.css?<?php echo $time ?>">
 </head>
@@ -21,7 +22,7 @@ $time = time();
     <?php require_once('../View/sidebar.php') ?>
 
     <section class="container">
-        
+
         <div class="text o-text">
             Order List
             <img id="o-download-list" src="../View/resources/img/icons/download.svg" alt="Download" />
@@ -44,7 +45,10 @@ $time = time();
     <script>
         let orderList = <?= json_encode($orderlist) ?>;
         let pages = <?= json_encode($pages) ?>;
-        console.log(orderList, pages);
+        let controllerURL = <?= json_encode($controllerURL) ?>;
+        let csvFolderURL = <?= json_encode($csvFolderURL) ?>;
+        let instructorId = <?= json_encode($instructor_id) ?>;
+        // console.log(orderList, pages);
     </script>
     <script src="../View/resources/js/orderlist.js"></script>
 </body>

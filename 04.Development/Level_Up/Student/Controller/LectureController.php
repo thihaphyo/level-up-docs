@@ -2,11 +2,10 @@
 
 require_once ('../Model/LectureModel.php');
 
-# For Testing:
-// $course_id = 5;
+# THE ENTRY POINT
+// http://localhost/Develop/level-up-docs/04.Development/Level_Up/Student/Controller/LectureController.php?course_id=1
 
-# Sample url string:
-// http://localhost/Student/Controller/LectureController.php/?course_id=5/
+$controllerURL = 'http://localhost/Develop/level-up-docs/04.Development/Level_Up/Student/Controller/LectureController.php?course_id=1';
 
 
 if(isset($_POST['newChapID'])){

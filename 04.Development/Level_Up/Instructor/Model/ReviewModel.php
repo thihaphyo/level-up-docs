@@ -12,15 +12,15 @@ class ReviewModel extends DBConnect {
     public function get_reviews ($instructor_id, $start, $limit){
 
         $stmt = $this->pdo->prepare(
-            "SELECT * FROM (SELECT t.*, m_students.full_name FROM 
-            (SELECT `t_course_review_rates`.*,
-                    `m_courses`.course_title,
-                    `m_courses`.instructor_id 
-            FROM `t_course_review_rates` JOIN `m_courses` 
-            ON `t_course_review_rates`.course_id = `m_courses`.id) 
+            "SELECT * FROM (SELECT t.*, M_STUDENTS.full_name FROM 
+            (SELECT `T_COURSE_REVIEW_RATES`.*,
+                    `M_COURSES`.course_title,
+                    `M_COURSES`.instructor_id 
+            FROM `T_COURSE_REVIEW_RATES` JOIN `M_COURSES` 
+            ON `T_COURSE_REVIEW_RATES`.course_id = `M_COURSES`.id) 
             AS `t`
-            JOIN `m_students`
-            ON `t`.student_id = m_students.id) AS a
+            JOIN `M_STUDENTS`
+            ON `t`.student_id = M_STUDENTS.id) AS a
             WHERE `a`.instructor_id = :id LIMIT $start, $limit"
         );
         $stmt->execute([':id' => $instructor_id]);
@@ -59,7 +59,7 @@ class ReviewModel extends DBConnect {
     # Helper function that returns average rating:
     public function average_rating ($id){
         $stmt = $this->pdo->prepare(
-            "SELECT CAST(AVG(rating) as DECIMAL(10,1)) as average FROM `t_course_review_rates` WHERE course_id = $id"
+            "SELECT CAST(AVG(rating) as DECIMAL(10,1)) as average FROM `T_COURSE_REVIEW_RATES` WHERE course_id = $id"
         );
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -68,9 +68,9 @@ class ReviewModel extends DBConnect {
     public function get_review_count ($instructor_id){
         $stmt = $this->pdo->prepare(
             "SELECT COUNT(t.id) as count FROM 
-            (SELECT t_course_review_rates.id, m_courses.instructor_id
-            FROM `t_course_review_rates` JOIN `m_courses` 
-            ON `t_course_review_rates`.course_id = `m_courses`.id) 
+            (SELECT T_COURSE_REVIEW_RATES.id, M_COURSES.instructor_id
+            FROM `T_COURSE_REVIEW_RATES` JOIN `M_COURSES` 
+            ON `T_COURSE_REVIEW_RATES`.course_id = `M_COURSES`.id) 
             AS `t`
             WHERE `t`.instructor_id = :id"
         );

@@ -1,16 +1,12 @@
 <?php
 
-$instructor_id = 5;
+$instructor_id = 3;
 $pagination_limit = 3;
-
-# Sample Path:
-# http://localhost/level-up-docs_original/04.Development/Level_Up/Instructor/Controller/ReviewController.php/
+$controllerURL = "http://localhost/Develop/level-up-docs/04.Development/Level_Up/Instructor/Controller/ReviewController.php";
 
 require_once('../Model/ReviewModel.php');
 
 $model = new ReviewModel();
-
-
 
 if(isset($_POST['pageNum'])){
 

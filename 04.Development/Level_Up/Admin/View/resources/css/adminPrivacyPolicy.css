@@ -9,11 +9,6 @@
     width: 20%;
     background-color: #000;
 }
-.container{
-    position: absolute;
-    left: 25%;
-    top: 10vh;
-}
 textarea {
     resize: none;
 }

@@ -1,5 +1,7 @@
 <?php
 
+$controllerURL = 'http://localhost/Develop/level-up-docs/04.Development/Level_Up/Admin/Controller/InstructorReviewController.php';
+
 require_once('../Model/InstructorReviewModel.php');
 
 # Example Query String for Instructor List:
@@ -7,8 +9,6 @@ require_once('../Model/InstructorReviewModel.php');
 
 # Example Query String for Instructor Details:
 # http://localhost/level-up-docs_original/04.Development/Level_Up/Admin/Controller/InstructorReviewController.php?instructor_id=2
-
-$instructor_detail_route = "http://localhost/level-up-docs_original/04.Development/Level_Up/Admin/Controller/InstructorReviewController.php";
 
 $model = new InstructorReviewModel();
 
@@ -29,19 +29,21 @@ if(isset($_GET['instructor_id'])){
 
     $model->update_instructor_status($_GET['approve'], "APPROVED");
 
-    header("Location: http://localhost/level-up-docs_original/04.Development/Level_Up/Admin/Controller/InstructorReviewController.php");
+    header("Location: " . $controllerURL);
 
 } else if ((isset($_GET['reject']))) {
 
     $model->update_instructor_status($_GET['reject'], "REJECTED");
 
-    header("Location: http://localhost/level-up-docs_original/04.Development/Level_Up/Admin/Controller/InstructorReviewController.php");
+    header("Location: " . $controllerURL);
+
     
 } else if ((isset($_GET['pend']))) {
 
     $model->update_instructor_status($_GET['pend'], "PENDING");
 
-    header("Location: http://localhost/level-up-docs_original/04.Development/Level_Up/Admin/Controller/InstructorReviewController.php");
+    header("Location: " . $controllerURL);
+
     
 } else {
     
@@ -50,6 +52,3 @@ if(isset($_GET['instructor_id'])){
     // Rendering the View.
     require ('../View/InstructorReviewView.php');
 }
-
-?>
-

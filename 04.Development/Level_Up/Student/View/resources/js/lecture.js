@@ -1,6 +1,5 @@
 import { getIframeVimeo } from './videoAPI.js'; // Video Reader
 
-let controllerURL = 'http://localhost/level-up-docs_original/04.Development/Level_Up/Student/Controller/LectureController.php';
 
 // Initializing.
 let lectureIndex, curIndex; // Index of current lecture in the lecture list.
@@ -8,7 +7,6 @@ let formerID = null; // ID of ChapterBox currently opened.
 showChapList();
 showChap(chapList[0]['id']);
 showLecture(0);
-
 
 // Puts the names of the chapter from chapList and displays them in l-nav.
 function showChapList () {
@@ -145,6 +143,8 @@ function nextChap () {
 
 // Displays quizzes.
 function showQuiz (data) {
+
+    console.log(data);
 
     // Shows the quizzes.
     let quizIndex = 0;

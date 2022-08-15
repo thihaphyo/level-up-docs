@@ -20,7 +20,7 @@ $time = time();
 
     <?php require_once('../View/sidebar.php') ?>
 
-    <section class="container">
+    <section class="container ir-wrapper">
         <div class="text">Instructor Applications</div>
         <div class="ir-container">
             <?php
@@ -36,21 +36,18 @@ $time = time();
 
                     echo "<div class='ir-confirm-modal'><p> Rejecting This Request? </p>";
                     echo "<div>";
-                    echo "<a href='".$instructor_detail_route."?reject=".$instructor['id']."' class='ir-btn ir-btn-confirm'> Confirm </a>";
+                    echo "<a href='".$controllerURL."?reject=".$instructor['id']."' class='ir-btn ir-btn-confirm'> Confirm </a>";
                     echo "<label for='ir-del-".$instructor['id']."' class='ir-btn ir-btn-cancel'> Cancel </label></div></div>";
 
                     echo "<label for='ir-del-".$instructor['id']."'><img src='../View/resources/img/icons/delete_icon.svg' alt='Delete' class='delete'/></label>";
 
                     echo "</div>";
-                    
 
-                    
-
-                    echo "<img src='../View/". $instructor['profile_image'] ."' alt='Profile Picture' class='ir-profile-img'>";
+                    echo "<img src='../../Instructor/assets". $instructor['profile_image'] ."' alt='Profile Picture' class='ir-profile-img'>";
                     echo "<p class='name'>". $instructor['full_name'] ."</p>";
                     echo "<p class='email'>". $instructor['email'] ."</p>";
                     echo "<p class='ir-card-text'>". $instructor['bio'] ."</p>";
-                    echo "<a class='info' href='".$instructor_detail_route . "?instructor_id=" . $instructor['id'] ."'>More Info</a>";
+                    echo "<a class='info' href='".$controllerURL . "?instructor_id=" . $instructor['id'] ."'>More Info</a>";
                     echo "</div>";
                     }
                 ?>
@@ -59,6 +56,7 @@ $time = time();
 
     <script>
         let instrList = <?php echo json_encode($instructor_list) ?>;
+        let controllerURL = <?php echo json_encode($controllerURL) ?>;
         console.log(instrList);
     </script>
 </body>
