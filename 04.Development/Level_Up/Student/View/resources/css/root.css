@@ -441,7 +441,7 @@ footer .container {
 
 /*start css for privacy policy page */
 .privacyBox {
-    padding: 8vh;
+  margin-top: 4vw;
 }
 
 .privacyBox>.title {

@@ -9,8 +9,8 @@
     <title>Level Up</title>
     <link rel="stylesheet" href="./resources/css/mystyles.css">
     <link rel="stylesheet" href="./resources/css/root.css">
-    <link rel="stylesheet" href="./resources/css/notification.css?v=<? time() ?>">
-    <link rel="stylesheet" href="./resources/css/about.css?v=<? time() ?>">
+    <link rel="stylesheet" href="./resources/css/notification.css?v=<? echo time() ?>">
+    <link rel="stylesheet" href="./resources/css/about.css?v=<? echo time() ?>">
 </head>
 
 <body>
@@ -26,7 +26,7 @@
                     echo "<div class='itemBox'>";
                     echo "<h2 class='title is-3'>" . $value['title'] . "</h2>";
                     if (strlen($data) > 120) {
-                        echo "<p class='aboutText'>" . substr($data, 0, 120) .
+                        echo "<p class='aboutText'>" . substr($data, 0, 400) .
                             "<span id='dotted'>...</span><span id='more'>" .
                             substr($data, 121) . "</p>";
                         echo "<button class='readMore button is-primary is-outlined has-text-weight-semibold' onclick='readMoreBtn()' id='btnReadMore'>Read more</button>";

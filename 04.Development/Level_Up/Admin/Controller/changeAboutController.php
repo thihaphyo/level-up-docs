@@ -7,7 +7,7 @@ if (isset($_POST)) {
 
     $file = $_FILES['imgPic']['name'];
     $location = $_FILES['imgPic']['tmp_name'];
-    
+
     if (isset($file)) {
         $db = new DBConnect();
         $connection = $db->Connect();
@@ -27,16 +27,16 @@ if (isset($_POST)) {
         } else {
             echo "Error";
         }
-    }else {
+    } else {
         $sql = $connection->prepare("
         UPDATE M_ABOUT SET 
             title = :header,
             description = :text,
             WHERE id = 1
     ");
-    $sql->bindValue(":header", $header);
-    $sql->bindValue(":text", $text);
-    $sql->execute();
+        $sql->bindValue(":header", $header);
+        $sql->bindValue(":text", $text);
+        $sql->execute();
     }
     header("Location: ../View/adminAbout.php");
 } else {

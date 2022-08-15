@@ -24,7 +24,7 @@
                 </li>
 
                 <li class="nav-link">
-                    <a href="./adminList.php">
+                    <a href="./studentList.php">
                         <div class="mobile-sidebar-text">
                             <i class="fa-solid fa-users-line fa-lg  nav-link-icon"></i>
                             <p>Student</p>
@@ -65,7 +65,7 @@
                 </li>
 
                 <li class="nav-link">
-                    <a href="#">
+                    <a href="./OrderlistView.php">
                         <div class="mobile-sidebar-text">
                             <i class="fa-solid fa-box-open fa-lg  nav-link-icon"></i>
                             <p>Order</p>

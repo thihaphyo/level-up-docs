@@ -51,7 +51,7 @@
                     </a>
                     <a id="lnk_ins" class="navbar-item" href="./InstructorListView.php">
                         Instructor
-                    </a>M_COURSES
+                    </a>
                     <a id="lnk_my_courses" class="navbar-item" href="./dashboard.php">
                         My Courses
                     </a>

@@ -8,7 +8,7 @@
     <title>Level Up</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <link rel="stylesheet" href="../View/resources/css/index.css" />
-    <link rel="stylesheet" href="../View/resources/css/instructorList.css?v=<? time() ?>">
+    <link rel="stylesheet" href="../View/resources/css/instructorList.css?v=<? echo time() ?>">
 </head>
 
 <body>
@@ -34,9 +34,9 @@
     <script>
         let instructorList = <?= json_encode($instructorlist); ?>;
         let pages = <?= json_encode($pages); ?>;
-        console.log(instructorList, pages);
+        // console.log(instructorList, pages);
     </script>
-    <script src="../View/resources/js/instructorList.js"></script>
+    <script src="../View/resources/js/instructorList.js?v= <?php echo $time() ?>"></script>
     <script src="../View/resources/js/index.js"></script>
 </body>
 

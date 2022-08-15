@@ -5,16 +5,6 @@
     padding: 0;
     font-family: Poppins;
 }
-.sideNavbar{
-    height: 2000px;
-    width: 20%;
-    background-color: #000;
-}
-.container{
-    position: absolute;
-    left: 25%;
-    top: 10vh;
-}
 /*start instructor list page */
 h2 .view{
     margin-left: 35vw;

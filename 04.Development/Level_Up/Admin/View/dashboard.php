@@ -103,7 +103,7 @@ session_start();
                                         <td><?php echo $value['email'] ?></td>
                                         <td>
                                             <?php
-                                            echo 'PC-' . $value['total_course']
+                                            echo $value['total_course'] . ' PC'
                                             ?>
                                         </td>
                                         <td>

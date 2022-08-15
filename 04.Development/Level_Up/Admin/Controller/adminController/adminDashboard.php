@@ -31,16 +31,19 @@ class AdminDashboard extends DBConnect
             // update sql query
             $sql = $gotConnection->prepare("SELECT
             M_COURSES.is_deleted,
-            COUNT(T_STUDENT_PURCHASED_COURSES.id) as total_course,
+            T_STUDENT_PURCHASED_COURSES.id as total_course,
+			M_STUDENTS.id,
             M_STUDENTS.full_name,
             M_STUDENTS.email,
             M_STUDENTS.is_verified,
-            M_STUDENTS.is_deleted
+            M_STUDENTS.is_deleted,
+			COUNT(M_COURSES.course_title) as total_course
           FROM M_COURSES
           JOIN T_STUDENT_PURCHASED_COURSES
             ON M_COURSES.id = T_STUDENT_PURCHASED_COURSES.course_id AND M_COURSES.is_deleted = 0
           JOIN M_STUDENTS
-            ON T_STUDENT_PURCHASED_COURSES.student_id = M_STUDENTS.id;");
+            ON T_STUDENT_PURCHASED_COURSES.student_id = M_STUDENTS.id
+		  GROUP BY T_STUDENT_PURCHASED_COURSES.student_id;");
 
             //execute the sql query
             $sql->execute();

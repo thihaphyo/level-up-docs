@@ -3,7 +3,7 @@
         <div class="notiContainer" id="box">
             <div class="header">
                 <h2>Notifications</h2>
-                <hr/>
+                <hr />
             </div>
             <!--start noti items -->
             <div class="notiItem">
@@ -16,9 +16,9 @@
                             echo "<div class='notiCart'>";
                             echo "<div class='notiText'>";
                             echo "<h3 class='courseName title is-6'>" . $value['noti_title'];
-                            echo "<span class='text'>".$value['noti_body']."</span></h3>";
+                            echo "<span class='text'>" . $value['noti_body'] . "</span></h3>";
                             echo "</div>";
-                            echo "<a class='delete' id=".$value['id']." onclick='deleteData(this)'></a>";
+                            echo "<a class='delete' id=" . $value['id'] . " onclick='deleteData(this)'></a>";
                             echo "</div>";
                         }
                     }
@@ -32,4 +32,4 @@
 
     <!-- javascript file -->
     <script src="../View/resources/lib/jquery3.6.0.js"></script>
-    <script src="../View/resources/js/notification.js?v=<?time();?>"></script>
+    <script src="../View/resources/js/notification.js?v=<? time(); ?>"></script>

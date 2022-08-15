@@ -14,8 +14,6 @@ $time = time();
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <link rel="stylesheet" href="./resources/css/index.css?<?php echo $time ?>">
     <link rel="stylesheet" href="./resources/css/setting.css?<?php echo $time ?>">
-
-
 </head>
 
 <body>
@@ -89,7 +87,7 @@ $time = time();
             <!-- start of setting -->
             <div class="setting-container">
                 <!-- start of about -->
-                <a>
+                <a href="./adminAbout.php">
                     <i class="fa-solid fa-building"></i>
                     <div>
                         <h2>About Us</h2>
