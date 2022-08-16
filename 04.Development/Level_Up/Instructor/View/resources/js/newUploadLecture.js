@@ -173,142 +173,6 @@ function activeQuizzButton() {
 
 let saveDataController = '../Controller/uploadLectureController.php';
 
-class VideoUpload {
-  constructor(videoFile, videoName) {
-    this.videoFile = videoFile;
-    this.videoName = videoName;
-    this.accessToken = "bearer 78cd4b0d6b6674af07698460fdd014eb"; //ADD YOUR ACCESS TOKEN HERE;
-
-    // Privacy settings:
-    this.view = "unlisted";
-    this.embed = "public";
-
-    // To log file:
-    this.log_tmp = [];
-  }
-
-  async uploadVideo() {
-    const startedUploading = new Date();
-
-    this.log_tmp.push("started using api at " + startedUploading);
-    console.log("started using api at ", startedUploading);
-
-    $("#saveLectureButton").attr("disabled", true);
-
-    console.log("video size: ", this.videoFile.size);
-
-    this.useVimeoApi(this.videoFile.size)
-      .then((res) => {
-        let formURL = res.upload.form.split('"')[3];
-        let videoURL = res.link;
-
-        this.log_tmp.push("form link obtained, started uploading at " + new Date());
-        console.log("form link obtained, started uploading at ", new Date());
-
-        console.log("The form link: ");
-        console.log(res);
-
-        // SHOWING LOADING SCREEN.
-        $('.container').prepend("<h1 id='loadingScr'>........... LOADING ..........</h1>");
-
-        this.uploadToVimeo(formURL, this.videoFile)
-          .then((result) => {
-            
-            // LOGGING RESULTS:
-            const finishedUploading = new Date();
-            this.log_tmp.push("finished uploading at " + finishedUploading );
-            console.log("finished uploading at ", finishedUploading);
-            const timeTaken = finishedUploading - startedUploading;
-            this.log_tmp.push("VideoURL: " + videoURL);
-            this.log_tmp.push("Total Time Taken: " + timeTaken);
-            this.log_tmp.push("video size: " + this.videoFile.size);
-            console.log(videoURL, "took ", timeTaken);
-
-            // UPLOADING COMPLETED, SAVING TO THE CONTROLLER.
-
-            const videoUploadForm = document.getElementById('videoUploadForm');
-
-            $.post(saveDataController, {
-
-              // Here is the data:
-              lectureTitle: videoUploadForm['lectureTitle'].value,
-              lectureDescription: videoUploadForm['lectureDescription'].value,
-              lectureScripts: videoUploadForm['lectureScripts'].value
-            }, async () => {
-
-              // Here is the callback:
-              await uploadVideoToTheDatabase(videoURL);
-              this.saveToLogFile("../Controller/saveLogsController.php");
-              console.log("saved.");
-
-              $('#loadingScr').html('');
-
-              // Redirecting to the controller.
-              // window.location.href = saveDataController;
-            });
-
-            
-          }); 
-        });
-      }
-
-  saveToLogFile(pathURL) {
-    $.ajax({
-      url: pathURL,
-      type: "POST",
-      data: { data_to_log: JSON.stringify(this.log_tmp) },
-      success: function () {
-        console.log("written to the log file.");
-      },
-      error: function (err) {
-        console.log(err);
-      },
-    });
-  }
-
-  async useVimeoApi(videoSize) {
-    let res = await fetch("https://api.vimeo.com/me/videos", {
-      method: "POST",
-      crossDomain: true,
-      headers: {
-        Authorization: this.accessToken,
-        "Content-Type": "application/json",
-        Accept: "application/vnd.vimeo.*+json;version=3.4",
-      },
-      body: JSON.stringify({
-        upload: {
-          approach: "post",
-          size: videoSize,
-        },
-        name: this.videoName,
-        privacy: { view: this.view, embed: this.embed },
-      }),
-    });
-
-    return await res.json();
-  }
-
-  async uploadToVimeo(url, videoFile) {
-
-    // To fix CORS errors.
-    let newURL = "https://cors-anywhere.herokuapp.com/" + url;
-
-    let formData = new FormData();
-    formData.append("file_data", videoFile);
-
-    let res = await fetch(newURL, {
-      method: "POST",
-      crossDomain: true,
-      headers: {
-        Accept: "application/json",
-      },
-      body: formData,
-    });
-
-    return res;
-  }
-}
-
 $("#videoUploadForm").submit(async function (e) {
   e.preventDefault();
   
@@ -316,11 +180,15 @@ $("#videoUploadForm").submit(async function (e) {
   let form = document.getElementById("videoUploadForm");
   let videoFile = form["video"].files[0];
   let videoName = form["lectureTitle"].value;
-
+  
   console.log(videoFile, videoName);
-  let videoUploader = new VideoUpload(videoFile, videoName);
 
-  videoUploader.uploadVideo();
+  let uploader = new VimeoUpload({
+    file: videoFile,
+    token: 'bearer 78cd4b0d6b6674af07698460fdd014eb',
+  });
+  
+  uploader.upload();
 });
 
 async function uploadVideoToTheDatabase(videoURL) {
