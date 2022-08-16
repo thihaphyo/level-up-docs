@@ -2,6 +2,9 @@
 $time = time();
 session_start();
 $_SESSION['stid'] = 1;
+if (isset($_SESSION['course_id_collection'])) {
+    unset($_SESSION['course_id_collection']);
+}
 ?>
 
 <!DOCTYPE html>
@@ -34,7 +37,6 @@ $_SESSION['stid'] = 1;
         <!-- start of container -->
         <div class="cart-container has-background-white">
             <h1>My Cart</h1>
-            <input type="checkbox" value="1">
             <div class="my-cart-items">
 
             </div>

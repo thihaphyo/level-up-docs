@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,8 +9,9 @@
     <link rel="stylesheet" href="./resources/css/mystyles.css">
     <link rel="stylesheet" href="./resources/css/root.css">
     <link rel="stylesheet" href="./resources/css/notification.css?v=<? time(); ?>">
-    <link rel="stylesheet" href="./resources/css/paymentMethod.css">
+    <link rel="stylesheet" href="./resources/css/paymentMethod.css?v=<? echo time(); ?>">
 </head>
+
 <body>
     <?php require_once('./header.php') ?>
     <?php require_once('../Controller/paymentController.php') ?>
@@ -20,7 +22,7 @@
                 <h2 class="title is-3">Choose Payment Method</h2>
                 <div>
                     <!-- start payment card -->
-                    <div class="cards">
+                    <div class="paymentCards">
                         <label for="paypal">
                             <img id="paypalImg" src="../View/resources/img/header_footer/paypal.svg" alt="payment card" onclick="cardPaypal()">
                         </label>
@@ -104,7 +106,9 @@
                             <p class="title is-6"><span id="totalAmount"><?php echo number_format($totalAmount[0]['price'] - $promotion)  ?></span>Ks</p>
                         </div>
                     </div>
-                    <button class=" submitBtn button is-primary is-outlined has-text-weight-semibold" id="btnSubmit" onclick="paymentMethod()">Comfirm Payment</button>
+                    <div class="submitDiv">
+                        <button class="submitBtn button is-primary is-outlined has-text-weight-semibold" id="btnSubmit" onclick="paymentMethod()">Comfirm Payment</button>
+                    </div>
                 </div>
             </div>
         </div>

@@ -24,14 +24,15 @@ const loadTheCart = () => {
       `http://localhost/LEVEL UP/04.Development/Level_Up/Student/Controller/cartController.php`,
       {
         info: {
-          std_id: 1,
-          SecretCon: true,
+          route: "getCart",
         },
         timeout: 10000,
       }
     )
     .then((response) => {
       const { data } = response;
+      console.log(data);
+
       document.getElementsByClassName("my-cart-items")[0].innerHTML = "";
       if (data.data == undefined || data.data == null) {
         document.getElementsByClassName(
@@ -45,30 +46,30 @@ const loadTheCart = () => {
         document
           .getElementsByClassName("go-to-checkout")[0]
           .classList.remove("is-hidden");
-        for (const info of data.data) {
+        for (const key in data.data) {
           document.getElementsByClassName("my-cart-items")[0].innerHTML += `
               <div class="my-cart">
-              <input type="checkbox" value="${info.cart_id}">
+              <input type="checkbox" value="${data.data[key].course_id}">
               <img src="./resources/img/courseinfo/${
-                info.course_cover_image
+                data.data[key].course_cover_image
               }" alt="course"></img>
               <div class="course-info">
-                  <a href="#">${info.course_title}</a>
+                  <a href="#">${data.data[key].course_title}</a>
                   <div class="instructor-rating">
-                      <p>By ${info.full_name} - </p>
+                      <p>By ${data.data[key].full_name} - </p>
                       <div>
                           <img src="./resources/img/header_footer/Rating.svg" alt="rating"></img>
-                          <p>${data.rating}/<span>(${
-            data.total_rating
+                          <p>${data.course_rating.rating[key]}/<span>(${
+            data.course_rating.numberOfRating[key]
           })</span></p>
                       </div>
                   </div>
                     <div class="price-remove">
                         <p class="course-price-tag">${Number(
-                          info.price
+                          data.data[key].price
                         ).toLocaleString("en-US")} Ks</p>
                         <a class="link js-modal-trigger remove-item" data-target="modal-js-example" id="${
-                          info.cart_id
+                          data.data[key].cart_id
                         }">Remove</a>
                     </div>
                 </div>
@@ -131,60 +132,31 @@ deleteItem.onclick = function () {
       console.error(err);
     });
 };
-for (const checkboxInput of document.querySelectorAll(
-  "input[type='checkbox']"
-)) {
-  checkboxInput.addEventListener("click", () => {
-    if (checkboxInput.checked === true) {
-      axios
-        .post(
-          `http://localhost/LEVEL UP/04.Development/Level_Up/Student/Controller/cartController.php`,
-          {
-            info: {
-              cart_id: 1,
-              delete: false,
-              SecretCon: true,
-            },
-            timeout: 10000,
-          }
-        )
-        .then((response) => {
-          console.log(response.data);
-        })
-        .catch((err) => {
-          console.error(err);
-        });
-    } else {
-      console.log("hello");
-      axios
-        .post(
-          `http://localhost/LEVEL UP/04.Development/Level_Up/Student/Controller/cartController.php`,
-          {
-            info: {
-              cart_id: 1,
-              delete: true,
-              SecretCon: true,
-            },
-            timeout: 10000,
-          }
-        )
-        .then((response) => {
-          console.log(response.data);
-        })
-        .catch((err) => {
-          console.error(err);
-        });
-    }
-  });
-}
+
 document.getElementById("checkout-now-btn").onclick = function () {
+  let courseIdCollection = [];
   for (const checkboxInput of document.querySelectorAll(
     "input[type='checkbox']:checked"
   )) {
-    document.getElementById(
-      "selectedItem"
-    ).innerHTML += `<?php $_SESSION['1'] = ${checkboxInput.value} ?>`;
-    // window.location.replace("./index.php");
-    checkboxInput.value;
+    courseIdCollection.push(checkboxInput.value);
+    axios
+      .post(
+        `http://localhost/LEVEL UP/04.Development/Level_Up/Student/Controller/cartController.php`,
+        {
+          info: {
+            total_course_id: courseIdCollection,
+            route: "checkout",
+          },
+          timeout: 10000,
+        }
+      )
+      .then((response) => {
+        const { data } = response;
+        window.location.replace("./checkout.php");
+        console.log(data);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
   }
 };

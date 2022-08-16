@@ -4,30 +4,29 @@
     font-family: 'Poppins', sans-serif;
 }
 
-html,
-.navbar {
-    background: #FEFBF6;
-}
-
 /* Cart for checkout */
+main .container.checkBox {
+    margin-top: 4vw !important;
+    
+}
 .checkOutBox {
-    margin: 2%;
     background-color: #fff;
-    padding: 2%;
     color: #01226F;
+    padding: 2rem;
+    margin-top: 8rem;
 }
 
 h1 {
-    margin-bottom: 45px;
+    /* margin-bottom: 45px; */
     font-weight: 600;
     font-size: 2em;
 }
 
 .cartAndPrice {
     display: flex;
-    align-items: center;
     justify-content: space-around;
     flex-wrap: wrap;
+    margin-top: 4vw;
 }
 
 .checkCarts::-webkit-scrollbar {
@@ -44,11 +43,10 @@ h1 {
 }
 
 .checkCarts {
-    width: 45vw;
+    width: 70%;
     height: 500px;
     overflow: scroll;
     padding: 0.5vw;
-    margin-bottom: 5vw;
 }
 
 .cart {
@@ -56,29 +54,31 @@ h1 {
     flex-wrap: nowrap;
     margin-bottom: 1.5vw;
 }
+.cart > .text {
+    width: 40vw;
 
+}
 .videoCart {
     width: 100px;
     height: 100px;
     margin-right: 1vw;
     border-radius: 15px;
 }
-
+.text > div > img {
+    width: 1rem;
+    margin-top: 1rem;
+}
 .text>h2 {
     font-weight: 600;
-    margin-bottom: 1vw;
 }
 
 .text>h2+p {
     font-weight: 300;
-    margin-bottom: 1vw;
-    margin-top: 5px;
     font-size: 0.9em;
 }
 
 .text>p {
     position: relative;
-    top: -15px;
 }
 
 /* .text>.rating {
@@ -98,11 +98,12 @@ h1 {
     margin-bottom: 5vw;
     font-weight: 600;
 }
+.price-show-on-mobile{
+    display: none;
+}
 /*start button Checkout */
 .checkout {
-    position: absolute;
-    right: 10vw;
-    width: 25vw;
+    width: 100%;
     height: 40px;
     background-color: #01226F;
     font-weight: 600;
@@ -117,11 +118,18 @@ h1 {
 /*start payment checkout price */
 .paymentCost{
     display: flex;
-    justify-content: space-evenly;
+    flex-direction: column;
     padding: 2vh;
     width: 35vw;
     margin: 0 auto;
     margin-bottom: 70vh;
+    width: 30%;
+
+}
+.paymentCost > div {
+    display: flex;
+    justify-content: space-between;
+
 }
 .paymentCost .cost{
     margin-right: 1vw;
@@ -130,13 +138,12 @@ h1 {
     width: 200%;
 }
 /*end payment checkout price */
-/*start courses carts */
-.courses{
-    display: flex;
-    justify-content: center;
-    overflow-x: auto;
+
+.relatedCourse{
+    margin-top: 3rem;
 }
-.courses::-webkit-scrollbar {
+
+/* .courses::-webkit-scrollbar {
     width: 0.3em;
 }
 
@@ -207,24 +214,74 @@ h1 {
 
 .courses .cards .rating .star {
     color: #e9b556;
-}
+} */
 /*end courses carts */
+@media screen and (max-width: 1407px) {
+    .paymentCost{
+        padding: 1vh 0vh 0vh 0vh;
+    }
+    .cart{
+        margin-bottom: 3rem;
+    }
+    .cart > .text{
+        width: 30vw;
+    }
+    .cart .price{
+        margin-left: 4rem;
+    }
+}
+@media screen and (max-width: 1217px) {
+    .cart{
+        margin-bottom: 3rem;
+    }
+    .cart > .text{
+        width: 30vw;
+    }
+    .cart .price{
+        margin-left: auto;
+        margin-right: 1rem;
+    }
+}
+@media screen and (max-width: 930px) {
+    .checkOutBox {
+        margin-top: 0rem;
+    }
+    .checkCarts{
+        width: 100%;
+    }
+    .paymentCost{
+        width: 80%;
+        margin-bottom: 0;
+    }
+    .cart > .text{
+        width: 50vw;
+    }
+}
 @media screen and (max-width: 820px) {
     .checkCarts {
         width: 100%;
         height: 100%;
-        padding: 0.5vw;
         margin-bottom: 5vw;
         align-items: center;
         font-size: 0.9em;
     }
     .paymentCost{
         width: 100%;
-        font-size: 0.7em;
-        margin-top: 15px;
+        font-size: 1em;
         margin-bottom: 25px;
     }
-    .checkOutBox {
-        margin-top: 20vh;
+}
+@media screen and (max-width: 768px) {
+    .cart .price{
+        display: none;
     }
+    .price-show-on-mobile{
+        display: block;
+        padding-top: 1rem;
+    }
+    .cart > .text{
+        width: 100%;
+        margin-left: 1rem;
+    }
+  
 }
