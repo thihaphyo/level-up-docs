@@ -25,6 +25,8 @@ session_start();
     <link rel="stylesheet" href="./resources/css/uploadlecture.css?v=<?= $time; ?>">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js?v=<?= $time; ?>"></script>
     <script src="./resources/js/uploadlecture.js?v=<?= $time; ?>" defer></script>
+    <!-- <script src="./resources/js/newUploadLecture.js?v=<?= $time; ?>" defer></script> -->
+    <!-- <script src="../node_modules/vimeo-upload/vimeo-upload.js"></script> -->
 
 </head>
 
