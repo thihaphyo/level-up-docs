@@ -139,6 +139,7 @@ document.getElementById("checkout-now-btn").onclick = function () {
     "input[type='checkbox']:checked"
   )) {
     courseIdCollection.push(checkboxInput.value);
+    console.log(courseIdCollection);
     axios
       .post(
         `http://localhost/LEVEL UP/04.Development/Level_Up/Student/Controller/cartController.php`,

@@ -90,7 +90,7 @@ if (isset($_POST)) {
     }
     if ($info['route'] == "checkout") {
         $_SESSION['course_id_collection'] = $info['total_course_id'];
-        echo "checkout here";
+        print_r($_SESSION);
     }
     if (isset($_GET['delete'])) {
         $cartResult->delCartItems($cartid = $_GET['delete']);
