@@ -1,0 +1,36 @@
+/* title of the guide */
+.text h3 {
+  color: black;
+}
+/* button */
+button {
+  margin-bottom: 7rem;
+  width: 10rem;
+  position: relative;
+  top: 1rem;
+  left: 66rem;
+}
+/* title input */
+.input{
+  color: black;
+}
+/* color change */
+.label {
+  color: black;
+}
+.subtitle {
+  color: black;
+}
+.column {
+  color: black;
+}
+/* view guide */
+.view {
+  position: relative;
+  top: 1rem;
+  left: 4rem;
+}
+.addview {
+  position: relative;
+  left: 5rem;
+}

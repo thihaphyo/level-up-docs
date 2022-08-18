@@ -35,3 +35,9 @@
     font-weight: 500; */
 }
 
+/** Add a tag but no link */
+.nolink{
+    text-decoration: none;
+    color: #000;
+}
+
