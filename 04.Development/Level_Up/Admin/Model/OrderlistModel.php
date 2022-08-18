@@ -2,13 +2,15 @@
 
 require_once('dbConnection.php');
 
-class OrderlistModel extends DBConnect {
+class OrderlistModel extends DBConnect
+{
     public function __construct()
     {
         $this->pdo = $this->connect();
     }
 
-    public function get_orderlist ($start, $limit) {
+    public function get_orderlist($start, $limit)
+    {
         $stmt = $this->pdo->prepare(
             "   SELECT * FROM 
                     (SELECT t.*, M_STUDENTS.full_name, M_STUDENTS.email FROM
@@ -25,7 +27,8 @@ class OrderlistModel extends DBConnect {
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function get_ordercount () {
+    public function get_ordercount()
+    {
         $stmt = $this->pdo->prepare(
             "SELECT COUNT(id) as count FROM T_ORDER_LIST"
         );
@@ -33,7 +36,8 @@ class OrderlistModel extends DBConnect {
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function get_all_orders () {
+    public function get_all_orders()
+    {
         $stmt = $this->pdo->prepare(
             "   SELECT a.course_title, a.full_name, a.email, a.order_price, a.created_at FROM 
                     (SELECT t.*, M_STUDENTS.full_name, M_STUDENTS.email FROM
@@ -50,6 +54,3 @@ class OrderlistModel extends DBConnect {
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 }
-
-
-?>

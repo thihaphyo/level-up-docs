@@ -46,20 +46,20 @@ if (isset($_SESSION['access_token'])) {
                 <label class="label is-primay-label has-text-weight-medium">Reason of Banning</label>
                 <div class="control mt-3">
                     <textarea id="reason" class="textarea has-fixed-size text-area" placeholder="Banned reason" readonly></textarea>
-                  </div>
+                </div>
             </div>
 
             <div class="field mt-5">
                 <label class="label is-primay-label has-text-weight-medium">Instructor Appeal</label>
                 <div class="control mt-3">
                     <textarea id="solution" class="textarea has-fixed-size text-area" placeholder="Please input reason" readonly></textarea>
-                  </div>
+                </div>
             </div>
 
             <div class="column is-3 is-offset-9 has-text-right">
                 <button id="btnUnBann" class="full-wd-btn is-admin-primary has-text-white has-text-weight-semibold is-size-6">Unbann</button>
             </div>
-            
+
         </div>
     </div>
     <!-- end of container -->
@@ -67,4 +67,5 @@ if (isset($_SESSION['access_token'])) {
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="./resources/js/reviewappleal.js"></script>
+
 </html>

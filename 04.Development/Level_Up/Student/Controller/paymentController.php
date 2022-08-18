@@ -1,26 +1,35 @@
-<?php 
-session_start();
-
-$courseId = $_SESSION["checkout"];
+<?php
 
 require_once "../Model/dbConnection.php";
 //call dbConnection
 $db2 = new DBConnect();
 $dbconnect = $db2->connect();
 
-$in = $_SESSION["checkout"];
-$sql = $dbconnect->prepare("SELECT * FROM 
-                            m_courses LEFT JOIN 
-                            m_instructors ON 
-                            m_instructors.id = m_courses.instructor_id 
-                            WHERE m_courses.id IN ($in)
-                        ");
-$sql->execute();
-$result = $sql->fetchAll(PDO::FETCH_ASSOC);
+$finalResult = array();
+$finalResult['course'] = array();
+$finalResult['total_price'] = 0;
 
-$sql = $dbconnect->prepare("SELECT SUM(price) AS price FROM 
-                            m_courses 
-                            WHERE m_courses.id IN ($in)
+
+foreach ($_SESSION['course_id_collection'] as $course) {
+    echo "hello";
+    $sql = $dbconnect->prepare("SELECT M_COURSES.id,M_COURSES.price,M_COURSES.course_title,M_COURSES.promo_percent FROM 
+                            M_COURSES LEFT JOIN 
+                            M_INSTRUCTORS ON 
+                            M_INSTRUCTORS.id = M_COURSES.instructor_id 
+                            WHERE M_COURSES.id IN ($course)
                         ");
-$sql->execute();
-$totalAmount = $sql->fetchAll(PDO::FETCH_ASSOC);
+    $sql->execute();
+    $result = $sql->fetchAll(PDO::FETCH_ASSOC)[0];
+    array_push($finalResult['course'], $result);
+    $finalResult['total_price'] += $result['price'];
+    print_r($finalResult);
+
+
+    //     $sql = $dbconnect->prepare("SELECT SUM(price) AS price FROM 
+    //                             M_COURSES 
+    //                             WHERE M_COURSES.id IN ($in)
+    //                     ");
+    // $sql->execute();
+    // $totalAmount = $sql->fetchAll(PDO::FETCH_ASSOC);
+
+}

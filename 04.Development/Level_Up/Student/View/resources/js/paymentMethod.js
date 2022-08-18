@@ -10,49 +10,49 @@ var submitBtn = document.getElementById("btnSubmit");
  *Return: none
  */
 function cardPaypal() {
-        paypalCard.style.opacity = "1";
-        masterCard.style.opacity = "0.3";
-        visaCard.style.opacity = "0.3";
+  paypalCard.style.opacity = "1";
+  masterCard.style.opacity = "0.3";
+  visaCard.style.opacity = "0.3";
 }
 function cardMastercard() {
-        paypalCard.style.opacity = "0.3";
-        masterCard.style.opacity = "1";
-        visaCard.style.opacity = "0.3";
+  paypalCard.style.opacity = "0.3";
+  masterCard.style.opacity = "1";
+  visaCard.style.opacity = "0.3";
 }
 function cardVisa() {
-        paypalCard.style.opacity = "0.3";
-        masterCard.style.opacity = "0.3";
-        visaCard.style.opacity = "1";
+  paypalCard.style.opacity = "0.3";
+  masterCard.style.opacity = "0.3";
+  visaCard.style.opacity = "1";
 }
 function paymentMethod() {
-        
-        console.log($("#totalAmount").text());
-        var postData = {
-                totalAmount: $("#totalAmount").text(),
-        };
-        $.ajax({
-                url: "../Controller/addOrderListController.php",
-                type: "POST",
-                data: { send: JSON.stringify(postData) },
-                success: function (res) {
-                        Swal.fire({
-                                position: "center",
-                                icon: "success",
-                                title: "Payment Successfully ^_^",
-                                showConfirmButton: false,
-                                timer: 1500,
-                        });
-                        location.url = res;
-                },
-                error: function (err) {
-                        Swal.fire({
-                                position: "center",
-                                icon: "error",
-                                title: "Payment Fail ",
-                                showConfirmButton: false,
-                                timer: 1500,
-                        });
-                        console.log(err);
-                },
-        });
+  console.log($("#totalAmount").text());
+  var postData = {
+    totalAmount: $("#totalAmount").text(),
+  };
+  $.ajax({
+    url: "../Controller/addOrderListController.php",
+    type: "POST",
+    data: { send: JSON.stringify(postData) },
+    success: async function (res) {
+      console.log(res);
+      await Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "Payment Successfully ^_^",
+        showConfirmButton: false,
+        timer: 1500,
+      });
+      //       window.location = "../View/checkOut.php";
+    },
+    error: function (err) {
+      Swal.fire({
+        position: "center",
+        icon: "error",
+        title: "Payment Fail ",
+        showConfirmButton: false,
+        timer: 1500,
+      });
+      console.log(err);
+    },
+  });
 }

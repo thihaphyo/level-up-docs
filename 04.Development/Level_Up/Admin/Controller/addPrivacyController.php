@@ -5,23 +5,27 @@ if (isset($_POST)) {
     $title = $_POST['titlePrivacy'];
     $script = $_POST['description'];
 
-        $db = new DBConnect();
-        $connection = $db->Connect();
-        //set data insert form to database
-        $sql = $connection->prepare("
+    $db = new DBConnect();
+    $connection = $db->Connect();
+    //set data insert form to database
+    $sql = $connection->prepare("
         INSERT INTO M_POLICY(
             title,
-            description
+            description,
+            is_deleted
             )
         VALUES ( 
             :header,
-            :text
+            :text,
+            :deleted
         );
     ");
-        $sql->bindValue(":header", $title);
-        $sql->bindValue(":text", $script);
-        $sql->execute();
-        header("Location: ../View/adminPrivacyPolicy.php");
+    $sql->bindValue(":header", $title);
+    $sql->bindValue(":text", $script);
+    $sql->bindValue(":deleted", $script);
+
+    $sql->execute();
+    header("Location: ../View/adminPrivacyPolicy.php");
 } else {
     echo "Error";
 }

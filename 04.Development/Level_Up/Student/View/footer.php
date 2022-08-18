@@ -31,7 +31,7 @@
                 <div class="column is-full-mobile is-one-quarter-desktop">
                     <h6 class="has-text-weight-medium is-size-4-desktop has-text-primary-light list-title">Company</h6>
                     <ul class="py-4 has-text-weight-bold">
-                        <li class="py-2"><a href="#theFeatures">Features</a></li>
+                        <li class="py-2"><a href="./index.php#theFeatures">Features</a></li>
                         <li class="py-2"><a href="./about.php">About</a></li>
                         <li class="py-2"><a href="./apply instructor.php">Apply Instructor</a></li>
 

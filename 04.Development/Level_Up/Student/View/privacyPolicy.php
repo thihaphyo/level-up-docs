@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Level Up</title>
     <link rel="stylesheet" href="./resources/css/mystyles.css">
-    <link rel="stylesheet" href="./resources/css/root.css">
+    <link rel="stylesheet" href="./resources/css/root.css?v=<?php echo time() ?>">
     <link rel="stylesheet" href="./resources/css/notification.css">
 </head>
 
@@ -24,7 +24,7 @@
                 <?php
                 foreach ($result as $key => $value) {
                     echo "<div class='privacyParagraph'>";
-                    echo "<h2 class='title is-6'>" . $value['title']."</h2>";
+                    echo "<h2 class='title is-5'>" . $value['title'] . "</h2>";
                     echo " <p class='text'>" . $value['description'] . "</p>";
                     echo "</div>";
                 }

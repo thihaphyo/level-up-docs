@@ -1,9 +1,9 @@
 <?php
-$hostname = "localhost";
+$hostname = "levelup.cdiydtaeuqms.ap-southeast-1.rds.amazonaws.com";
 $port = "3306";
 $dbname = "levelupdb";
-$username = "root";
-$password = "";
+$username = "admin";
+$password = "levelup123";
 
 $pdo = new PDO(
     "mysql:host=$hostname;
@@ -14,7 +14,7 @@ $pdo = new PDO(
 );
 
 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-$sql = $pdo->prepare("SELECT * FROM m_policy WHERE is_deleted = 0");
+$sql = $pdo->prepare("SELECT * FROM M_POLICY WHERE is_deleted = 0");
 $sql->execute();
 $result = $sql->fetchAll(PDO::FETCH_ASSOC);
 

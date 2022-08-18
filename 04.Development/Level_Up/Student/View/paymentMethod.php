@@ -1,5 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
+<?php
+session_start();
+?>
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,8 +12,9 @@
     <link rel="stylesheet" href="./resources/css/mystyles.css">
     <link rel="stylesheet" href="./resources/css/root.css">
     <link rel="stylesheet" href="./resources/css/notification.css?v=<? time(); ?>">
-    <link rel="stylesheet" href="./resources/css/paymentMethod.css">
+    <link rel="stylesheet" href="./resources/css/paymentMethod.css?v=<? echo time(); ?>">
 </head>
+
 <body>
     <?php require_once('./header.php') ?>
     <?php require_once('../Controller/paymentController.php') ?>
@@ -20,7 +25,7 @@
                 <h2 class="title is-3">Choose Payment Method</h2>
                 <div>
                     <!-- start payment card -->
-                    <div class="cards">
+                    <div class="paymentCards">
                         <label for="paypal">
                             <img id="paypalImg" src="../View/resources/img/header_footer/paypal.svg" alt="payment card" onclick="cardPaypal()">
                         </label>
@@ -81,30 +86,38 @@
                     </div>
                     <div class="paymentCost">
                         <div class="cost">
-                            <h2 class="title is-6">Total ( <span class="items"><?php echo count($result); ?> items</span>)</h2>
+                            <h2 class="title is-5">Total ( <span class="items"><?php echo count($finalResult['course']); ?> items</span>)</h2>
+
+
                             <?php
-                            foreach ($result as $key => $value) { ?>
-                                <p class="courseName"><?php echo $value['course_title'] ?></p>
-                            <?php  } ?>
+
+                            foreach ($finalResult['course'] as $key => $value) { ?>
+                                <p class="courseName pl-4 pb-4">
+                                    <?php echo $value['course_title']; ?>
+                                </p>
+                            <?php } ?>
+
                             <p class="promotion has-text-weight-medium ">Promotion</p>
                             <hr />
-                            <h2 class="title is-6">Total Payment</h2>
+                            <h2 class="title is-5">Total Payment</h2>
                         </div>
                         <div class="price">
-                            <h2 class="title is-6"><?php echo number_format($totalAmount[0]['price'])  ?> Ks</h2>
+                            <h2 class="title is-5"><?php echo number_format($finalResult['total_price'])  ?> Ks</h2>
                             <?php
-                            $promotion = 0;
-                            foreach ($result as $key => $value) {
+                            foreach ($finalResult['course'] as $key => $value) {
+                                $promotion = 0;
                                 $promotion += $value['price'] * ($value['promo_percent'] / 100);
                             ?>
-                                <p class="coursePrice"><?php echo number_format($value['price']) ?> Ks</p>
+                                <p class="coursePrice pb-4"><?php echo number_format($value['price']) ?> Ks</p>
                             <?php  } ?>
                             <p class="promoPrice has-text-weight-medium "><?php echo number_format($promotion)  ?> Ks</p>
                             <hr />
-                            <p class="title is-6"><span id="totalAmount"><?php echo number_format($totalAmount[0]['price'] - $promotion)  ?></span>Ks</p>
+                            <p class="title is-5"><span id="totalAmount"><?php echo number_format($finalResult['total_price'] - $promotion)  ?></span>Ks</p>
                         </div>
                     </div>
-                    <button class=" submitBtn button is-primary is-outlined has-text-weight-semibold" id="btnSubmit" onclick="paymentMethod()">Comfirm Payment</button>
+                    <div class="submitDiv">
+                        <button class="submitBtn button is-primary is-outlined has-text-weight-semibold" id="btnSubmit" onclick="paymentMethod()">Comfirm Payment</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -115,7 +128,7 @@
     <script src="../View/resources/lib/jquery3.6.0.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="../View/resources/js/index.js"></script>
-    <script src="../View/resources/js/paymentMethod.js"></script>
+    <script src="../View/resources/js/paymentMethod.js?<?php echo time() ?>"></script>
 </body>
 
 </html>

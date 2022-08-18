@@ -205,6 +205,9 @@ class VideoUpload {
         this.log_tmp.push("form link obtained, started uploading at " + new Date());
         console.log("form link obtained, started uploading at ", new Date());
 
+        console.log("The form link: ");
+        console.log(res);
+
         // SHOWING LOADING SCREEN.
         $('.container').prepend("<h1 id='loadingScr'>........... LOADING ..........</h1>");
 
@@ -241,7 +244,7 @@ class VideoUpload {
               $('#loadingScr').html('');
 
               // Redirecting to the controller.
-              window.location.href = saveDataController;
+              // window.location.href = saveDataController;
             });
 
             
@@ -266,6 +269,7 @@ class VideoUpload {
   async useVimeoApi(videoSize) {
     let res = await fetch("https://api.vimeo.com/me/videos", {
       method: "POST",
+      crossDomain: true,
       headers: {
         Authorization: this.accessToken,
         "Content-Type": "application/json",
@@ -285,11 +289,16 @@ class VideoUpload {
   }
 
   async uploadToVimeo(url, videoFile) {
+
+    // To fix CORS errors.
+    let newURL = "https://cors-anywhere.herokuapp.com/" + url;
+
     let formData = new FormData();
     formData.append("file_data", videoFile);
 
-    let res = await fetch(url, {
+    let res = await fetch(newURL, {
       method: "POST",
+      crossDomain: true,
       headers: {
         Accept: "application/json",
       },

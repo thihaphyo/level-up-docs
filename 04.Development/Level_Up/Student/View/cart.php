@@ -2,6 +2,9 @@
 $time = time();
 session_start();
 $_SESSION['stid'] = 1;
+if (isset($_SESSION['course_id_collection'])) {
+    unset($_SESSION['course_id_collection']);
+}
 ?>
 
 <!DOCTYPE html>

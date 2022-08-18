@@ -31,7 +31,7 @@ body{
     transition: var(--tran-05);
     background-color: var(--body-color);
     overflow: hidden;
-    /* overflow-y: scroll; */
+    overflow-y: scroll;
 
 }
 
@@ -266,11 +266,11 @@ header .image-text .profession{
     text-align: left;
     margin-bottom: 2rem;
 }
-.container .text{
+/* .container .text{
     font-size: 30px;
     font-weight: 500;
     color: var(--text-color);
-}
+} */
 
 .sidebar.close ~ .container{
     left: 8vw;

@@ -1,11 +1,13 @@
     <!-- start of navigation bar -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="../View/resources/css/notification.css?<?php echo $time; ?>">
     <link rel="stylesheet" href="../View/resources/css/izToast.min.css">
     <script src="../View/resources/js/izToast.js"></script>
-    
+
     <nav class="navbar is-transparent is-fixed-top p-4 ">
         <div class="navbar-brand">
             <a href="index.php">
@@ -51,7 +53,7 @@
                     </a>
                     <a id="lnk_ins" class="navbar-item" href="./InstructorListView.php">
                         Instructor
-                    </a>M_COURSES
+                    </a>
                     <a id="lnk_my_courses" class="navbar-item" href="./dashboard.php">
                         My Courses
                     </a>

@@ -4,12 +4,12 @@
 }
 .about{
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     flex-wrap: wrap;
-    margin-bottom: 10vh;
+    height: 100vh;
 }
 .itemBox{
-    width: 45vw;
+    width: 40vw;
     height: 20vh;
 }
 .itemBox > .readMore{

@@ -108,5 +108,3 @@ class InstructorModel extends DBConnect {
         return 0;
     }
 }
-
-?>
