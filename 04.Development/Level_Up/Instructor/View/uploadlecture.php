@@ -25,14 +25,16 @@ session_start();
     <link rel="stylesheet" href="./resources/css/uploadlecture.css?v=<?= $time; ?>">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js?v=<?= $time; ?>"></script>
     <script src="./resources/js/uploadlecture.js?v=<?= $time; ?>" defer></script>
+    <link rel="stylesheet" href="./resources/css/index.css?<?php echo $time ?>">
+
     <!-- <script src="./resources/js/newUploadLecture.js?v=<?= $time; ?>" defer></script> -->
     <!-- <script src="../node_modules/vimeo-upload/vimeo-upload.js"></script> -->
 
 </head>
 
 <body>
-    <div class="sidebar">
-    </div>
+    <?php require_once('./sidebar.php') ?>
+
     <div class="container">
         <form action="" method="" enctype="multipart/form-data" id="videoUploadForm">
             <div class="left">

@@ -26,6 +26,9 @@ if (!isset($_SESSION['courseId'])) {
 
   <!-- <link rel="stylesheet" href="style.css?v="> -->
   <link rel="stylesheet" href="./resources/css/style.css?v=<?= $time; ?>">
+  <link rel="stylesheet" href="./resources/css/index.css?<?php echo $time ?>">
+  <link rel="stylesheet" href="./resources/css/uploadCourse.css?<?php echo $time ?>">
+
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js?v=<?= $time; ?>"></script>
   <script src="./resources/js/app.js?v=<?= $time; ?>" defer></script>
@@ -33,11 +36,12 @@ if (!isset($_SESSION['courseId'])) {
 
 <body>
   <!-- ================== START SIDE MENU BAR ===================== -->
-  <div class="sidebar"></div>
+
   <!-- ================== END SIDE MENU BAR ===================== -->
 
   <!-- ================== START FORM CONTAINER ===================== -->
-  <div class="container">
+  <?php require_once('./sidebar.php') ?>
+  <div class="uploadCourse container">
     <form action="" method="POST" enctype="multipart/form-data">
 
       <!-- Start Left Side -->

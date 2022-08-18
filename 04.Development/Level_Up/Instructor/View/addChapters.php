@@ -25,6 +25,8 @@ $_SESSION['currentPage'] = 0;
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <link rel="stylesheet" href="./resources/css/addChapters.css?v=<?= $time; ?>">
+    <link rel="stylesheet" href="./resources/css/index.css?<?php echo $time ?>">
+
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js?v=<?= $time; ?>"></script>
     <script src="./resources/js/addChapters.js?v=<?= $time; ?>" defer></script>
@@ -32,8 +34,8 @@ $_SESSION['currentPage'] = 0;
 </head>
 
 <body>
-    <div class="sidebar">
-    </div>
+    <?php require_once('./sidebar.php') ?>
+
     <div class="container">
         <form action="" method="POST" enctype="multipart/form-data">
 
@@ -56,7 +58,7 @@ $_SESSION['currentPage'] = 0;
                     <p class="is-size-5 has-text-weight-bold">Lectures</p>
                     <a href="../Controller/uploadLectureController.php">
                         <!-- <a href="./uploadLectureController.php"> -->
-                        <div class="button is-primary">Add</div>
+                        <div class="button">Add</div>
                     </a>
                 </div>
                 <hr />

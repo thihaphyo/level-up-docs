@@ -58,6 +58,7 @@ if (isset($_POST)) {
             $sql->bindValue(":create",  date('Y-m-d H:i:s'));
             $sql->execute();
         }
+        unset($_SESSION['course_id_collection']);
     } catch (\Throwable $th) {
         echo $th;
     }
