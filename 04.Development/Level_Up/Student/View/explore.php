@@ -1,5 +1,7 @@
 <?php
 $time = time();
+
+session_start();
 ?>
 
 <!DOCTYPE html>
@@ -12,7 +14,7 @@ $time = time();
     <title>Level Up</title>
     <link rel="stylesheet" href="./resources/css/mystyles.css?v=<?= $time; ?>">
     <link rel="stylesheet" href="./resources/css/root.css?v=<?= $time; ?>">
-    <link rel="stylesheet" href="./resources/css/explore.css">
+    <link rel="stylesheet" href="./resources/css/explore.css?v=<?= $time; ?>">
 
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
@@ -37,1313 +39,180 @@ $time = time();
             <div class="start_learning">
                 <p class="is-size-3 has-text-weight-bold">Start Learning</p>
                 <div class="categories">
-                    <p class="category active">All Categories</p>
-                    <p class="category">Web Development</p>
+                    <p class="category active" id="all" onclick="changeCategory(this)">All Categories</p>
+                    <?php
+                    require_once "../Controller/showCourseCategoryController.php";
+
+                    foreach ($courseCategories as $key => $value) {
+                    ?>
+                        <p class="category" id="<?php echo $value['id'] ?>" onclick="changeCategory(this)"><?php echo $value['category_name'] ?></p>
+                    <?php
+                    }
+                    ?>
+                    <!-- <p class="category">Web Development</p>
                     <p class="category">Machine Learning</p>
                     <p class="category">Cyber Security</p>
                     <p class="category">UI/UX Design</p>
-                    <p class="category">Photography</p>
+                    <p class="category">Photography</p> -->
                 </div>
             </div>
 
             <div class="courses">
-                <a href="./courseinfo.php">
-                    <div class="cards">
-                        <img src="./resources/img/explore/image.png" alt="" />
-                        <div class="details">
-                            <div class="detail">
-                                <ion-icon name="bar-chart-outline"></ion-icon>
-                                <div class="content">
-                                    <span>Level</span>
-                                    <h4>Intermediate</h4>
+                <p class="noCourse mb-6 is-size-4 has-text-weight-bold" id="noCourse">Sorry, there is nothing to show for this category.</p>
+                <?php
+                // $delete = 1;
+                // require_once "./showCourseListController.php";
+                require_once "../Controller/showCourseListController.php";
+
+                foreach ($course as $key => $value) {
+                ?>
+                    <a href="./courseinfo.php" id="<?php echo $value['category_id'] ?>" value="<?php echo $value['cID'] ?>" class="course">
+                        <div class="cards">
+                            <img src="../../Storage/images/<?php echo $value['course_cover_image'] ?>" alt="" />
+                            <div class="details">
+                                <div class="detail">
+                                    <ion-icon name="bar-chart-outline"></ion-icon>
+                                    <div class="content">
+                                        <span>Level</span>
+                                        <h4><?php echo $value['LEVEL'] ?></h4>
+                                    </div>
+                                </div>
+                                <div class="detail">
+                                    <ion-icon name="alarm-outline"></ion-icon>
+                                    <div class="content">
+                                        <span>Hours</span>
+                                        <h4><?php echo $value['duration'] ?> Hours</h4>
+                                    </div>
+                                </div>
+                                <div class="detail">
+                                    <ion-icon name="clipboard-outline"></ion-icon>
+                                    <div class="content">
+                                        <span>Lectures</span>
+                                        <h4><?php echo $value['lectureCount'] ?> Lectures</h4>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="detail">
-                                <ion-icon name="alarm-outline"></ion-icon>
-                                <div class="content">
-                                    <span>Hours</span>
-                                    <h4>6 Hours</h4>
-                                </div>
+                            <h2><?php echo $value['course_title'] ?></h2>
+                            <div class="rating">
+                                <p>By <?php echo $value['instructorName'] ?></p>
+                                <p>
+                                    <ion-icon name="star" class="star"></ion-icon><span><?php echo number_format($value['total_rating'] / $value['total_rated']) ?></span>/5(<span>5</span>)
+                                </p>
                             </div>
-                            <div class="detail">
-                                <ion-icon name="clipboard-outline"></ion-icon>
-                                <div class="content">
-                                    <span>Lectures</span>
-                                    <h4>10 Lectures</h4>
-                                </div>
+                            <div class="price">
+                                <p><span><?php echo number_format($value['price']) ?></span> Ks</p>
                             </div>
                         </div>
-                        <h2>Importanes of Wireframes: Learn
-                            to Make for Better Design</h2>
-                        <div class="rating">
-                            <p>By Daniel Walter</p>
-                            <p>
-                                <ion-icon name="star" class="star"></ion-icon><span>4.6</span>/5(<span>5</span>)
-                            </p>
-                        </div>
-                        <div class="price">
-                            <p><span>20,000</span> Ks</p>
-                        </div>
-                    </div>
-                </a>
-                <a href="./courseinfo.php">
-                    <div class="cards">
-                        <img src="./resources/img/explore/image.png" alt="" />
-                        <div class="details">
-                            <div class="detail">
-                                <ion-icon name="bar-chart-outline"></ion-icon>
-                                <div class="content">
-                                    <span>Level</span>
-                                    <h4>Intermediate</h4>
-                                </div>
-                            </div>
-                            <div class="detail">
-                                <ion-icon name="alarm-outline"></ion-icon>
-                                <div class="content">
-                                    <span>Hours</span>
-                                    <h4>6 Hours</h4>
-                                </div>
-                            </div>
-                            <div class="detail">
-                                <ion-icon name="clipboard-outline"></ion-icon>
-                                <div class="content">
-                                    <span>Lectures</span>
-                                    <h4>10 Lectures</h4>
-                                </div>
-                            </div>
-                        </div>
-                        <h2>Importanes of Wireframes: Learn
-                            to Make for Better Design</h2>
-                        <div class="rating">
-                            <p>By Daniel Walter</p>
-                            <p>
-                                <ion-icon name="star" class="star"></ion-icon><span>4.6</span>/5(<span>5</span>)
-                            </p>
-                        </div>
-                        <div class="price">
-                            <p><span>20,000</span> Ks</p>
-                        </div>
-                    </div>
-                </a>
-                <a href="./courseinfo.php">
-                    <div class="cards">
-                        <img src="./resources/img/explore/image.png" alt="" />
-                        <div class="details">
-                            <div class="detail">
-                                <ion-icon name="bar-chart-outline"></ion-icon>
-                                <div class="content">
-                                    <span>Level</span>
-                                    <h4>Intermediate</h4>
-                                </div>
-                            </div>
-                            <div class="detail">
-                                <ion-icon name="alarm-outline"></ion-icon>
-                                <div class="content">
-                                    <span>Hours</span>
-                                    <h4>6 Hours</h4>
-                                </div>
-                            </div>
-                            <div class="detail">
-                                <ion-icon name="clipboard-outline"></ion-icon>
-                                <div class="content">
-                                    <span>Lectures</span>
-                                    <h4>10 Lectures</h4>
-                                </div>
-                            </div>
-                        </div>
-                        <h2>Importanes of Wireframes: Learn
-                            to Make for Better Design</h2>
-                        <div class="rating">
-                            <p>By Daniel Walter</p>
-                            <p>
-                                <ion-icon name="star" class="star"></ion-icon><span>4.6</span>/5(<span>5</span>)
-                            </p>
-                        </div>
-                        <div class="price">
-                            <p><span>20,000</span> Ks</p>
-                        </div>
-                    </div>
-                </a>
-                <a href="./courseinfo.php">
-                    <div class="cards">
-                        <img src="./resources/img/explore/image.png" alt="" />
-                        <div class="details">
-                            <div class="detail">
-                                <ion-icon name="bar-chart-outline"></ion-icon>
-                                <div class="content">
-                                    <span>Level</span>
-                                    <h4>Intermediate</h4>
-                                </div>
-                            </div>
-                            <div class="detail">
-                                <ion-icon name="alarm-outline"></ion-icon>
-                                <div class="content">
-                                    <span>Hours</span>
-                                    <h4>6 Hours</h4>
-                                </div>
-                            </div>
-                            <div class="detail">
-                                <ion-icon name="clipboard-outline"></ion-icon>
-                                <div class="content">
-                                    <span>Lectures</span>
-                                    <h4>10 Lectures</h4>
-                                </div>
-                            </div>
-                        </div>
-                        <h2>Importanes of Wireframes: Learn
-                            to Make for Better Design</h2>
-                        <div class="rating">
-                            <p>By Daniel Walter</p>
-                            <p>
-                                <ion-icon name="star" class="star"></ion-icon><span>4.6</span>/5(<span>5</span>)
-                            </p>
-                        </div>
-                        <div class="price">
-                            <p><span>20,000</span> Ks</p>
-                        </div>
-                    </div>
-                </a>
-                <a href="./courseinfo.php">
-                    <div class="cards">
-                        <img src="./resources/img/explore/image.png" alt="" />
-                        <div class="details">
-                            <div class="detail">
-                                <ion-icon name="bar-chart-outline"></ion-icon>
-                                <div class="content">
-                                    <span>Level</span>
-                                    <h4>Intermediate</h4>
-                                </div>
-                            </div>
-                            <div class="detail">
-                                <ion-icon name="alarm-outline"></ion-icon>
-                                <div class="content">
-                                    <span>Hours</span>
-                                    <h4>6 Hours</h4>
-                                </div>
-                            </div>
-                            <div class="detail">
-                                <ion-icon name="clipboard-outline"></ion-icon>
-                                <div class="content">
-                                    <span>Lectures</span>
-                                    <h4>10 Lectures</h4>
-                                </div>
-                            </div>
-                        </div>
-                        <h2>Importanes of Wireframes: Learn
-                            to Make for Better Design</h2>
-                        <div class="rating">
-                            <p>By Daniel Walter</p>
-                            <p>
-                                <ion-icon name="star" class="star"></ion-icon><span>4.6</span>/5(<span>5</span>)
-                            </p>
-                        </div>
-                        <div class="price">
-                            <p><span>20,000</span> Ks</p>
-                        </div>
-                    </div>
-                </a>
-                <a href="./courseinfo.php">
-                    <div class="cards">
-                        <img src="./resources/img/explore/image.png" alt="" />
-                        <div class="details">
-                            <div class="detail">
-                                <ion-icon name="bar-chart-outline"></ion-icon>
-                                <div class="content">
-                                    <span>Level</span>
-                                    <h4>Intermediate</h4>
-                                </div>
-                            </div>
-                            <div class="detail">
-                                <ion-icon name="alarm-outline"></ion-icon>
-                                <div class="content">
-                                    <span>Hours</span>
-                                    <h4>6 Hours</h4>
-                                </div>
-                            </div>
-                            <div class="detail">
-                                <ion-icon name="clipboard-outline"></ion-icon>
-                                <div class="content">
-                                    <span>Lectures</span>
-                                    <h4>10 Lectures</h4>
-                                </div>
-                            </div>
-                        </div>
-                        <h2>Importanes of Wireframes: Learn
-                            to Make for Better Design</h2>
-                        <div class="rating">
-                            <p>By Daniel Walter</p>
-                            <p>
-                                <ion-icon name="star" class="star"></ion-icon><span>4.6</span>/5(<span>5</span>)
-                            </p>
-                        </div>
-                        <div class="price">
-                            <p><span>20,000</span> Ks</p>
-                        </div>
-                    </div>
-                </a>
-                <a href="./courseinfo.php">
-                    <div class="cards">
-                        <img src="./resources/img/explore/image.png" alt="" />
-                        <div class="details">
-                            <div class="detail">
-                                <ion-icon name="bar-chart-outline"></ion-icon>
-                                <div class="content">
-                                    <span>Level</span>
-                                    <h4>Intermediate</h4>
-                                </div>
-                            </div>
-                            <div class="detail">
-                                <ion-icon name="alarm-outline"></ion-icon>
-                                <div class="content">
-                                    <span>Hours</span>
-                                    <h4>6 Hours</h4>
-                                </div>
-                            </div>
-                            <div class="detail">
-                                <ion-icon name="clipboard-outline"></ion-icon>
-                                <div class="content">
-                                    <span>Lectures</span>
-                                    <h4>10 Lectures</h4>
-                                </div>
-                            </div>
-                        </div>
-                        <h2>Importanes of Wireframes: Learn
-                            to Make for Better Design</h2>
-                        <div class="rating">
-                            <p>By Daniel Walter</p>
-                            <p>
-                                <ion-icon name="star" class="star"></ion-icon><span>4.6</span>/5(<span>5</span>)
-                            </p>
-                        </div>
-                        <div class="price">
-                            <p><span>20,000</span> Ks</p>
-                        </div>
-                    </div>
-                </a>
-                <a href="./courseinfo.php">
-                    <div class="cards">
-                        <img src="./resources/img/explore/image.png" alt="" />
-                        <div class="details">
-                            <div class="detail">
-                                <ion-icon name="bar-chart-outline"></ion-icon>
-                                <div class="content">
-                                    <span>Level</span>
-                                    <h4>Intermediate</h4>
-                                </div>
-                            </div>
-                            <div class="detail">
-                                <ion-icon name="alarm-outline"></ion-icon>
-                                <div class="content">
-                                    <span>Hours</span>
-                                    <h4>6 Hours</h4>
-                                </div>
-                            </div>
-                            <div class="detail">
-                                <ion-icon name="clipboard-outline"></ion-icon>
-                                <div class="content">
-                                    <span>Lectures</span>
-                                    <h4>10 Lectures</h4>
-                                </div>
-                            </div>
-                        </div>
-                        <h2>Importanes of Wireframes: Learn
-                            to Make for Better Design</h2>
-                        <div class="rating">
-                            <p>By Daniel Walter</p>
-                            <p>
-                                <ion-icon name="star" class="star"></ion-icon><span>4.6</span>/5(<span>5</span>)
-                            </p>
-                        </div>
-                        <div class="price">
-                            <p><span>20,000</span> Ks</p>
-                        </div>
-                    </div>
-                </a>
-                <a href="./courseinfo.php">
-                    <div class="cards">
-                        <img src="./resources/img/explore/image.png" alt="" />
-                        <div class="details">
-                            <div class="detail">
-                                <ion-icon name="bar-chart-outline"></ion-icon>
-                                <div class="content">
-                                    <span>Level</span>
-                                    <h4>Intermediate</h4>
-                                </div>
-                            </div>
-                            <div class="detail">
-                                <ion-icon name="alarm-outline"></ion-icon>
-                                <div class="content">
-                                    <span>Hours</span>
-                                    <h4>6 Hours</h4>
-                                </div>
-                            </div>
-                            <div class="detail">
-                                <ion-icon name="clipboard-outline"></ion-icon>
-                                <div class="content">
-                                    <span>Lectures</span>
-                                    <h4>10 Lectures</h4>
-                                </div>
-                            </div>
-                        </div>
-                        <h2>Importanes of Wireframes: Learn
-                            to Make for Better Design</h2>
-                        <div class="rating">
-                            <p>By Daniel Walter</p>
-                            <p>
-                                <ion-icon name="star" class="star"></ion-icon><span>4.6</span>/5(<span>5</span>)
-                            </p>
-                        </div>
-                        <div class="price">
-                            <p><span>20,000</span> Ks</p>
-                        </div>
-                    </div>
-                </a>
-                <a href="./courseinfo.php">
-                    <div class="cards">
-                        <img src="./resources/img/explore/image.png" alt="" />
-                        <div class="details">
-                            <div class="detail">
-                                <ion-icon name="bar-chart-outline"></ion-icon>
-                                <div class="content">
-                                    <span>Level</span>
-                                    <h4>Intermediate</h4>
-                                </div>
-                            </div>
-                            <div class="detail">
-                                <ion-icon name="alarm-outline"></ion-icon>
-                                <div class="content">
-                                    <span>Hours</span>
-                                    <h4>6 Hours</h4>
-                                </div>
-                            </div>
-                            <div class="detail">
-                                <ion-icon name="clipboard-outline"></ion-icon>
-                                <div class="content">
-                                    <span>Lectures</span>
-                                    <h4>10 Lectures</h4>
-                                </div>
-                            </div>
-                        </div>
-                        <h2>Importanes of Wireframes: Learn
-                            to Make for Better Design</h2>
-                        <div class="rating">
-                            <p>By Daniel Walter</p>
-                            <p>
-                                <ion-icon name="star" class="star"></ion-icon><span>4.6</span>/5(<span>5</span>)
-                            </p>
-                        </div>
-                        <div class="price">
-                            <p><span>20,000</span> Ks</p>
-                        </div>
-                    </div>
-                </a>
-                <a href="./courseinfo.php">
-                    <div class="cards">
-                        <img src="./resources/img/explore/image.png" alt="" />
-                        <div class="details">
-                            <div class="detail">
-                                <ion-icon name="bar-chart-outline"></ion-icon>
-                                <div class="content">
-                                    <span>Level</span>
-                                    <h4>Intermediate</h4>
-                                </div>
-                            </div>
-                            <div class="detail">
-                                <ion-icon name="alarm-outline"></ion-icon>
-                                <div class="content">
-                                    <span>Hours</span>
-                                    <h4>6 Hours</h4>
-                                </div>
-                            </div>
-                            <div class="detail">
-                                <ion-icon name="clipboard-outline"></ion-icon>
-                                <div class="content">
-                                    <span>Lectures</span>
-                                    <h4>10 Lectures</h4>
-                                </div>
-                            </div>
-                        </div>
-                        <h2>Importanes of Wireframes: Learn
-                            to Make for Better Design</h2>
-                        <div class="rating">
-                            <p>By Daniel Walter</p>
-                            <p>
-                                <ion-icon name="star" class="star"></ion-icon><span>4.6</span>/5(<span>5</span>)
-                            </p>
-                        </div>
-                        <div class="price">
-                            <p><span>20,000</span> Ks</p>
-                        </div>
-                    </div>
-                </a>
+                    </a>
+                <?php
+                }
+                ?>
             </div>
 
             <div class="is-size-5 has-text-weight-bold">Popular Courses</div>
 
             <div class="courses">
-                <a href="./courseinfo.php">
-                    <div class="cards">
-                        <img src="./resources/img/explore/image.png" alt="" />
-                        <div class="details">
-                            <div class="detail">
-                                <ion-icon name="bar-chart-outline"></ion-icon>
-                                <div class="content">
-                                    <span>Level</span>
-                                    <h4>Intermediate</h4>
+                <?php
+                // $delete = 1;
+                // require_once "./showCourseListController.php";
+                require_once "../Controller/showCourseListController.php";
+
+                foreach ($course as $key => $value) {
+                ?>
+                    <a href="./courseinfo.php">
+                        <div class="cards">
+                            <img src="../../Storage/images/<?php echo $value['course_cover_image'] ?>" alt="" />
+                            <div class="details">
+                                <div class="detail">
+                                    <ion-icon name="bar-chart-outline"></ion-icon>
+                                    <div class="content">
+                                        <span>Level</span>
+                                        <h4><?php echo $value['LEVEL'] ?></h4>
+                                    </div>
+                                </div>
+                                <div class="detail">
+                                    <ion-icon name="alarm-outline"></ion-icon>
+                                    <div class="content">
+                                        <span>Hours</span>
+                                        <h4><?php echo $value['duration'] ?> Hours</h4>
+                                    </div>
+                                </div>
+                                <div class="detail">
+                                    <ion-icon name="clipboard-outline"></ion-icon>
+                                    <div class="content">
+                                        <span>Lectures</span>
+                                        <h4><?php echo $value['lectureCount'] ?> Lectures</h4>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="detail">
-                                <ion-icon name="alarm-outline"></ion-icon>
-                                <div class="content">
-                                    <span>Hours</span>
-                                    <h4>6 Hours</h4>
-                                </div>
+                            <h2><?php echo $value['course_title'] ?></h2>
+                            <div class="rating">
+                                <p>By <?php echo $value['instructorName'] ?></p>
+                                <p>
+                                    <ion-icon name="star" class="star"></ion-icon><span><?php echo number_format($value['total_rating'] / $value['total_rated']) ?></span>/5(<span>5</span>)
+                                </p>
                             </div>
-                            <div class="detail">
-                                <ion-icon name="clipboard-outline"></ion-icon>
-                                <div class="content">
-                                    <span>Lectures</span>
-                                    <h4>10 Lectures</h4>
-                                </div>
+                            <div class="price">
+                                <p><span><?php echo number_format($value['price']) ?></span> Ks</p>
                             </div>
                         </div>
-                        <h2>Importanes of Wireframes: Learn
-                            to Make for Better Design</h2>
-                        <div class="rating">
-                            <p>By Daniel Walter</p>
-                            <p>
-                                <ion-icon name="star" class="star"></ion-icon><span>4.6</span>/5(<span>5</span>)
-                            </p>
-                        </div>
-                        <div class="price">
-                            <p><span>20,000</span> Ks</p>
-                        </div>
-                    </div>
-                </a>
-                <a href="./courseinfo.php">
-                    <div class="cards">
-                        <img src="./resources/img/explore/image.png" alt="" />
-                        <div class="details">
-                            <div class="detail">
-                                <ion-icon name="bar-chart-outline"></ion-icon>
-                                <div class="content">
-                                    <span>Level</span>
-                                    <h4>Intermediate</h4>
-                                </div>
-                            </div>
-                            <div class="detail">
-                                <ion-icon name="alarm-outline"></ion-icon>
-                                <div class="content">
-                                    <span>Hours</span>
-                                    <h4>6 Hours</h4>
-                                </div>
-                            </div>
-                            <div class="detail">
-                                <ion-icon name="clipboard-outline"></ion-icon>
-                                <div class="content">
-                                    <span>Lectures</span>
-                                    <h4>10 Lectures</h4>
-                                </div>
-                            </div>
-                        </div>
-                        <h2>Importanes of Wireframes: Learn
-                            to Make for Better Design</h2>
-                        <div class="rating">
-                            <p>By Daniel Walter</p>
-                            <p>
-                                <ion-icon name="star" class="star"></ion-icon><span>4.6</span>/5(<span>5</span>)
-                            </p>
-                        </div>
-                        <div class="price">
-                            <p><span>20,000</span> Ks</p>
-                        </div>
-                    </div>
-                </a>
-                <a href="./courseinfo.php">
-                    <div class="cards">
-                        <img src="./resources/img/explore/image.png" alt="" />
-                        <div class="details">
-                            <div class="detail">
-                                <ion-icon name="bar-chart-outline"></ion-icon>
-                                <div class="content">
-                                    <span>Level</span>
-                                    <h4>Intermediate</h4>
-                                </div>
-                            </div>
-                            <div class="detail">
-                                <ion-icon name="alarm-outline"></ion-icon>
-                                <div class="content">
-                                    <span>Hours</span>
-                                    <h4>6 Hours</h4>
-                                </div>
-                            </div>
-                            <div class="detail">
-                                <ion-icon name="clipboard-outline"></ion-icon>
-                                <div class="content">
-                                    <span>Lectures</span>
-                                    <h4>10 Lectures</h4>
-                                </div>
-                            </div>
-                        </div>
-                        <h2>Importanes of Wireframes: Learn
-                            to Make for Better Design</h2>
-                        <div class="rating">
-                            <p>By Daniel Walter</p>
-                            <p>
-                                <ion-icon name="star" class="star"></ion-icon><span>4.6</span>/5(<span>5</span>)
-                            </p>
-                        </div>
-                        <div class="price">
-                            <p><span>20,000</span> Ks</p>
-                        </div>
-                    </div>
-                </a>
-                <a href="./courseinfo.php">
-                    <div class="cards">
-                        <img src="./resources/img/explore/image.png" alt="" />
-                        <div class="details">
-                            <div class="detail">
-                                <ion-icon name="bar-chart-outline"></ion-icon>
-                                <div class="content">
-                                    <span>Level</span>
-                                    <h4>Intermediate</h4>
-                                </div>
-                            </div>
-                            <div class="detail">
-                                <ion-icon name="alarm-outline"></ion-icon>
-                                <div class="content">
-                                    <span>Hours</span>
-                                    <h4>6 Hours</h4>
-                                </div>
-                            </div>
-                            <div class="detail">
-                                <ion-icon name="clipboard-outline"></ion-icon>
-                                <div class="content">
-                                    <span>Lectures</span>
-                                    <h4>10 Lectures</h4>
-                                </div>
-                            </div>
-                        </div>
-                        <h2>Importanes of Wireframes: Learn
-                            to Make for Better Design</h2>
-                        <div class="rating">
-                            <p>By Daniel Walter</p>
-                            <p>
-                                <ion-icon name="star" class="star"></ion-icon><span>4.6</span>/5(<span>5</span>)
-                            </p>
-                        </div>
-                        <div class="price">
-                            <p><span>20,000</span> Ks</p>
-                        </div>
-                    </div>
-                </a>
-                <a href="./courseinfo.php">
-                    <div class="cards">
-                        <img src="./resources/img/explore/image.png" alt="" />
-                        <div class="details">
-                            <div class="detail">
-                                <ion-icon name="bar-chart-outline"></ion-icon>
-                                <div class="content">
-                                    <span>Level</span>
-                                    <h4>Intermediate</h4>
-                                </div>
-                            </div>
-                            <div class="detail">
-                                <ion-icon name="alarm-outline"></ion-icon>
-                                <div class="content">
-                                    <span>Hours</span>
-                                    <h4>6 Hours</h4>
-                                </div>
-                            </div>
-                            <div class="detail">
-                                <ion-icon name="clipboard-outline"></ion-icon>
-                                <div class="content">
-                                    <span>Lectures</span>
-                                    <h4>10 Lectures</h4>
-                                </div>
-                            </div>
-                        </div>
-                        <h2>Importanes of Wireframes: Learn
-                            to Make for Better Design</h2>
-                        <div class="rating">
-                            <p>By Daniel Walter</p>
-                            <p>
-                                <ion-icon name="star" class="star"></ion-icon><span>4.6</span>/5(<span>5</span>)
-                            </p>
-                        </div>
-                        <div class="price">
-                            <p><span>20,000</span> Ks</p>
-                        </div>
-                    </div>
-                </a>
-                <a href="./courseinfo.php">
-                    <div class="cards">
-                        <img src="./resources/img/explore/image.png" alt="" />
-                        <div class="details">
-                            <div class="detail">
-                                <ion-icon name="bar-chart-outline"></ion-icon>
-                                <div class="content">
-                                    <span>Level</span>
-                                    <h4>Intermediate</h4>
-                                </div>
-                            </div>
-                            <div class="detail">
-                                <ion-icon name="alarm-outline"></ion-icon>
-                                <div class="content">
-                                    <span>Hours</span>
-                                    <h4>6 Hours</h4>
-                                </div>
-                            </div>
-                            <div class="detail">
-                                <ion-icon name="clipboard-outline"></ion-icon>
-                                <div class="content">
-                                    <span>Lectures</span>
-                                    <h4>10 Lectures</h4>
-                                </div>
-                            </div>
-                        </div>
-                        <h2>Importanes of Wireframes: Learn
-                            to Make for Better Design</h2>
-                        <div class="rating">
-                            <p>By Daniel Walter</p>
-                            <p>
-                                <ion-icon name="star" class="star"></ion-icon><span>4.6</span>/5(<span>5</span>)
-                            </p>
-                        </div>
-                        <div class="price">
-                            <p><span>20,000</span> Ks</p>
-                        </div>
-                    </div>
-                </a>
-                <a href="./courseinfo.php">
-                    <div class="cards">
-                        <img src="./resources/img/explore/image.png" alt="" />
-                        <div class="details">
-                            <div class="detail">
-                                <ion-icon name="bar-chart-outline"></ion-icon>
-                                <div class="content">
-                                    <span>Level</span>
-                                    <h4>Intermediate</h4>
-                                </div>
-                            </div>
-                            <div class="detail">
-                                <ion-icon name="alarm-outline"></ion-icon>
-                                <div class="content">
-                                    <span>Hours</span>
-                                    <h4>6 Hours</h4>
-                                </div>
-                            </div>
-                            <div class="detail">
-                                <ion-icon name="clipboard-outline"></ion-icon>
-                                <div class="content">
-                                    <span>Lectures</span>
-                                    <h4>10 Lectures</h4>
-                                </div>
-                            </div>
-                        </div>
-                        <h2>Importanes of Wireframes: Learn
-                            to Make for Better Design</h2>
-                        <div class="rating">
-                            <p>By Daniel Walter</p>
-                            <p>
-                                <ion-icon name="star" class="star"></ion-icon><span>4.6</span>/5(<span>5</span>)
-                            </p>
-                        </div>
-                        <div class="price">
-                            <p><span>20,000</span> Ks</p>
-                        </div>
-                    </div>
-                </a>
-                <a href="./courseinfo.php">
-                    <div class="cards">
-                        <img src="./resources/img/explore/image.png" alt="" />
-                        <div class="details">
-                            <div class="detail">
-                                <ion-icon name="bar-chart-outline"></ion-icon>
-                                <div class="content">
-                                    <span>Level</span>
-                                    <h4>Intermediate</h4>
-                                </div>
-                            </div>
-                            <div class="detail">
-                                <ion-icon name="alarm-outline"></ion-icon>
-                                <div class="content">
-                                    <span>Hours</span>
-                                    <h4>6 Hours</h4>
-                                </div>
-                            </div>
-                            <div class="detail">
-                                <ion-icon name="clipboard-outline"></ion-icon>
-                                <div class="content">
-                                    <span>Lectures</span>
-                                    <h4>10 Lectures</h4>
-                                </div>
-                            </div>
-                        </div>
-                        <h2>Importanes of Wireframes: Learn
-                            to Make for Better Design</h2>
-                        <div class="rating">
-                            <p>By Daniel Walter</p>
-                            <p>
-                                <ion-icon name="star" class="star"></ion-icon><span>4.6</span>/5(<span>5</span>)
-                            </p>
-                        </div>
-                        <div class="price">
-                            <p><span>20,000</span> Ks</p>
-                        </div>
-                    </div>
-                </a>
-                <a href="./courseinfo.php">
-                    <div class="cards">
-                        <img src="./resources/img/explore/image.png" alt="" />
-                        <div class="details">
-                            <div class="detail">
-                                <ion-icon name="bar-chart-outline"></ion-icon>
-                                <div class="content">
-                                    <span>Level</span>
-                                    <h4>Intermediate</h4>
-                                </div>
-                            </div>
-                            <div class="detail">
-                                <ion-icon name="alarm-outline"></ion-icon>
-                                <div class="content">
-                                    <span>Hours</span>
-                                    <h4>6 Hours</h4>
-                                </div>
-                            </div>
-                            <div class="detail">
-                                <ion-icon name="clipboard-outline"></ion-icon>
-                                <div class="content">
-                                    <span>Lectures</span>
-                                    <h4>10 Lectures</h4>
-                                </div>
-                            </div>
-                        </div>
-                        <h2>Importanes of Wireframes: Learn
-                            to Make for Better Design</h2>
-                        <div class="rating">
-                            <p>By Daniel Walter</p>
-                            <p>
-                                <ion-icon name="star" class="star"></ion-icon><span>4.6</span>/5(<span>5</span>)
-                            </p>
-                        </div>
-                        <div class="price">
-                            <p><span>20,000</span> Ks</p>
-                        </div>
-                    </div>
-                </a>
-                <a href="./courseinfo.php">
-                    <div class="cards">
-                        <img src="./resources/img/explore/image.png" alt="" />
-                        <div class="details">
-                            <div class="detail">
-                                <ion-icon name="bar-chart-outline"></ion-icon>
-                                <div class="content">
-                                    <span>Level</span>
-                                    <h4>Intermediate</h4>
-                                </div>
-                            </div>
-                            <div class="detail">
-                                <ion-icon name="alarm-outline"></ion-icon>
-                                <div class="content">
-                                    <span>Hours</span>
-                                    <h4>6 Hours</h4>
-                                </div>
-                            </div>
-                            <div class="detail">
-                                <ion-icon name="clipboard-outline"></ion-icon>
-                                <div class="content">
-                                    <span>Lectures</span>
-                                    <h4>10 Lectures</h4>
-                                </div>
-                            </div>
-                        </div>
-                        <h2>Importanes of Wireframes: Learn
-                            to Make for Better Design</h2>
-                        <div class="rating">
-                            <p>By Daniel Walter</p>
-                            <p>
-                                <ion-icon name="star" class="star"></ion-icon><span>4.6</span>/5(<span>5</span>)
-                            </p>
-                        </div>
-                        <div class="price">
-                            <p><span>20,000</span> Ks</p>
-                        </div>
-                    </div>
-                </a>
-                <a href="./courseinfo.php">
-                    <div class="cards">
-                        <img src="./resources/img/explore/image.png" alt="" />
-                        <div class="details">
-                            <div class="detail">
-                                <ion-icon name="bar-chart-outline"></ion-icon>
-                                <div class="content">
-                                    <span>Level</span>
-                                    <h4>Intermediate</h4>
-                                </div>
-                            </div>
-                            <div class="detail">
-                                <ion-icon name="alarm-outline"></ion-icon>
-                                <div class="content">
-                                    <span>Hours</span>
-                                    <h4>6 Hours</h4>
-                                </div>
-                            </div>
-                            <div class="detail">
-                                <ion-icon name="clipboard-outline"></ion-icon>
-                                <div class="content">
-                                    <span>Lectures</span>
-                                    <h4>10 Lectures</h4>
-                                </div>
-                            </div>
-                        </div>
-                        <h2>Importanes of Wireframes: Learn
-                            to Make for Better Design</h2>
-                        <div class="rating">
-                            <p>By Daniel Walter</p>
-                            <p>
-                                <ion-icon name="star" class="star"></ion-icon><span>4.6</span>/5(<span>5</span>)
-                            </p>
-                        </div>
-                        <div class="price">
-                            <p><span>20,000</span> Ks</p>
-                        </div>
-                    </div>
-                </a>
+                    </a>
+                <?php
+                }
+                ?>
             </div>
 
             <div class="is-size-5 has-text-weight-bold">Best Seller Courses</div>
 
             <div class="courses">
-                <a href="./courseinfo.php">
-                    <div class="cards">
-                        <img src="./resources/img/explore/image.png" alt="" />
-                        <div class="details">
-                            <div class="detail">
-                                <ion-icon name="bar-chart-outline"></ion-icon>
-                                <div class="content">
-                                    <span>Level</span>
-                                    <h4>Intermediate</h4>
+                <?php
+                // $delete = 1;
+                // require_once "./showCourseListController.php";
+                require_once "../Controller/showCourseListController.php";
+
+                foreach ($course as $key => $value) {
+                ?>
+                    <a href="./courseinfo.php">
+                        <div class="cards">
+                            <img src="../../Storage/images/<?php echo $value['course_cover_image'] ?>" alt="" />
+                            <div class="details">
+                                <div class="detail">
+                                    <ion-icon name="bar-chart-outline"></ion-icon>
+                                    <div class="content">
+                                        <span>Level</span>
+                                        <h4><?php echo $value['LEVEL'] ?></h4>
+                                    </div>
+                                </div>
+                                <div class="detail">
+                                    <ion-icon name="alarm-outline"></ion-icon>
+                                    <div class="content">
+                                        <span>Hours</span>
+                                        <h4><?php echo $value['duration'] ?> Hours</h4>
+                                    </div>
+                                </div>
+                                <div class="detail">
+                                    <ion-icon name="clipboard-outline"></ion-icon>
+                                    <div class="content">
+                                        <span>Lectures</span>
+                                        <h4><?php echo $value['lectureCount'] ?> Lectures</h4>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="detail">
-                                <ion-icon name="alarm-outline"></ion-icon>
-                                <div class="content">
-                                    <span>Hours</span>
-                                    <h4>6 Hours</h4>
-                                </div>
+                            <h2><?php echo $value['course_title'] ?></h2>
+                            <div class="rating">
+                                <p>By <?php echo $value['instructorName'] ?></p>
+                                <p>
+                                    <ion-icon name="star" class="star"></ion-icon><span><?php echo number_format($value['total_rating'] / $value['total_rated']) ?></span>/5(<span>5</span>)
+                                </p>
                             </div>
-                            <div class="detail">
-                                <ion-icon name="clipboard-outline"></ion-icon>
-                                <div class="content">
-                                    <span>Lectures</span>
-                                    <h4>10 Lectures</h4>
-                                </div>
+                            <div class="price">
+                                <p><span><?php echo number_format($value['price']) ?></span> Ks</p>
                             </div>
                         </div>
-                        <h2>Importanes of Wireframes: Learn
-                            to Make for Better Design</h2>
-                        <div class="rating">
-                            <p>By Daniel Walter</p>
-                            <p>
-                                <ion-icon name="star" class="star"></ion-icon><span>4.6</span>/5(<span>5</span>)
-                            </p>
-                        </div>
-                        <div class="price">
-                            <p><span>20,000</span> Ks</p>
-                        </div>
-                    </div>
-                </a>
-                <a href="./courseinfo.php">
-                    <div class="cards">
-                        <img src="./resources/img/explore/image.png" alt="" />
-                        <div class="details">
-                            <div class="detail">
-                                <ion-icon name="bar-chart-outline"></ion-icon>
-                                <div class="content">
-                                    <span>Level</span>
-                                    <h4>Intermediate</h4>
-                                </div>
-                            </div>
-                            <div class="detail">
-                                <ion-icon name="alarm-outline"></ion-icon>
-                                <div class="content">
-                                    <span>Hours</span>
-                                    <h4>6 Hours</h4>
-                                </div>
-                            </div>
-                            <div class="detail">
-                                <ion-icon name="clipboard-outline"></ion-icon>
-                                <div class="content">
-                                    <span>Lectures</span>
-                                    <h4>10 Lectures</h4>
-                                </div>
-                            </div>
-                        </div>
-                        <h2>Importanes of Wireframes: Learn
-                            to Make for Better Design</h2>
-                        <div class="rating">
-                            <p>By Daniel Walter</p>
-                            <p>
-                                <ion-icon name="star" class="star"></ion-icon><span>4.6</span>/5(<span>5</span>)
-                            </p>
-                        </div>
-                        <div class="price">
-                            <p><span>20,000</span> Ks</p>
-                        </div>
-                    </div>
-                </a>
-                <a href="./courseinfo.php">
-                    <div class="cards">
-                        <img src="./resources/img/explore/image.png" alt="" />
-                        <div class="details">
-                            <div class="detail">
-                                <ion-icon name="bar-chart-outline"></ion-icon>
-                                <div class="content">
-                                    <span>Level</span>
-                                    <h4>Intermediate</h4>
-                                </div>
-                            </div>
-                            <div class="detail">
-                                <ion-icon name="alarm-outline"></ion-icon>
-                                <div class="content">
-                                    <span>Hours</span>
-                                    <h4>6 Hours</h4>
-                                </div>
-                            </div>
-                            <div class="detail">
-                                <ion-icon name="clipboard-outline"></ion-icon>
-                                <div class="content">
-                                    <span>Lectures</span>
-                                    <h4>10 Lectures</h4>
-                                </div>
-                            </div>
-                        </div>
-                        <h2>Importanes of Wireframes: Learn
-                            to Make for Better Design</h2>
-                        <div class="rating">
-                            <p>By Daniel Walter</p>
-                            <p>
-                                <ion-icon name="star" class="star"></ion-icon><span>4.6</span>/5(<span>5</span>)
-                            </p>
-                        </div>
-                        <div class="price">
-                            <p><span>20,000</span> Ks</p>
-                        </div>
-                    </div>
-                </a>
-                <a href="./courseinfo.php">
-                    <div class="cards">
-                        <img src="./resources/img/explore/image.png" alt="" />
-                        <div class="details">
-                            <div class="detail">
-                                <ion-icon name="bar-chart-outline"></ion-icon>
-                                <div class="content">
-                                    <span>Level</span>
-                                    <h4>Intermediate</h4>
-                                </div>
-                            </div>
-                            <div class="detail">
-                                <ion-icon name="alarm-outline"></ion-icon>
-                                <div class="content">
-                                    <span>Hours</span>
-                                    <h4>6 Hours</h4>
-                                </div>
-                            </div>
-                            <div class="detail">
-                                <ion-icon name="clipboard-outline"></ion-icon>
-                                <div class="content">
-                                    <span>Lectures</span>
-                                    <h4>10 Lectures</h4>
-                                </div>
-                            </div>
-                        </div>
-                        <h2>Importanes of Wireframes: Learn
-                            to Make for Better Design</h2>
-                        <div class="rating">
-                            <p>By Daniel Walter</p>
-                            <p>
-                                <ion-icon name="star" class="star"></ion-icon><span>4.6</span>/5(<span>5</span>)
-                            </p>
-                        </div>
-                        <div class="price">
-                            <p><span>20,000</span> Ks</p>
-                        </div>
-                    </div>
-                </a>
-                <a href="./courseinfo.php">
-                    <div class="cards">
-                        <img src="./resources/img/explore/image.png" alt="" />
-                        <div class="details">
-                            <div class="detail">
-                                <ion-icon name="bar-chart-outline"></ion-icon>
-                                <div class="content">
-                                    <span>Level</span>
-                                    <h4>Intermediate</h4>
-                                </div>
-                            </div>
-                            <div class="detail">
-                                <ion-icon name="alarm-outline"></ion-icon>
-                                <div class="content">
-                                    <span>Hours</span>
-                                    <h4>6 Hours</h4>
-                                </div>
-                            </div>
-                            <div class="detail">
-                                <ion-icon name="clipboard-outline"></ion-icon>
-                                <div class="content">
-                                    <span>Lectures</span>
-                                    <h4>10 Lectures</h4>
-                                </div>
-                            </div>
-                        </div>
-                        <h2>Importanes of Wireframes: Learn
-                            to Make for Better Design</h2>
-                        <div class="rating">
-                            <p>By Daniel Walter</p>
-                            <p>
-                                <ion-icon name="star" class="star"></ion-icon><span>4.6</span>/5(<span>5</span>)
-                            </p>
-                        </div>
-                        <div class="price">
-                            <p><span>20,000</span> Ks</p>
-                        </div>
-                    </div>
-                </a>
-                <a href="./courseinfo.php">
-                    <div class="cards">
-                        <img src="./resources/img/explore/image.png" alt="" />
-                        <div class="details">
-                            <div class="detail">
-                                <ion-icon name="bar-chart-outline"></ion-icon>
-                                <div class="content">
-                                    <span>Level</span>
-                                    <h4>Intermediate</h4>
-                                </div>
-                            </div>
-                            <div class="detail">
-                                <ion-icon name="alarm-outline"></ion-icon>
-                                <div class="content">
-                                    <span>Hours</span>
-                                    <h4>6 Hours</h4>
-                                </div>
-                            </div>
-                            <div class="detail">
-                                <ion-icon name="clipboard-outline"></ion-icon>
-                                <div class="content">
-                                    <span>Lectures</span>
-                                    <h4>10 Lectures</h4>
-                                </div>
-                            </div>
-                        </div>
-                        <h2>Importanes of Wireframes: Learn
-                            to Make for Better Design</h2>
-                        <div class="rating">
-                            <p>By Daniel Walter</p>
-                            <p>
-                                <ion-icon name="star" class="star"></ion-icon><span>4.6</span>/5(<span>5</span>)
-                            </p>
-                        </div>
-                        <div class="price">
-                            <p><span>20,000</span> Ks</p>
-                        </div>
-                    </div>
-                </a>
-                <a href="./courseinfo.php">
-                    <div class="cards">
-                        <img src="./resources/img/explore/image.png" alt="" />
-                        <div class="details">
-                            <div class="detail">
-                                <ion-icon name="bar-chart-outline"></ion-icon>
-                                <div class="content">
-                                    <span>Level</span>
-                                    <h4>Intermediate</h4>
-                                </div>
-                            </div>
-                            <div class="detail">
-                                <ion-icon name="alarm-outline"></ion-icon>
-                                <div class="content">
-                                    <span>Hours</span>
-                                    <h4>6 Hours</h4>
-                                </div>
-                            </div>
-                            <div class="detail">
-                                <ion-icon name="clipboard-outline"></ion-icon>
-                                <div class="content">
-                                    <span>Lectures</span>
-                                    <h4>10 Lectures</h4>
-                                </div>
-                            </div>
-                        </div>
-                        <h2>Importanes of Wireframes: Learn
-                            to Make for Better Design</h2>
-                        <div class="rating">
-                            <p>By Daniel Walter</p>
-                            <p>
-                                <ion-icon name="star" class="star"></ion-icon><span>4.6</span>/5(<span>5</span>)
-                            </p>
-                        </div>
-                        <div class="price">
-                            <p><span>20,000</span> Ks</p>
-                        </div>
-                    </div>
-                </a>
-                <a href="./courseinfo.php">
-                    <div class="cards">
-                        <img src="./resources/img/explore/image.png" alt="" />
-                        <div class="details">
-                            <div class="detail">
-                                <ion-icon name="bar-chart-outline"></ion-icon>
-                                <div class="content">
-                                    <span>Level</span>
-                                    <h4>Intermediate</h4>
-                                </div>
-                            </div>
-                            <div class="detail">
-                                <ion-icon name="alarm-outline"></ion-icon>
-                                <div class="content">
-                                    <span>Hours</span>
-                                    <h4>6 Hours</h4>
-                                </div>
-                            </div>
-                            <div class="detail">
-                                <ion-icon name="clipboard-outline"></ion-icon>
-                                <div class="content">
-                                    <span>Lectures</span>
-                                    <h4>10 Lectures</h4>
-                                </div>
-                            </div>
-                        </div>
-                        <h2>Importanes of Wireframes: Learn
-                            to Make for Better Design</h2>
-                        <div class="rating">
-                            <p>By Daniel Walter</p>
-                            <p>
-                                <ion-icon name="star" class="star"></ion-icon><span>4.6</span>/5(<span>5</span>)
-                            </p>
-                        </div>
-                        <div class="price">
-                            <p><span>20,000</span> Ks</p>
-                        </div>
-                    </div>
-                </a>
-                <a href="./courseinfo.php">
-                    <div class="cards">
-                        <img src="./resources/img/explore/image.png" alt="" />
-                        <div class="details">
-                            <div class="detail">
-                                <ion-icon name="bar-chart-outline"></ion-icon>
-                                <div class="content">
-                                    <span>Level</span>
-                                    <h4>Intermediate</h4>
-                                </div>
-                            </div>
-                            <div class="detail">
-                                <ion-icon name="alarm-outline"></ion-icon>
-                                <div class="content">
-                                    <span>Hours</span>
-                                    <h4>6 Hours</h4>
-                                </div>
-                            </div>
-                            <div class="detail">
-                                <ion-icon name="clipboard-outline"></ion-icon>
-                                <div class="content">
-                                    <span>Lectures</span>
-                                    <h4>10 Lectures</h4>
-                                </div>
-                            </div>
-                        </div>
-                        <h2>Importanes of Wireframes: Learn
-                            to Make for Better Design</h2>
-                        <div class="rating">
-                            <p>By Daniel Walter</p>
-                            <p>
-                                <ion-icon name="star" class="star"></ion-icon><span>4.6</span>/5(<span>5</span>)
-                            </p>
-                        </div>
-                        <div class="price">
-                            <p><span>20,000</span> Ks</p>
-                        </div>
-                    </div>
-                </a>
-                <a href="./courseinfo.php">
-                    <div class="cards">
-                        <img src="./resources/img/explore/image.png" alt="" />
-                        <div class="details">
-                            <div class="detail">
-                                <ion-icon name="bar-chart-outline"></ion-icon>
-                                <div class="content">
-                                    <span>Level</span>
-                                    <h4>Intermediate</h4>
-                                </div>
-                            </div>
-                            <div class="detail">
-                                <ion-icon name="alarm-outline"></ion-icon>
-                                <div class="content">
-                                    <span>Hours</span>
-                                    <h4>6 Hours</h4>
-                                </div>
-                            </div>
-                            <div class="detail">
-                                <ion-icon name="clipboard-outline"></ion-icon>
-                                <div class="content">
-                                    <span>Lectures</span>
-                                    <h4>10 Lectures</h4>
-                                </div>
-                            </div>
-                        </div>
-                        <h2>Importanes of Wireframes: Learn
-                            to Make for Better Design</h2>
-                        <div class="rating">
-                            <p>By Daniel Walter</p>
-                            <p>
-                                <ion-icon name="star" class="star"></ion-icon><span>4.6</span>/5(<span>5</span>)
-                            </p>
-                        </div>
-                        <div class="price">
-                            <p><span>20,000</span> Ks</p>
-                        </div>
-                    </div>
-                </a>
-                <a href="./courseinfo.php">
-                    <div class="cards">
-                        <img src="./resources/img/explore/image.png" alt="" />
-                        <div class="details">
-                            <div class="detail">
-                                <ion-icon name="bar-chart-outline"></ion-icon>
-                                <div class="content">
-                                    <span>Level</span>
-                                    <h4>Intermediate</h4>
-                                </div>
-                            </div>
-                            <div class="detail">
-                                <ion-icon name="alarm-outline"></ion-icon>
-                                <div class="content">
-                                    <span>Hours</span>
-                                    <h4>6 Hours</h4>
-                                </div>
-                            </div>
-                            <div class="detail">
-                                <ion-icon name="clipboard-outline"></ion-icon>
-                                <div class="content">
-                                    <span>Lectures</span>
-                                    <h4>10 Lectures</h4>
-                                </div>
-                            </div>
-                        </div>
-                        <h2>Importanes of Wireframes: Learn
-                            to Make for Better Design</h2>
-                        <div class="rating">
-                            <p>By Daniel Walter</p>
-                            <p>
-                                <ion-icon name="star" class="star"></ion-icon><span>4.6</span>/5(<span>5</span>)
-                            </p>
-                        </div>
-                        <div class="price">
-                            <p><span>20,000</span> Ks</p>
-                        </div>
-                    </div>
-                </a>
+                    </a>
+                <?php
+                }
+                ?>
             </div>
         </div>
         <!-- end of container -->

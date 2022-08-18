@@ -34,7 +34,7 @@ $(document).ready(function () {
 });
 
 var categories = document.querySelectorAll(".category");
-console.log(categories);
+// console.log(categories);
 
 function activeLink() {
   categories.forEach((category) => {
@@ -46,6 +46,39 @@ function activeLink() {
 categories.forEach((category) => {
   category.addEventListener("click", activeLink);
 });
+
+let courses = document.querySelectorAll(".course");
+function changeCategory(e) {
+  if (e.id == "all") {
+    courses.forEach((course) => {
+      course.classList.remove("hide");
+
+      check();
+    });
+  } else {
+    courses.forEach((course) => {
+      if (e.id !== course.id) {
+        course.classList.add("hide");
+
+        check();
+      } else {
+        course.classList.remove("hide");
+
+        check();
+      }
+    });
+  }
+}
+
+function check() {
+  let hides = document.querySelectorAll(".hide");
+
+  if (hides.length == courses.length) {
+    document.getElementById("noCourse").classList.remove("noCourse");
+  } else {
+    document.getElementById("noCourse").classList.add("noCourse");
+  }
+}
 
 $("#btn_logout").click(function () {
   localStorage.removeItem("access_token");
