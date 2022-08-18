@@ -13,6 +13,8 @@ $time = time();
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
     <link rel="stylesheet" href="./resources/css/index.css" />
     <link rel="stylesheet" href="./resources/css/mystyles.css" />
+    <link rel="stylesheet" href="./resources/css/instructorProfile.css?<?php echo $time ?>">
+
 </head>
 
 <body>
@@ -22,10 +24,10 @@ $time = time();
     <div class="background-image">
         <img style="width:100%; height:200px; object-fit: cover;" src="./resources/img/cover_1.jpg" alt="">
     </div>
-    <div class="container ml-0 pl-0">
+    <div class="myContainer">
         <!-- start of admin update container -->
-        <div class="mt-6">
-            <div class="columns mt-4 pt-3 pb-0">
+        <div>
+            <div class="columns">
                 <div class="my-profile-image">
                     <img id="profile_img" alt="" style="object-fit: cover;" />
                 </div>

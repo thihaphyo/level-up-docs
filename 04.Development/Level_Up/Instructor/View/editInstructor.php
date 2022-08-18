@@ -24,7 +24,7 @@ $time = time();
         <!-- start of admin update container -->
         <div class="column mb-0 pb-0 mt-3">
             <div class="is-flex is-flex-direction-row">
-                <div class="column is-6 p-0">
+                <div class="column is-6 pl-6">
                     <div class="column mb-3 pb-0">
                         Profile Picture
                     </div>
@@ -49,7 +49,7 @@ $time = time();
                 <div style="width: 2px;background-color:black;height: 85vh;">
                     <p style="visibility: hidden;">a</p>
                 </div>
-                <div class="column is-5 pl-6 pr-6">
+                <div class="column is-5 ml-6">
                     <div class="field">
                         <label class="label is-primay-label has-text-weight-medium has-text-black is-size-6">Profile Name</label>
                         <div class="control mt-2">

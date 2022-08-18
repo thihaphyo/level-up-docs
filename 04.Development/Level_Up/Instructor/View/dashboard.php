@@ -121,7 +121,7 @@ $_SESSION['instId'] = 1;
                     <div>
 
                         <h3>Order List</h3>
-                        <a href="./instructorRequest.php">View More</a>
+                        <a href="./OrderlistView.php">View More</a>
                     </div>
                     <?php
                     if (empty($orderList)) {
@@ -142,7 +142,7 @@ $_SESSION['instId'] = 1;
                                 </div>
                                 <div>
                                     <p>
-                                        <a href="./instructorRequestAbout/<?php echo $value['id'] ?>">
+                                        <a href="./OrderlistView.php">
                                             <span><?php echo $value['course_title'] ?></span>
                                         </a>
                                     </p>
@@ -158,7 +158,7 @@ $_SESSION['instId'] = 1;
                     <div>
 
                         <h3>Review and Rating</h3>
-                        <a href="./request list.php">View More</a>
+                        <a href="./ReviewView.php">View More</a>
                     </div>
                     <?php
                     if (empty($reviewRating)) {
@@ -178,7 +178,7 @@ $_SESSION['instId'] = 1;
                                 <div>
 
                                     <p>
-                                        <a href="./appealListDetail/<?php echo $value['rating_id'] ?>">
+                                        <a href="./ReviewView.php">
                                             <span>
                                                 <?php echo $value['student_name'] ?>
                                             </span>
