@@ -104,13 +104,13 @@ session_start();
                         <div class="price">
                             <h2 class="title is-5"><?php echo number_format($finalResult['total_price'])  ?> Ks</h2>
                             <?php
+                            $promotion = 0;
                             foreach ($finalResult['course'] as $key => $value) {
-                                $promotion = 0;
                                 $promotion += $value['price'] * ($value['promo_percent'] / 100);
                             ?>
                                 <p class="coursePrice pb-4"><?php echo number_format($value['price']) ?> Ks</p>
                             <?php  } ?>
-                            <p class="promoPrice has-text-weight-medium "><?php echo number_format($promotion)  ?> Ks</p>
+                            <p class="promoPrice has-text-weight-medium "><?php echo "-" . number_format($promotion)  ?> Ks</p>
                             <hr />
                             <p class="title is-5"><span id="totalAmount"><?php echo number_format($finalResult['total_price'] - $promotion)  ?></span>Ks</p>
                         </div>

@@ -153,6 +153,13 @@ input[type="radio"]{
         width: 20vw;
         margin-right: 5px;
     }
+    .title.is-5 {
+        font-size: 3vw;
+    }
+    :where(.courseName, .coursePrice,.promoPrice,.promotion){
+        font-size: clamp(2vw, 2.2vw, 2.3vw);
+    }
+
     
         /* .paymentBox{
             margin-top: 20vh;

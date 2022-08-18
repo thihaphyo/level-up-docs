@@ -22,8 +22,6 @@ foreach ($_SESSION['course_id_collection'] as $course) {
     $result = $sql->fetchAll(PDO::FETCH_ASSOC)[0];
     array_push($finalResult['course'], $result);
     $finalResult['total_price'] += $result['price'];
-    print_r($finalResult);
-
 
     //     $sql = $dbconnect->prepare("SELECT SUM(price) AS price FROM 
     //                             M_COURSES 

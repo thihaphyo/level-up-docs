@@ -13,7 +13,7 @@ class InstructorDashboardController extends DBConnect
             // update sql query
             $sql = $gotConnection->prepare(
                 "SELECT T_ORDER_LIST.*, M_COURSES.course_title,M_STUDENTS.full_name as stdname FROM T_ORDER_LIST
-                INNER JOIN M_COURSES ON T_ORDER_LIST.course_id = M_COURSES.id AND T_ORDER_LIST.instructor_id =1 
+                INNER JOIN M_COURSES ON T_ORDER_LIST.course_id = M_COURSES.id AND T_ORDER_LIST.instructor_id =:id 
                 INNER JOIN M_STUDENTS ON T_ORDER_LIST.student_id = M_STUDENTS.id LIMIT 0,5"
 
             );

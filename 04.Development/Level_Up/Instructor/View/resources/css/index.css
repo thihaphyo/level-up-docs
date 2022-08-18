@@ -27,11 +27,11 @@
 }
 
 body{
-    min-height: 100vh;
+    min-height: auto;
     transition: var(--tran-05);
-    background-color: var(--body-color);
     overflow: hidden;
     overflow-y: scroll;
+    background-color: var(--body-color) !important;
 
 }
 
@@ -254,8 +254,9 @@ header .image-text .profession{
     top: 0;
     left: 17vw;
     width: calc(100% - 366px);
-    transition: var(--tran-05);
+    transition: var(--tran-05);    
     padding: 4rem;
+    background-color: red;
 }
 .container.admin-insert {
     position: inherit;
