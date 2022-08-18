@@ -21,10 +21,12 @@ $time = time();
 
     <?php require_once('../View/sidebar.php') ?>
 
-    <section class="container">
+    <section class="orderList container">
 
         <div class="text o-text">
-            Order List
+            <h1>
+                Order List
+            </h1>
             <img id="o-download-list" src="../View/resources/img/icons/download.svg" alt="Download" />
         </div>
 

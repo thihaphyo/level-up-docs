@@ -27,8 +27,8 @@ session_start();
     <section class="sections"></section>
     <section class="course-list section">
         <div class="header">
-            <h2 class="is-size-4 has-text-weight-bold">My Courses</h2>
-            <a href="../Controller/uploadNewCourseController.php" class=" button is-primary is-one-fifth">Add New Course</a>
+            <h2 class="has-text-weight-bold">My Courses</h2>
+            <a href="../Controller/uploadNewCourseController.php" class=" button is-one-fifth">Add New Course</a>
         </div>
 
         <div class="card-container">
@@ -70,7 +70,7 @@ session_start();
                             <a href="#" class="title is-6 has-text-weight-bold">Edit</a>
                         </div>
                         <div class="rating">
-                            <ion-icon name="bar-chart-outline"></ion-icon>
+                            <i class="fa-solid fa-star fa-sm"></i>
                             <p class="has-text-weight-bold"><?php echo number_format($value['total_rating'] / $value['total_rated']) ?>/5</p>
                         </div>
                     </div>
@@ -78,42 +78,6 @@ session_start();
             <?php
             }
             ?>
-            <a href="#">
-                <div class="cards">
-                    <img src="./resources/img/<?php echo $value['course_cover_image']; ?>" alt="" />
-                    <div class="details">
-                        <div class="detail">
-                            <ion-icon name="bar-chart-outline"></ion-icon>
-                            <div class="content">
-                                <span>Level</span>
-                                <h4><?php echo $value['level'] ?></h4>
-                            </div>
-                        </div>
-                        <div class="detail">
-                            <ion-icon name="time-outline"></ion-icon>
-                            <div class="content">
-                                <span>Hours</span>
-                                <h4><?php echo $value['duration'] ?> Hours</h4>
-                            </div>
-                        </div>
-                        <div class="detail">
-                            <ion-icon name="bar-chart-outline"></ion-icon>
-                            <div class="content">
-                                <span>Lectures</span>
-                                <h4><?php echo $value['lectureCount']; ?> Lectures</h4>
-                            </div>
-                        </div>
-                    </div>
-                    <h2><?php echo $value['course_title']; ?></h2>
-                    <div class="info">
-                        <a href="#" class="title is-6 has-text-weight-bold">Edit</a>
-                    </div>
-                    <div class="rating">
-                        <ion-icon name="bar-chart-outline"></ion-icon>
-                        <p class="has-text-weight-bold"><?php echo number_format($value['total_rating'] / $value['total_rated']) ?>/5</p>
-                    </div>
-                </div>
-            </a>
         </div>
     </section>
 

@@ -45,6 +45,7 @@ body{
     padding: 10px 14px;
     background: var(--sidebar-color);
     transition: var(--tran-05);
+    box-sizing: unset;
     /* z-index: 0;   */
 }
 
@@ -256,7 +257,6 @@ header .image-text .profession{
     width: calc(100% - 366px);
     transition: var(--tran-05);    
     padding: 4rem;
-    background-color: red;
 }
 .container.admin-insert {
     position: inherit;
@@ -269,7 +269,7 @@ header .image-text .profession{
 }
 .container .text{
     font-size: 30px;
-    font-weight: 500;
+    font-weight: 600;
     color: var(--text-color);
 }
 

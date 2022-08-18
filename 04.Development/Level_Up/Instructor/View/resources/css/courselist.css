@@ -3,12 +3,25 @@ a {
 }
 .course-list{
   width: 85%;
+  height: 100vh;
   margin-left: auto;
+  padding-left: 6rem;
 }
 .header {
   display: flex;
   justify-content: space-between;
   padding: 0 0 2em 0;
+}
+.header > a {
+  background-color: #F3B33E;
+  font-weight: 600;
+  color: #FFFFFF;
+}
+
+.header h2{
+  font-size: 30px;
+  font-weight: 600;
+  color: #181818;
 }
 .card-container {
   width: 100%;
@@ -22,7 +35,7 @@ a {
   height: 300px;
   background-color: #fff;
   border-radius: 20px;
-  margin-right: 3vw;
+  margin-right: 2vw;
   margin-bottom: 2rem;
   overflow: hidden;
 }
@@ -75,8 +88,17 @@ a {
 }
 .card-container .cards .rating {
   position: absolute;
-  top: 8em;
+  top: 9em;
   right: 1em;
   display: flex;
   align-items: center;
+  color: #545454;
+  background-color: #FFFFFF;
+  padding: 0rem 0.6rem;
+  border-radius: 10px;
+  font-size: 0.8rem;
+}
+.card-container .cards .rating i{
+  color: #F3B33E;
+  padding-right: 0.2rem;
 }

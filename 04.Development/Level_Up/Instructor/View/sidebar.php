@@ -34,7 +34,7 @@
                 </li>
 
                 <li class="nav-link">
-                    <a href="./adminList.php">
+                    <a href="./appeal.php">
                         <div class="mobile-sidebar-text">
                             <i class="fa-brands fa-wpforms fa-xl  nav-link-icon"></i>
 
@@ -45,7 +45,7 @@
                 </li>
 
                 <li class="nav-link">
-                    <a href="#">
+                    <a href="./OrderlistView.php">
                         <div class="mobile-sidebar-text">
                             <i class="fa-solid fa-box-open fa-lg  nav-link-icon"></i>
                             <p>Order</p>
@@ -55,7 +55,7 @@
                 </li>
 
                 <li class="nav-link">
-                    <a href="./appealList.php">
+                    <a href="./ReviewView.php">
                         <div class="mobile-sidebar-text">
                             <i class="fa-solid fa-star fa-lg nav-link-icon"></i>
                             <p>Review</p>
@@ -65,7 +65,7 @@
                 </li>
 
                 <li class="nav-link">
-                    <a href="./setting.php">
+                    <a href="./instructorprofile.php">
                         <div class="mobile-sidebar-text">
                             <i class="fa-regular fa-user fa-lg nav-link-icon"></i>
                             <p>Profile</p>

@@ -17,15 +17,24 @@
 }
 h1{
     margin-bottom: 5vh;
+    font-weight: 600;
+    font-size: 30px;
+}
+form{
+    width: 100%;
 }
 textarea{
     margin-top: 2vh;
     margin-bottom: 3vh;
-    width: 50vw;
+    width: 80%;
     height: 15vh;
     padding: 10px;
     border-radius: 15px;
     resize: none;
+}
+.btnSubmitContainer{
+    width: 82%;
+    text-align: right;
 }
 .btnSumbit{
     width: 13vw;
@@ -34,5 +43,6 @@ textarea{
     border: none;
     background-color: #000;
     color: #fff;
-    margin-left: 75%;
+    /* margin-left: auto; */
+    /* margin-left: 75%; */
 }

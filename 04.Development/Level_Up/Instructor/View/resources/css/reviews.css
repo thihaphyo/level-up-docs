@@ -1,10 +1,16 @@
+.review.container{
+    margin: 0;
+    padding-left: 4rem;
+}
 .r-container {
     --cardPicSize: 7vmin;
     --cardPicColor: #FFD485;
 }
-
 .r-text {
     margin-bottom: 3vmin;
+    font-size: 30px;
+    font-weight: 600;
+    color: rgb(27, 27, 27);
 }
 
 .r-course-title {
