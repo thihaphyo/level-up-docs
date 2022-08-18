@@ -1,13 +1,18 @@
+.orderList.container{
+    padding-left: 4rem;
+}
 .o-text {
     display: flex;
     align-items: center;
     gap:3vmin;
 }
+.o-text h1{
+    font-weight: 600;
+}
 .o-text img {
     width:2rem;
     cursor:pointer;
 }
-
 .o-table {
     border: 1px solid #555;
     border-radius: 10px;

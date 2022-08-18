@@ -27,11 +27,11 @@
 }
 
 body{
-    min-height: 100vh;
+    min-height: auto;
     transition: var(--tran-05);
-    background-color: var(--body-color);
     overflow: hidden;
     overflow-y: scroll;
+    background-color: var(--body-color) !important;
 
 }
 
@@ -45,6 +45,7 @@ body{
     padding: 10px 14px;
     background: var(--sidebar-color);
     transition: var(--tran-05);
+    box-sizing: unset;
     /* z-index: 0;   */
 }
 
@@ -254,7 +255,7 @@ header .image-text .profession{
     top: 0;
     left: 17vw;
     width: calc(100% - 366px);
-    transition: var(--tran-05);
+    transition: var(--tran-05);    
     padding: 4rem;
 }
 .container.admin-insert {
@@ -268,7 +269,7 @@ header .image-text .profession{
 }
 .container .text{
     font-size: 30px;
-    font-weight: 500;
+    font-weight: 600;
     color: var(--text-color);
 }
 

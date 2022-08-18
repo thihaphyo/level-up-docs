@@ -12,7 +12,6 @@ class DBConnect
     {
         //connection
         try {
-
             $pdo = new PDO("mysql:host=$this->hostname;port=$this->port;dbname=$this->dbname", $this->username, $this->password);
             //set error reply
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

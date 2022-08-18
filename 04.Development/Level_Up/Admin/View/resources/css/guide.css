@@ -1,0 +1,28 @@
+/* guide list */
+body,html{
+  overflow-y:unset;
+}
+
+
+/**guide add/edit */
+
+hr{
+  background-color: #607d8b;
+}
+
+
+input,hr,textarea{
+  width: 80vw !important;
+}
+
+.guideText{
+ min-width: 0 !important;
+}
+
+section{
+  padding: 2rem 2rem !important;
+}
+
+.seq{
+  width: 5vw !important;
+}

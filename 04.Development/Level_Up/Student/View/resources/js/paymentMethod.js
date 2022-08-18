@@ -42,7 +42,7 @@ function paymentMethod() {
         showConfirmButton: false,
         timer: 1500,
       });
-      //       window.location = "../View/checkOut.php";
+      window.location = "../View/dashboard.php";
     },
     error: function (err) {
       Swal.fire({

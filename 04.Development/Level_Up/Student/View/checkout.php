@@ -66,7 +66,7 @@ session_start();
                             </div>
                             <div class="price">
                                 <h2 class="title is-6"><?php echo number_format($total); ?> Ks</h2>
-                                <p class="promoPrice has-text-weight-medium "><?php echo number_format($promotion) ?> Ks</p>
+                                <p class="promoPrice has-text-weight-medium "><?php echo '-' . number_format($promotion) ?> Ks</p>
                             </div>
                         </div>
                         <hr>

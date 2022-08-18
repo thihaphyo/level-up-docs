@@ -1,16 +1,32 @@
-html {
-  background-color: antiquewhite;
-}
 a {
   color: #4a4a4a;
+}
+.course-list{
+  width: 85%;
+  height: 100vh;
+  margin-left: auto;
+  padding-left: 6rem;
 }
 .header {
   display: flex;
   justify-content: space-between;
   padding: 0 0 2em 0;
 }
+.header > a {
+  background-color: #F3B33E;
+  font-weight: 600;
+  color: #FFFFFF;
+}
+
+.header h2{
+  font-size: 30px;
+  font-weight: 600;
+  color: #181818;
+}
 .card-container {
+  width: 100%;
   display: flex;
+  justify-content: flex-start;
   flex-wrap: wrap;
 }
 .card-container .cards {
@@ -19,7 +35,8 @@ a {
   height: 300px;
   background-color: #fff;
   border-radius: 20px;
-  margin: 0 3em 3em 0;
+  margin-right: 2vw;
+  margin-bottom: 2rem;
   overflow: hidden;
 }
 .card-container .cards img {
@@ -30,7 +47,9 @@ a {
   width: 100%;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
+
 .card-container .cards .details .detail {
   display: flex;
   align-items: center;
@@ -46,10 +65,12 @@ a {
   font-size: 15px;
 }
 .card-container .cards .details .detail .content span {
+  color: #4a4a4a;
   font-size: 10px;
 }
 .card-container .cards .details .detail .content h4 {
   font-size: 12px;
+  margin: 0;
 }
 .card-container .cards h2 {
   padding: 1em;
@@ -67,8 +88,17 @@ a {
 }
 .card-container .cards .rating {
   position: absolute;
-  top: 8em;
+  top: 9em;
   right: 1em;
   display: flex;
   align-items: center;
+  color: #545454;
+  background-color: #FFFFFF;
+  padding: 0rem 0.6rem;
+  border-radius: 10px;
+  font-size: 0.8rem;
+}
+.card-container .cards .rating i{
+  color: #F3B33E;
+  padding-right: 0.2rem;
 }

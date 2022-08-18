@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 <nav class="sidebar">
     <header>
         <div class="image-text">
@@ -23,28 +24,7 @@
                 </li>
 
                 <li class="nav-link">
-                    <a href="./adminList.php">
-                        <div class="mobile-sidebar-text">
-                            <i class="fa-solid fa-users-line fa-lg  nav-link-icon"></i>
-                            <p>Student</p>
-                        </div>
-                        <span class="text nav-text">Student List</span>
-                    </a>
-                </li>
-
-
-                <li class="nav-link">
-                    <a href="./instructorList.php">
-                        <div class="mobile-sidebar-text">
-                            <i class="fa-solid fa-chalkboard-user fa-lg nav-link-icon"></i>
-                            <p>Instructor</p>
-                        </div>
-                        <span class="text nav-text">Instructor List</span>
-                    </a>
-                </li>
-
-                <li class="nav-link">
-                    <a href="#">
+                    <a href="./courselist.php">
                         <div class="mobile-sidebar-text">
                             <i class="fa-solid fa-lines-leaning fa-lg nav-link-icon"></i>
                             <p>Course</p>
@@ -54,17 +34,18 @@
                 </li>
 
                 <li class="nav-link">
-                    <a href="./adminList.php">
+                    <a href="./appeal.php">
                         <div class="mobile-sidebar-text">
-                            <i class="fa-solid fa-users-line fa-lg  nav-link-icon"></i>
-                            <p>Admin</p>
+                            <i class="fa-brands fa-wpforms fa-xl  nav-link-icon"></i>
+
+                            <p>Appeal</p>
                         </div>
-                        <span class="text nav-text">Admin List</span>
+                        <span class="text nav-text">Appeal Form</span>
                     </a>
                 </li>
 
                 <li class="nav-link">
-                    <a href="#">
+                    <a href="./OrderlistView.php">
                         <div class="mobile-sidebar-text">
                             <i class="fa-solid fa-box-open fa-lg  nav-link-icon"></i>
                             <p>Order</p>
@@ -74,22 +55,22 @@
                 </li>
 
                 <li class="nav-link">
-                    <a href="./appealList.php">
+                    <a href="./ReviewView.php">
                         <div class="mobile-sidebar-text">
-                            <i class="fa-brands fa-wpforms fa-xl  nav-link-icon"></i>
-                            <p>Appeal</p>
+                            <i class="fa-solid fa-star fa-lg nav-link-icon"></i>
+                            <p>Review</p>
                         </div>
-                        <span class="text nav-text">Appeal List</span>
+                        <span class="text nav-text">Review & Rating</span>
                     </a>
                 </li>
 
                 <li class="nav-link">
-                    <a href="./setting.php">
+                    <a href="./instructorprofile.php">
                         <div class="mobile-sidebar-text">
-                            <i class="fa-solid fa-gear fa-lg  nav-link-icon"></i>
-                            <p>Settings</p>
+                            <i class="fa-regular fa-user fa-lg nav-link-icon"></i>
+                            <p>Profile</p>
                         </div>
-                        <span class="text nav-text">Settings</span>
+                        <span class="text nav-text">Profile</span>
                     </a>
                 </li>
 

@@ -14,7 +14,6 @@ $_SESSION['instId'] = 1;
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Level Up</title>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <link rel="stylesheet" href="./resources/css/index.css?<?php echo $time ?>">
     <link rel="stylesheet" href="./resources/css/instructor dashboard.css?<?php echo $time ?>">
@@ -29,7 +28,7 @@ $_SESSION['instId'] = 1;
     $reviewRating = $dashboard->getReviewAndRating();
     $studentList = $dashboard->getStduent();
     $videoList = $dashboard->getVideo();
-    $courseList = $dashboard->getCourse();
+    // $courseList = $dashboard->getCourse();
     $studentList = $dashboard->getStduent();
     $myStudentList = $dashboard->getAllStudent();
 
@@ -122,7 +121,7 @@ $_SESSION['instId'] = 1;
                     <div>
 
                         <h3>Order List</h3>
-                        <a href="./instructorRequest.php">View More</a>
+                        <a href="./OrderlistView.php">View More</a>
                     </div>
                     <?php
                     if (empty($orderList)) {
@@ -143,7 +142,7 @@ $_SESSION['instId'] = 1;
                                 </div>
                                 <div>
                                     <p>
-                                        <a href="./instructorRequestAbout/<?php echo $value['id'] ?>">
+                                        <a href="./OrderlistView.php">
                                             <span><?php echo $value['course_title'] ?></span>
                                         </a>
                                     </p>
@@ -159,7 +158,7 @@ $_SESSION['instId'] = 1;
                     <div>
 
                         <h3>Review and Rating</h3>
-                        <a href="./request list.php">View More</a>
+                        <a href="./ReviewView.php">View More</a>
                     </div>
                     <?php
                     if (empty($reviewRating)) {
@@ -179,7 +178,7 @@ $_SESSION['instId'] = 1;
                                 <div>
 
                                     <p>
-                                        <a href="./appealListDetail/<?php echo $value['rating_id'] ?>">
+                                        <a href="./ReviewView.php">
                                             <span>
                                                 <?php echo $value['student_name'] ?>
                                             </span>

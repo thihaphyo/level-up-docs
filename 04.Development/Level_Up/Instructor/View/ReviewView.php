@@ -21,9 +21,9 @@ $time = time();
 
     <?php require_once('../View/sidebar.php') ?>
 
-    <section class="container r-container">
-        
-        <div class="text r-text">Community (Review and Rating)</div>
+    <section class="review container">
+
+        <div class="r-text">Community (Review and Rating)</div>
 
         <div class="r-cards-container"></div>
 

@@ -36,8 +36,10 @@ $time = time();
                     <i class="fa-solid fa-book fa-2xl"></i>
 
                     <div>
-                        <h2>Guide</h2>
-                        <p>Customize <span>guide</span> information on guide page.</p>
+                        <a href="./guideList.php" class="nolink">
+                            <h2>Guide</h2>
+                            <p>Customize <span>guide</span> information on guide page.</p>
+                        </a>
 
                     </div>
 
