@@ -66,7 +66,7 @@ session_start();
 
                 foreach ($course as $key => $value) {
                 ?>
-                    <a href="./courseinfo.php" id="<?php echo $value['category_id'] ?>" value="<?php echo $value['cID'] ?>" class="course">
+                    <a href="../Controller/setCourseIdController.php?id=<?php echo $value['cID'] ?>" id="<?php echo $value['category_id'] ?>" class="course">
                         <div class="cards">
                             <img src="../../Storage/images/<?php echo $value['course_cover_image'] ?>" alt="" />
                             <div class="details">

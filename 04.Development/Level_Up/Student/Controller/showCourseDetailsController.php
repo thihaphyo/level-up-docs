@@ -4,14 +4,22 @@ require_once "../Model/dbConnection.php";
 
 $db = new DBConnect();
 $connection = $db->connect();
+
+$id = $_SESSION['courseId'];
+
 $sql = $connection->prepare("
     SELECT
     a.id AS pCID,
     a.course_id AS cID,
     b.instructor_id,
     b.course_title,
+    b.course_info,
+    b.course_description,
+    b.course_target,
     b.price,
     b.course_cover_image,
+    b.promo_percent,
+    b.promo_price,
     b.category_id,
     b.duration,
     d.level_name AS LEVEL,
@@ -49,7 +57,15 @@ $sql = $connection->prepare("
     levelupdb.M_COURSE_LEVELS d,
     levelupdb.M_COURSE_CATEGORIES e
     WHERE
-    a.course_id = b.id AND b.instructor_id = c.id AND d.id = b.level_id AND e.id = b.id AND a.is_deleted = 0
+    a.course_id = b.id AND 
+    b.instructor_id = c.id AND 
+    d.id = b.level_id AND 
+    e.id = b.id AND 
+    a.course_id = :id AND a.is_deleted = 0
     ");
+$sql->bindValue(":id", $id);
 $sql->execute();
 $course = $sql->fetchAll(PDO::FETCH_ASSOC);
+
+// header("Location: ../View/courseinfo.php");
+// require_once "../View/courseinfo.php";

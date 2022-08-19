@@ -1,5 +1,8 @@
 <?php
+session_start();
 $time = time();
+
+echo $_SESSION['courseId'];
 ?>
 
 <!DOCTYPE html>
@@ -19,18 +22,21 @@ $time = time();
 </head>
 
 <body>
-    <?php require_once('./header.php') ?>
+    <?php
+    require_once('./header.php');
+    require_once('../Controller/showCourseDetailsController.php');
+    ?>
 
     <main>
         <!-- start of container  -->
         <div class="container">
             <div class="info">
                 <div class="cards">
-                    <img src="./resources/img/courseinfo/coursedetail.png" alt="" />
+                    <img src="../../Storage/images/<?php echo $course[0]['course_cover_image'] ?>" alt="" />
                     <div class="price">
-                        <p class="is-size-5 has-text-weight-bold">20,000 ks</p>
-                        <p class="is-size-5">100,000 ks</p>
-                        <p class="is-size-5">80% off</p>
+                        <p class="is-size-5 has-text-weight-bold"><?php echo $course[0]['promo_price'] ?> ks</p>
+                        <p class="is-size-5"><?php echo $course[0]['price'] ?> ks</p>
+                        <p class="is-size-5"><?php echo $course[0]['promo_percent'] ?>% off</p>
                     </div>
                     <div class="buttons">
                         <a href="#" class="button is-primary has-text-weight-semibold">Add to cart</a>
@@ -41,14 +47,13 @@ $time = time();
                     </a>
                 </div>
                 <div class="details">
-                    <p class="is-size-3 has-text-weight-bold">Compute Science and Software
-                        Engineering</p>
-                    <p class="is-size-5">Learn the most popular language to search your new career life </p>
+                    <p class="is-size-3 has-text-weight-bold"><?php echo $course[0]['course_title'] ?></p>
+                    <p class="is-size-5"><?php echo $course[0]['course_info'] ?></p>
                     <p class="is-size-5">
-                        <ion-icon name="star" class="star"></ion-icon>4.6/5 (12,376) 15,328 students
+                        <ion-icon name="star" class="star"></ion-icon><?php echo number_format($course[0]['total_rating'] / $course[0]['total_rated']) ?>/5 (<?php echo number_format($course[0]['total_rating']) ?> students)
                     </p>
-                    <p class="is-size-5">Duration - 16 hours</p>
-                    <p class="is-size-5 has-text-weight-semibold">Created By <a href="#">Michael Jordan</a></p>
+                    <p class="is-size-5">Duration - <?php echo $course[0]['duration'] ?> hours</p>
+                    <p class="is-size-5 has-text-weight-semibold">Created By <a href="#"><?php echo $course[0]['instructorName'] ?></a></p>
                 </div>
             </div>
 
@@ -59,14 +64,6 @@ $time = time();
                         <li>
                             <ion-icon name="checkmark"></ion-icon>Learn the most popular language to search
                         </li>
-                        <li>
-                            <ion-icon name="checkmark"></ion-icon>Learn the most popular language to search
-                        </li>
-                        <li>
-                            <ion-icon name="checkmark"></ion-icon>Learn the most popular language to search
-                        </li>
-                    </ul>
-                    <ul>
                         <li>
                             <ion-icon name="checkmark"></ion-icon>Learn the most popular language to search
                         </li>
@@ -94,19 +91,14 @@ $time = time();
             <div class="description">
                 <p class="is-size-4 has-text-weight-bold">Description</p>
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent auctor purus luctus enim egestas, ac scelerisque ante pulvinar. Donec ut<br />
-                    rhoncus ex. Suspendisse ac rhoncus nisl, eu tempor urna. Curabitur vel bibendum lorem. Morbi convallis convallis diam sit amet lacinia. Aliquam in elementum tellus.
-                    Curabitur tempor quis eros tempus lacinia. Nam<br /> bibendum pellentesque quam a convallis. Sed ut vulputate nisi. Integer in felis sed leo vestibulum venenatis. Suspendisse quis arcu sem. Aenean feugiat ex eu vestibulum vestibulum. Morbi a eleifend magna. Nam metus lacus, porttitor eu mauris a, blandit ultrices nibh. Mauris sit amet magna non ligula vestibulum eleifend. Nulla varius volutpat turpis sed lacinia. Nam eget mi in purus lobortis eleifend. Sed nec ante dictum sem condimentum ullamcorper quis venenatis nisi. Proin vitae facilisis nisi, ac posuere leo.
-                    Nam pulvinar blandit velit, id<br /> condimentum diam faucibus at. Aliquam lacus nisi, sollicitudin at nisi nec, fermentum congue felis. Quisque mauris dolor, fringilla sed tincidunt ac, finibus non odio. Sed vitae mauris nec ante pretium finibus. Donec nisl neque, pharetra ac elit eu, faucibus aliquam ligula. Nullam dictum, tellus tincidunt tempor laoreet, nibh elit sollicitudin felis, eget feugiat sapien diam nec nisl. Aenean gravida turpis nisi, consequat dictum risus dapibus a. Duis felis ante, varius in neque eu, tempor suscipit sem. Maecenas ullamcorper gravida sem sit amet cursus. Etiam pulvinar purus vitae justo pharetra consequat. Mauris id mi ut arcu feugiat maximus. Mauris consequat tellus id tempus aliquet.
-                    Vestibulum dictum ultrices elit a luctus.<br /> Sed in ante ut leo congue posuere at sit amet ligula. Pellentesque eget augue nec nisl sodales blandit sed et sem. Aenean quis finibus arcu, in hendrerit purus. Praesent ac aliquet lorem. Morbi feugiat aliquam ligula, et vestibulum ligula hendrerit vitae. Sed ex lorem, pulvinar sed auctor sit amet, molestie a nibh. Ut euismod nisl arcu, sed placerat nulla volutpat aliquet. Ut id convallis nisl. Ut mauris leo, lacinia sed elit id, sagittis rhoncus odio. Pellentesque sapien libero, lobortis a placerat et, malesuada sit amet dui. Nam sem sapien, congue eu rutrum nec, pellentesque eget ligula.
+                    <?php echo $course[0]['course_description'] ?>
                 </p>
             </div>
 
             <div class="coursefor">
                 <p class="is-size-4 has-text-weight-bold">Who this course is for</p>
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent auctor purus luctus enim egestas, ac scelerisque ante pulvinar. Donec ut
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent auctor purus luctus enim egestas, ac scelerisque ante pulvinar. Donec ut
+                    <?php echo $course[0]['course_target'] ?>
                 </p>
             </div>
         </div>
