@@ -14,6 +14,6 @@ $pdo = new PDO(
 );
 
 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-$sql = $pdo->prepare("SELECT * FROM users");
+$sql = $pdo->prepare("SELECT * FROM t_login_in");
 $sql->execute();
 $result = $sql->fetchAll(PDO::FETCH_ASSOC);

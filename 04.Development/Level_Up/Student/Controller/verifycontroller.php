@@ -1,7 +1,7 @@
 <?php
 
 require_once "../Model/forgetpsDBtable.php";
-require_once "../View/successful.php";
+require_once "../View/newpassword.php";
 $code = $_GET['code'];
 
 
@@ -22,6 +22,7 @@ if (count($result) > 0) {
             ");
     $sql->bindValue(":id", $id);
     $sql->execute();
-} else {
-    echo "Your Verification Code was Wrong.";
+} 
+else{
+  echo "Your Verification code was wrong";
 }

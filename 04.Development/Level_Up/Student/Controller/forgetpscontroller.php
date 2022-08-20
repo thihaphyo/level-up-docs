@@ -9,7 +9,7 @@ if (isset($_POST)) {
     $vcode = generateCode();
 
     // set data form insert form to database 
-     $sql = $pdo->prepare("
+    $sql = $pdo->prepare("
             INSERT INTO users(
                 email,
                 verify,
@@ -24,11 +24,11 @@ if (isset($_POST)) {
     $sql->bindValue(":address", $address);
 
     $sql->bindValue(":code", $vcode);
-    $sql->execute();
-
+    
     $mailSend = new SendMail($vcode);
-$mailSend->sendMail();
-header  ("Location: ../View/forgetps.php");
+    $mailSend->sendMail();
+    $sql->execute();
+    header("Location: ../View/forgetps.php");
 } else {
     echo "Error";
 }
