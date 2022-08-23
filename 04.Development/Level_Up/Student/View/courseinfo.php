@@ -2,7 +2,7 @@
 session_start();
 $time = time();
 
-echo $_SESSION['courseId'];
+
 ?>
 
 <!DOCTYPE html>
@@ -13,8 +13,8 @@ echo $_SESSION['courseId'];
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Level Up</title>
-    <link rel="stylesheet" href="./resources/css/mystyles.css?v=<? $time; ?>">
-    <link rel="stylesheet" href="./resources/css/root.css?v=<? $time; ?>">
+    <link rel="stylesheet" href="./resources/css/mystyles.css?v=<?= $time; ?>">
+    <link rel="stylesheet" href="./resources/css/root.css?v=<?= $time; ?>">
 
     <script type=" module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js">
     </script>
@@ -39,12 +39,14 @@ echo $_SESSION['courseId'];
                         <p class="is-size-5"><?php echo $course[0]['promo_percent'] ?>% off</p>
                     </div>
                     <div class="buttons">
-                        <a href="#" class="button is-primary has-text-weight-semibold">Add to cart</a>
-                        <a href="#" class="button is-primary is-outlined has-text-weight-semibold">Buy now</a>
+                        <a class="button is-primary has-text-weight-semibold" id="addToCart">Add to cart</a>
+                        <a class="button is-primary has-text-weight-semibold hide" id="removeFromCart">Cancel</a>
+                        <a class="button is-primary is-outlined has-text-weight-semibold" id="buyNow">Buy now</a>
                     </div>
-                    <a class="wish">
-                        <ion-icon name="heart-outline"></ion-icon>
-                    </a>
+                    <div class="wish">
+                        <ion-icon name="heart-outline" id="heartOutline"></ion-icon>
+                        <ion-icon name="heart" class="hide" id="heartFill"></ion-icon>
+                    </div>
                 </div>
                 <div class="details">
                     <p class="is-size-3 has-text-weight-bold"><?php echo $course[0]['course_title'] ?></p>

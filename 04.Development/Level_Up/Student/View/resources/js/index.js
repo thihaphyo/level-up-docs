@@ -93,3 +93,90 @@ async function logout() {
     window.location.replace("./index.php");
   }
 }
+
+$("#heartOutline").click(function () {
+  this.classList.toggle("hide");
+
+  $("#heartFill").toggleClass("hide");
+
+  $.ajax({
+    url: "../Controller/addWishListController.php",
+    type: "POST",
+    success: function (res) {
+      if (res != "") {
+        window.location.replace(res);
+      }
+    },
+    error: function (err) {
+      console.log(err);
+    },
+  });
+});
+
+$("#heartFill").click(function () {
+  this.classList.toggle("hide");
+
+  $("#heartOutline").toggleClass("hide");
+
+  $.ajax({
+    url: "../Controller/deleteWishListController.php",
+    type: "POST",
+    success: function (res) {
+      console.log(res);
+    },
+    error: function (err) {
+      console.log(err);
+    },
+  });
+});
+
+$("#addToCart").click(function () {
+  this.classList.toggle("hide");
+
+  $("#removeFromCart").toggleClass("hide");
+
+  $.ajax({
+    url: "../Controller/addCartController.php",
+    type: "POST",
+    success: function (res) {
+      if (res != "") {
+        window.location.replace(res);
+      }
+    },
+    error: function (err) {
+      console.log(err);
+    },
+  });
+});
+
+$("#removeFromCart").click(function () {
+  this.classList.toggle("hide");
+
+  $("#addToCart").toggleClass("hide");
+
+  $.ajax({
+    url: "../Controller/deleteCartController.php",
+    type: "POST",
+    success: function (res) {
+      console.log(res);
+    },
+    error: function (err) {
+      console.log(err);
+    },
+  });
+});
+
+$("#buyNow").click(function () {
+  $.ajax({
+    url: "../Controller/buyNowController.php",
+    type: "POST",
+    success: function (res) {
+      if (res != "") {
+        window.location.replace(res);
+      }
+    },
+    error: function (err) {
+      console.log(err);
+    },
+  });
+});

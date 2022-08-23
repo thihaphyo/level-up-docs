@@ -2,6 +2,8 @@
 $time = time();
 
 session_start();
+
+// $_SESSION['studentId'] = 1;
 ?>
 
 <!DOCTYPE html>
